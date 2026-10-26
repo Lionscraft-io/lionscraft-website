@@ -68,14 +68,19 @@ Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#
 | Title tag / OG title / Twitter title | Lionscraft | Strategic Advisory for Digital Assets & Agentic Economy |
 | Meta / OG / Twitter description | Strategic advisory for digital assets and agentic economy: strategy and growth, process optimization, and institutional adoption. Singapore-based. |
 
-## Navbar
+## Navbar and menu
 
-| Element | Old | New |
-|---|---|---|
-| Menu link 1 | opportunity (→ #opportunity) | clients (→ #clients) |
-| Menu link 2 | SYSTEM (→ #system) | services (→ #system) |
-| Menu link 4 | radar (href `#`) | latest (href `#radar`, which was a dead link before) |
-| Button | get in touch | book a call |
+The inline menu links are gone. The header is now: logo on the left, `Book a call` pill and a `Menu` button (two lines + the word) on the right. On phone the button shows only the two lines.
+
+**Menu overlay** (opens full screen over the page, dark; the button turns into `✕ Close`; Escape or any link closes it):
+
+- **Left column:** `Home` (with an orange dot), then two groups with small mono labels and a line:
+  - **Services:** Strategy & Growth · Process Optimization · Institutional Adoption (all → `#system` until service pages exist) · Intelligence (→ `#intelligence`)
+  - **Read more:** Who we work with (→ `#clients`) · Case studies · Latest (→ `#radar`) · Ventures (→ `#ventures`) · Our story
+- **Right column:** `Get in touch`, the line "Have a technology challenge or a project in mind? A 30-minute scoping call is the easiest way to start.", a white pill `Book a 30-min scoping call`, and round X / LinkedIn icons.
+- On phone the two columns stack.
+
+The same menu is on the case study, case studies and Our story pages, where the links point back to the homepage sections.
 
 ## Hero (`section_hero`)
 
