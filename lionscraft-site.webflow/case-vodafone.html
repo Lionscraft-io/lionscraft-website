@@ -351,8 +351,275 @@ margin: 0rem !important;
 }
 
 /* v2 homepage additions */
+body .v2-who{padding:10rem 2rem;column-gap:7.5rem}
+body .v2-who_left{gap:2rem}
+body .v2-who_title{font-size:3.5rem;letter-spacing:-.035em}
+body .v2-who_text{font-size:1.125rem;line-height:1.6}
+body .v2-who_btn{height:48px;padding:0 1.5rem}
+body .v2-who_row{grid-template-columns:3.5rem minmax(0,1fr) 1.5rem;padding:1.75rem 0}
+body .v2-who_name{font-size:1.5rem;letter-spacing:-.015em}
+body .v2-svc{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+body .v2-svc_intro{padding:6rem 4rem 6rem 2rem;gap:1.75rem}
+body .v2-svc_title{font-size:4.5rem}
+body .v2-svc_text{line-height:1.6}
+body .v2-svc_list{padding:6rem 2rem 6rem 3rem;gap:1rem}
+body .v2-svc_card{grid-template-columns:minmax(0,1fr) 12.5rem;border:1px solid var(--border-color--border-alternate);min-height:11rem}
+body .v2-svc_card-text{padding:1.5rem 2rem}
+body .v2-svc_name{font-size:2rem;margin-bottom:.75rem}
+body .v2-svc_desc{font-size:1rem}
+body .v2-intel_pic{padding:2rem}
+body .v2-intel_pic img{min-height:16rem}
+body .v2-intel_left{padding:5rem 4rem 5rem 3rem;gap:1.75rem}
+body .v2-intel_title{font-size:4.5rem}
+body .v2-intel_list{padding:5rem 2rem 5rem 3rem}
+body .v2-intel_row{padding:1.5rem 0}
+body .v2-trust_head{padding:8rem 2rem 3.5rem}
+body .v2-trust_card{padding:3rem 2rem 3.5rem;gap:1.25rem}
+body .v2-trust_foot{padding:3rem 2rem 8rem;justify-content:flex-start}
+body .v2-spec_head{padding:10rem 2rem 5rem;gap:2rem}
+body .v2-spec_card{min-height:20rem;padding:2.5rem 2.5rem 3rem}
+body .v2-spec_foot{padding:2.5rem 2rem 10rem}
+body .v2-latest_head{padding:10rem 2rem 5rem}
+body .v2-latest_grid{column-gap:2.5rem}
+body .v2-post{padding:2rem 0 2.5rem;gap:1.5rem}
+body .v2-latest_foot{padding:2.5rem 2rem 10rem}
+body .v2-ven{padding:10rem 2rem;gap:4rem}
+body .v2-ven_left{gap:2rem}
+body .v2-ven_title{font-size:4rem}
+body .v2-ven_grid{gap:1rem}
+body .v2-ven_card{min-height:19rem;padding:2rem 1.75rem 1.75rem}
+body .v2-con{padding:10rem 2rem;gap:6rem}
+body .v2-news{padding:3rem}
+body .v2-foot{padding:7rem 2rem 5rem}
+@media screen and (max-width:991px){
+body .v2-svc{grid-template-columns:1fr}
+body .v2-who{padding:6rem 1.5rem;row-gap:3rem}
+body .v2-who_title{font-size:3rem}
+body .v2-svc_intro{padding:6rem 1.5rem 3rem}
+body .v2-svc_list{padding:0 1.5rem 6rem}
+body .v2-svc_card{grid-template-columns:minmax(0,1fr) 10rem;min-height:12rem}
+body .v2-svc_title,body .v2-intel_title{font-size:3.25rem}
+body .v2-intel_pic{padding:1.5rem}
+body .v2-intel_pic img{min-height:14rem}
+body .v2-intel_left{padding:3rem 1.5rem}
+body .v2-intel_list{padding:0 1.5rem 6rem}
+body .v2-trust_head{padding:6rem 1.5rem 3rem}
+body .v2-trust_foot{padding:3rem 1.5rem 6rem}
+body .v2-spec_head{padding:6rem 1.5rem 3rem}
+body .v2-spec_card{min-height:0;padding:2.5rem 1.5rem}
+body .v2-spec_foot{padding:2rem 1.5rem 6rem}
+body .v2-latest_head{padding:6rem 1.5rem 3rem}
+body .v2-latest_grid{padding:0 1.5rem}
+body .v2-latest_foot{padding:2rem 1.5rem 6rem}
+body .v2-ven{padding:6rem 1.5rem}
+body .v2-ven_title{font-size:3rem}
+body .v2-con{padding:6rem 1.5rem;gap:3.5rem}
+body .v2-foot{padding:5rem 1.5rem 3rem}
+}
+@media screen and (max-width:479px){
+body .v2-who{padding:5rem 1.5rem}
+body .v2-who_title{font-size:2.5rem}
+body .v2-who_row{grid-template-columns:2.25rem minmax(0,1fr) 1.25rem;padding:1.5rem 0}
+body .v2-who_name{font-size:1.25rem}
+body .v2-svc_intro{padding-top:5rem}
+body .v2-svc_list{padding-bottom:5rem}
+body .v2-svc_card{grid-template-columns:1fr}
+body .v2-svc_title,body .v2-intel_title{font-size:2.75rem}
+body .v2-svc_name{font-size:1.75rem}
+body .v2-intel_list{padding-bottom:5rem}
+body .v2-trust_head{padding-top:5rem}
+body .v2-trust_foot{padding-bottom:5rem}
+body .v2-spec_head{padding-top:5rem}
+body .v2-spec_foot{padding-bottom:5rem}
+body .v2-latest_head{padding-top:5rem}
+body .v2-latest_foot{padding-bottom:5rem}
+body .v2-ven{padding:5rem 1.5rem}
+body .v2-ven_title{font-size:2.5rem}
+body .v2-con{padding:5rem 1.5rem}
+body .v2-news{padding:1.75rem}
+}
+
+.v2-connect{background-color:var(--dark-bg);color:#fafafa}
+.v2-con{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:4rem;align-items:center;padding:7rem 2rem}
+.v2-con_left{display:flex;flex-direction:column;gap:1.75rem;align-items:flex-start}
+.v2-con_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1}
+.v2-con_title{font-family:Saans,Arial,sans-serif;font-size:5rem;font-weight:500;line-height:1;letter-spacing:-.05em;margin:0;color:#fafafa}
+.v2-con_text{font-size:1.25rem;line-height:1.5;color:#d4d4d4;margin:0;max-width:34rem}
+.v2-con_ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem}
+.v2-con_btn{display:inline-flex;align-items:center;gap:1.25rem;height:3.5rem;padding:0 1.75rem;border-radius:999px;background-color:#fafafa;color:#0b0b04;font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.v2-con_btn:hover{background-color:#ffffff}
+.v2-con_link{display:inline-flex;align-items:center;gap:.5rem;padding:.625rem 0;font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fafafa;text-decoration:none;border-bottom:1px solid #ffffff80}
+.v2-con_link:hover{border-bottom-color:#fafafa}
+.v2-news{border:1px solid var(--border-color--border-alternate);padding:2.5rem;display:flex;flex-direction:column;gap:1.25rem}
+.v2-news_title{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:0;color:#fafafa}
+.v2-news_text{font-size:1rem;line-height:1.55;color:#d4d4d4;margin:0}
+.v2-news_form{display:flex;flex-direction:column;gap:.75rem;margin:.5rem 0 0}
+.v2-news_row{display:flex;gap:.5rem}
+.v2-news_input{flex:1;min-width:0;height:3rem;padding:0 1rem;border:none;border-radius:0;background-color:#fbfaf3;color:#0b0b04;font-family:Saans,Arial,sans-serif;font-size:1rem}
+.v2-news_input::placeholder{color:#6b6b64}
+.v2-news_submit{width:3.5rem;height:3rem;border:none;background-color:#fafafa;color:#0b0b04;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.v2-news_submit:hover{background-color:#ffffff}
+.v2-news_note{font-size:.8125rem;color:#a1a1a1;margin:0}
+.v2-foot{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:3rem;padding:5rem 2rem 3.5rem}
+.v2-foot_text{font-size:1rem;line-height:1.55;color:#a1a1a1;margin:0;max-width:26rem}
+.v2-foot_col{display:flex;flex-direction:column;gap:.875rem}
+.v2-foot_head{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:.5rem}
+.v2-foot_col a{font-size:1rem;color:#fafafa;text-decoration:none;align-self:flex-start}
+.v2-foot_col a:hover{text-decoration:underline}
+.v2-foot_bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 2rem;border-top:1px solid var(--border-color--border-alternate);font-size:.875rem;color:#a1a1a1}
+.v2-footer{border-top:1px solid var(--border-color--border-alternate)}
+.v2-foot_right{display:flex;align-items:center;gap:1.5rem}
+.v2-foot_right .footer_social{gap:1.25rem}
+@media screen and (max-width:991px){.v2-foot_text{grid-column:1/-1}.v2-con{grid-template-columns:1fr;gap:3rem;padding:4.5rem 1.5rem}.v2-con_title{font-size:3.5rem}.v2-foot{grid-template-columns:1fr 1fr;padding:4rem 1.5rem 2.5rem}.v2-foot_brand{grid-column:1/-1}.v2-foot_bottom{padding:1.5rem}}
+@media screen and (max-width:479px){.v2-con_title{font-size:2.75rem}.v2-news{padding:1.75rem}.v2-news_title{font-size:1.875rem}.v2-foot{grid-template-columns:1fr}}
+
+.v2-ventures{background-color:#eceadf;color:#0b0b04;border-top:1px solid var(--border-color--border-primary)}
+.v2-ven{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:3rem;align-items:start;padding:5rem 2rem}
+.v2-ven_left{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start}
+.v2-ven_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.v2-ven_title{font-family:Saans,Arial,sans-serif;font-size:3.5rem;font-weight:500;line-height:1.05;letter-spacing:-.04em;margin:0;color:#0b0b04}
+.v2-ven_text{font-size:1.125rem;line-height:1.55;color:#5c5c55;margin:0;max-width:28rem}
+.v2-ven_link{display:inline-flex;align-items:center;gap:.5rem;padding:.625rem 0;font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#0b0b04;text-decoration:none;border-bottom:1px solid #0b0b0466}
+.v2-ven_link:hover{border-bottom-color:#0b0b04}
+.v2-ven_grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.v2-ven_card{display:flex;flex-direction:column;gap:1rem;min-height:16rem;padding:1.75rem 1.5rem 1.5rem;background-color:#fbfaf3;color:#0b0b04;text-decoration:none;transition:background-color .2s}
+.v2-ven_card:hover{background-color:#ffffff}
+.v2-ven_top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.v2-ven_icon{width:3.5rem;height:3.5rem;border-radius:.875rem;display:block;object-fit:cover}
+.v2-ven_status{font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#5c5c55}
+.v2-ven_name{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;letter-spacing:-.03em;line-height:1.1;margin:.75rem 0 0;color:#0b0b04}
+.v2-ven_desc{font-size:.9375rem;line-height:1.5;color:#5c5c55;margin:0}
+.v2-ven_arrow{margin-top:auto;align-self:flex-end;display:flex;color:#0b0b04}
+@media screen and (max-width:991px){.v2-ven{grid-template-columns:1fr;padding:4rem 1.5rem}.v2-ven_title{font-size:2.75rem}}
+@media screen and (max-width:767px){.v2-ven_grid{grid-template-columns:1fr}.v2-ven_card{min-height:12rem}}
+
+.v2-latest{background-color:#fbfaf3;color:#0b0b04;border-top:1px solid var(--border-color--border-primary)}
+.v2-latest_head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:3rem;align-items:end;padding:6rem 2rem 3.5rem}
+.v2-latest_left{display:flex;flex-direction:column;gap:1.75rem}
+.v2-latest_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.v2-latest_title{font-family:Saans,Arial,sans-serif;font-size:4.5rem;font-weight:500;line-height:1.02;letter-spacing:-.045em;margin:0;color:#0b0b04}
+.v2-latest_text{font-size:1.125rem;line-height:1.55;color:#5c5c55;margin:0;max-width:28rem}
+.v2-latest_grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:1.5rem;padding:0 2rem}
+.v2-post{display:flex;flex-direction:column;gap:1.25rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border-color--border-primary)}
+.v2-post_meta{display:flex;justify-content:space-between;gap:1rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#5c5c55}
+.v2-post_title{font-family:Saans,Arial,sans-serif;font-size:2rem;font-weight:500;line-height:1.15;letter-spacing:-.03em;margin:1rem 0 0;color:#0b0b04}
+.v2-post_desc{font-size:1rem;line-height:1.55;color:#5c5c55;margin:0;max-width:26rem}
+.v2-latest_link{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;padding:.625rem 0;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#0b0b04;text-decoration:none;border-bottom:1px solid transparent}
+.v2-latest_link:hover{border-bottom-color:#0b0b04}
+.v2-post .v2-latest_link{margin-top:auto}
+.v2-latest_foot{padding:1rem 2rem 5rem}
+.v2-latest_foot .v2-latest_link{font-size:.8125rem;border-bottom-color:#0b0b0466}
+@media screen and (max-width:991px){.v2-latest_head{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem 2.5rem}.v2-latest_title{font-size:3rem}.v2-latest_grid{grid-template-columns:1fr;padding:0 1.5rem}.v2-post_title{font-size:1.625rem}.v2-latest_foot{padding:1rem 1.5rem 3.5rem}}
+@media screen and (max-width:479px){.v2-latest_title{font-size:2.5rem}}
+
+.v2-spec{background-color:var(--dark-bg);color:#fafafa;border-top:1px solid var(--border-color--border-alternate)}
+.v2-spec_head{display:flex;flex-direction:column;gap:1.75rem;padding:6rem 2rem 3.5rem}
+.v2-spec_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1}
+.v2-spec_title{font-family:Saans,Arial,sans-serif;font-size:4.5rem;font-weight:500;line-height:1.02;letter-spacing:-.045em;margin:0;color:#fafafa}
+.v2-spec_text{font-size:1.25rem;line-height:1.5;color:#a1a1a1;margin:0;max-width:40rem}
+.v2-spec_grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border-color--border-alternate)}
+.v2-spec_card{display:flex;flex-direction:column;gap:1.25rem;min-height:22rem;padding:2rem 2rem 2.5rem;border-right:1px solid var(--border-color--border-alternate)}
+.v2-spec_card:last-child{border-right:none}
+.v2-spec_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#a1a1a1}
+.v2-spec_name{margin-top:auto;font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.08;letter-spacing:-.03em;color:#fafafa}
+.v2-spec_desc{font-size:.9375rem;line-height:1.55;color:#a1a1a1;margin:0;max-width:24rem}
+.v2-spec_foot{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;padding:1.75rem 2rem;border-top:1px solid var(--border-color--border-alternate);font-size:.9375rem;color:#a1a1a1}
+.v2-spec_foot strong{color:#fafafa;font-weight:500;margin-right:.5rem}
+.v2-spec_tag{display:inline-flex;align-items:center;gap:1.5rem}
+.v2-spec_tag:not(:last-child):after{content:"·";color:#6b6b64}
+@media screen and (max-width:991px){.v2-spec_head{padding:4rem 1.5rem 2.5rem}.v2-spec_title{font-size:3rem}.v2-spec_grid{grid-template-columns:1fr}.v2-spec_card{min-height:0;padding:2rem 1.5rem;border-right:none;border-bottom:1px solid var(--border-color--border-alternate)}.v2-spec_card:last-child{border-bottom:none}.v2-spec_name{margin-top:1.5rem;font-size:1.875rem}.v2-spec_foot{padding:1.5rem}}
+@media screen and (max-width:479px){.v2-spec_title{font-size:2.375rem}.v2-spec_text{font-size:1.0625rem}}
+
+.v2-trust_head{display:flex;justify-content:space-between;align-items:flex-end;gap:2.5rem;padding:6rem 2rem 3rem;border-bottom:1px solid var(--border-color--border-primary);flex-wrap:wrap}
+.v2-trust_intro{display:flex;flex-direction:column;gap:1.75rem;max-width:44rem;color:#404040}
+.v2-trust_eyebrow{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#0b0b04}
+.v2-trust_h2{font-family:Saans,Arial,sans-serif;font-size:4rem;font-weight:500;line-height:1.05;letter-spacing:-.04em;margin:0;color:#0b0b04}
+.v2-trust_more{display:inline-flex;align-items:center;gap:.5rem;padding:.625rem 0;font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#0b0b04;text-decoration:none;border-bottom:1px solid #0b0b0466}
+.v2-trust_more:hover{border-bottom-color:#0b0b04}
+.v2-trust_grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.v2-trust_foot{display:flex;justify-content:center;padding:3rem 2rem;border-top:1px solid var(--border-color--border-primary)}
+.v2-trust_card{display:flex;flex-direction:column;gap:1rem;padding:2.5rem 2rem;color:#000;text-decoration:none;border-right:1px solid var(--border-color--border-primary);transition:background-color .2s}
+.v2-trust_card:last-child{border-right:none}
+.v2-trust_card:hover{background-color:#0000000a}
+.v2-trust_logo{height:2.25rem;display:flex;align-items:center;margin-bottom:1.5rem}
+.v2-trust_logo img{max-height:2rem;max-width:8rem}
+.v2-trust_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:3.5rem;font-weight:500;letter-spacing:-.04em;line-height:1}
+.v2-trust_label{font-size:1rem;line-height:1.4;color:#404040}
+.v2-trust_title{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.25;letter-spacing:-.02em;margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--border-color--border-primary)}
+.v2-trust_link{display:inline-flex;align-items:center;gap:.5rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+@media screen and (max-width:991px){.v2-trust_h2{font-size:3rem}.v2-trust_head{padding:4rem 1.5rem 2rem}.v2-trust_grid{grid-template-columns:1fr 1fr}.v2-trust_card:nth-child(2n){border-right:none}.v2-trust_card:nth-child(-n+2){border-bottom:1px solid var(--border-color--border-primary)}.v2-trust_card{padding:2rem 1.5rem}}
+@media screen and (max-width:479px){.v2-trust_h2{font-size:2.5rem}.v2-trust_grid{grid-template-columns:1fr}.v2-trust_card{border-right:none;border-bottom:1px solid var(--border-color--border-primary)}.v2-trust_card:last-child{border-bottom:none}.v2-trust_num{font-size:2.75rem}}
+
+.v2-services{background-color:var(--dark-bg);color:#fafafa;border-top:1px solid var(--border-color--border-alternate);border-bottom:1px solid var(--border-color--border-alternate)}
+.v2-svc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.v2-svc_intro{display:flex;flex-direction:column;gap:1.75rem;padding:7rem 3rem 3rem 2rem;border-right:1px solid var(--border-color--border-alternate)}
+.v2-svc_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1}
+.v2-svc_title{font-family:Saans,Arial,sans-serif;font-size:4rem;font-weight:500;line-height:1;letter-spacing:-.04em;margin:0;color:#fafafa}
+.v2-svc_text{font-size:1.125rem;line-height:1.5;color:#d4d4d4;margin:0;max-width:26rem}
+.v2-svc_pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.v2-svc_pill{border:1px solid #ffffff40;border-radius:999px;padding:.5rem .875rem;font-size:.8125rem;font-weight:500;line-height:1}
+.v2-svc_link{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:.625rem;padding:.75rem 0;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#fafafa;text-decoration:none;border-bottom:1px solid #ffffff80}
+.v2-svc_link:hover{border-bottom-color:#fafafa}
+.v2-svc_list{display:flex;flex-direction:column;padding-top:4.5rem}
+.v2-svc_card{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 12.5rem;border-top:1px solid var(--border-color--border-alternate);color:#fafafa;text-decoration:none;transition:background-color .2s;min-height:0}
+.v2-svc_card:hover{background-color:#ffffff0a}
+.v2-svc_card-text{display:flex;flex-direction:column;justify-content:space-between;gap:1rem;padding:1.75rem 2rem 1.75rem 2.5rem}
+.v2-svc_card-head{display:flex;justify-content:space-between;align-items:center}
+.v2-svc_name{font-family:Saans,Arial,sans-serif;font-size:2rem;font-weight:500;letter-spacing:-.03em;line-height:1.05;margin:0 0 .5rem;color:#fafafa}
+.v2-svc_desc{font-size:.9375rem;line-height:1.45;color:#a1a1a1;margin:0}
+.v2-svc_arrow{display:flex;color:#fafafa}
+.v2-svc_img{width:100%;height:100%;min-height:10rem;object-fit:cover;display:block}
+.v2-intel{display:grid;grid-template-columns:16rem minmax(0,1fr) minmax(0,1.1fr);border-top:1px solid var(--border-color--border-alternate)}
+.v2-intel_pic{padding:1.125rem;border-right:1px solid var(--border-color--border-alternate);display:flex}
+.v2-intel_pic img{width:100%;height:100%;min-height:16rem;object-fit:cover;display:block;border-radius:.25rem}
+.v2-intel_left{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;padding:4rem 3rem 4rem 2.5rem}
+.v2-intel_title{font-family:Saans,Arial,sans-serif;font-size:4rem;font-weight:500;line-height:1;letter-spacing:-.04em;margin:0;color:#fafafa}
+.v2-intel_text{font-size:1.125rem;line-height:1.5;color:#d4d4d4;margin:0;max-width:22rem}
+.v2-intel_list{display:flex;flex-direction:column;justify-content:center;padding:3rem 0 3rem 2.5rem;border-left:1px solid var(--border-color--border-alternate)}
+.v2-intel_row{display:grid;grid-template-columns:3rem minmax(0,1fr) minmax(0,1fr) 1.5rem;column-gap:1rem;align-items:center;padding:1.625rem 0;border-bottom:1px solid var(--border-color--border-alternate);color:#fafafa;text-decoration:none;transition:background-color .2s}
+.v2-intel_row:first-child{border-top:1px solid var(--border-color--border-alternate)}
+.v2-intel_row:hover{background-color:#ffffff0a}
+.v2-intel_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;color:#a1a1a1}
+.v2-intel_name{font-family:Saans,Arial,sans-serif;font-size:1.5rem;font-weight:500;letter-spacing:-.02em;line-height:1.2;margin:0;color:#fafafa}
+.v2-intel_desc{font-size:.9375rem;line-height:1.45;color:#a1a1a1;margin:0}
+.v2-intel_arrow{display:flex;color:#fafafa}
+@media screen and (max-width:991px){.v2-svc{grid-template-columns:1fr}.v2-svc_intro{padding:4rem 1.5rem 2.5rem;border-right:none}.v2-svc_title,.v2-intel_title{font-size:3rem}.v2-svc_list{padding-top:0}.v2-svc_card{grid-template-columns:minmax(0,1fr) 9rem}.v2-svc_card-text{padding:1.5rem}.v2-intel{grid-template-columns:1fr}.v2-intel_pic{border-right:none;border-bottom:1px solid var(--border-color--border-alternate)}.v2-intel_pic img{min-height:12rem;max-height:16rem}.v2-intel_left{padding:2.5rem 1.5rem}.v2-intel_list{padding:0 1.5rem 2.5rem;border-left:none}}
+@media screen and (max-width:479px){.v2-svc_card{grid-template-columns:1fr}.v2-svc_img{min-height:8rem;max-height:10rem;order:-1}.v2-svc_name{font-size:1.625rem}.v2-intel_row{grid-template-columns:2.25rem minmax(0,1fr) 1.25rem}.v2-intel_desc{grid-column:2}}
+
+.v2-tech{background-color:var(--dark-bg);color:#fafafa;border-top:1px solid var(--border-color--border-alternate)}
+.v2-sec_head{display:flex;flex-direction:column;gap:1.5rem;padding:6rem 2rem 3rem}
+.v2-tech .v2-sec_head{border-bottom:1px solid var(--border-color--border-alternate)}
+.v2-tech_grid{display:grid;grid-template-columns:1fr 1fr}
+.v2-tech_col{padding:3rem 2rem 4rem;display:flex;flex-direction:column;gap:1.25rem}
+.v2-tech_col + .v2-tech_col{border-left:1px solid var(--border-color--border-alternate)}
+.v2-tech_tag{font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.625rem}
+.v2-tech_tag:before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:#3791ff}
+.v2-tech_col.is-da .v2-tech_tag:before{background:#ff6a00}
+.v2-tech_lead{font-size:1.375rem;line-height:1.35;color:#fafafa;margin:0;max-width:30rem}
+.v2-tech .v2-list li{color:#d4d4d4}
+.v2-clients{background-color:var(--dark-bg);color:#fafafa}
+.v2-who{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:6rem;padding:4.5rem 2rem;align-items:start}
+.v2-who_left{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start}
+.v2-who_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1}
+.v2-who_title{font-family:Saans,Arial,sans-serif;font-size:2.75rem;font-weight:500;line-height:1.05;letter-spacing:-.03em;color:#fafafa;margin:0}
+.v2-who_text{font-size:1rem;line-height:1.55;color:#d4d4d4;margin:0;max-width:25rem}
+.v2-who_btn{display:inline-flex;align-items:center;height:44px;padding:0 1.375rem;border:1px solid #fafafa;border-radius:999px;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#fafafa;text-decoration:none;transition:background-color .2s,color .2s}
+.v2-who_btn:hover{background-color:#fafafa;color:#0b0b04}
+.v2-who_list{border-top:1px solid var(--border-color--border-alternate)}
+.v2-who_row{display:grid;grid-template-columns:3rem minmax(0,1fr) 1.5rem;column-gap:1rem;align-items:center;padding:1.125rem 0;border-bottom:1px solid var(--border-color--border-alternate);color:#fafafa;text-decoration:none;transition:background-color .2s}
+.v2-who_row:hover{background-color:#ffffff0a}
+.v2-who_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;color:#a1a1a1}
+.v2-who_name{font-family:Saans,Arial,sans-serif;font-size:1.1875rem;font-weight:500;letter-spacing:-.01em;line-height:1.25;margin:0}
+.v2-who_desc{font-size:.875rem;line-height:1.5;color:#a1a1a1;margin:0}
+.v2-who_arrow{display:flex;justify-content:flex-end;color:#fafafa}
+@media screen and (max-width:991px){.v2-sec_head{padding:4rem 1.5rem 2rem}.v2-tech_grid{grid-template-columns:1fr}.v2-tech_col{padding:2.5rem 1.5rem}.v2-tech_col + .v2-tech_col{border-left:none;border-top:1px solid var(--border-color--border-alternate)}.v2-who{grid-template-columns:1fr;row-gap:2.5rem;padding:3.5rem 1.5rem}}
+@media screen and (max-width:479px){.v2-who_title{font-size:2.25rem}.v2-who_row{grid-template-columns:2.25rem minmax(0,1fr) 1.25rem}}
+
 .v2-kicker{color:#fafafa;letter-spacing:.12em;text-shadow:0 1px 8px #0009}
+@media screen and (min-width:992px){.web3_left-col{flex:1 1 0;min-width:0}.web3_right-col{flex:0 0 26rem;justify-content:flex-start;padding-top:11.25rem}}
 .v2-hero-ctas{display:flex;flex-wrap:wrap;gap:1rem}
+.v2-story-link{display:inline-block;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#fafafa;text-decoration:none;border-bottom:1px solid #ffffff80;padding-bottom:.375rem}
+.v2-story-link:hover{border-bottom-color:#fafafa}
 .v2-hero-ctas .button.is-border{color:#fafafa;border-color:#ffffff40;padding:1.125rem 2rem}
 .v2-case-link{display:inline-block;margin-top:1rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;letter-spacing:.1em;text-transform:uppercase;color:#000;text-decoration:none;border-bottom:1px solid #0000004d;padding-bottom:.125rem}
 .v2-case-link:hover{border-bottom-color:#000}
@@ -369,7 +636,7 @@ margin: 0rem !important;
 .v2-domain.is-da .v2-domain_tag:before{background:#ff6a00}
 @media screen and (max-width:479px){.v2-domains{grid-template-columns:1fr}.v2-domain + .v2-domain{border-left:none;border-top:1px solid var(--border-color--border-primary)}}
 @media screen and (max-width:479px){.v2-hero-ctas .button{width:100%}}
-</style></div><div data-w-id="396176c6-906a-9f74-c6d0-8a4663dfdea9" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav_component w-nav"><div class="padding-global"><div class="nav_container"><a href="index.html" class="nav_brand w-nav-brand"><img src="images/Logo.svg" loading="lazy" alt="Logo" class="nav_logo is-desktop"/><img src="images/Lion-Mascot-1.svg" loading="lazy" alt="" class="nav_logo is-mobile"/></a><nav role="navigation" class="nav_menu w-nav-menu"><a href="index.html#opportunity" class="nav_menu_link w-nav-link">opportunity</a><a href="index.html#system" class="nav_menu_link w-nav-link">services</a><a href="index.html#trust" class="nav_menu_link w-nav-link">TRUST</a><a href="index.html#radar" class="nav_menu_link w-nav-link">radar</a></nav><div class="nav_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-border w-button">book a call</a><div class="nav_button-wrap w-nav-button"><div class="nav_button"><div class="nav_button-line is-top"></div><div class="nav_button-line is-bot"></div></div></div></div></div></div></div><main class="main-wrapper"><section class="cs-header"><div class="padding-global"><div class="container-large is-hero-border"><div class="cs-header_inner"><div class="cs-draft">Draft · items marked TBC need confirming before publishing</div><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium"><a href="index.html#trust" class="cs-back">← All work</a> &nbsp;/&nbsp; Case study</div></div><div class="max-width-large"><h1 class="heading-style-h1 text-color-alternate">From Web3 strategy to live protocol infrastructure</h1></div><div class="cs-stat"><div class="cs-stat_num">5</div><div class="cs-stat_label">protocol infrastructure services operational <span class="cs-tbc">TBC: still live today? since when?</span></div></div></div></div></div></section><section><div class="padding-global"><div class="container-large"><div class="cs-meta"><div class="cs-meta_item cs-meta_logo"><img src="images/Group-3.svg" loading="lazy" alt="Vodafone logo"/></div><div class="cs-meta_item"><div class="text-size-13 text-style-allcaps cs-meta_label">Client</div><div class="text-size-18">Vodafone <span class="cs-tbc">TBC: which entity</span></div></div><div class="cs-meta_item"><div class="text-size-13 text-style-allcaps cs-meta_label">Sector</div><div class="text-size-18">Telecommunications</div></div><div class="cs-meta_item"><div class="text-size-13 text-style-allcaps cs-meta_label">Offer</div><div class="text-size-18">Institutional Adoption · Process Optimization · Digital assets</div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">01 — Problem</div></div></div><div class="cs-row_body"><p class="text-size-18">Telcos already run critical, regulated infrastructure at scale, which is exactly what blockchain networks need from validators and node operators.</p><p class="text-size-18">Turning that into a business means choosing protocols, setting up operations and governance, and getting internal sign-off, and most telcos have no team that has done it before.</p></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">02 — What we did</div></div></div><div class="cs-row_body"><ul class="v2-list"><li>Led an end-to-end Web3 transformation initiative: strategy, implementation and operating frameworks for a telecommunications business.</li><li>Selected and onboarded protocols, then stood up the infrastructure services to run them. <span class="cs-tbc">TBC: the five protocols and the service each one is</span></li><li><span class="cs-tbc">TBC: governance and risk work done so internal committees could approve it</span></li></ul></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">03 — Result</div></div></div><div class="cs-row_body"><ul class="v2-list"><li><strong>5 protocol infrastructure services operational.</strong></li><li><span class="cs-tbc">TBC: one business outcome, e.g. new revenue line, time from decision to first live node, uptime</span></li></ul></div></div><div class="cs-row is-why"><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium">04 — Why it matters for you</div></div></div><div class="cs-row_body"><p>If you run a telco, you already have most of what it takes to operate blockchain infrastructure. We have done this inside a group of Vodafone's size.</p><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-secondary-border w-button" style="align-self:flex-start">Scope this with us</a></div></div><div class="cs-row is-internal"><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium">Internal — Before publishing</div></div></div><div class="cs-row_body"><p class="text-size-18"><strong>Ask the client:</strong> Permission to name Vodafone and the protocols. Confirm whether this is the same programme as Digital Asset Broker, which STORM Partners lists as their case study.</p><p class="text-size-regular">Remove this block and every TBC marker before the page goes live.</p></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot "></div><div class="text-size-13 text-style-allcaps text-weight-medium">Sources — Public record</div></div></div><div class="cs-row_body"><ul class="cs-sources text-size-regular"><li><a href="https://www.web3labs.com/vodafone-case-study" target="_blank" rel="noopener">Context: Web3 Labs Vodafone case study</a></li><li><a href="https://partners.circle.com/partner/storm-partners" target="_blank" rel="noopener">Context: STORM Partners in Circle&#x27;s partner directory</a></li></ul></div></div><div class="cs-pager"><a href="case-munich-re.html"><span class="text-size-13 text-style-allcaps cs-meta_label">← Previous</span><span class="heading-style-h5">Munich Re</span></a><a href="case-stc-bahrain.html"><span class="text-size-13 text-style-allcaps cs-meta_label">Next →</span><span class="heading-style-h5">stc Bahrain</span></a></div></div></div></section><section class="section_cta"><div class="padding-global"><div class="container-large is-dark-border"><div class="padding-section-large is-cta"><div class="cta_wrap"><h2 class="heading-style-h3">Want a result like this? Book a 30-minute scoping call.</h2><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-secondary w-button">Book a call</a></div></div></div></div></section><footer class="section_footer"><div class="padding-global"><div class="container-large is-dark-border"><a href="index.html" aria-current="page" class="footer_wordmark w-inline-block w--current"><img src="images/logo-footer.png" loading="lazy" sizes="100vw" srcset="images/logo-footer-p-500.png 500w, images/logo-footer-p-800.png 800w, images/logo-footer-p-1080.png 1080w, images/logo-footer-p-1600.png 1600w, images/logo-footer-p-2000.png 2000w, images/logo-footer.png 2560w" alt="logo footer"/><div class="footer_wordmark-animated"><div data-poster-url="images/lion-animated-min-poster-00001.jpg" data-video-urls="videos/lion-animated-min-transcode.mp4,videos/lion-animated-min-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="footer_wordmark-animated-video w-background-video w-background-video-atom"><video id="5eed11be-67a6-cd7e-8d0a-c3904a10f970-video" autoplay="" loop="" style="background-image:url(&quot;images/lion-animated-min-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="videos/lion-animated-min-transcode.mp4" data-wf-ignore="true"/><source src="videos/lion-animated-min-transcode.webm" data-wf-ignore="true"/></video></div></div><div class="footer_wordmark-bg"></div></a><div class="footer_top"><div class="text-size-13 text-style-allcaps text-weight-medium">Lionscraft PTE. LTD. (UEN 202322784R). All rights reserved.</div><div class="footer_social"><a href="https://x.com/Lionscraft_io" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 14" fill="none"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z" fill="currentColor"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 17" fill="none"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z" fill="currentColor"></path></svg></a></div></div></div></div></footer></main><div><div fs-cc="banner" class="fs-cc-banner2_component"><div class="fs-cc-banner2_container"><div class="fs-cc-banner2_text">By clicking “Accept”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. View our <a href="legal/privacy-policy.html" class="fs-cc-banner2_text-link">Privacy Policy</a> for more information.</div><div class="fs-cc-banner2_buttons-wrapper"><a fs-cc="deny" href="#" class="fs-cc-banner2_button fs-cc-button-alt w-button">Deny</a><a fs-cc="allow" href="#" class="fs-cc-banner2_button w-button">Accept</a></div></div></div><div fs-cc="manager" class="fs-cc-manager2_component"><div fs-cc="open-preferences" role="button" tabindex="0" title="Cookie Preferences" aria-label="Cookie Preferences" class="fs-cc-manager2_button w-embed"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+</style></div><div data-w-id="396176c6-906a-9f74-c6d0-8a4663dfdea9" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav_component w-nav"><div class="padding-global"><div class="nav_container"><a href="index.html" class="nav_brand w-nav-brand"><img src="images/Logo.svg" loading="lazy" alt="Logo" class="nav_logo is-desktop"/><img src="images/Lion-Mascot-1.svg" loading="lazy" alt="" class="nav_logo is-mobile"/></a><nav role="navigation" class="nav_menu w-nav-menu"><a href="#clients" class="nav_menu_link w-nav-link">clients</a><a href="index.html#system" class="nav_menu_link w-nav-link">services</a><a href="index.html#trust" class="nav_menu_link w-nav-link">TRUST</a><a href="index.html#radar" class="nav_menu_link w-nav-link">latest</a></nav><div class="nav_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-border w-button">book a call</a><div class="nav_button-wrap w-nav-button"><div class="nav_button"><div class="nav_button-line is-top"></div><div class="nav_button-line is-bot"></div></div></div></div></div></div></div><main class="main-wrapper"><section class="cs-header"><div class="padding-global"><div class="container-large is-hero-border"><div class="cs-header_inner"><div class="cs-draft">Draft · items marked TBC need confirming before publishing</div><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium"><a href="case-studies.html" class="cs-back">← All case studies</a> &nbsp;/&nbsp; Case study</div></div><div class="max-width-large"><h1 class="heading-style-h1 text-color-alternate">From Web3 strategy to live protocol infrastructure</h1></div><div class="cs-stat"><div class="cs-stat_num">5</div><div class="cs-stat_label">protocol infrastructure services operational <span class="cs-tbc">TBC: still live today? since when?</span></div></div></div></div></div></section><section><div class="padding-global"><div class="container-large"><div class="cs-meta"><div class="cs-meta_item cs-meta_logo"><img src="images/Group-3.svg" loading="lazy" alt="Vodafone logo"/></div><div class="cs-meta_item"><div class="text-size-13 text-style-allcaps cs-meta_label">Client</div><div class="text-size-18">Vodafone <span class="cs-tbc">TBC: which entity</span></div></div><div class="cs-meta_item"><div class="text-size-13 text-style-allcaps cs-meta_label">Sector</div><div class="text-size-18">Telecommunications</div></div><div class="cs-meta_item"><div class="text-size-13 text-style-allcaps cs-meta_label">Offer</div><div class="text-size-18">Institutional Adoption · Process Optimization · Blockchain &amp; tokenization</div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">01 — Problem</div></div></div><div class="cs-row_body"><p class="text-size-18">Telcos already run critical, regulated infrastructure at scale, which is exactly what blockchain networks need from validators and node operators.</p><p class="text-size-18">Turning that into a business means choosing protocols, setting up operations and governance, and getting internal sign-off, and most telcos have no team that has done it before.</p></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">02 — What we did</div></div></div><div class="cs-row_body"><ul class="v2-list"><li>Led an end-to-end Web3 transformation initiative: strategy, implementation and operating frameworks for a telecommunications business.</li><li>Selected and onboarded protocols, then stood up the infrastructure services to run them. <span class="cs-tbc">TBC: the five protocols and the service each one is</span></li><li><span class="cs-tbc">TBC: governance and risk work done so internal committees could approve it</span></li></ul></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">03 — Result</div></div></div><div class="cs-row_body"><ul class="v2-list"><li><strong>5 protocol infrastructure services operational.</strong></li><li><span class="cs-tbc">TBC: one business outcome, e.g. new revenue line, time from decision to first live node, uptime</span></li></ul></div></div><div class="cs-row is-why"><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium">04 — Why it matters for you</div></div></div><div class="cs-row_body"><p>If you run a telco, you already have most of what it takes to operate blockchain infrastructure. We have done this inside a group of Vodafone's size.</p><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-secondary-border w-button" style="align-self:flex-start">Scope this with us</a></div></div><div class="cs-row is-internal"><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium">Internal — Before publishing</div></div></div><div class="cs-row_body"><p class="text-size-18"><strong>Ask the client:</strong> Permission to name Vodafone and the protocols. Confirm whether this is the same programme as Digital Asset Broker, which STORM Partners lists as their case study.</p><p class="text-size-regular">Remove this block and every TBC marker before the page goes live.</p></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot "></div><div class="text-size-13 text-style-allcaps text-weight-medium">Sources — Public record</div></div></div><div class="cs-row_body"><ul class="cs-sources text-size-regular"><li><a href="https://www.web3labs.com/vodafone-case-study" target="_blank" rel="noopener">Context: Web3 Labs Vodafone case study</a></li><li><a href="https://partners.circle.com/partner/storm-partners" target="_blank" rel="noopener">Context: STORM Partners in Circle&#x27;s partner directory</a></li></ul></div></div><div class="cs-pager"><a href="case-munich-re.html"><span class="text-size-13 text-style-allcaps cs-meta_label">← Previous</span><span class="heading-style-h5">Munich Re</span></a><a href="case-stc-bahrain.html"><span class="text-size-13 text-style-allcaps cs-meta_label">Next →</span><span class="heading-style-h5">stc Bahrain</span></a></div></div></div></section><section id="connect" class="section_cta v2-connect"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-con"><div class="v2-con_left"><div class="v2-con_label">Let&#x27;s connect</div><h2 class="v2-con_title">What are you<br/>working on?</h2><p class="v2-con_text">Have a technology challenge, a project in mind, or just want to explore an idea? There are plenty of ways to start a conversation.</p><div class="v2-con_ctas"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-con_btn">Book a meeting <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="v2-con_link">Message on LinkedIn <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div></div><div class="v2-news" id="newsletter"><div class="v2-con_label">Stay in the loop</div><h3 class="v2-news_title">Good intelligence.<br/>No noise.</h3><p class="v2-news_text">Research, updates, events and occasional opportunities to collaborate, sent when we have something worthwhile to share.</p><form class="v2-news_form" action="#newsletter" onsubmit="return false;"><label for="v2-news-email" class="v2-con_label">Your email address</label><div class="v2-news_row"><input id="v2-news-email" type="email" name="email" class="v2-news_input" placeholder="you@company.com" autocomplete="email" required/><button type="submit" class="v2-news_submit" aria-label="Subscribe"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></button></div><p class="v2-news_note">Homepage concept: signup is not yet connected to an email platform.</p></form></div></div></div></div></section><footer class="section_footer v2-footer"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-foot"><p class="v2-foot_text">Enterprise technology, Web3 and AI. Specialist solutions, research and intelligence, with real-world experience behind them.</p><nav class="v2-foot_col" aria-label="Explore"><div class="v2-foot_head">Explore</div><a href="index.html#system">Solutions</a><a href="index.html#intelligence">Intelligence</a><a href="case-studies.html">Case studies</a><a href="index.html#radar">Latest</a><a href="index.html#ventures">Ventures</a></nav><nav class="v2-foot_col" aria-label="Company"><div class="v2-foot_head">Company</div><a href="our-story.html">About Lionscraft</a><a href="index.html#newsletter">Newsletter</a><a href="https://www.linkedin.com/company/lionscraft" target="_blank">LinkedIn</a><a href="https://x.com/Lionscraft_io" target="_blank">X / Twitter</a></nav></div><a href="index.html" aria-current="page" class="footer_wordmark w-inline-block w--current"><img src="images/logo-footer.png" loading="lazy" sizes="100vw" srcset="images/logo-footer-p-500.png 500w, images/logo-footer-p-800.png 800w, images/logo-footer-p-1080.png 1080w, images/logo-footer-p-1600.png 1600w, images/logo-footer-p-2000.png 2000w, images/logo-footer.png 2560w" alt="logo footer"/><div class="footer_wordmark-animated"><div data-poster-url="images/lion-animated-min-poster-00001.jpg" data-video-urls="videos/lion-animated-min-transcode.mp4,videos/lion-animated-min-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="footer_wordmark-animated-video w-background-video w-background-video-atom"><video id="5eed11be-67a6-cd7e-8d0a-c3904a10f970-video" autoplay="" loop="" style="background-image:url(&quot;images/lion-animated-min-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="videos/lion-animated-min-transcode.mp4" data-wf-ignore="true"/><source src="videos/lion-animated-min-transcode.webm" data-wf-ignore="true"/></video></div></div><div class="footer_wordmark-bg"></div></a><div class="v2-foot_bottom"><span>Lionscraft Pte. Ltd. · Singapore · UEN 202322784R</span><div class="v2-foot_right"><span>© 2026 Lionscraft</span><div class="footer_social"><a href="https://x.com/Lionscraft_io" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 14" fill="none"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z" fill="currentColor"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 17" fill="none"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z" fill="currentColor"></path></svg></a></div></div></div></div></div></footer></main><div><div fs-cc="banner" class="fs-cc-banner2_component"><div class="fs-cc-banner2_container"><div class="fs-cc-banner2_text">By clicking “Accept”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. View our <a href="legal/privacy-policy.html" class="fs-cc-banner2_text-link">Privacy Policy</a> for more information.</div><div class="fs-cc-banner2_buttons-wrapper"><a fs-cc="deny" href="#" class="fs-cc-banner2_button fs-cc-button-alt w-button">Deny</a><a fs-cc="allow" href="#" class="fs-cc-banner2_button w-button">Accept</a></div></div></div><div fs-cc="manager" class="fs-cc-manager2_component"><div fs-cc="open-preferences" role="button" tabindex="0" title="Cookie Preferences" aria-label="Cookie Preferences" class="fs-cc-manager2_button w-embed"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9 8L9 8.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M16 15L16 15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M10 17L10 17.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
