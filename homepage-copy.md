@@ -66,7 +66,7 @@ Dark and light alternate from Services on:
 | 06 Our ventures | light tint `#eceadf` |
 | 07 Let's connect, footer | dark |
 
-Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#3a3a36` lines (a touch brighter than the export's `#242424`; in Webflow, change the `Border Alternate` colour variable); light sections use `#0b0b04` text, `#5c5c55` secondary and the standard light lines `#a7a7a7`.
+Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#3a3a36` lines (a touch brighter than the export's `#242424`; in Webflow, change the `Border Alternate` colour variable); light sections use `#0b0b04` text, `#5c5c55` secondary and warm-grey lines `#bab8ae` (between the original and a softer grey, a little lighter than the export's `#a7a7a7`; in Webflow, set `Border Primary` to this on the page content only, so the header's Menu button keeps its `#a7a7a7` outline).
 
 ## Page settings (SEO)
 
@@ -79,7 +79,7 @@ Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#
 
 The inline menu links are gone. The header is now: logo on the left, and on the right a matching pair, both 44px tall in the same small mono capitals: a white `Book a call` pill (dark text) and an outlined `Menu` button (two lines + the word). On phone the Menu button shows only the two lines.
 
-**Header behaviour:** fully transparent at the top of the page; once scrolled it becomes dark glass (black at 82% with blur); it slides up out of view when scrolling down and comes back when scrolling up; it always stays visible while the menu is open.
+**Header behaviour:** fully transparent at the top of the page; as soon as the page moves it becomes dark glass (black at 92% with blur); once the page has scrolled past the header height (about 80px) it slides up out of view when scrolling down, and it comes back after a few pixels of scrolling up; it always stays visible while the menu is open.
 
 **Menu overlay** (dark glass over the page, black at 94% with blur; fades in with the links and the Get in touch block sliding up one after another; the button turns into `✕ Close`; Escape or any link closes it):
 
@@ -96,6 +96,12 @@ The same menu is on the case study, case studies and Our story pages, where the 
 **Left column**
 - **H1** (old: "Infrastructure for a riskier, more programmable world"): `Strategic Advisory for Digital Assets & Agentic Economy`
 - **Primary button** (old: "Get in touch"): `Let's talk` → cal.com/team/lionscraft/meet
+
+**Load animation** (inspired by stablewatch.io, about 1.5 seconds, plays once on page load):
+- The background video fades in from black while it goes from blurred to sharp and settles from a slight zoom.
+- The headline appears letter by letter, each letter going from blurred and faded to sharp (about 14ms between letters, each letter half a second).
+- Then the `Let's talk` button rises in, followed by the right column (icon, label, paragraph, link) one after another.
+- Visitors who have "reduce motion" switched on see everything straight away. In Webflow this is a page-load Interaction (blur + opacity + move on the background, a split-text reveal on the H1, then staggered fades).
 
 **Right column**
 - Label: `introducing lionscraft` (unchanged)
