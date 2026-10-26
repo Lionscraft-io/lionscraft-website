@@ -83,7 +83,7 @@ The inline menu links are gone. The header is now: logo on the left, and on the 
 
 **Menu overlay** (dark glass over the page, black at 94% with blur; fades in with the links and the Get in touch block sliding up one after another; the button turns into `✕ Close`; Escape or any link closes it):
 
-- **Left column:** `Home` (with an orange dot), then two groups with small mono labels and a line:
+- **Left column:** `Home`, then two groups with small mono labels and a line:
   - **Services:** Strategy & Growth · Process Optimization · Institutional Adoption (all → `#system` until service pages exist) · Intelligence (→ `#intelligence`)
   - **Read more:** Who we work with (→ `#clients`) · Case studies · Latest (→ `#radar`) · Ventures (→ `#ventures`) · Our story
 - **Right column:** `Get in touch`, the line "Have a technology challenge or a project in mind? A short call is the easiest way to start.", a white pill `Book a call`, and round X / LinkedIn icons.
