@@ -45,6 +45,22 @@ Section-specific details:
 - **Trust, Technology specializations, Latest, Ventures, Let's connect:** same 160px rhythm; cards get more inner padding.
 - **Footer links:** 112px above, 80px below.
 
+## Section colours
+
+Dark and light alternate from Services on:
+
+| Section | Background |
+|---|---|
+| Hero, logo strip, 01 Who we work with | dark `#0b0b04` |
+| 02 Services (+ Intelligence) | light `#fbfaf3` |
+| 03 Trust | dark (client logos shown inverted to white) |
+| 04 Technology specializations | light |
+| 05 Latest | dark |
+| 06 Our ventures | light tint `#eceadf` |
+| 07 Let's connect, footer | dark |
+
+Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#242424` lines; light sections use `#0b0b04` text, `#5c5c55` secondary and the standard light lines.
+
 ## Page settings (SEO)
 
 | Field | New value |
@@ -216,7 +232,7 @@ New full-width layout (replaces the old "text left, cards right" grid). Styled l
 **Position:** after Latest.
 
 - Left: label `06 / Our ventures`, H2 `Beyond client work.`, text "We also develop our own ideas, products and ventures. Here's what we're building.", link `Explore ventures ↗`
-- Right: three light cards. Top to bottom: status, name, app icon (under the name), line, and an ↗ arrow:
+- Right: three cards in each project's colours. Risk and Protect: navy `#0b0d1f` with white text, status in turquoise `#2ae6e6` (Risk) or green `#2af297` (Protect). PookieScroll: its icon green `#4ce29d` with dark text. Top to bottom: status, name, app icon (under the name), line, and an ↗ arrow:
 
 | Icon | Status | Name | Line | Links to |
 |---|---|---|---|---|
