@@ -352,163 +352,115 @@ margin: 0rem !important;
 }
 
 /* v2 homepage additions */
-/* 02 Services + Intelligence: light */
-body .v2-services{background-color:#fbfaf3;color:#0b0b04;border-top:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary)}
-body .v2-services .container-large{border-color:var(--border-color--border-primary)}
-body .v2-svc_intro{border-right-color:var(--border-color--border-primary)}
-body .v2-svc_label{color:#5c5c55}
-body .v2-svc_title{color:#0b0b04}
-body .v2-svc_text{color:#5c5c55}
-body .v2-svc_link{color:#0b0b04;border-bottom-color:#0b0b0466}
-body .v2-svc_link:hover{border-bottom-color:#0b0b04}
-body .v2-svc_card{border-color:var(--border-color--border-primary);background-color:#fbfaf3;color:#0b0b04}
-body .v2-svc_card:hover{background-color:#f3f1e8}
-body .v2-svc_name,body .v2-svc_arrow{color:#0b0b04}
-body .v2-svc_desc{color:#5c5c55}
-body .v2-intel{border-top-color:var(--border-color--border-primary)}
-body .v2-intel_pic{border-right-color:var(--border-color--border-primary)}
-body .v2-intel_title{color:#0b0b04}
-body .v2-intel_text{color:#5c5c55}
-body .v2-intel_list{border-left-color:var(--border-color--border-primary)}
-body .v2-intel_row{border-bottom-color:var(--border-color--border-primary);color:#0b0b04}
-body .v2-intel_row:first-child{border-top-color:var(--border-color--border-primary)}
-body .v2-intel_row:hover{background-color:#0000000a}
-body .v2-intel_num{color:#6b6b64}
-body .v2-intel_name,body .v2-intel_arrow{color:#0b0b04}
-body .v2-intel_desc{color:#5c5c55}
-/* 03 Trust: dark */
-body .section_trusted{background-color:var(--dark-bg);color:#fafafa}
-body .section_trusted .container-large{border-color:var(--border-color--border-alternate)}
-body .v2-trust_head{border-bottom-color:var(--border-color--border-alternate)}
-body .v2-trust_intro{color:#d4d4d4}
-body .v2-trust_eyebrow{color:#a1a1a1}
-body .v2-trust_h2{color:#fafafa}
-body .v2-trust_grid{border-top-color:var(--border-color--border-alternate)}
-body .v2-trust_card{border-color:var(--border-color--border-alternate);color:#fafafa}
-body .v2-trust_card:hover{background-color:#ffffff0a}
-body .v2-trust_logo img{filter:invert(1)}
-body .v2-trust_card .text-style-allcaps{color:#a1a1a1}
-body .v2-trust_num{color:#fafafa}
-body .v2-trust_label{color:#a1a1a1}
-body .v2-trust_title{border-top-color:var(--border-color--border-alternate);color:#fafafa}
-body .v2-trust_link{color:#fafafa}
-body .v2-trust_more{color:#fafafa;border-bottom-color:#ffffff80}
-body .v2-trust_more:hover{border-bottom-color:#fafafa}
-body .v2-trust_foot{border-top-color:var(--border-color--border-alternate)}
-/* 04 Technology specializations: light */
-body .v2-spec{background-color:#fbfaf3;color:#0b0b04;border-top-color:var(--border-color--border-primary)}
-body .v2-spec .container-large{border-color:var(--border-color--border-primary)}
-body .v2-spec_label{color:#5c5c55}
-body .v2-spec_title{color:#0b0b04}
-body .v2-spec_text{color:#5c5c55}
-body .v2-spec_grid{border-top-color:var(--border-color--border-primary)}
-body .v2-spec_card{border-color:var(--border-color--border-primary)}
-body .v2-spec_num{color:#6b6b64}
-body .v2-spec_name{color:#0b0b04}
-body .v2-spec_desc{color:#5c5c55}
-body .v2-spec_foot{border-top-color:var(--border-color--border-primary);color:#5c5c55}
-body .v2-spec_foot strong{color:#0b0b04}
-body .v2-spec_tag:not(:last-child):after{color:#a1a1a1}
-/* 05 Latest: dark */
-body .v2-latest{background-color:var(--dark-bg);color:#fafafa;border-top-color:var(--border-color--border-alternate)}
-body .v2-latest .container-large{border-color:var(--border-color--border-alternate)}
-body .v2-latest_label{color:#a1a1a1}
-body .v2-latest_title{color:#fafafa}
-body .v2-latest_text{color:#d4d4d4}
-body .v2-post{border-top-color:var(--border-color--border-alternate)}
-body .v2-post_meta{color:#a1a1a1}
-body .v2-post_title{color:#fafafa}
-body .v2-post_desc{color:#a1a1a1}
-body .v2-latest_link{color:#fafafa}
-body .v2-latest_link:hover{border-bottom-color:#fafafa}
-body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
-
-body .v2-who{padding:10rem 2rem;column-gap:7.5rem}
-body .v2-who_left{gap:2rem}
+body .v2-who{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);column-gap:0;padding:0;align-items:stretch}
+body .v2-who_left{gap:2rem;padding:10rem 4rem 10rem 2rem;border-right:1px solid var(--border-color--border-alternate)}
 body .v2-who_title{font-size:3.5rem;letter-spacing:-.035em}
 body .v2-who_text{font-size:1.125rem;line-height:1.6}
 body .v2-who_btn{height:48px;padding:0 1.5rem}
-body .v2-who_row{grid-template-columns:3.5rem minmax(0,1fr) 1.5rem;padding:1.75rem 0}
+body .v2-who_list{margin:10rem 0}
+body .v2-who_row{grid-template-columns:3.5rem minmax(0,1fr) 1.5rem;padding:1.75rem 2rem}
 body .v2-who_name{font-size:1.5rem;letter-spacing:-.015em}
 body .v2-svc{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
 body .v2-svc_intro{padding:6rem 4rem 6rem 2rem;gap:1.75rem}
 body .v2-svc_title{font-size:4.5rem}
 body .v2-svc_text{line-height:1.6}
-body .v2-svc_list{padding:6rem 2rem 6rem 3rem;gap:1rem}
-body .v2-svc_card{grid-template-columns:minmax(0,1fr) 12.5rem;border:1px solid var(--border-color--border-alternate);min-height:11rem}
+body .v2-svc_list{padding:6rem 0;gap:0}
+body .v2-svc_card{grid-template-columns:minmax(0,1fr) 12.5rem;border:none;border-top:1px solid var(--border-color--border-alternate);min-height:11rem}
+body .v2-svc_card:last-child{border-bottom:1px solid var(--border-color--border-alternate)}
 body .v2-svc_card-text{padding:1.5rem 2rem}
 body .v2-svc_name{font-size:2rem;margin-bottom:.75rem}
 body .v2-svc_desc{font-size:1rem}
-body .v2-intel_pic{padding:2rem}
-body .v2-intel_pic img{min-height:16rem}
-body .v2-intel_left{padding:5rem 4rem 5rem 3rem;gap:1.75rem}
+body .v2-svc_link{margin-top:1rem}
+body .v2-intel{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+body .v2-intel_left{padding:5rem 4rem 5rem 2rem;gap:1.75rem;border-right:1px solid var(--border-color--border-alternate)}
 body .v2-intel_title{font-size:4.5rem}
-body .v2-intel_list{padding:5rem 2rem 5rem 3rem}
-body .v2-intel_row{padding:1.5rem 0}
+body .v2-intel_right{padding:5rem 0}
+body .v2-intel_box{display:grid;grid-template-columns:minmax(0,1fr) 12.5rem;border-top:1px solid var(--border-color--border-alternate);border-bottom:1px solid var(--border-color--border-alternate)}
+body .v2-intel_list{padding:0;border-left:none;justify-content:flex-start}
+body .v2-intel_row{padding:1.5rem 2rem}
+body .v2-intel_row:first-child{border-top:none}
+body .v2-intel_row:last-child{border-bottom:none}
+body .v2-intel_pic{padding:0;border:none;display:block;position:relative}
+body .v2-intel_pic img{position:absolute;inset:0;width:100%;height:100%;min-height:0;max-height:none;border-radius:0}
 body .v2-trust_head{padding:8rem 2rem 3.5rem}
 body .v2-trust_card{padding:3rem 2rem 3.5rem;gap:1.25rem}
 body .v2-trust_foot{padding:3rem 2rem 8rem;justify-content:flex-start}
 body .v2-spec_head{padding:10rem 2rem 5rem;gap:2rem}
-body .v2-spec_card{min-height:20rem;padding:2.5rem 2.5rem 3rem}
+body .v2-spec_card{min-height:20rem;padding:2.5rem 2rem 3rem}
 body .v2-spec_foot{padding:2.5rem 2rem 10rem}
-body .v2-latest_head{padding:10rem 2rem 5rem}
-body .v2-latest_grid{column-gap:2.5rem}
-body .v2-post{padding:2rem 0 2.5rem;gap:1.5rem}
+body .v2-latest_head{padding:10rem 2rem 5rem;gap:2rem}
+body .v2-post{min-height:20rem;padding:2.5rem 2rem 3rem;gap:1.5rem}
 body .v2-latest_foot{padding:2.5rem 2rem 10rem}
-body .v2-ven{padding:10rem 2rem;gap:4rem}
-body .v2-ven_left{gap:2rem}
+body .v2-ven{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;padding:0;align-items:stretch}
+body .v2-ven_left{gap:2rem;padding:10rem 4rem 10rem 2rem;border-right:1px solid var(--border-color--border-primary)}
 body .v2-ven_title{font-size:4rem}
+body .v2-ven_right{padding:10rem 2rem}
 body .v2-ven_grid{gap:1rem}
-body .v2-ven_card{min-height:19rem;padding:2rem 1.75rem 1.75rem}
-body .v2-con{padding:10rem 2rem;gap:6rem}
-body .v2-news{padding:3rem}
+body .v2-ven_card{min-height:19rem;padding:2rem}
+body .v2-con{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;padding:0;align-items:stretch}
+body .v2-con_left{padding:10rem 4rem 10rem 2rem;border-right:1px solid var(--border-color--border-alternate)}
+body .v2-news{margin:10rem 0;border-left:none;border-right:none;padding:3rem 2rem}
 body .v2-foot{padding:7rem 2rem 5rem}
 @media screen and (max-width:991px){
-body .v2-svc{grid-template-columns:1fr}
-body .v2-who{padding:6rem 1.5rem;row-gap:3rem}
+body .v2-who{grid-template-columns:1fr;row-gap:0}
+body .v2-who_left{padding:6rem 1.5rem 3rem;border-right:none}
+body .v2-who_list{margin:0 0 6rem}
+body .v2-who_row{padding:1.5rem}
 body .v2-who_title{font-size:3rem}
+body .v2-svc{grid-template-columns:1fr}
 body .v2-svc_intro{padding:6rem 1.5rem 3rem}
-body .v2-svc_list{padding:0 1.5rem 6rem}
+body .v2-svc_list{padding:0 0 6rem}
 body .v2-svc_card{grid-template-columns:minmax(0,1fr) 10rem;min-height:12rem}
+body .v2-svc_card-text{padding:1.5rem}
 body .v2-svc_title,body .v2-intel_title{font-size:3.25rem}
-body .v2-intel_pic{padding:1.5rem}
-body .v2-intel_pic img{min-height:14rem}
-body .v2-intel_left{padding:3rem 1.5rem}
-body .v2-intel_list{padding:0 1.5rem 6rem}
+body .v2-intel{grid-template-columns:1fr}
+body .v2-intel_left{padding:3rem 1.5rem;border-right:none}
+body .v2-intel_right{padding:0 0 6rem}
+body .v2-intel_box{grid-template-columns:minmax(0,1fr) 10rem}
+body .v2-intel_row{padding:1.5rem}
 body .v2-trust_head{padding:6rem 1.5rem 3rem}
 body .v2-trust_foot{padding:3rem 1.5rem 6rem}
 body .v2-spec_head{padding:6rem 1.5rem 3rem}
 body .v2-spec_card{min-height:0;padding:2.5rem 1.5rem}
 body .v2-spec_foot{padding:2rem 1.5rem 6rem}
 body .v2-latest_head{padding:6rem 1.5rem 3rem}
-body .v2-latest_grid{padding:0 1.5rem}
+body .v2-post{min-height:0;padding:2rem 1.5rem 2.5rem}
 body .v2-latest_foot{padding:2rem 1.5rem 6rem}
-body .v2-ven{padding:6rem 1.5rem}
+body .v2-ven{grid-template-columns:1fr}
+body .v2-ven_left{padding:6rem 1.5rem 3rem;border-right:none}
+body .v2-ven_right{padding:0 1.5rem 6rem}
 body .v2-ven_title{font-size:3rem}
-body .v2-con{padding:6rem 1.5rem;gap:3.5rem}
+body .v2-ven_card{padding:1.5rem}
+body .v2-con{grid-template-columns:1fr}
+body .v2-con_left{padding:6rem 1.5rem 3rem;border-right:none}
+body .v2-news{margin:0 0 6rem;padding:2.5rem 1.5rem}
 body .v2-foot{padding:5rem 1.5rem 3rem}
 }
 @media screen and (max-width:479px){
-body .v2-who{padding:5rem 1.5rem}
+body .v2-who_left{padding-top:5rem}
+body .v2-who_list{margin-bottom:5rem}
 body .v2-who_title{font-size:2.5rem}
-body .v2-who_row{grid-template-columns:2.25rem minmax(0,1fr) 1.25rem;padding:1.5rem 0}
+body .v2-who_row{grid-template-columns:2.25rem minmax(0,1fr) 1.25rem}
 body .v2-who_name{font-size:1.25rem}
 body .v2-svc_intro{padding-top:5rem}
 body .v2-svc_list{padding-bottom:5rem}
 body .v2-svc_card{grid-template-columns:1fr}
 body .v2-svc_title,body .v2-intel_title{font-size:2.75rem}
 body .v2-svc_name{font-size:1.75rem}
-body .v2-intel_list{padding-bottom:5rem}
+body .v2-intel_right{padding-bottom:5rem}
+body .v2-intel_box{grid-template-columns:1fr}
+body .v2-intel_pic{order:-1;height:10rem}
 body .v2-trust_head{padding-top:5rem}
 body .v2-trust_foot{padding-bottom:5rem}
 body .v2-spec_head{padding-top:5rem}
 body .v2-spec_foot{padding-bottom:5rem}
 body .v2-latest_head{padding-top:5rem}
 body .v2-latest_foot{padding-bottom:5rem}
-body .v2-ven{padding:5rem 1.5rem}
+body .v2-ven_left{padding-top:5rem}
+body .v2-ven_right{padding-bottom:5rem}
 body .v2-ven_title{font-size:2.5rem}
-body .v2-con{padding:5rem 1.5rem}
-body .v2-news{padding:1.75rem}
+body .v2-con_left{padding-top:5rem}
+body .v2-news{margin-bottom:5rem;padding:1.75rem 1.5rem}
 }
 
 .nav_menu{display:none !important}
@@ -520,8 +472,20 @@ body .v2-news{padding:1.75rem}
 .v2-menu-open .v2-menu_txt.is-close{display:inline}
 .v2-menu-open .v2-menu_lines i:first-child{transform:translateY(3.25px) rotate(45deg)}
 .v2-menu-open .v2-menu_lines i:last-child{transform:translateY(-3.25px) rotate(-45deg)}
-.v2-menu{position:fixed;inset:0;z-index:998;display:none;overflow:auto;background-color:var(--dark-bg);color:#fafafa}
-.v2-menu-open .v2-menu{display:block}
+.v2-menu{position:fixed;inset:0;z-index:998;overflow:auto;background-color:rgba(11,11,4,.94);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);color:#fafafa;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .4s ease,transform .4s ease,visibility 0s linear .4s}
+.v2-menu-open .v2-menu{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s ease,visibility 0s}
+.v2-menu_col>*,.v2-menu_touch>*{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.v2-menu-open .v2-menu_col>*,.v2-menu-open .v2-menu_touch>*{opacity:1;transform:none}
+.v2-menu-open .v2-menu_col>:nth-child(1){transition-delay:.08s}.v2-menu-open .v2-menu_col>:nth-child(2){transition-delay:.16s}.v2-menu-open .v2-menu_col>:nth-child(3){transition-delay:.24s}
+.v2-menu-open .v2-menu_touch>:nth-child(1){transition-delay:.22s}.v2-menu-open .v2-menu_touch>:nth-child(2){transition-delay:.3s}.v2-menu-open .v2-menu_touch>:nth-child(3){transition-delay:.38s}.v2-menu-open .v2-menu_touch>:nth-child(4){transition-delay:.46s}
+.nav_component{background-color:transparent !important;border-bottom-color:transparent !important;-webkit-backdrop-filter:none;backdrop-filter:none;transition:transform .35s ease,background-color .35s ease,border-color .35s ease}
+.nav_component.is-glass{background-color:rgba(11,11,4,.82) !important;border-bottom-color:#ffffff14 !important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.nav_component.is-hidden{transform:translateY(-100%)}
+.v2-menu-open .nav_component{transform:none;background-color:transparent !important;border-bottom-color:transparent !important;-webkit-backdrop-filter:none;backdrop-filter:none}
+.v2-menu_btn{transition:background-color .2s,border-color .2s}.v2-menu_btn:hover{background-color:#ffffff14}
+/* header pair: Book a call (white pill) and Menu (outline), same height and type */
+body .nav_btns .button.is-border{display:inline-flex;align-items:center;height:2.75rem;padding:0 1.25rem;line-height:1;background-color:#fafafa;color:#0b0b04;border:1px solid #fafafa;font-size:.75rem;font-weight:500;letter-spacing:.14em;transition:background-color .2s,border-color .2s}
+body .nav_btns .button.is-border:hover{background-color:#ffffff;border-color:#ffffff;color:#0b0b04}
 .v2-menu-open{overflow:hidden}
 .v2-menu_inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);min-height:100%;padding-top:5.5rem}
 .v2-menu_col{display:flex;flex-direction:column;gap:2rem;padding:3rem 3rem 4rem 2rem}
@@ -593,36 +557,38 @@ body .v2-news{padding:1.75rem}
 .v2-ven_card.is-risk .v2-ven_desc,.v2-ven_card.is-protect .v2-ven_desc{color:#b8bac6}
 .v2-ven_card.is-risk .v2-ven_status{color:#2ae6e6}
 .v2-ven_card.is-protect .v2-ven_status{color:#2af297}
-.v2-ven_card.is-pookie{background-color:#4ce29d;color:#0b0b04}
-.v2-ven_card.is-pookie:hover{background-color:#5ae8a7}
-.v2-ven_card.is-pookie .v2-ven_status{color:#0b3d27}
-.v2-ven_card.is-pookie .v2-ven_desc{color:#0f4a30}
+.v2-ven_card.is-pookie{background-color:#0b0b04;color:#fafafa}
+.v2-ven_card.is-pookie:hover{background-color:#161612}
+.v2-ven_card.is-pookie .v2-ven_status{color:#4ce29d}
+.v2-ven_card.is-pookie .v2-ven_desc{color:#b8bac6}
+.v2-ven_card.is-pookie .v2-ven_name,.v2-ven_card.is-pookie .v2-ven_arrow{color:#fafafa}
 .v2-ven_top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-.v2-ven_icon{width:3.5rem;height:3.5rem;border-radius:.875rem;display:block;object-fit:cover}
+.v2-ven_icon{width:3.5rem;height:3.5rem;border-radius:.875rem;display:block;object-fit:cover;margin-top:.25rem}
 .v2-ven_status{font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#5c5c55}
-.v2-ven_name{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;letter-spacing:-.03em;line-height:1.1;margin:.75rem 0 0;color:#0b0b04}
+.v2-ven_name{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;letter-spacing:-.03em;line-height:1.1;margin:.25rem 0 0;color:#0b0b04}
 .v2-ven_desc{font-size:.9375rem;line-height:1.5;color:#5c5c55;margin:0}
 .v2-ven_arrow{margin-top:auto;align-self:flex-end;display:flex;color:#0b0b04}
 @media screen and (max-width:991px){.v2-ven{grid-template-columns:1fr;padding:4rem 1.5rem}.v2-ven_title{font-size:2.75rem}}
 @media screen and (max-width:767px){.v2-ven_grid{grid-template-columns:1fr}.v2-ven_card{min-height:12rem}}
 
 .v2-latest{background-color:#fbfaf3;color:#0b0b04;border-top:1px solid var(--border-color--border-primary)}
-.v2-latest_head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:3rem;align-items:end;padding:6rem 2rem 3.5rem}
+.v2-latest_head{display:flex;flex-direction:column;gap:1.75rem;padding:6rem 2rem 3.5rem;border-bottom:1px solid var(--border-color--border-primary)}
 .v2-latest_left{display:flex;flex-direction:column;gap:1.75rem}
 .v2-latest_label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
 .v2-latest_title{font-family:Saans,Arial,sans-serif;font-size:4.5rem;font-weight:500;line-height:1.02;letter-spacing:-.045em;margin:0;color:#0b0b04}
-.v2-latest_text{font-size:1.125rem;line-height:1.55;color:#5c5c55;margin:0;max-width:28rem}
-.v2-latest_grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:1.5rem;padding:0 2rem}
-.v2-post{display:flex;flex-direction:column;gap:1.25rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border-color--border-primary)}
-.v2-post_meta{display:flex;justify-content:space-between;gap:1rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#5c5c55}
+.v2-latest_text{font-size:1.25rem;line-height:1.5;color:#5c5c55;margin:0;max-width:40rem}
+.v2-latest_grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.v2-post{display:flex;flex-direction:column;gap:1.25rem;padding:2.5rem 2rem 3rem;border-right:1px solid var(--border-color--border-primary)}
+.v2-post:last-child{border-right:none}
+.v2-post_meta{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#5c5c55}
 .v2-post_title{font-family:Saans,Arial,sans-serif;font-size:2rem;font-weight:500;line-height:1.15;letter-spacing:-.03em;margin:1rem 0 0;color:#0b0b04}
 .v2-post_desc{font-size:1rem;line-height:1.55;color:#5c5c55;margin:0;max-width:26rem}
 .v2-latest_link{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;padding:.625rem 0;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#0b0b04;text-decoration:none;border-bottom:1px solid transparent}
 .v2-latest_link:hover{border-bottom-color:#0b0b04}
 .v2-post .v2-latest_link{margin-top:auto}
-.v2-latest_foot{padding:1rem 2rem 5rem}
+.v2-latest_foot{padding:1rem 2rem 5rem;border-top:1px solid var(--border-color--border-primary)}
 .v2-latest_foot .v2-latest_link{font-size:.8125rem;border-bottom-color:#0b0b0466}
-@media screen and (max-width:991px){.v2-latest_head{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem 2.5rem}.v2-latest_title{font-size:3rem}.v2-latest_grid{grid-template-columns:1fr;padding:0 1.5rem}.v2-post_title{font-size:1.625rem}.v2-latest_foot{padding:1rem 1.5rem 3.5rem}}
+@media screen and (max-width:991px){.v2-latest_head{gap:1.5rem;padding:4rem 1.5rem 2.5rem}.v2-latest_title{font-size:3rem}.v2-latest_grid{grid-template-columns:1fr}.v2-post{padding:2rem 1.5rem 2.5rem;border-right:none;border-bottom:1px solid var(--border-color--border-primary)}.v2-post:last-child{border-bottom:none}.v2-post_title{font-size:1.625rem}.v2-latest_foot{padding:1rem 1.5rem 3.5rem}}
 @media screen and (max-width:479px){.v2-latest_title{font-size:2.5rem}}
 
 .v2-spec{background-color:var(--dark-bg);color:#fafafa;border-top:1px solid var(--border-color--border-alternate)}
@@ -749,7 +715,83 @@ body .v2-news{padding:1.75rem}
 .v2-domain.is-da .v2-domain_tag:before{background:#ff6a00}
 @media screen and (max-width:479px){.v2-domains{grid-template-columns:1fr}.v2-domain + .v2-domain{border-left:none;border-top:1px solid var(--border-color--border-primary)}}
 @media screen and (max-width:479px){.v2-hero-ctas .button{width:100%}}
-</style></div><div data-w-id="396176c6-906a-9f74-c6d0-8a4663dfdea9" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav_component w-nav"><div class="padding-global"><div class="nav_container"><a href="index.html" class="nav_brand w-nav-brand"><img src="images/Logo.svg" loading="lazy" alt="Logo" class="nav_logo is-desktop"/><img src="images/Lion-Mascot-1.svg" loading="lazy" alt="" class="nav_logo is-mobile"/></a><nav role="navigation" class="nav_menu w-nav-menu"><a href="index.html#clients" class="nav_menu_link w-nav-link">clients</a><a href="index.html#system" class="nav_menu_link w-nav-link">services</a><a href="index.html#trust" class="nav_menu_link w-nav-link">TRUST</a><a href="index.html#radar" class="nav_menu_link w-nav-link">latest</a></nav><div class="nav_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-border w-button">book a call</a><button type="button" class="v2-menu_btn" data-menu-toggle aria-expanded="false" aria-controls="v2-menu"><span class="v2-menu_lines"><i></i><i></i></span><span class="v2-menu_txt">Menu</span><span class="v2-menu_txt is-close">Close</span></button></div></div></div></div><div id="v2-menu" class="v2-menu" aria-hidden="true"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-menu_inner"><div class="v2-menu_col"><a href="index.html" class="v2-menu_home">Home</a><div class="v2-menu_group"><div class="v2-menu_label">Services</div><a href="index.html#system" class="v2-menu_link">Strategy & Growth</a><a href="index.html#system" class="v2-menu_link">Process Optimization</a><a href="index.html#system" class="v2-menu_link">Institutional Adoption</a><a href="index.html#intelligence" class="v2-menu_link">Intelligence</a></div><div class="v2-menu_group"><div class="v2-menu_label">Read more</div><a href="index.html#clients" class="v2-menu_link">Who we work with</a><a href="case-studies.html" class="v2-menu_link">Case studies</a><a href="index.html#radar" class="v2-menu_link">Latest</a><a href="index.html#ventures" class="v2-menu_link">Ventures</a><a href="our-story.html" class="v2-menu_link">Our story</a></div></div><div class="v2-menu_touch"><h2 class="v2-menu_touch-title">Get in touch</h2><p class="v2-menu_touch-text">Have a technology challenge or a project in mind? A 30-minute scoping call is the easiest way to start.</p><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-menu_cta">Book a 30-min scoping call</a><div class="v2-menu_social"><a href="https://x.com/Lionscraft_io" target="_blank" aria-label="Lionscraft on X"><svg aria-hidden="true" viewBox="0 0 16 14" fill="currentColor"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" aria-label="Lionscraft on LinkedIn"><svg aria-hidden="true" viewBox="0 0 16 17" fill="currentColor"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z"></path></svg></a></div></div></div></div></div></div><main class="main-wrapper"><section class="cs-header"><div class="padding-global"><div class="container-large is-hero-border"><div class="cs-header_inner"><div class="cs-draft">Draft · items marked TBC need confirming before publishing</div><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium"><a href="index.html" class="cs-back">← Home</a> &nbsp;/&nbsp; Our story</div></div><div class="max-width-large"><h1 class="heading-style-h1 text-color-alternate">Operators, not just advisors</h1></div></div></div></div></section><section><div class="padding-global"><div class="container-large"><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">01 — Who we are</div></div></div><div class="cs-row_body"><div class="cs-story_intro"><p>Lionscraft is a specialist technology company working across enterprise systems, digital assets and AI. We started as a Web3 venture and innovation studio, working hands-on with protocols and enterprises to build sustainable onchain business.</p><p>We're not just advisors. We're operators. We design the strategy, build the operations and stay until it runs.</p></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">02 — Our journey</div></div></div><div class="cs-row_body"><div class="cs-timeline"><div class="cs-milestone"><div class="cs-milestone_year"><span class="cs-tbc">TBC: year</span></div><div><p class="cs-milestone_title">Lionscraft is founded in Singapore</p><p class="text-size-regular" style="margin:0;color:#404040">Lionscraft PTE. LTD. starts as a Web3 venture and innovation studio. <span class="cs-tbc">TBC: one line on why it was founded</span></p></div></div><div class="cs-milestone"><div class="cs-milestone_year">2024</div><div><p class="cs-milestone_title">stc Bahrain launches its Web3 Launchpad</p><p class="text-size-regular" style="margin:0;color:#404040">We designed and implemented the launch framework. The programme went on to win three industry awards.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year"><span class="cs-tbc">TBC: year</span></div><div><p class="cs-milestone_title">Validator risk becomes insurable</p><p class="text-size-regular" style="margin:0;color:#404040">Slashing and Web3 workshops for Munich Re, Aon and other enterprise partners.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year"><span class="cs-tbc">TBC: year</span></div><div><p class="cs-milestone_title">Vodafone / Pairpoint goes live on protocol infrastructure</p><p class="text-size-regular" style="margin:0;color:#404040">From Web3 strategy to five protocol infrastructure services in operation.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year">2026</div><div><p class="cs-milestone_title">ValOS goes live</p><p class="text-size-regular" style="margin:0;color:#404040">After three years of support from Lionscraft, ValOS becomes the Lido-funded standard node operators can be audited against.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year">Today</div><div><p class="cs-milestone_title">Digital assets and agentic AI</p><p class="text-size-regular" style="margin:0;color:#404040">We bring the same hands-on approach to agentic AI, automating real work inside organisations.</p></div></div></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">03 — How we work</div></div></div><div class="cs-row_body"><div class="cs-principles"><div><p class="cs-principle_title">Hands-on</p><p class="text-size-regular" style="margin:0;color:#404040">We deliver working solutions, not just recommendations.</p></div><div><p class="cs-principle_title">Specialist knowledge, shared</p><p class="text-size-regular" style="margin:0;color:#404040">We make what we learn available through research, intelligence and training.</p></div><div><p class="cs-principle_title">Built to hold up to scrutiny</p><p class="text-size-regular" style="margin:0;color:#404040">We help write the standards our clients are measured against.</p></div><div><p class="cs-principle_title">Senior and flexible</p><p class="text-size-regular" style="margin:0;color:#404040">A senior core team, backed by a network of specialist partners.</p></div></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium">04 — The team</div></div></div><div class="cs-row_body"><div class="cs-team"><div><div class="cs-person_photo">Photo</div><div class="cs-person_name">Antonio Bartulovic</div><p class="text-size-regular" style="margin:.25rem 0 0;color:#404040"><span class="cs-tbc">TBC: role, e.g. Co-founder</span></p></div><div><div class="cs-person_photo">Photo</div><div class="cs-person_name"><span class="cs-tbc">TBC: name</span></div><p class="text-size-regular" style="margin:.25rem 0 0;color:#404040"><span class="cs-tbc">TBC: role, e.g. Co-founder</span></p></div></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">05 — Our work</div></div></div><div class="cs-row_body"><p class="text-size-18">See how this plays out for our clients.</p><a href="case-studies.html" class="button is-secondary-border w-button" style="align-self:flex-start">See all case studies</a></div></div></div></div></section><section id="connect" class="section_cta v2-connect"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-con"><div class="v2-con_left"><div class="v2-con_label">Let&#x27;s connect</div><h2 class="v2-con_title">What are you<br/>working on?</h2><p class="v2-con_text">Have a technology challenge, a project in mind, or just want to explore an idea? There are plenty of ways to start a conversation.</p><div class="v2-con_ctas"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-con_btn">Book a meeting <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="v2-con_link">Message on LinkedIn <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div></div><div class="v2-news" id="newsletter"><div class="v2-con_label">Stay in the loop</div><h3 class="v2-news_title">Good intelligence.<br/>No noise.</h3><p class="v2-news_text">Research, updates, events and occasional opportunities to collaborate, sent when we have something worthwhile to share.</p><form class="v2-news_form" action="#newsletter" onsubmit="return false;"><label for="v2-news-email" class="v2-con_label">Your email address</label><div class="v2-news_row"><input id="v2-news-email" type="email" name="email" class="v2-news_input" placeholder="you@company.com" autocomplete="email" required/><button type="submit" class="v2-news_submit" aria-label="Subscribe"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></button></div><p class="v2-news_note">Homepage concept: signup is not yet connected to an email platform.</p></form></div></div></div></div></section><footer class="section_footer v2-footer"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-foot"><p class="v2-foot_text">Enterprise technology, Web3 and AI. Specialist solutions, research and intelligence, with real-world experience behind them.</p><nav class="v2-foot_col" aria-label="Explore"><div class="v2-foot_head">Explore</div><a href="index.html#system">Solutions</a><a href="index.html#intelligence">Intelligence</a><a href="case-studies.html">Case studies</a><a href="index.html#radar">Latest</a><a href="index.html#ventures">Ventures</a></nav><nav class="v2-foot_col" aria-label="Company"><div class="v2-foot_head">Company</div><a href="our-story.html">About Lionscraft</a><a href="index.html#newsletter">Newsletter</a><a href="https://www.linkedin.com/company/lionscraft" target="_blank">LinkedIn</a><a href="https://x.com/Lionscraft_io" target="_blank">X / Twitter</a></nav></div><a href="index.html" aria-current="page" class="footer_wordmark w-inline-block w--current"><img src="images/logo-footer.png" loading="lazy" sizes="100vw" srcset="images/logo-footer-p-500.png 500w, images/logo-footer-p-800.png 800w, images/logo-footer-p-1080.png 1080w, images/logo-footer-p-1600.png 1600w, images/logo-footer-p-2000.png 2000w, images/logo-footer.png 2560w" alt="logo footer"/><div class="footer_wordmark-animated"><div data-poster-url="images/lion-animated-min-poster-00001.jpg" data-video-urls="videos/lion-animated-min-transcode.mp4,videos/lion-animated-min-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="footer_wordmark-animated-video w-background-video w-background-video-atom"><video id="5eed11be-67a6-cd7e-8d0a-c3904a10f970-video" autoplay="" loop="" style="background-image:url(&quot;images/lion-animated-min-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="videos/lion-animated-min-transcode.mp4" data-wf-ignore="true"/><source src="videos/lion-animated-min-transcode.webm" data-wf-ignore="true"/></video></div></div><div class="footer_wordmark-bg"></div></a><div class="v2-foot_bottom"><span>Lionscraft Pte. Ltd. · Singapore · UEN 202322784R</span><div class="v2-foot_right"><span>© 2026 Lionscraft</span><div class="footer_social"><a href="https://x.com/Lionscraft_io" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 14" fill="none"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z" fill="currentColor"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 17" fill="none"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z" fill="currentColor"></path></svg></a></div></div></div></div></div></footer></main><div><div fs-cc="banner" class="fs-cc-banner2_component"><div class="fs-cc-banner2_container"><div class="fs-cc-banner2_text">By clicking “Accept”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. View our <a href="legal/privacy-policy.html" class="fs-cc-banner2_text-link">Privacy Policy</a> for more information.</div><div class="fs-cc-banner2_buttons-wrapper"><a fs-cc="deny" href="#" class="fs-cc-banner2_button fs-cc-button-alt w-button">Deny</a><a fs-cc="allow" href="#" class="fs-cc-banner2_button w-button">Accept</a></div></div></div><div fs-cc="manager" class="fs-cc-manager2_component"><div fs-cc="open-preferences" role="button" tabindex="0" title="Cookie Preferences" aria-label="Cookie Preferences" class="fs-cc-manager2_button w-embed"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+/* lines on black: a touch brighter than the export's #242424 */
+:root{--border-color--border-alternate:#3a3a36}
+/* 02 Services + Intelligence: light */
+body .v2-services{background-color:#fbfaf3;color:#0b0b04;border-top:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary)}
+body .v2-services .container-large{border-color:var(--border-color--border-primary)}
+body .v2-svc_intro{border-right-color:var(--border-color--border-primary)}
+body .v2-svc_label{color:#5c5c55}
+body .v2-svc_title{color:#0b0b04}
+body .v2-svc_text{color:#5c5c55}
+body .v2-svc_link{color:#0b0b04;border-bottom-color:#0b0b0466}
+body .v2-svc_link:hover{border-bottom-color:#0b0b04}
+body .v2-svc_card,body .v2-svc_card:last-child{border-color:var(--border-color--border-primary);background-color:#fbfaf3;color:#0b0b04}
+body .v2-svc_card:hover{background-color:#f3f1e8}
+body .v2-svc_name,body .v2-svc_arrow{color:#0b0b04}
+body .v2-svc_desc{color:#5c5c55}
+body .v2-intel{border-top-color:var(--border-color--border-primary)}
+body .v2-intel_left,body .v2-intel_box{border-color:var(--border-color--border-primary)}
+body .v2-intel_title{color:#0b0b04}
+body .v2-intel_text{color:#5c5c55}
+body .v2-intel_list{border-left-color:var(--border-color--border-primary)}
+body .v2-intel_row{border-bottom-color:var(--border-color--border-primary);color:#0b0b04}
+body .v2-intel_row:first-child{border-top-color:var(--border-color--border-primary)}
+body .v2-intel_row:hover{background-color:#0000000a}
+body .v2-intel_num{color:#6b6b64}
+body .v2-intel_name,body .v2-intel_arrow{color:#0b0b04}
+body .v2-intel_desc{color:#5c5c55}
+/* 03 Trust: dark */
+body .section_trusted{background-color:var(--dark-bg);color:#fafafa}
+body .section_trusted .container-large{border-color:var(--border-color--border-alternate)}
+body .v2-trust_head{border-bottom-color:var(--border-color--border-alternate)}
+body .v2-trust_intro{color:#d4d4d4}
+body .v2-trust_eyebrow{color:#a1a1a1}
+body .v2-trust_h2{color:#fafafa}
+body .v2-trust_grid{border-top-color:var(--border-color--border-alternate)}
+body .v2-trust_card{border-color:var(--border-color--border-alternate);color:#fafafa}
+body .v2-trust_card:hover{background-color:#ffffff0a}
+body .v2-trust_logo img{filter:invert(1)}
+body .v2-trust_card .text-style-allcaps{color:#a1a1a1}
+body .v2-trust_num{color:#fafafa}
+body .v2-trust_label{color:#a1a1a1}
+body .v2-trust_title{border-top-color:var(--border-color--border-alternate);color:#fafafa}
+body .v2-trust_link{color:#fafafa}
+body .v2-trust_more{color:#fafafa;border-bottom-color:#ffffff80}
+body .v2-trust_more:hover{border-bottom-color:#fafafa}
+body .v2-trust_foot{border-top-color:var(--border-color--border-alternate)}
+/* 04 Technology specializations: light */
+body .v2-spec{background-color:#fbfaf3;color:#0b0b04;border-top-color:var(--border-color--border-primary)}
+body .v2-spec .container-large{border-color:var(--border-color--border-primary)}
+body .v2-spec_label{color:#5c5c55}
+body .v2-spec_title{color:#0b0b04}
+body .v2-spec_text{color:#5c5c55}
+body .v2-spec_grid{border-top-color:var(--border-color--border-primary)}
+body .v2-spec_card{border-color:var(--border-color--border-primary);transition:background-color .2s}
+body .v2-spec_card:hover{background-color:#f3f1e8}
+body .v2-spec_num{color:#6b6b64}
+body .v2-spec_name{color:#0b0b04}
+body .v2-spec_desc{color:#5c5c55}
+body .v2-spec_foot{border-top-color:var(--border-color--border-primary);color:#5c5c55}
+body .v2-spec_foot strong{color:#0b0b04}
+body .v2-spec_tag:not(:last-child):after{color:#a1a1a1}
+/* 05 Latest: dark */
+body .v2-latest{background-color:var(--dark-bg);color:#fafafa;border-top-color:var(--border-color--border-alternate)}
+body .v2-latest .container-large{border-color:var(--border-color--border-alternate)}
+body .v2-latest_label{color:#a1a1a1}
+body .v2-latest_title{color:#fafafa}
+body .v2-latest_text{color:#d4d4d4}
+body .v2-latest_head,body .v2-post,body .v2-latest_foot{border-color:var(--border-color--border-alternate)}
+body .v2-post{transition:background-color .2s}
+body .v2-post:hover{background-color:#ffffff0a}
+body .v2-post_meta{color:#a1a1a1}
+body .v2-post_title{color:#fafafa}
+body .v2-post_desc{color:#a1a1a1}
+body .v2-latest_link{color:#fafafa}
+body .v2-latest_link:hover{border-bottom-color:#fafafa}
+body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
+</style></div><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav_component w-nav"><div class="padding-global"><div class="nav_container"><a href="index.html" class="nav_brand w-nav-brand"><img src="images/Logo.svg" loading="lazy" alt="Logo" class="nav_logo is-desktop"/><img src="images/Lion-Mascot-1.svg" loading="lazy" alt="" class="nav_logo is-mobile"/></a><nav role="navigation" class="nav_menu w-nav-menu"><a href="index.html#clients" class="nav_menu_link w-nav-link">clients</a><a href="index.html#system" class="nav_menu_link w-nav-link">services</a><a href="index.html#trust" class="nav_menu_link w-nav-link">TRUST</a><a href="index.html#radar" class="nav_menu_link w-nav-link">latest</a></nav><div class="nav_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-border w-button">book a call</a><button type="button" class="v2-menu_btn" data-menu-toggle aria-expanded="false" aria-controls="v2-menu"><span class="v2-menu_lines"><i></i><i></i></span><span class="v2-menu_txt">Menu</span><span class="v2-menu_txt is-close">Close</span></button></div></div></div></div><div id="v2-menu" class="v2-menu" aria-hidden="true"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-menu_inner"><div class="v2-menu_col"><a href="index.html" class="v2-menu_home">Home</a><div class="v2-menu_group"><div class="v2-menu_label">Services</div><a href="index.html#system" class="v2-menu_link">Strategy & Growth</a><a href="index.html#system" class="v2-menu_link">Process Optimization</a><a href="index.html#system" class="v2-menu_link">Institutional Adoption</a><a href="index.html#intelligence" class="v2-menu_link">Intelligence</a></div><div class="v2-menu_group"><div class="v2-menu_label">Read more</div><a href="index.html#clients" class="v2-menu_link">Who we work with</a><a href="case-studies.html" class="v2-menu_link">Case studies</a><a href="index.html#radar" class="v2-menu_link">Latest</a><a href="index.html#ventures" class="v2-menu_link">Ventures</a><a href="our-story.html" class="v2-menu_link">Our story</a></div></div><div class="v2-menu_touch"><h2 class="v2-menu_touch-title">Get in touch</h2><p class="v2-menu_touch-text">Have a technology challenge or a project in mind? A short call is the easiest way to start.</p><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-menu_cta">Book a call</a><div class="v2-menu_social"><a href="https://x.com/Lionscraft_io" target="_blank" aria-label="Lionscraft on X"><svg aria-hidden="true" viewBox="0 0 16 14" fill="currentColor"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" aria-label="Lionscraft on LinkedIn"><svg aria-hidden="true" viewBox="0 0 16 17" fill="currentColor"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z"></path></svg></a></div></div></div></div></div></div><main class="main-wrapper"><section class="cs-header"><div class="padding-global"><div class="container-large is-hero-border"><div class="cs-header_inner"><div class="cs-draft">Draft · items marked TBC need confirming before publishing</div><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium"><a href="index.html" class="cs-back">← Home</a> &nbsp;/&nbsp; Our story</div></div><div class="max-width-large"><h1 class="heading-style-h1 text-color-alternate">Operators, not just advisors</h1></div></div></div></div></section><section><div class="padding-global"><div class="container-large"><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">01 — Who we are</div></div></div><div class="cs-row_body"><div class="cs-story_intro"><p>Lionscraft is a specialist technology company working across enterprise systems, digital assets and AI. We started as a Web3 venture and innovation studio, working hands-on with protocols and enterprises to build sustainable onchain business.</p><p>We're not just advisors. We're operators. We design the strategy, build the operations and stay until it runs.</p></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">02 — Our journey</div></div></div><div class="cs-row_body"><div class="cs-timeline"><div class="cs-milestone"><div class="cs-milestone_year"><span class="cs-tbc">TBC: year</span></div><div><p class="cs-milestone_title">Lionscraft is founded in Singapore</p><p class="text-size-regular" style="margin:0;color:#404040">Lionscraft PTE. LTD. starts as a Web3 venture and innovation studio. <span class="cs-tbc">TBC: one line on why it was founded</span></p></div></div><div class="cs-milestone"><div class="cs-milestone_year">2024</div><div><p class="cs-milestone_title">stc Bahrain launches its Web3 Launchpad</p><p class="text-size-regular" style="margin:0;color:#404040">We designed and implemented the launch framework. The programme went on to win three industry awards.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year"><span class="cs-tbc">TBC: year</span></div><div><p class="cs-milestone_title">Validator risk becomes insurable</p><p class="text-size-regular" style="margin:0;color:#404040">Slashing and Web3 workshops for Munich Re, Aon and other enterprise partners.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year"><span class="cs-tbc">TBC: year</span></div><div><p class="cs-milestone_title">Vodafone / Pairpoint goes live on protocol infrastructure</p><p class="text-size-regular" style="margin:0;color:#404040">From Web3 strategy to five protocol infrastructure services in operation.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year">2026</div><div><p class="cs-milestone_title">ValOS goes live</p><p class="text-size-regular" style="margin:0;color:#404040">After three years of support from Lionscraft, ValOS becomes the Lido-funded standard node operators can be audited against.</p></div></div><div class="cs-milestone"><div class="cs-milestone_year">Today</div><div><p class="cs-milestone_title">Digital assets and agentic AI</p><p class="text-size-regular" style="margin:0;color:#404040">We bring the same hands-on approach to agentic AI, automating real work inside organisations.</p></div></div></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">03 — How we work</div></div></div><div class="cs-row_body"><div class="cs-principles"><div><p class="cs-principle_title">Hands-on</p><p class="text-size-regular" style="margin:0;color:#404040">We deliver working solutions, not just recommendations.</p></div><div><p class="cs-principle_title">Specialist knowledge, shared</p><p class="text-size-regular" style="margin:0;color:#404040">We make what we learn available through research, intelligence and training.</p></div><div><p class="cs-principle_title">Built to hold up to scrutiny</p><p class="text-size-regular" style="margin:0;color:#404040">We help write the standards our clients are measured against.</p></div><div><p class="cs-principle_title">Senior and flexible</p><p class="text-size-regular" style="margin:0;color:#404040">A senior core team, backed by a network of specialist partners.</p></div></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-orange"></div><div class="text-size-13 text-style-allcaps text-weight-medium">04 — The team</div></div></div><div class="cs-row_body"><div class="cs-team"><div><div class="cs-person_photo">Photo</div><div class="cs-person_name">Antonio Bartulovic</div><p class="text-size-regular" style="margin:.25rem 0 0;color:#404040"><span class="cs-tbc">TBC: role, e.g. Co-founder</span></p></div><div><div class="cs-person_photo">Photo</div><div class="cs-person_name"><span class="cs-tbc">TBC: name</span></div><p class="text-size-regular" style="margin:.25rem 0 0;color:#404040"><span class="cs-tbc">TBC: role, e.g. Co-founder</span></p></div></div></div></div><div class="cs-row "><div class="cs-row_head"><div class="eyebrow"><div class="eyebrow_dot is-blue"></div><div class="text-size-13 text-style-allcaps text-weight-medium">05 — Our work</div></div></div><div class="cs-row_body"><p class="text-size-18">See how this plays out for our clients.</p><a href="case-studies.html" class="button is-secondary-border w-button" style="align-self:flex-start">See all case studies</a></div></div></div></div></section><section id="connect" class="section_cta v2-connect"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-con"><div class="v2-con_left"><div class="v2-con_label">Let&#x27;s connect</div><h2 class="v2-con_title">What are you<br/>working on?</h2><p class="v2-con_text">Have a technology challenge, a project in mind, or just want to explore an idea? There are plenty of ways to start a conversation.</p><div class="v2-con_ctas"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-con_btn">Book a meeting <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="v2-con_link">Message on LinkedIn <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div></div><div class="v2-news" id="newsletter"><div class="v2-con_label">Stay in the loop</div><h3 class="v2-news_title">Good intelligence.<br/>No noise.</h3><p class="v2-news_text">Research, updates, events and occasional opportunities to collaborate, sent when we have something worthwhile to share.</p><form class="v2-news_form" action="#newsletter" onsubmit="return false;"><label for="v2-news-email" class="v2-con_label">Your email address</label><div class="v2-news_row"><input id="v2-news-email" type="email" name="email" class="v2-news_input" placeholder="you@company.com" autocomplete="email" required/><button type="submit" class="v2-news_submit" aria-label="Subscribe"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></button></div><p class="v2-news_note">Homepage concept: signup is not yet connected to an email platform.</p></form></div></div></div></div></section><footer class="section_footer v2-footer"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-foot"><p class="v2-foot_text">Enterprise technology, Web3 and AI. Specialist solutions, research and intelligence, with real-world experience behind them.</p><nav class="v2-foot_col" aria-label="Explore"><div class="v2-foot_head">Explore</div><a href="index.html#system">Solutions</a><a href="index.html#intelligence">Intelligence</a><a href="case-studies.html">Case studies</a><a href="index.html#radar">Latest</a><a href="index.html#ventures">Ventures</a></nav><nav class="v2-foot_col" aria-label="Company"><div class="v2-foot_head">Company</div><a href="our-story.html">About Lionscraft</a><a href="index.html#newsletter">Newsletter</a><a href="https://www.linkedin.com/company/lionscraft" target="_blank">LinkedIn</a><a href="https://x.com/Lionscraft_io" target="_blank">X / Twitter</a></nav></div><a href="index.html" aria-current="page" class="footer_wordmark w-inline-block w--current"><img src="images/logo-footer.png" loading="lazy" sizes="100vw" srcset="images/logo-footer-p-500.png 500w, images/logo-footer-p-800.png 800w, images/logo-footer-p-1080.png 1080w, images/logo-footer-p-1600.png 1600w, images/logo-footer-p-2000.png 2000w, images/logo-footer.png 2560w" alt="logo footer"/><div class="footer_wordmark-animated"><div data-poster-url="images/lion-animated-min-poster-00001.jpg" data-video-urls="videos/lion-animated-min-transcode.mp4,videos/lion-animated-min-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="footer_wordmark-animated-video w-background-video w-background-video-atom"><video id="5eed11be-67a6-cd7e-8d0a-c3904a10f970-video" autoplay="" loop="" style="background-image:url(&quot;images/lion-animated-min-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="videos/lion-animated-min-transcode.mp4" data-wf-ignore="true"/><source src="videos/lion-animated-min-transcode.webm" data-wf-ignore="true"/></video></div></div><div class="footer_wordmark-bg"></div></a><div class="v2-foot_bottom"><span>Lionscraft Pte. Ltd. · Singapore · UEN 202322784R</span><div class="v2-foot_right"><span>© 2026 Lionscraft</span><div class="footer_social"><a href="https://x.com/Lionscraft_io" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 14" fill="none"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z" fill="currentColor"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" class="text-style-link is-grey icon-1x1-small w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 17" fill="none"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z" fill="currentColor"></path></svg></a></div></div></div></div></div></footer></main><div><div fs-cc="banner" class="fs-cc-banner2_component"><div class="fs-cc-banner2_container"><div class="fs-cc-banner2_text">By clicking “Accept”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. View our <a href="legal/privacy-policy.html" class="fs-cc-banner2_text-link">Privacy Policy</a> for more information.</div><div class="fs-cc-banner2_buttons-wrapper"><a fs-cc="deny" href="#" class="fs-cc-banner2_button fs-cc-button-alt w-button">Deny</a><a fs-cc="allow" href="#" class="fs-cc-banner2_button w-button">Accept</a></div></div></div><div fs-cc="manager" class="fs-cc-manager2_component"><div fs-cc="open-preferences" role="button" tabindex="0" title="Cookie Preferences" aria-label="Cookie Preferences" class="fs-cc-manager2_button w-embed"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9 8L9 8.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M16 15L16 15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M10 17L10 17.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -793,7 +835,10 @@ body .v2-news{padding:1.75rem}
 
 <script>
 (function(){var b=document.body,o=document.getElementById('v2-menu');if(!o)return;var t=document.querySelectorAll('[data-menu-toggle]');
-function set(open){b.classList.toggle('v2-menu-open',open);o.setAttribute('aria-hidden',open?'false':'true');t.forEach(function(x){x.setAttribute('aria-expanded',open?'true':'false')});}
+var nav=document.querySelector('.nav_component'),last=window.scrollY;
+function set(open){b.classList.toggle('v2-menu-open',open);o.setAttribute('aria-hidden',open?'false':'true');t.forEach(function(x){x.setAttribute('aria-expanded',open?'true':'false')});if(open&&nav)nav.classList.remove('is-hidden');}
+function onScroll(){if(!nav||b.classList.contains('v2-menu-open'))return;var y=window.scrollY;nav.classList.toggle('is-glass',y>40);if(y>120&&y>last+4)nav.classList.add('is-hidden');else if(y<last-4||y<=120)nav.classList.remove('is-hidden');last=y;}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 t.forEach(function(x){x.addEventListener('click',function(){set(!b.classList.contains('v2-menu-open'))})});
 o.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
