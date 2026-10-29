@@ -68,6 +68,10 @@ Dark and light alternate from Services on:
 
 Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#3a3a36` lines (a touch brighter than the export's `#242424`; in Webflow, change the `Border Alternate` colour variable); light sections use `#0b0b04` text, `#5c5c55` secondary and warm-grey lines `#bab8ae` (between the original and a softer grey, a little lighter than the export's `#a7a7a7`; in Webflow, set `Border Primary` to this on the page content only, so the header's Menu button keeps its `#a7a7a7` outline).
 
+## Cookie consent
+
+The cookie banner stays as it is. The small floating cookie icon in the bottom-left corner (the Finsweet "manager" button, `fs-cc-manager2_component`) is removed on every page. In Webflow: delete that element from the page template. If visitors should still be able to change their cookie choice later, add a `Cookie settings` link in the footer instead.
+
 ## Page settings (SEO)
 
 | Field | New value |
