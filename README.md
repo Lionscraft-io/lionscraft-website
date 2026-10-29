@@ -15,13 +15,16 @@ JS, images, videos and fonts, so it runs on any static host.
 ## Run locally
 
 ```bash
-python3 -m http.server 8000 --directory site
+PORT=8000 python3 serve.py
 # open http://localhost:8000
 ```
 
+`serve.py` opens clean links like the deployed site does (`/services` → `services.html`);
+Python's plain `http.server` can't, so subpages wouldn't open.
+
 ## Replit
 
-The `.replit` file serves `site/` when you press Run and
+The `.replit` file runs `serve.py` when you press Run (so the preview opens subpages) and
 deploys it as a static site (Deploy → Static, public directory
 `site`). The Repl follows the `live` branch.
 
