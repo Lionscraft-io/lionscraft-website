@@ -496,7 +496,13 @@ body .v2-news{margin-bottom:5rem;padding:1.75rem 1.5rem}
 .v2-menu-open .v2-menu_txt.is-close{display:inline}
 .v2-menu-open .v2-menu_lines i:first-child{transform:translateY(3.25px) rotate(45deg)}
 .v2-menu-open .v2-menu_lines i:last-child{transform:translateY(-3.25px) rotate(-45deg)}
-.v2-menu{position:fixed;inset:0;z-index:998;overflow:auto;background-color:rgba(11,11,4,.8);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);color:#fafafa;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .4s ease,transform .4s ease,visibility 0s linear .4s}
+.v2-menu{position:fixed;inset:0;z-index:998;overflow:auto;background-color:rgba(11,11,4,.4);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);color:#fafafa;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .4s ease,transform .4s ease,visibility 0s linear .4s}
+/* opened over a light section: darker, so the menu text stays readable */
+.v2-menu.is-over-light{background-color:rgba(11,11,4,.65)}
+/* lines inside the open menu: light, so they read on the see-through background */
+.v2-menu{--border-color--border-alternate:rgba(250,250,250,.24)}
+/* no outer frame lines in the open menu (they ran through the logo) */
+.v2-menu .container-large{border-left-color:transparent;border-right-color:transparent}
 .v2-menu-open .v2-menu{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s ease,visibility 0s}
 .v2-menu_col>*,.v2-menu_touch>*{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .v2-menu-open .v2-menu_col>*,.v2-menu-open .v2-menu_touch>*{opacity:1;transform:none}
@@ -519,13 +525,13 @@ body .nav_btns .button.is-border:hover{background-color:#ffffff;border-color:#ff
 .v2-menu_col{display:flex;flex-direction:column;gap:1.5rem;padding:2.5rem 3rem 3rem 2rem}
 .v2-menu_home{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;letter-spacing:-.02em;color:#fafafa;text-decoration:none;display:inline-flex;align-items:center;gap:.75rem;align-self:flex-start}
 .v2-menu_group{display:flex;flex-direction:column;gap:.25rem}
-.v2-menu_label{display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1}
+.v2-menu_label{display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fafafa}
 .v2-menu_label:after{content:"";flex:1;height:1px;background:var(--border-color--border-alternate)}
-.v2-menu_link{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;line-height:1.3;letter-spacing:-.025em;color:#a1a1a1;text-decoration:none;align-self:flex-start;transition:color .15s}
-.v2-menu_link:hover{color:#fafafa}
+.v2-menu_link{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;line-height:1.3;letter-spacing:-.025em;color:#fafafa;text-decoration:none;align-self:flex-start;transition:color .15s,opacity .15s}
+.v2-menu_link:hover{color:#fafafa;opacity:.7}
 .v2-menu_touch{display:flex;flex-direction:column;justify-content:center;gap:1.5rem;padding:3rem 2rem 4rem 4rem;border-left:1px solid var(--border-color--border-alternate)}
 .v2-menu_touch-title{font-family:Saans,Arial,sans-serif;font-size:2.75rem;font-weight:500;line-height:1.05;letter-spacing:-.04em;margin:0;color:#fafafa}
-.v2-menu_touch-text{font-size:1.125rem;line-height:1.5;color:#d4d4d4;margin:0;max-width:26rem}
+.v2-menu_touch-text{font-size:1.125rem;line-height:1.5;color:#fafafa;margin:0;max-width:26rem}
 .v2-menu_cta{display:inline-flex;align-items:center;gap:1rem;height:3.25rem;padding:0 1.5rem;border-radius:999px;background-color:#fafafa;color:#0b0b04;font-family:Saans SemiMono,Arial,sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;align-self:flex-start}
 .v2-menu_social{display:flex;gap:1.25rem}
 .v2-menu_social a{display:flex;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border:1px solid var(--border-color--border-alternate);border-radius:50%;color:#fafafa}
@@ -859,7 +865,8 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <script>
 (function(){var b=document.body,o=document.getElementById('v2-menu');if(!o)return;var t=document.querySelectorAll('[data-menu-toggle]');
 var nav=document.querySelector('.nav_component'),last=window.scrollY;
-function set(open){b.classList.toggle('v2-menu-open',open);o.setAttribute('aria-hidden',open?'false':'true');t.forEach(function(x){x.setAttribute('aria-expanded',open?'true':'false')});if(open&&nav)nav.classList.remove('is-hidden');}
+function lightBehind(){try{var secs=document.querySelectorAll('main section, footer'),light=false;[.25,.5,.75].forEach(function(p){var y=innerHeight*p;for(var i=0;i<secs.length;i++){var r=secs[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){var el=secs[i],m=[];while(el){m=(getComputedStyle(el).backgroundColor.match(/[\d.]+/g)||[]);if(m.length>=3&&(m.length<4||+m[3]>0))break;el=el.parentElement}if(m.length>=3&&(+m[0]*299+ +m[1]*587+ +m[2]*114)/1000>140)light=true;break}}});return light}catch(e){return false}}
+function set(open){if(open)o.classList.toggle('is-over-light',lightBehind());b.classList.toggle('v2-menu-open',open);o.setAttribute('aria-hidden',open?'false':'true');t.forEach(function(x){x.setAttribute('aria-expanded',open?'true':'false')});if(open&&nav)nav.classList.remove('is-hidden');}
 function onScroll(){if(!nav||b.classList.contains('v2-menu-open'))return;var y=window.scrollY,d=y-last;if(y<=80){nav.classList.remove('is-hidden');nav.classList.remove('is-up');last=y;return;}if(Math.abs(d)<8)return;nav.classList.toggle('is-hidden',d>0);nav.classList.toggle('is-up',d<0);last=y;}
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();if(nav&&window.scrollY>80)nav.classList.add('is-up');
 t.forEach(function(x){x.addEventListener('click',function(){set(!b.classList.contains('v2-menu-open'))})});
