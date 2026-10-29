@@ -467,6 +467,8 @@ body .v2-news{margin-bottom:5rem;padding:1.75rem 1.5rem}
 .nav_component.is-up .nav_btns .button.is-border,.v2-menu-open .nav_btns .button.is-border{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s}
 .v2-menu-open .nav_component{transform:none;background-color:transparent !important;border-bottom-color:transparent !important;-webkit-backdrop-filter:none;backdrop-filter:none}
 .v2-menu_btn{transition:background-color .2s,border-color .2s}.v2-menu_btn:hover{background-color:#ffffff14}
+/* no focus ring on the header and menu; keyboard focus shows as the same soft fill as hover */
+.nav_component a:focus,.nav_component button:focus,.v2-menu a:focus,.nav_component a:focus-visible,.nav_component button:focus-visible,.v2-menu a:focus-visible{outline:none}.v2-menu_btn:focus-visible{background-color:#ffffff14}.v2-menu a:focus-visible{opacity:.7}
 /* header pair: Book a call (white pill) and Menu (outline), same height and type */
 body .nav_btns .button.is-border{display:inline-flex;align-items:center;height:2.75rem;padding:0 1.25rem;line-height:1;background-color:#fafafa;color:#0b0b04;border:1px solid #fafafa;font-size:.75rem;font-weight:500;letter-spacing:.14em;transition:background-color .2s,border-color .2s}
 body .nav_btns .button.is-border:hover{background-color:#ffffff;border-color:#ffffff;color:#0b0b04}
