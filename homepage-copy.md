@@ -68,6 +68,17 @@ Dark and light alternate from Services on:
 
 Dark sections use white text, grey `#a1a1a1`/`#d4d4d4` for secondary text and `#3a3a36` lines (a touch brighter than the export's `#242424`; in Webflow, change the `Border Alternate` colour variable); light sections use `#0b0b04` text, `#5c5c55` secondary and warm-grey lines `#bab8ae` (between the original and a softer grey, a little lighter than the export's `#a7a7a7`; in Webflow, set `Border Primary` to this on the page content only, so the header's Menu button keeps its `#a7a7a7` outline).
 
+## Background videos on phones
+
+Some phones block autoplay (for example iPhones in Low Power Mode) and then show a big play button on top of the hero video and the animated lion in the footer. The site now hides that native play button on all background videos, shows the poster frame instead, and starts the video as soon as the phone allows: on load, when the page becomes visible again, and at the first touch, tap or scroll. Note: iPhones in Low Power Mode block autoplay completely, so there the poster frame shows until the visitor touches the page. In Webflow: add this to the site's custom code (head):
+
+```
+<style>
+.w-background-video video{pointer-events:none}
+.w-background-video video::-webkit-media-controls,.w-background-video video::-webkit-media-controls-start-playback-button,.w-background-video video::-webkit-media-controls-panel{display:none !important;-webkit-appearance:none;opacity:0;pointer-events:none}
+</style>
+```
+
 ## Cookie consent
 
 The cookie banner stays as it is. The small floating cookie icon in the bottom-left corner (the Finsweet "manager" button, `fs-cc-manager2_component`) is removed on every page. In Webflow: delete that element from the page template. If visitors should still be able to change their cookie choice later, add a `Cookie settings` link in the footer instead.
@@ -83,11 +94,11 @@ The cookie banner stays as it is. The small floating cookie icon in the bottom-l
 
 The inline menu links are gone. The header is now: logo on the left, and on the right a matching pair, both 44px tall in the same small mono capitals: a white `Book a call` pill (dark text) and an outlined `Menu` button (two lines + the word). On phone the Menu button shows only the two lines.
 
-**Header behaviour:** fully transparent at the top of the page; as soon as the page moves it becomes dark glass (black at 92% with blur); once the page has scrolled past the header height (about 80px) it slides up out of view when scrolling down, and it comes back after a few pixels of scrolling up; it always stays visible while the menu is open.
+**Header behaviour:** at the top of the page only the logo shows: the header is fully transparent and the `Book a call` and `Menu` buttons are hidden. Scrolling down, it stays transparent and slides up out of view once the page has moved past the header height (about 80px); it never turns into a dark bar on the way down. When the visitor scrolls up, it comes back after a few pixels as a blurred, 80% see-through bar (black at 20%) with the two buttons fading in. Back at the very top it is fully transparent again and the buttons hide. The header always stays visible while the menu is open, with its Close button.
 
 **Menu overlay** (dark glass over the page, black at 94% with blur; fades in with the links and the Get in touch block sliding up one after another; the button turns into `✕ Close`; Escape or any link closes it):
 
-- **Left column:** `Home`, then two groups with small mono labels and a line:
+- **Left column:** two groups with small mono labels and a line:
   - **Services:** Strategy & Growth · Process Optimization · Institutional Adoption (all → `#system` until service pages exist) · Intelligence (→ `#intelligence`)
   - **Read more:** Who we work with (→ `#clients`) · Case studies · Latest (→ `#radar`) · Ventures (→ `#ventures`) · Our story
 - **Right column:** `Get in touch`, the line "Have a technology challenge or a project in mind? A short call is the easiest way to start.", a white pill `Book a call`, and round X / LinkedIn icons.
