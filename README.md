@@ -8,7 +8,8 @@ JS, images, videos and fonts, so it runs on any static host.
 ## How changes go live
 
 - Edit the pages here, or ask Hermes (the Telegram website agent) to do it.
-- `main` is preprod: https://v2202609411057512877.hotsrv.de/ shows it within a minute.
+- `draft` is preprod: everything is published here first, and
+  https://v2202609411057512877.hotsrv.de/ shows it within a minute.
 - `live` is what Replit deploys. It only moves when you tell Hermes "release".
   Then in Replit: Pull, then Redeploy.
 
