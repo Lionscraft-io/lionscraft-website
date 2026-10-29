@@ -100,7 +100,7 @@ The inline menu links are gone. The header is now: logo on the left, and on the 
 
 - **Left column:** two groups with small mono labels and a line:
   - **Our Offering:** Services (→ `services.html`) · Intelligence (→ `intelligence.html`)
-  - **Read more:** Who we work with (→ `#clients`) · Case studies · Latest (→ `#radar`) · Our story
+  - **Read more:** Our story · Case studies · Latest (→ `#radar`)
   - No Expertise group, no Insights and no Ventures link any more.
 - **Right column:** `Get in touch`, the line "Have a technology challenge or a project in mind? A short call is the easiest way to start.", a white pill `Book a call`, and round X / LinkedIn icons.
 - On phone the two columns stack.
