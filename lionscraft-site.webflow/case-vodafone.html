@@ -506,9 +506,9 @@ body .v2-news{margin-bottom:5rem;padding:1.75rem 1.5rem}
 /* the header only gets its tint when it comes back on scroll up: 80% see-through, blurred */
 .nav_component.is-up{background-color:rgba(11,11,4,.2) !important;border-bottom-color:#ffffff14 !important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
 .nav_component.is-hidden{transform:translateY(-100%)}
-/* Book a call + Menu only show once the visitor scrolls back up (or while the menu is open) */
-.nav_btns{opacity:0;visibility:hidden;transform:translateY(-.5rem);transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear .3s}
-.nav_component.is-up .nav_btns,.v2-menu-open .nav_btns{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s}
+/* Menu is always there; Book a call only shows once the visitor scrolls back up (or while the menu is open) */
+.nav_btns .button.is-border{opacity:0;visibility:hidden;transform:translateY(-.5rem);transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear .3s}
+.nav_component.is-up .nav_btns .button.is-border,.v2-menu-open .nav_btns .button.is-border{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s}
 .v2-menu-open .nav_component{transform:none;background-color:transparent !important;border-bottom-color:transparent !important;-webkit-backdrop-filter:none;backdrop-filter:none}
 .v2-menu_btn{transition:background-color .2s,border-color .2s}.v2-menu_btn:hover{background-color:#ffffff14}
 /* header pair: Book a call (white pill) and Menu (outline), same height and type */
