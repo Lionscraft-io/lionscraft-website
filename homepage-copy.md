@@ -99,8 +99,9 @@ The inline menu links are gone. The header is now: logo on the left, and on the 
 **Menu overlay** (dark glass over the page, black at 94% with blur; fades in with the links and the Get in touch block sliding up one after another; the button turns into `✕ Close`; Escape or any link closes it):
 
 - **Left column:** two groups with small mono labels and a line:
-  - **Services:** Strategy & Growth · Process Optimization · Institutional Adoption (all → `#system` until service pages exist) · Intelligence (→ `#intelligence`)
-  - **Read more:** Who we work with (→ `#clients`) · Case studies · Latest (→ `#radar`) · Ventures (→ `#ventures`) · Our story
+  - **Our Offering:** Services (→ `services.html`) · Intelligence (→ `intelligence.html`)
+  - **Read more:** Who we work with (→ `#clients`) · Case studies · Latest (→ `#radar`) · Our story
+  - No Expertise group, no Insights and no Ventures link any more.
 - **Right column:** `Get in touch`, the line "Have a technology challenge or a project in mind? A short call is the easiest way to start.", a white pill `Book a call`, and round X / LinkedIn icons.
 - On phone the two columns stack.
 
@@ -130,12 +131,25 @@ No numbers in the hero: the client figures live in the Trust section's stat card
 
 **Removed.** Delete the whole section, and the custom code that animated its paragraph letter by letter.
 
+## Site pages for Our Offering
+
+| Page | What is on it |
+|---|---|
+| `services.html` | Overview: header "Services", then "Four ways we help." with a Book a call button and the four service rows (each links to its page) |
+| `strategy-growth.html` · `process-optimization.html` · `institutional-adoption.html` · `secure-infrastructure.html` | One page per service: the question as the header line, links to the other three, then what you get, where we apply it and proof |
+| `intelligence.html` | Overview: header "Intelligence", then "Research, data and training." with a Book a call button and three rows |
+| `research.html` · `repositories.html` · `education.html` | One page per Intelligence area, same layout as the service pages |
+
+Old links like `services.html#adoption` or `services.html#research` forward to the new pages. The three Expertise pages (digital asset, Web3 & blockchain, AI & agentic automation consulting) were deleted, with all links to them. The Insights page and its three articles still exist but are no longer in the menu or footer.
+
+**Service 04, Secure Infrastructure** (new): "How do we run this infrastructure securely and reliably?" Validator and node operations, key management, monitoring and audit readiness. What you get: validator and node infrastructure from design to live operation · key management and custody setup · monitoring, uptime and slashing-risk controls · operational standards and audit readiness. Proof: Vodafone (5 protocol infrastructure services operational), Lido ($35B secured through node operations standards). The AI line ("secure, private deployment of AI agents and the data they use") is a draft to confirm.
+
 ## System → Services (`#system`)
 
 **Dark section** (black, thin grey lines, square corners, like the rest of the site). Two parts: Services on top, Intelligence below. On phone everything stacks.
 
 **Services: left column**
-- Label: `02 / Services`
+- Label: `02 / Our Offering`
 - Big title: `Services.`
 - Text: We help you find the opportunity, build what matters and run it safely inside your organisation.
 - Link right under the text: `See our work ↗` → `case-studies.html`
@@ -149,7 +163,7 @@ No numbers in the hero: the client figures live in the Trust section's stat card
 | 03 / Adoption | Institutional Adoption | Operating model, governance, risk controls and training. | Bildschirmfoto-2026-03-02 |
 
 **Intelligence** (same section, under Services, on the same lines: same divider, and the picture in the same column as the service pictures)
-- Left: label `Knowledge / Research / Education`, big title `Intelligence.`, text "Specialist research, practical knowledge and tools you can use, free and paid.", link `Explore intelligence ↗` → `#radar`
+- Left: big title `Intelligence.` (no small label above it), text "Specialist research, practical knowledge and tools you can use, free and paid.", link `Explore intelligence ↗` → `#radar`
 - Right: a numbered list, each row a link with an ↗ arrow, and the pink dotted trees picture (former Opportunity image) beside the rows, 200px wide like the service pictures (on phone it sits above the rows):
 
 | # | Name | Line | Links to |
@@ -194,7 +208,7 @@ Two columns.
 | 04 | SMEs & growing businesses | scoping call |
 | 05 | Public sector & development organizations | scoping call |
 
-**Section labels are numbered:** `01 / Who we work with`, `02 / Services`, `03 / Trust`, `04 / Technology specializations`, `05 / Latest`, `06 / Our ventures`, `07 / Let's connect`.
+**Section labels are numbered:** `01 / Who we work with`, `02 / Our Offering`, `03 / Trust`, `04 / Technology specializations`, `05 / Latest`, `06 / Our ventures`, `07 / Let's connect`.
 
 ## Trust (`#trust`)
 
@@ -273,9 +287,9 @@ New full-width layout (replaces the old "text left, cards right" grid). Styled l
 |---|---|---|---|---|
 | `images/venture-risk.svg` (turquoise square with a dark lion) | Incubating | Risk | Structured catastrophe risk and market intelligence | risk.lionscraft.io |
 | `images/venture-protect.svg` (green square with a dark lion) | Incubating | Protect | Early-warning and disaster protection infrastructure | protect.lionscraft.io |
-| `images/venture-pookiescroll.png` (green app icon) | Focus app | PookieScroll | Tools for attention and focus | Our story (no site yet) |
+| `images/venture-pookiescroll.png` (green app icon) | Focus app | PookieScroll | Tools for attention and focus | pookiescroll.app |
 
-- **To do:** link PookieScroll to its own site or app store page once it has one; "Explore ventures" still goes to Our story.
+- **To do:** "Explore ventures" still goes to Our story.
 
 ## Closing CTA → 07 / Let's connect (`#connect`, dark)
 
@@ -301,7 +315,7 @@ Replaces both the old footer bottom line and the separate links block. One dark 
 
 1. **Links row** (three columns, stacked on phone)
    - Description: Enterprise technology, Web3 and AI. Specialist solutions, research and intelligence, with real-world experience behind them.
-   - **Explore:** Solutions (→ #system) · Intelligence (→ #intelligence) · Case studies · Latest (→ #radar) · Ventures (→ #ventures)
+   - **Explore:** Services (→ services.html) · Intelligence (→ intelligence.html) · Case studies · Latest (→ #radar) · Ventures (→ #ventures)
    - **Company:** About Lionscraft (→ Our story) · Newsletter (→ #newsletter) · LinkedIn · X / Twitter
 2. **The big animated LIONSCRAFT wordmark** (unchanged, used once as the sign-off)
 3. **One bottom line:** `Lionscraft Pte. Ltd. · Singapore · UEN 202322784R` on the left; `© 2026 Lionscraft` plus the X and LinkedIn icons on the right
