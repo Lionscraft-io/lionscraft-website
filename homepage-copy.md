@@ -315,7 +315,7 @@ Replaces both the old footer bottom line and the separate links block. One dark 
 
 1. **Links row** (three columns, stacked on phone)
    - Description: Enterprise technology, Web3 and AI. Specialist solutions, research and intelligence, with real-world experience behind them.
-   - **Explore:** Services (→ services.html) · Intelligence (→ intelligence.html) · Case studies · Latest (→ #radar) · Ventures (→ #ventures)
+   - **Explore:** Home (→ index.html) · Services (→ services.html) · Intelligence (→ intelligence.html) · Case studies · Latest (→ #radar) · Ventures (→ #ventures)
    - **Company:** About Lionscraft (→ Our story) · Newsletter (→ #newsletter) · LinkedIn · X / Twitter
 2. **The big animated LIONSCRAFT wordmark** (unchanged, used once as the sign-off)
 3. **One bottom line:** `Lionscraft Pte. Ltd. · Singapore · UEN 202322784R` on the left; `© 2026 Lionscraft` plus the X and LinkedIn icons on the right
