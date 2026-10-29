@@ -9,6 +9,7 @@ The Telegram side uses the Nous Research API (the same one the OpenClaw bots use
 Run `python main.py` to start it, or `python main.py chat` to talk to the agent in the terminal.
 Settings come from environment variables; see .env.example.
 """
+import base64
 import functools
 import hmac
 import inspect
@@ -152,8 +153,8 @@ def run_tool(call):
         return f"Error: {type(e).__name__}: {e}"
 
 
-def reply(key, text):
-    """Answer one message in one chat, using the website tools as needed."""
+def reply(key, content):
+    """Answer one message in one chat, using the website tools as needed. content is text, or text plus a photo."""
     chat = get_chat(key)
     with chat["lock"]:
         if len(chat["messages"]) > MAX_HISTORY or time.time() - chat["last"] > IDLE_RESET_SECONDS:
@@ -161,7 +162,7 @@ def reply(key, text):
         chat["last"] = time.time()
 
         # Work on a copy so a failed call leaves the saved conversation untouched
-        messages = chat["messages"] + [{"role": "user", "content": text}]
+        messages = chat["messages"] + [{"role": "user", "content": content}]
         try:
             for _ in range(40):
                 response = client.chat.completions.create(
@@ -257,10 +258,27 @@ def status_text(chat_key):
     return "\n".join(lines)
 
 
+def telegram_image(msg):
+    """The photo in a message (or an image sent as a file) as a data URL the model can read, or None."""
+    if msg.get("photo"):
+        file_id, mime = msg["photo"][-1]["file_id"], "image/jpeg"  # the largest size Telegram made
+    elif msg.get("document", {}).get("mime_type", "").startswith("image/"):
+        file_id, mime = msg["document"]["file_id"], msg["document"]["mime_type"]
+    else:
+        return None
+    info = telegram_api("getFile", file_id=file_id).json().get("result", {})
+    if not info.get("file_path") or info.get("file_size", 0) > 5_000_000:
+        return None
+    r = requests.get(f"https://api.telegram.org/file/bot{TELEGRAM_TOKEN}/{info['file_path']}", timeout=60)
+    return f"data:{mime};base64,{base64.b64encode(r.content).decode()}" if r.ok else None
+
+
 def handle_telegram(msg):
     chat_id = msg["chat"]["id"]
-    user_id = str(msg.get("from", {}).get("id", ""))
-    text = msg.get("text", "").strip()
+    sender = msg.get("from", {})
+    user_id = str(sender.get("id", ""))
+    # A photo's words are in its caption, not its text
+    text = (msg.get("text") or msg.get("caption") or "").strip()
     group = msg["chat"]["type"] != "private"
     if group:
         if str(chat_id) not in ALLOWED_GROUPS:
@@ -279,8 +297,11 @@ def handle_telegram(msg):
         for i in range(0, len(answer), 4000):
             telegram_api("sendMessage", chat_id=chat_id, text=answer[i:i + 4000], link_preview_options={"is_disabled": True}, **extra)
 
-    if not text:
-        say(HELP if group else "I can only read text messages for now.")
+    image = telegram_image(msg)
+    log.info("Telegram message from @%s (%s) in chat %s%s", sender.get("username"), user_id, chat_id, " with an image" if image else "")
+    if not text and not image:
+        if not group:  # in a group, stickers and the like just pass by
+            say("I can read text and photos, nothing else yet.")
         return
     command, _, arg = text.partition(" ")
     command = command.split("@")[0].lower() if command.startswith("/") else ""
@@ -304,7 +325,8 @@ def handle_telegram(msg):
     telegram_api("sendChatAction", chat_id=chat_id, action="typing")
     threading.Thread(target=keep_typing, args=(chat_id, done), daemon=True).start()
     try:
-        answer = reply(chat_id, text)
+        content = [{"type": "text", "text": text or "(photo)"}, {"type": "image_url", "image_url": {"url": image}}] if image else text
+        answer = reply(chat_id, content)
     finally:
         done.set()
     say(answer)
