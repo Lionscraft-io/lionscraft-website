@@ -274,7 +274,8 @@ def handle_telegram(msg):
 
     def say(answer):
         # In a group, answer as a reply so it is clear who it is for
-        extra = {"reply_parameters": {"message_id": msg["message_id"]}} if group else {}
+        # (still sent when that message was deleted in the meantime)
+        extra = {"reply_parameters": {"message_id": msg["message_id"], "allow_sending_without_reply": True}} if group else {}
         for i in range(0, len(answer), 4000):
             telegram_api("sendMessage", chat_id=chat_id, text=answer[i:i + 4000], link_preview_options={"is_disabled": True}, **extra)
 
