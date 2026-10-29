@@ -116,8 +116,7 @@ HELP = (
     "and release to the live branch only when you say \"release\". Then pull and redeploy in Replit.\n\n"
     "/status shows the model, draft and release state\n"
     "/models lists the models I can use, /model switches (like /model sonnet)\n"
-    "/new starts a fresh conversation\n\n"
-    "In a group, mention me or reply to my message."
+    "/new starts a fresh conversation"
 )
 COMMANDS = [
     ("help", "What I can do"),
@@ -258,12 +257,6 @@ def status_text(chat_key):
     return "\n".join(lines)
 
 
-def addressed_in_group(msg, text):
-    """In a group, Hermes only answers when someone mentions it, replies to it, or sends a command."""
-    replied_to = msg.get("reply_to_message", {}).get("from", {}).get("id")
-    return f"@{bot_user.get('username')}".lower() in text.lower() or replied_to == bot_user.get("id") or text.startswith("/")
-
-
 def handle_telegram(msg):
     chat_id = msg["chat"]["id"]
     user_id = str(msg.get("from", {}).get("id", ""))
@@ -272,8 +265,6 @@ def handle_telegram(msg):
     if group:
         if str(chat_id) not in ALLOWED_GROUPS:
             log.info("Ignored message in Telegram group %s", chat_id)
-            return
-        if not addressed_in_group(msg, text):
             return
         text = re.sub(re.escape(f"@{bot_user.get('username')}"), "", text, flags=re.I).strip()
     elif user_id not in ALLOWED_USERS:

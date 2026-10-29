@@ -63,7 +63,7 @@ Run both again after every change. Your keys in `.env` are kept.
 - `/status` shows the model, the draft and what's waiting for release. `/models` lists models, `/model sonnet` (or `/model 2`) switches for everyone and is kept after a restart.
 - For the website, talk normally: "change the homepage headline to ...", "add a case study like the Lido one for ...", "undo the last change".
 - `/new` starts a fresh conversation.
-- In a private chat, only the people in `TELEGRAM_ALLOWED_USERS` can use it. In the groups in `TELEGRAM_ALLOWED_GROUPS`, everyone in the group can: mention `@lionsweb_bot` or reply to its message.
+- In a private chat, only the people in `TELEGRAM_ALLOWED_USERS` can use it. In the groups in `TELEGRAM_ALLOWED_GROUPS`, Hermes answers every message from everyone. For that, the bot must be an admin of the group (otherwise Telegram only passes it messages that mention it or reply to it).
 - "What's not live yet?" lists published changes that aren't released.
 
 ## Check on it
