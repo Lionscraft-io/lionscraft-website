@@ -100,7 +100,7 @@ The inline menu links are gone. The header is now: logo on the left, and on the 
 
 - **Left column:** two groups with small mono labels and a line:
   - **Our Offering:** Services (→ `services.html`) · Intelligence (→ `intelligence.html`)
-  - **Read more:** Our story · Case studies · Latest (→ `#radar`) · Ventures (→ `#ventures`)
+  - **Read more:** Our story · Case studies · Latest (→ `/latest`) · Ventures (→ `/ventures`)
   - No Expertise group and no Insights link any more.
 - **Right column:** `Get in touch`, the line "Have a technology challenge or a project in mind? A short call is the easiest way to start.", a white pill `Book a call`, and round X / LinkedIn icons.
 - On phone the two columns stack.
@@ -136,7 +136,7 @@ No numbers in the hero: the client figures live in the Trust section's stat card
 All internal links and asset paths are root-relative (`/services/advisory`, `/images/...`), so a page works at any folder depth. The live host serves `/x` from `x.html`.
 
 ```
-/                                   Home (Latest and Ventures are sections on it: /#radar, /#ventures)
+/                                   Home (short Latest and Ventures sections link to their pages)
 /our-story                          Our story
 /services                           Overview: "Four ways we help." + the four rows
   /services/advisory                01 Advisory   (was Strategy & Growth)
@@ -152,6 +152,8 @@ All internal links and asset paths are root-relative (`/services/advisory`, `/im
   /intelligence/training            Training      (was Education)
 /case-studies                       Overview
   /case-studies/lido · /case-studies/munich-re · /case-studies/vodafone · /case-studies/stc-bahrain
+/latest                             Latest: all posts (homepage "View all updates" links here)
+/ventures                           Ventures: Risk, Protect, PookieScroll (homepage "Explore ventures" links here)
 /legal/privacy-policy
 ```
 
@@ -330,7 +332,7 @@ Replaces both the old footer bottom line and the separate links block. One dark 
 
 1. **Links row** (three columns, stacked on phone)
    - Description: Enterprise technology, Web3 and AI. Specialist solutions, research and intelligence, with real-world experience behind them.
-   - **Explore:** Home (→ index.html) · Services (→ services.html) · Intelligence (→ intelligence.html) · Case studies · Latest (→ #radar) · Ventures (→ #ventures)
+   - **Explore:** Home (→ index.html) · Services (→ services.html) · Intelligence (→ intelligence.html) · Case studies · Latest (→ /latest) · Ventures (→ /ventures)
    - **Company:** About Lionscraft (→ Our story) · Newsletter (→ #newsletter) · LinkedIn · X / Twitter
 2. **The big animated LIONSCRAFT wordmark** (unchanged, used once as the sign-off)
 3. **One bottom line:** `Lionscraft Pte. Ltd. · Singapore · UEN 202322784R` on the left; `© 2026 Lionscraft` plus the X and LinkedIn icons on the right

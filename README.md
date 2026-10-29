@@ -41,6 +41,7 @@ attribute that triggers the "Made in Webflow" badge).
   - `services.html` + `services/` — Advisory, Build, Operate, Structure
   - `intelligence.html` + `intelligence/` — Research (with articles in `intelligence/research/`), Data & Tools, Training
   - `case-studies.html` + `case-studies/` — one page per case study
+  - `latest.html`, `ventures.html`
   - `legal/privacy-policy.html`, `404.html`, `401.html`, `sitemap.xml`, `robots.txt`
   - `css/`, `js/`, `images/`, `videos/`, `fonts/` (all linked root-relative, e.g. `/images/...`)
 - `scripts/mirror-webflow.py` — refreshes the copy from Webflow
