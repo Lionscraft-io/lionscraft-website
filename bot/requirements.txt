@@ -1,4 +1,0 @@
-anthropic
-flask
-requests
-waitress
