@@ -10,7 +10,7 @@ JS, images, videos and fonts, so it runs on any static host.
 - Edit the pages here, or ask Hermes (the Telegram website agent) to do it.
 - `draft` is preprod: everything is published here first, and
   https://v2202609411057512877.hotsrv.de/ shows it within a minute.
-- `live` is what Replit deploys. It only moves when you tell Hermes "release".
+- `main` is the live website: Replit deploys it. It only moves when you tell Hermes "release".
   Then in Replit: Pull, then Redeploy.
 
 ## Run locally
@@ -27,7 +27,7 @@ Python's plain `http.server` can't, so subpages wouldn't open.
 
 The `.replit` file runs `serve.py` when you press Run (so the preview opens subpages) and
 deploys it as a static site (Deploy → Static, public directory
-`site`). The Repl follows the `live` branch.
+`site`). The Repl follows the `main` branch.
 
 ## Structure
 
