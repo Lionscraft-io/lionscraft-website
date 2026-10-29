@@ -96,7 +96,7 @@ The inline menu links are gone. The header is now: logo on the left, and on the 
 
 **Header behaviour:** at the top of the page the header is fully transparent and shows the logo and the `Menu` button; `Book a call` is hidden. Scrolling down, it stays transparent and slides up out of view once the page has moved past the header height (about 80px); it never turns into a dark bar on the way down. When the visitor scrolls up, it comes back after a few pixels as a blurred, 80% see-through bar (black at 20%) with `Book a call` fading in next to `Menu`. Back at the very top it is fully transparent again and `Book a call` hides. The header always stays visible while the menu is open, with its Close button.
 
-**Menu overlay** (dark glass over the page, black at 94% with blur; fades in with the links and the Get in touch block sliding up one after another; the button turns into `✕ Close`; Escape or any link closes it):
+**Menu overlay** (dark glass over the page, black at 80% with blur, so the page shows through a little; fades in with the links and the Get in touch block sliding up one after another; the button turns into `✕ Close`; Escape or any link closes it):
 
 - **Left column:** two groups with small mono labels and a line:
   - **Our Offering:** Services (→ `services.html`) · Intelligence (→ `intelligence.html`)

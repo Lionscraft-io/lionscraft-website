@@ -1,0 +1,22 @@
+[Unit]
+Description=Lionscraft chat bot (WhatsApp + Telegram)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=lionscraft-bot
+WorkingDirectory=/opt/lionscraft-bot
+EnvironmentFile=/opt/lionscraft-bot/.env
+Environment=SUBSCRIBERS_FILE=/var/lib/lionscraft-bot/subscribers.csv
+Environment=PYTHONDONTWRITEBYTECODE=1
+StateDirectory=lionscraft-bot
+ExecStart=/opt/lionscraft-bot/venv/bin/python main.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

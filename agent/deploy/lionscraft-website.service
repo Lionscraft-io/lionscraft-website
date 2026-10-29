@@ -1,0 +1,25 @@
+[Unit]
+Description=Hermes, the Lionscraft website agent (Telegram + MCP + preprod sync)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=lionscraft-website
+WorkingDirectory=/opt/lionscraft-website
+EnvironmentFile=/opt/lionscraft-website/.env
+Environment=DATA_DIR=/var/lib/lionscraft-website
+Environment=GIT_SSH_KEY=/var/lib/lionscraft-website/ssh/deploy_key
+Environment=HOME=/var/lib/lionscraft-website
+Environment=PORT=8791
+Environment=PYTHONDONTWRITEBYTECODE=1
+StateDirectory=lionscraft-website
+ExecStart=/opt/lionscraft-website/venv/bin/python main.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
