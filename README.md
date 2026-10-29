@@ -2,9 +2,8 @@
 
 Static website for Lionscraft — digital, financial and risk infrastructure.
 
-This repo is the only source of the site. Everything is in `lionscraft-site.webflow/`
-(the folder name is from the old Webflow export; Webflow itself is no longer used):
-pages, CSS, JS, images, videos and fonts, so it runs on any static host.
+This repo is the only source of the site. Everything is in `site/`: pages, CSS,
+JS, images, videos and fonts, so it runs on any static host.
 
 ## How changes go live
 
@@ -16,19 +15,19 @@ pages, CSS, JS, images, videos and fonts, so it runs on any static host.
 ## Run locally
 
 ```bash
-python3 -m http.server 8000 --directory lionscraft-site.webflow
+python3 -m http.server 8000 --directory site
 # open http://localhost:8000
 ```
 
 ## Replit
 
-The `.replit` file serves `lionscraft-site.webflow/` when you press Run and
+The `.replit` file serves `site/` when you press Run and
 deploys it as a static site (Deploy → Static, public directory
-`lionscraft-site.webflow`). The Repl follows the `live` branch.
+`site`). The Repl follows the `live` branch.
 
 ## Structure
 
-- `lionscraft-site.webflow/` (served with clean URLs: `/services/advisory` → `services/advisory.html`)
+- `site/` (served with clean URLs: `/services/advisory` → `services/advisory.html`)
   - `index.html` — homepage; `our-story.html`
   - `services.html` + `services/` — Advisory, Build, Operate, Structure
   - `intelligence.html` + `intelligence/` — Research (with articles in `intelligence/research/`), Data & Tools, Training

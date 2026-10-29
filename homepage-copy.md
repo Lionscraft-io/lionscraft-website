@@ -1,7 +1,7 @@
 # Lionscraft homepage v2: copy sheet for Webflow
 
 This sheet maps the new copy onto the **existing** sections and elements in Webflow Designer, top to bottom.
-The new version is now the local homepage, `lionscraft-site.webflow/index.html`. The original export is still in git (`git show HEAD:lionscraft-site.webflow/index.html`). lionscraft.io itself only changes once this copy is entered in Webflow.
+The new version is the homepage, `site/index.html`.
 
 ## The offering in one line
 
