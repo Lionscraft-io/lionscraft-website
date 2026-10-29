@@ -59,7 +59,9 @@ Run both again after every change. Your keys in `.env` are kept.
 
 ## Using it
 
-- Talk normally: "change the homepage headline to ...", "add a case study like the Lido one for ...", "undo the last change".
+- Hermes chats about anything; its personality is in `SOUL.md` (edit it and redeploy to change it).
+- `/status` shows the model, the draft and what's waiting for release. `/models` lists models, `/model sonnet` (or `/model 2`) switches for everyone and is kept after a restart.
+- For the website, talk normally: "change the homepage headline to ...", "add a case study like the Lido one for ...", "undo the last change".
 - `/new` starts a fresh conversation.
 - In a private chat, only the people in `TELEGRAM_ALLOWED_USERS` can use it. In the groups in `TELEGRAM_ALLOWED_GROUPS`, everyone in the group can: mention `@lionsweb_bot` or reply to its message.
 - "What's not live yet?" lists published changes that aren't released.

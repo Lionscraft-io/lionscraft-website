@@ -19,6 +19,8 @@ import re
 import sys
 import threading
 import time
+from datetime import datetime
+from pathlib import Path
 
 import openai
 import requests
@@ -30,7 +32,21 @@ from starlette.responses import FileResponse, PlainTextResponse, RedirectRespons
 
 import website
 
-MODEL = os.environ.get("MODEL", "anthropic/claude-opus-5.5")
+MODELS = [  # good picks from the Nous API; /model also takes any other model id it offers
+    "anthropic/claude-opus-5.5",
+    "anthropic/claude-sonnet-5.5",
+    "anthropic/claude-fable-5.1",
+    "openai/gpt-6.1-sol",
+    "google/gemini-3.1-pro-preview",
+    "google/gemini-3.8-flash",
+    "deepseek/deepseek-v4-pro-0813",
+    "deepseek/deepseek-v4.1-flash",
+    "moonshotai/kimi-k3",
+    "x-ai/grok-4.7",
+]
+MODEL_FILE = website.DATA / "model.txt"  # the model picked with /model, kept across restarts
+MODEL = MODEL_FILE.read_text().strip() if MODEL_FILE.exists() else os.environ.get("MODEL", "anthropic/claude-opus-5.5")
+STARTED = datetime.now()
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 ALLOWED_USERS = {u.strip() for u in os.environ.get("TELEGRAM_ALLOWED_USERS", "").split(",") if u.strip()}
 ALLOWED_GROUPS = {g.strip() for g in os.environ.get("TELEGRAM_ALLOWED_GROUPS", "").split(",") if g.strip()}
@@ -47,13 +63,18 @@ client = openai.OpenAI(
     timeout=300,
 )
 
-SYSTEM = f"""You are Hermes, the Lionscraft website agent. The Lionscraft team messages you on Telegram to update the content of their website: text, headlines, links, case studies, articles, and new pages based on existing ones.
+# Who Hermes is. Edit SOUL.md to change its personality.
+SOUL = (Path(__file__).parent / "SOUL.md").read_text()
 
-The website is a static site (HTML exported from Webflow) kept in GitHub. Your tools work on a draft copy of it.
+SYSTEM = f"""{SOUL}
+
+# The website job
+
+The Lionscraft website is a static site (HTML exported from Webflow) kept in GitHub. Your tools work on a draft copy of it. Use them only when someone wants something about the website; for anything else, just talk.
 Keep the design as it is. Small layout fixes are fine when asked; for a redesign, say it is better done on a computer.
 
 How a change goes:
-1. Make the change in the draft. Prefer small exact edits: find_text or page_text, then replace_text. Keep the existing HTML, classes and look; change only what was asked. When something appears on several pages (menu, footer), change it on every page.
+1. Make the change in the draft. Prefer small exact edits: find_text, then replace_text. Keep the existing HTML, classes and look; change only what was asked. When something appears on several pages (menu, footer), use replace_everywhere once instead of editing page by page. Make independent tool calls together in one step.
 2. Send the preview link of the changed page and say in a line or two what you changed.
 3. Publish only after they say so (yes, ok, publish, go). Use a short commit message like "Add Ventures back to the menu". Publishing puts it on preprod, not live.
 4. Release only when they say release (or "make it live"). unreleased_changes shows what would go live. After release, tell them to pull from GitHub in Replit and redeploy.
@@ -61,12 +82,9 @@ To undo a published change: recent_changes, then undo_change, then preview and p
 
 Links inside the site are clean root paths: /services/advisory is the file services/advisory.html. Use the same style for new links.
 The draft is shared: if show_changes lists changes you did not make in this chat, mention them before publishing.
-For website copy, never make up facts, clients, numbers or quotes. Ask.
-If a request is unclear (which page, what wording), ask one short question first.
+If a website request is unclear (which page, what wording), ask one short question first.
 
-How to write: this is a phone chat. Short plain text, no markdown. Reply in the language they write in.
-
-Preprod site (what is on GitHub): {website.preprod_url()}"""
+Preprod site (what is on GitHub main): {website.preprod_url()}"""
 
 
 def tool_schema(fn):
@@ -93,11 +111,22 @@ TOOLS = [tool_schema(fn) for fn in website.TOOLS]
 TOOLS_BY_NAME = {fn.__name__: fn for fn in website.TOOLS}
 SOMETHING_WRONG = "Sorry, something went wrong on my side. Try again, or send /new to start fresh."
 HELP = (
-    "I'm Hermes. I update the Lionscraft website for you. Tell me what to change, like "
-    "\"change the homepage headline to ...\". I show you a preview first and publish to preprod only when you say so. "
-    "Say \"release\" when preprod should go live; then pull and redeploy in Replit.\n\n"
-    "/new starts a fresh conversation. In a group, mention me or reply to my message."
+    "I'm Hermes. Chat with me about anything, or ask me to change the Lionscraft website, like "
+    "\"change the homepage headline to ...\". I show you a preview first, publish to preprod only when you say so, "
+    "and release to the live branch only when you say \"release\". Then pull and redeploy in Replit.\n\n"
+    "/status shows the model, draft and release state\n"
+    "/models lists the models I can use, /model switches (like /model sonnet)\n"
+    "/new starts a fresh conversation\n\n"
+    "In a group, mention me or reply to my message."
 )
+COMMANDS = [
+    ("help", "What I can do"),
+    ("status", "Model, draft and release state"),
+    ("models", "Models I can use"),
+    ("model", "Switch model, like /model sonnet"),
+    ("new", "Start a fresh conversation"),
+]
+
 
 # One conversation per chat: {"messages": [...], "last": time, "lock": Lock}
 chats = {}
@@ -177,6 +206,58 @@ def keep_typing(chat_id, done):
         telegram_api("sendChatAction", chat_id=chat_id, action="typing")
 
 
+def models_text():
+    lines = [f"{i}. {m}" + ("  <- now" if m == MODEL else "") for i, m in enumerate(MODELS, 1)]
+    if MODEL not in MODELS:
+        lines.append(f"Now: {MODEL}")
+    return "\n".join(lines) + "\n\nSwitch with /model 2 or /model sonnet."
+
+
+def set_model(choice):
+    """Switches the model for every chat, and keeps it after a restart."""
+    global MODEL
+    if not choice:
+        return models_text()
+    if choice.isdigit() and 1 <= int(choice) <= len(MODELS):
+        new = MODELS[int(choice) - 1]
+    else:
+        matches = [m for m in MODELS if choice.lower() in m.lower()]
+        new = matches[0] if len(matches) == 1 else choice if not matches and "/" in choice else None
+        if not new:
+            return f"Which one? {', '.join(matches) or 'No match.'} Send /models for the list."
+    try:
+        offered = {m.id for m in client.models.list()}
+        if offered and new not in offered:
+            return f"The Nous API doesn't offer {new}."
+    except openai.APIError:
+        pass  # can't check the list right now; try the model anyway
+    MODEL = new
+    website.DATA.mkdir(parents=True, exist_ok=True)
+    MODEL_FILE.write_text(MODEL)
+    return f"Now using {MODEL}."
+
+
+def status_text(chat_key):
+    lines = [
+        f"Model: {MODEL}",
+        f"This chat: {len(get_chat(chat_key)['messages'])} messages in memory (/new clears it)",
+        f"Running since {STARTED:%d %b %H:%M}",
+    ]
+    try:
+        with website.lock:
+            pages = website.changed_pages()
+            pending = website.pending_release()
+        lines.append(f"Draft: {len(pages)} unpublished file(s): {', '.join(pages[:5])}" if pages else "Draft: nothing unpublished")
+        if pending is None:
+            lines.append("Live: there is no live branch yet")
+        else:
+            lines.append(f"Live: {len(pending)} published change(s) waiting for release" if pending else "Live: same as preprod")
+    except website.SiteError as e:
+        lines.append(f"GitHub: {e}")
+    lines.append(f"Preprod: {website.preprod_url()}")
+    return "\n".join(lines)
+
+
 def addressed_in_group(msg, text):
     """In a group, Hermes only answers when someone mentions it, replies to it, or sends a command."""
     replied_to = msg.get("reply_to_message", {}).get("from", {}).get("id")
@@ -209,12 +290,23 @@ def handle_telegram(msg):
     if not text:
         say(HELP if group else "I can only read text messages for now.")
         return
-    if text.startswith("/start") or text.startswith("/help"):
+    command, _, arg = text.partition(" ")
+    command = command.split("@")[0].lower() if command.startswith("/") else ""
+    if command in ("/start", "/help"):
         say(HELP)
         return
-    if text.startswith("/new"):
+    if command == "/new":
         get_chat(chat_id)["messages"] = []
-        say("OK, fresh start. What should I change?")
+        say("OK, fresh start.")
+        return
+    if command == "/status":
+        say(status_text(chat_id))
+        return
+    if command == "/models":
+        say(models_text())
+        return
+    if command == "/model":
+        say(set_model(arg.strip()))
         return
     done = threading.Event()
     telegram_api("sendChatAction", chat_id=chat_id, action="typing")
@@ -232,6 +324,7 @@ bot_user = {}  # Hermes's own Telegram user, from getMe
 def telegram_loop():
     telegram_api("deleteWebhook")
     bot_user.update(telegram_api("getMe").json().get("result", {}))
+    telegram_api("setMyCommands", commands=[{"command": c, "description": d} for c, d in COMMANDS])
     offset = None
     log.info("Telegram agent listening")
     while True:

@@ -33,7 +33,7 @@ GIT_NAME = os.environ.get("GIT_NAME", "Lionscraft site agent")
 GIT_EMAIL = os.environ.get("GIT_EMAIL", "site-agent@noreply.lionscraft.io")
 TEXT_FILES = {".html", ".css", ".js", ".json", ".xml", ".txt", ".svg", ".md"}
 MAX_OUTPUT = 20000  # characters a tool sends back, so one page does not flood the chat
-FRESH_SECONDS = 30  # how old the draft may be before it is refreshed from GitHub
+FRESH_SECONDS = 120  # how old the draft may be before a tool refreshes it; the background sync runs every minute
 
 log = logging.getLogger("website")
 lock = threading.RLock()
@@ -80,10 +80,12 @@ def sync():
     global last_sync
     with lock:
         ensure_clones()
-        repos = [PREPROD] if has_changes() else [PREPROD, DRAFT]
-        for repo in repos:
-            git("fetch", "-q", "origin", BRANCH, cwd=repo)
-            git("reset", "-q", "--hard", f"origin/{BRANCH}", cwd=repo)
+        git("fetch", "-q", "origin", BRANCH)  # the only download from GitHub
+        if not has_changes():
+            git("reset", "-q", "--hard", f"origin/{BRANCH}")
+        # Preprod takes the same commit straight from the draft clone
+        git("fetch", "-q", str(DRAFT), f"refs/remotes/origin/{BRANCH}", cwd=PREPROD)
+        git("reset", "-q", "--hard", "FETCH_HEAD", cwd=PREPROD)
         last_sync = time.time()
 
 
@@ -331,6 +333,28 @@ def replace_text(page: str, old: str, new: str, replace_all: bool = False) -> st
         return f"Changed {count} place(s) in {page}. Preview: {preview_url(page)}"
 
 
+def replace_everywhere(old: str, new: str) -> str:
+    """Replace exact text on every HTML page of the draft at once. Use it for things on many pages, like the menu or footer.
+
+    Args:
+        old: The exact text to replace, as it is in the HTML.
+        new: The text to put in its place.
+    """
+    with lock:
+        refresh()
+        if not old:
+            raise SiteError("The old text is empty.")
+        changed = []
+        for path in sorted(site_root().rglob("*.html")):
+            content = path.read_text(errors="replace")
+            if old in content:
+                path.write_text(content.replace(old, new))
+                changed.append(f"{rel(path.resolve())} ({content.count(old)}x)")
+        if not changed:
+            raise SiteError("The old text was not found on any page. Check it with find_text.")
+        return f"Changed {len(changed)} pages: {', '.join(changed)}. Preview: {preview_url('index.html')}"
+
+
 def copy_page(source: str, new_page: str) -> str:
     """Copy a page to a new file, as a starting point for a new page. Then change its text with replace_text.
 
@@ -483,14 +507,21 @@ def fetch_live():
         return False
 
 
+def pending_release():
+    """Published commits that are not on the live branch yet, newest first; None when there is no live branch."""
+    sync()
+    if not fetch_live():
+        return None
+    return git("log", "--date=short", "--format=%h %ad %an: %s", f"origin/{LIVE_BRANCH}..origin/{BRANCH}").splitlines()
+
+
 def unreleased_changes() -> str:
     """List the published changes that are on preprod but not live yet (not on the branch Replit deploys)."""
     with lock:
-        sync()
-        if not fetch_live():
+        pending = pending_release()
+        if pending is None:
             return f"There is no {LIVE_BRANCH} branch yet. release will create it from preprod."
-        pending = git("log", "--date=short", "--format=%h %ad %an: %s", f"origin/{LIVE_BRANCH}..origin/{BRANCH}")
-        return pending or "Nothing to release: live is the same as preprod."
+        return "\n".join(pending) or "Nothing to release: live is the same as preprod."
 
 
 def release() -> str:
@@ -498,20 +529,19 @@ def release() -> str:
     Only do this when the user says release. After it, they pull and redeploy in Replit.
     """
     with lock:
-        sync()
-        exists = fetch_live()
-        pending = git("log", "--format=%h %s", f"origin/{LIVE_BRANCH}..origin/{BRANCH}") if exists else "everything"
-        if not pending:
+        pending = pending_release()
+        if pending == []:
             return "Nothing to release: live is the same as preprod."
         try:
             # Not forced, so GitHub refuses if live has commits that main does not have
             git("push", "-q", "origin", f"refs/remotes/origin/{BRANCH}:refs/heads/{LIVE_BRANCH}")
         except SiteError as e:
             raise SiteError(f"Could not move {LIVE_BRANCH}; it may have changes that are not on main. {e}")
-        return f"Released to {LIVE_BRANCH}:\n{pending}\nTo go live: in Replit, pull from GitHub and redeploy."
+        released = "\n".join(pending) if pending else "everything (new live branch)"
+        return f"Released to {LIVE_BRANCH}:\n{released}\nTo go live: in Replit, pull from GitHub and redeploy."
 
 
 TOOLS = [
-    list_pages, page_text, find_text, read_html, replace_text, copy_page, write_file, delete_file,
+    list_pages, page_text, find_text, read_html, replace_text, replace_everywhere, copy_page, write_file, delete_file,
     show_changes, publish, discard_changes, recent_changes, undo_change, unreleased_changes, release,
 ]
