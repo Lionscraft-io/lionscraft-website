@@ -36,11 +36,13 @@ attribute that triggers the "Made in Webflow" badge).
 
 ## Structure
 
-- `lionscraft-site.webflow/`
-  - `index.html` — homepage
-  - `legal/privacy-policy.html`
-  - `404.html`, `401.html`
-  - `css/`, `js/`, `images/`, `videos/`, `fonts/`
+- `lionscraft-site.webflow/` (served with clean URLs: `/services/advisory` → `services/advisory.html`)
+  - `index.html` — homepage; `our-story.html`
+  - `services.html` + `services/` — Advisory, Build, Operate, Structure
+  - `intelligence.html` + `intelligence/` — Research (with articles in `intelligence/research/`), Data & Tools, Training
+  - `case-studies.html` + `case-studies/` — one page per case study
+  - `legal/privacy-policy.html`, `404.html`, `401.html`, `sitemap.xml`, `robots.txt`
+  - `css/`, `js/`, `images/`, `videos/`, `fonts/` (all linked root-relative, e.g. `/images/...`)
 - `scripts/mirror-webflow.py` — refreshes the copy from Webflow
 
 ## Notes

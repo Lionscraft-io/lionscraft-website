@@ -131,18 +131,33 @@ No numbers in the hero: the client figures live in the Trust section's stat card
 
 **Removed.** Delete the whole section, and the custom code that animated its paragraph letter by letter.
 
-## Site pages for Our Offering
+## Site structure and addresses
 
-| Page | What is on it |
-|---|---|
-| `services.html` | Overview: header "Services", then "Four ways we help." with a Book a call button and the four service rows (each links to its page) |
-| `strategy-growth.html` · `process-optimization.html` · `institutional-adoption.html` · `secure-infrastructure.html` | One page per service: the question as the header line, links to the other three, then what you get, where we apply it and proof |
-| `intelligence.html` | Overview: header "Intelligence", then "Research, data and training." with a Book a call button and three rows |
-| `research.html` · `repositories.html` · `education.html` | One page per Intelligence area, same layout as the service pages |
+All internal links and asset paths are root-relative (`/services/advisory`, `/images/...`), so a page works at any folder depth. The live host serves `/x` from `x.html`.
 
-Old links like `services.html#adoption` or `services.html#research` forward to the new pages. The three Expertise pages (digital asset, Web3 & blockchain, AI & agentic automation consulting) were deleted, with all links to them. The Insights page and its three articles still exist but are no longer in the menu or footer.
+```
+/                                   Home (Latest and Ventures are sections on it: /#radar, /#ventures)
+/our-story                          Our story
+/services                           Overview: "Four ways we help." + the four rows
+  /services/advisory                01 Advisory   (was Strategy & Growth)
+  /services/build                   02 Build      (was Process Optimization)
+  /services/operate                 03 Operate    (was Secure Infrastructure)
+  /services/structure               04 Structure  (was Institutional Adoption)
+/intelligence                       Overview: "Research, data and training." + three rows
+  /intelligence/research            Research, with the article list
+    /intelligence/research/slashing-risk-explained
+    /intelligence/research/telco-blockchain-validators
+    /intelligence/research/agentic-ai-automation-where-to-start
+  /intelligence/data-tools          Data & Tools  (was Repositories)
+  /intelligence/training            Training      (was Education)
+/case-studies                       Overview
+  /case-studies/lido · /case-studies/munich-re · /case-studies/vodafone · /case-studies/stc-bahrain
+/legal/privacy-policy
+```
 
-**Service 04, Secure Infrastructure** (new): "How do we run this infrastructure securely and reliably?" Validator and node operations, key management, monitoring and audit readiness. What you get: validator and node infrastructure from design to live operation · key management and custody setup · monitoring, uptime and slashing-risk controls · operational standards and audit readiness. Proof: Vodafone (5 protocol infrastructure services operational), Lido ($35B secured through node operations standards). The AI line ("secure, private deployment of AI agents and the data they use") is a draft to confirm.
+Each service and Intelligence page has the question as its header line, links to the others in its group, then what you get, where we apply it and proof. Old addresses (`/strategy-growth`, `/case-lido`, `/insights`, …) were removed and now show the 404 page. The Insights overview is gone; its three articles are listed on the Research page.
+
+**Operate** (formerly Secure Infrastructure): "How do we run this infrastructure securely and reliably?" Validator and node operations, key management, monitoring and audit readiness. What you get: validator and node infrastructure from design to live operation · key management and custody setup · monitoring, uptime and slashing-risk controls · operational standards and audit readiness. Proof: Vodafone (5 protocol infrastructure services operational), Lido ($35B secured through node operations standards). The AI line ("secure, private deployment of AI agents and the data they use") is a draft to confirm.
 
 ## System → Services (`#system`)
 
