@@ -81,7 +81,7 @@ Some phones block autoplay (for example iPhones in Low Power Mode) and then show
 
 ## Cookie consent
 
-The cookie banner stays as it is. The small floating cookie icon in the bottom-left corner (the Finsweet "manager" button, `fs-cc-manager2_component`) is removed on every page. In Webflow: delete that element from the page template. If visitors should still be able to change their cookie choice later, add a `Cookie settings` link in the footer instead.
+There is no cookie banner. Google Analytics sets analytics cookies (advertising stays off), and the privacy policy explains this and how to opt out. Every page links the privacy policy in the footer, next to the copyright.
 
 ## Page settings (SEO)
 

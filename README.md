@@ -44,4 +44,6 @@ deploys it as a static site (Deploy → Static, public directory
 - The pages still use the scripts that came with the Webflow export (`js/webflow*.js`)
   for the menu, animations and sliders. They run locally; no Webflow account is needed.
 - Some third-party scripts stay external and need internet: Google Analytics,
-  Finsweet cookie consent, Swiper, and the cal.com booking links.
+  Swiper, and the cal.com booking links.
+- There is no cookie banner: Google Analytics sets analytics cookies (advertising
+  off), and `site/legal/privacy-policy.html` says so, with how to opt out.
