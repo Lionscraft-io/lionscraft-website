@@ -496,7 +496,12 @@ body .v2-trust_grid.cs-overview_grid .v2-trust_card:hover{background-color:#ffff
 }
 
 /* case studies overview (csl) */
-.csx-hero_grid.is-single .csx-h1.csl-h1{font-size:4.5rem;letter-spacing:-.04em}
+.csx-h1.csl-h1{font-size:4.5rem;letter-spacing:-.04em}
+.csx-hero_inner{position:relative}
+.csx-hero_text{position:relative;z-index:1}
+/* picture bleeds to the right edge of the header and fades into the dark background */
+.csl-hero_img{position:absolute;top:0;right:0;bottom:0;width:54%;pointer-events:none}
+.csl-hero_img img{display:block;width:100%;height:100%;object-fit:cover;object-position:60% 50%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 45%),linear-gradient(to bottom,transparent 0,#000 25%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 45%),linear-gradient(to bottom,transparent 0,#000 25%);mask-composite:intersect}
 .csl-head{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
 .csl-filter{display:flex;flex-wrap:wrap;gap:.5rem}
 .csl-filter button{display:inline-flex;align-items:center;gap:.5rem;height:2.5rem;padding:0 1rem;border:1px solid var(--border-color--border-primary);border-radius:999px;background-color:transparent;color:#0b0b04;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background-color .2s,color .2s}
@@ -504,9 +509,9 @@ body .v2-trust_grid.cs-overview_grid .v2-trust_card:hover{background-color:#ffff
 .csl-filter button:hover{background-color:#f3f1e8}
 .csl-filter button.is-active{background-color:#0b0b04;border-color:#0b0b04;color:#fafafa}
 .csl-filter button.is-active span{color:#a1a1a1}
-.csl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
-.csl-card{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:1rem;align-content:start;padding:2rem 1.75rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);color:#0b0b04;text-decoration:none;transition:background-color .2s}
-.csl-card:hover{background-color:#f3f1e8}
+.csl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
+.csl-card{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:1rem;align-content:start;padding:2rem 1.75rem;background-color:#f3f1e8;color:#0b0b04;text-decoration:none;transition:background-color .2s}
+.csl-card:hover{background-color:#eceadf}
 .csl-card[hidden]{display:none}
 .csl-logo{height:2.25rem;display:flex;align-items:center;margin-bottom:.5rem}
 .csl-logo img{max-height:2rem;max-width:8rem}
@@ -521,8 +526,8 @@ body .v2-trust_grid.cs-overview_grid .v2-trust_card:hover{background-color:#ffff
 .csl-foot svg{flex:none;color:#0b0b04}
 .csl-grid + .csx-cta{margin-top:4rem}
 @media screen and (max-width:1199px){.csl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media screen and (max-width:991px){.csx-hero_grid.is-single .csx-h1.csl-h1{font-size:3.25rem}}
-@media screen and (max-width:767px){.csl-grid{grid-template-columns:1fr}.csx-hero_grid.is-single .csx-h1.csl-h1{font-size:2.75rem}.csl-card{padding:1.75rem 1.5rem}}
+@media screen and (max-width:991px){.csx-h1.csl-h1{font-size:3.25rem}.csl-hero_img{position:static;width:100%;aspect-ratio:16/9;margin-top:2.5rem}.csl-hero_img img{-webkit-mask-image:none;mask-image:none}}
+@media screen and (max-width:767px){.csl-grid{grid-template-columns:1fr;gap:1rem}.csx-h1.csl-h1{font-size:2.75rem}.csl-card{padding:1.75rem 1.5rem}}
 
 /* no native play button on background videos (hero, footer lion) when a phone blocks autoplay, e.g. iOS Low Power Mode */
 .w-background-video video{pointer-events:none}
@@ -1004,7 +1009,9 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <h1 class="csx-h1 csl-h1">Case studies</h1>
 <p class="csx-standfirst">How telcos, insurers, protocols and enterprises turned blockchain and AI into working business with Lionscraft.</p>
 <div class="csx-pills"><span>16 case studies</span><span>Telecommunications</span><span>Insurance</span><span>Protocols</span><span>Enterprise</span></div>
-</div></div></div></div></div></section>
+</div>
+<div class="csl-hero_img"><img src="/images/BG-7.avif" alt="" width="1208" height="1240" loading="eager"/></div>
+</div></div></div></div></section>
 
 <section class="csx-body"><div class="padding-global"><div class="container-large">
 <div class="csl-head"><div class="csx-label">Filter by service</div><div class="csl-filter" role="group" aria-label="Filter case studies by service"><button type="button" class="is-active" data-filter="all" aria-pressed="true">All <span>16</span></button><button type="button" data-filter="advisory" aria-pressed="false">Advisory <span>16</span></button><button type="button" data-filter="build" aria-pressed="false">Build <span>10</span></button><button type="button" data-filter="operate" aria-pressed="false">Operate <span>4</span></button><button type="button" data-filter="secure" aria-pressed="false">Secure <span>6</span></button></div></div>
