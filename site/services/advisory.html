@@ -396,19 +396,20 @@ margin: 0rem !important;
 .adv-work_logo{height:2.25rem;display:flex;align-items:center;font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;letter-spacing:-.02em}
 .adv-work_logo img{max-height:2rem;max-width:8rem}
 .adv-work_title{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.25;letter-spacing:-.02em;margin:0;color:#0b0b04}
-/* services list as a table: area | no. | service | typical output */
-.adv-groups{border-left:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary)}
+/* services list as a light table: area | no. | service | typical output, rows divided by lines, no column lines */
+.adv-groups{border-bottom:1px solid var(--border-color--border-primary)}
 .adv-group{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);border-top:1px solid var(--border-color--border-primary)}
-.adv-group_intro{padding:1.75rem;border-right:1px solid var(--border-color--border-primary);background-color:#f3f1e8}
+.adv-group_intro{padding:1.75rem 2rem 1.75rem 0}
 .adv-group_intro .adv-label{margin-bottom:1rem}
 .adv-thead{border-top-color:#0b0b04}
-.adv-thead > .adv-label{border-right:1px solid var(--border-color--border-primary)}
 .adv-thead .adv-label{padding:.875rem 1.5rem;font-size:.6875rem;letter-spacing:.12em}
+.adv-thead > .adv-label{padding-left:0}
 .adv-group_intro h3{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.08;letter-spacing:-.03em;margin:0 0 .75rem;color:#0b0b04}
 .adv-group_intro p{margin:0;font-size:1rem;line-height:1.55;color:#5c5c55;max-width:22.5rem}
 .adv-svc{display:grid;grid-template-columns:4.5rem minmax(0,1.2fr) minmax(0,1fr);scroll-margin-top:6rem}
 .adv-svc + .adv-svc{border-top:1px solid var(--border-color--border-primary)}
-.adv-svc > *{padding:1.5rem;border-right:1px solid var(--border-color--border-primary)}
+.adv-svc > *{padding:1.5rem}
+.adv-svc > :first-child{padding-left:0}
 .adv-svc_out .adv-label{display:none}
 .adv-svc h4{font-family:Saans,Arial,sans-serif;font-size:1.25rem;font-weight:500;line-height:1.25;letter-spacing:-.015em;margin:0 0 .5rem;color:#0b0b04}
 .adv-svc p{margin:0;font-size:.9375rem;line-height:1.55;color:#3d3d37}
