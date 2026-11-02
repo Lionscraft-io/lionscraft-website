@@ -486,12 +486,11 @@ margin: 0rem !important;
 .csx-chapter_aside{grid-column:2;max-width:46rem}
 }
 @media screen and (max-width:991px){
-.csx-hero_inner{padding:7.5rem 1.5rem 3rem}
-.csx-hero_pic{position:static;width:100%;aspect-ratio:16/9;margin-top:2.5rem}
-.csx-hero_pic img{-webkit-mask-image:none;mask-image:none}
-.csx-hero_text{display:contents}
-.csx-hero_inner{display:flex;flex-direction:column}
-.csx-hero_pic{order:99}
+/* phones: the picture runs edge to edge below the text and fades in and out of the dark */
+.csx-hero_inner{display:flex;flex-direction:column;padding:7.5rem 1.5rem 1rem}
+.csx-hero_text{order:1}
+.csx-hero_pic{position:relative;order:2;width:auto;height:16rem;margin:.5rem -1.5rem 0}
+.csx-hero_pic img{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 40%,#000 65%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 40%,#000 65%,transparent 100%)}
 .csx-h1{font-size:2.5rem}
 .csx-stats,.csx-stats.is-3,.csx-stats.is-4{grid-template-columns:repeat(2,minmax(0,1fr));margin:0 1.5rem}
 .csx-stat{padding:1.5rem 1.5rem 1.75rem}
