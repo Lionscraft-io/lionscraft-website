@@ -366,7 +366,9 @@ margin: 0rem !important;
 .adv-crumbs a{color:#a1a1a1;text-decoration:none}.adv-crumbs a:hover{color:#fafafa}.adv-crumbs [aria-current]{color:#fafafa}
 .adv-h1{font-family:Saans,Arial,sans-serif;font-size:5.5rem;font-weight:500;line-height:1;letter-spacing:-.04em;margin:0 0 1.5rem;color:#fafafa}
 .adv-statement{font-family:Saans,Arial,sans-serif;font-size:1.875rem;font-weight:500;line-height:1.2;letter-spacing:-.02em;margin:0 0 1.25rem;max-width:40rem;color:#fafafa}
-.adv-standfirst{font-size:1.125rem;line-height:1.55;color:#d4d4d4;margin:0 0 2.5rem;max-width:35rem}
+.adv-standfirst{font-size:1.125rem;line-height:1.55;color:#d4d4d4;margin:0 0 1.5rem;max-width:35rem}
+.adv-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2.5rem}
+.adv-pills span{border:1px solid #ffffff40;border-radius:999px;padding:.5rem .875rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#d4d4d4}
 .adv-hero_btns{display:flex;flex-wrap:wrap;gap:.75rem}
 .adv-btn{display:inline-flex;align-items:center;gap:.625rem;height:3.25rem;padding:0 1.5rem;border-radius:999px;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s}
 .adv-btn.is-light{background-color:#fafafa;color:#0b0b04}.adv-btn.is-light:hover{background-color:#e6e4da}
@@ -374,10 +376,6 @@ margin: 0rem !important;
 .adv-btn.is-dark{background-color:#0b0b04;color:#fafafa}.adv-btn.is-dark:hover{background-color:#242424}
 .adv-pill{display:inline-flex;align-items:center;gap:.625rem;height:2.75rem;padding:0 1.25rem;border-radius:999px;border:1px solid #0b0b04;color:#0b0b04;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color .2s,color .2s}
 .adv-pill:hover{background-color:#0b0b04;color:#fafafa}
-.adv-domains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 2rem;border-top:1px solid #ffffff2e}
-.adv-domains > div{padding:1.375rem 1.5rem;border-right:1px solid #ffffff2e;display:flex;gap:.875rem;align-items:center;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fafafa}
-.adv-domains > div:first-child{padding-left:0}.adv-domains > div:last-child{border-right:none}
-.adv-domains span{color:#a1a1a1}
 .adv-body{background-color:#fbfaf3;color:#0b0b04}
 .adv-body .container-large{padding:0 2rem}
 .adv-sec{padding:5.5rem 0;border-top:1px solid var(--border-color--border-primary)}
@@ -424,8 +422,6 @@ margin: 0rem !important;
 .adv-hero_text{order:1}
 .adv-hero_pic{position:relative;order:2;width:auto;height:16rem;margin:.5rem -1.5rem 0}
 .adv-hero_pic img{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 40%,#000 65%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 40%,#000 65%,transparent 100%)}
-.adv-domains{grid-template-columns:minmax(0,1fr);margin:0 1.5rem}
-.adv-domains > div{border-right:none;border-bottom:1px solid #ffffff2e;padding:1rem 0}.adv-domains > div:last-child{border-bottom:none}
 .adv-body .container-large{padding:0 1.5rem}
 .adv-sec{padding:4rem 0}
 .adv-h2{font-size:2.125rem}
@@ -926,10 +922,10 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <h1 class="adv-h1">Advisory</h1>
 <p class="adv-statement">Find what's worth pursuing. Make a plan to get there.</p>
 <p class="adv-standfirst">Strategy, business cases, partnerships and implementation plans for blockchain, digital assets and AI automation.</p>
+<div class="adv-pills" aria-label="Where we apply it"><span>Blockchain</span><span>Digital assets</span><span>AI &amp; automation</span></div>
 <div class="adv-hero_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" rel="noopener" class="adv-btn is-light">Book a scoping call <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"></path></svg></a><a href="#services" class="adv-btn is-outline">Explore Advisory services</a></div>
 </div>
 </div>
-<div class="adv-domains" aria-label="Where we apply it"><div><span>01 /</span>Blockchain</div><div><span>02 /</span>Digital assets</div><div><span>03 /</span>AI &amp; automation</div></div>
 </div></div></section>
 
 <section class="adv-body"><div class="padding-global"><div class="container-large">
