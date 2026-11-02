@@ -355,20 +355,26 @@ margin: 0rem !important;
 /* case study article layout (csx) */
 .csx-label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#5c5c55}
 .csx-hero{background-color:var(--dark-bg);color:#fafafa}
-.csx-hero_inner{padding:9rem 2rem 4.5rem}
+.csx-hero_inner{position:relative;overflow:hidden;padding:9rem 2rem 4.5rem}
+/* picture bleeds to the right edge of the header and fades into the dark background */
+.csx-hero_pic{position:absolute;top:0;right:0;bottom:0;width:52%;pointer-events:none}
+.csx-hero_pic img{display:block;width:100%;height:100%;object-fit:cover;object-position:60% 50%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 45%),linear-gradient(to bottom,transparent 0,#000 25%),linear-gradient(to top,transparent 0,#000 22%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 45%),linear-gradient(to bottom,transparent 0,#000 25%),linear-gradient(to top,transparent 0,#000 22%);mask-composite:intersect}
+.csx-hero_text{position:relative;z-index:1}
 .csx-crumbs{display:flex;flex-wrap:wrap;gap:.625rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:3rem}
 .csx-crumbs a{color:#a1a1a1;text-decoration:none}.csx-crumbs a:hover{color:#fafafa}.csx-crumbs [aria-current]{color:#fafafa}
-.csx-hero_grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:4rem;align-items:end}
-.csx-client_logo{display:block;height:2.75rem;width:auto;margin-bottom:2rem;filter:invert(1) brightness(1.08)}
+.csx-client_logo{display:block;height:2.75rem;width:auto;margin-bottom:1.75rem;filter:invert(1) brightness(1.08)}
 .csx-client_logo.is-white{filter:none}
-.csx-tags{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:1.5rem}
-.csx-h1{font-family:Saans SemiMono,Arial,sans-serif;font-size:3.25rem;font-weight:500;line-height:1.12;letter-spacing:-.02em;margin:0 0 1.75rem;color:#fafafa}
-.csx-standfirst{font-size:1.25rem;line-height:1.55;color:#d4d4d4;margin:0 0 2rem;max-width:44rem}
+.csx-tags{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:1.25rem}
+.csx-h1{font-family:Saans,Arial,sans-serif;font-size:3.5rem;font-weight:500;line-height:1.06;letter-spacing:-.03em;margin:0 0 1.75rem;max-width:47.5rem;color:#fafafa}
+.csx-standfirst{font-size:1.25rem;line-height:1.5;color:#d4d4d4;margin:0 0 2rem;max-width:40rem}
 .csx-pills{display:flex;flex-wrap:wrap;gap:.5rem}
 .csx-pills span{border:1px solid #ffffff40;border-radius:999px;padding:.5rem .875rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#d4d4d4}
-.csx-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-color--border-alternate);border-left:1px solid var(--border-color--border-alternate)}
-.csx-stat{padding:1.5rem;border-right:1px solid var(--border-color--border-alternate);border-bottom:1px solid var(--border-color--border-alternate)}
-.csx-stat_num{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;letter-spacing:-.03em;line-height:1;margin-bottom:.75rem;color:#fafafa}
+/* key numbers: a strip on plain dark below the picture */
+.csx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 2rem;border-top:1px solid #ffffff2e}
+.csx-stats.is-1{grid-template-columns:minmax(0,1fr)}.csx-stats.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}.csx-stats.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.csx-stat{padding:1.75rem 1.75rem 2rem;border-right:1px solid #ffffff2e}
+.csx-stat:first-child{padding-left:0}.csx-stat:last-child{border-right:none;padding-right:0}
+.csx-stat_num{font-family:Saans,Arial,sans-serif;font-size:2.5rem;font-weight:500;letter-spacing:-.03em;line-height:1;margin-bottom:.75rem;color:#fafafa}
 .csx-stat_label{font-size:.875rem;line-height:1.45;color:#a1a1a1}
 .csx-body{background-color:#fbfaf3;color:#0b0b04}
 .csx-body .container-large{padding:5rem 2rem 6rem}
@@ -376,13 +382,14 @@ margin: 0rem !important;
 .csx-main{min-width:0}
 .csx-sec{padding:3.5rem 0;border-top:1px solid var(--border-color--border-primary)}
 .csx-main > .csx-sec:first-of-type,.csx-main > details + .csx-sec{border-top:none;padding-top:0}
-.csx-sec h2{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:0 0 2rem;color:#0b0b04}
+.csx-sec h2{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:0 0 1.75rem;color:#0b0b04}
 .csx-prose{max-width:46rem}
 .csx-prose p,.csx-chapter_body p{font-size:1.0625rem;line-height:1.7;color:#3d3d37;margin:0 0 1.125rem}
 .csx-prose h3,.csx-chapter_body h3{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.3;letter-spacing:-.015em;margin:2rem 0 1rem;color:#0b0b04}
 .csx-prose > h3:first-child,.csx-chapter_body > h3:first-child{margin-top:0}
 .csx-prose a,.csx-chapter_body a,.csx-facts a{color:#0b0b04;text-decoration:underline;text-decoration-color:#0b0b0466;text-underline-offset:.2em}
 .csx-prose a:hover,.csx-chapter_body a:hover,.csx-facts a:hover{text-decoration-color:#0b0b04}
+.csx-prose strong,.csx-chapter_body strong{font-weight:500;color:#0b0b04}
 .csx-list{margin:0 0 1.25rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:.625rem}
 .csx-list li{position:relative;padding-left:1.5rem;font-size:1.0625rem;line-height:1.6;color:#3d3d37}
 .csx-list li:before{content:"";position:absolute;left:0;top:.62em;width:.5rem;height:.5rem;border:1.5px solid #0b0b04;border-radius:50%}
@@ -392,12 +399,14 @@ margin: 0rem !important;
 .csx-table td{padding:.875rem 1rem .875rem 0;border-bottom:1px solid var(--border-color--border-primary);vertical-align:top;color:#3d3d37}
 .csx-table td strong{color:#0b0b04;font-weight:500}
 .csx-table .is-num{text-align:right;white-space:nowrap}
-.csx-brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
-.csx-brief_card{padding:1.75rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);background-color:#fbfaf3}
-.csx-brief_icon{width:2.5rem;height:2.5rem;border:1px solid var(--border-color--border-primary);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:#0b0b04}
-.csx-brief_icon svg{width:1.25rem;height:1.25rem}
-.csx-brief_card .csx-label{color:#0b0b04;margin-bottom:.625rem}
+.csx-sub{font-family:Saans,Arial,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.35;letter-spacing:-.01em;margin:1.75rem 0 .5rem;color:#0b0b04}
+.csx-prose > .csx-sub:first-child{margin-top:0}
+/* story in brief: numbered tinted panels */
+.csx-brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.csx-brief_card{padding:1.75rem;background-color:#f3f1e8}
+.csx-brief_card .csx-label{color:#0b0b04;margin-bottom:.875rem}
 .csx-brief_card p{font-size:.9688rem;line-height:1.6;color:#3d3d37;margin:0}
+.csx-brief_card strong{font-weight:500;color:#0b0b04}
 .csx-timeline summary{list-style:none;cursor:default}.csx-timeline summary::-webkit-details-marker{display:none}
 .csx-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));position:relative}
 .csx-tl:before{content:"";position:absolute;left:0;right:0;top:.375rem;height:1px;background:#0b0b04}
@@ -405,33 +414,60 @@ margin: 0rem !important;
 .csx-tl_dot{position:absolute;left:0;top:0;width:.75rem;height:.75rem;border-radius:50%;background:#0b0b04}
 .csx-tl_date{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#0b0b04;margin-bottom:.5rem}
 .csx-tl_text{font-size:.875rem;line-height:1.45;color:#5c5c55}
-.csx-chapter{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:1rem;padding:2rem 0;border-top:1px solid var(--border-color--border-primary)}
+/* story chapters: number, text and a margin note */
+.csx-chapter{display:grid;grid-template-columns:3.5rem minmax(0,1fr) 12rem;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--border-color--border-primary)}
 .csx-chapter:first-of-type{border-top:none;padding-top:0}
 .csx-chapter_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.875rem;color:#5c5c55;padding-top:.3rem}
 .csx-chapter_body{max-width:46rem}
+.csx-chapter_aside{border-top:1px solid #0b0b04;padding-top:.875rem;align-self:start}
+.csx-chapter_aside .csx-label{font-size:.6875rem;letter-spacing:.12em;margin-bottom:.5rem}
+.csx-chapter_fact{font-size:.9375rem;line-height:1.45;font-weight:500;color:#0b0b04}
+.csx-chapter_fact + .csx-chapter_fact{margin-top:.625rem;padding-top:.625rem;border-top:1px solid var(--border-color--border-primary)}
+/* what Lionscraft did: one tinted card per service */
+.csx-did_wrap{max-width:none}
+.csx-did_wrap > p,.csx-did_wrap > h3,.csx-did_wrap > .csx-list,.csx-did_wrap > .csx-sub{max-width:46rem}
+.csx-did{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin:0 0 1.25rem}
+.csx-did_card{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem;background-color:#f3f1e8;color:#0b0b04;text-decoration:none;transition:background-color .2s}
+.csx-prose a.csx-did_card{text-decoration:none}
+.csx-did_card:hover{background-color:#eceadf}
+.csx-did_card h3{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.25;letter-spacing:-.015em;margin:0;color:#0b0b04}
+.csx-did_card p{font-size:.9688rem;line-height:1.6;color:#3d3d37;margin:0}
+/* results: numbered two-column list */
+.csx-results_grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.5rem;margin:0 0 1.5rem}
+.csx-result{display:flex;gap:1rem;padding:1.25rem 0;border-top:1px solid var(--border-color--border-primary)}
+.csx-result:nth-child(-n+2){border-top-color:#0b0b04}
+.csx-result_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;color:#5c5c55;flex:none;width:1.5rem;padding-top:.3rem}
+.csx-results .csx-result p{margin:0;font-size:1rem;line-height:1.6}
+.csx-results{max-width:none}.csx-results > p,.csx-results > .csx-table{max-width:46rem}
+/* rail */
 .csx-rail{position:sticky;top:6rem;align-self:start}
 .csx-rail_inner{border-left:1px solid var(--border-color--border-primary);padding-left:1.5rem}
-.csx-toc{display:flex;flex-direction:column;margin:1rem 0 2.5rem}
+.csx-rail_facts-label{margin-bottom:.5rem}
+.csx-rail_toc-label{margin-top:2.25rem;margin-bottom:.5rem}
+.csx-toc{display:flex;flex-direction:column}
 .csx-toc a,.csx-toc-mobile nav a{font-size:.9375rem;line-height:1.35;color:#5c5c55;text-decoration:none;padding:.4rem 0 .4rem .875rem;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:calc(1.5rem - 2px)}
+.csx-toc a.is-sub,.csx-toc-mobile nav a.is-sub{font-size:.875rem;padding-left:calc(2.5rem - 2px);padding-top:.3rem;padding-bottom:.3rem}
 .csx-toc a:hover{color:#0b0b04}
 .csx-toc a.is-active{color:#0b0b04;border-left-color:#0b0b04}
-.csx-rail_facts-label{margin-bottom:1rem}
 .csx-facts{margin:0;display:flex;flex-direction:column}
 .csx-fact{padding:.75rem 0;border-top:1px solid var(--border-color--border-primary)}
 .csx-fact dt{font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#5c5c55;margin-bottom:.25rem}
 .csx-fact dd{margin:0;font-size:.9375rem;line-height:1.45;color:#0b0b04}
 .csx-toc-mobile,.csx-facts-mobile{display:none}
 .csx-wide{border-top:1px solid var(--border-color--border-primary)}
-.csx-sec_head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+.csx-sec_head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:1.75rem}
 .csx-sec_head h2{margin:0}.csx-sec_head p{margin:0;color:#5c5c55;font-size:1rem;line-height:1.5;max-width:30rem}
-.csx-sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
-.csx-source{display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);color:#0b0b04;text-decoration:none;transition:background-color .2s}
-.csx-source:hover{background-color:#f3f1e8}
+/* evidence: tinted cards */
+.csx-sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.csx-source{display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;min-height:12.5rem;background-color:#f3f1e8;color:#0b0b04;text-decoration:none;transition:background-color .2s}
+.csx-source:hover{background-color:#eceadf}
 .csx-source h3{font-family:Saans,Arial,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.3;letter-spacing:-.01em;margin:0}
 .csx-source p{font-size:.9063rem;line-height:1.5;color:#5c5c55;margin:0}
 .csx-source_meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.75rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:#5c5c55}
 .csx-source_meta svg{flex:none;color:#0b0b04}
+/* related work: bordered boxes */
 .csx-related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
+.csx-related.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .csx-related_card{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);color:#0b0b04;text-decoration:none;transition:background-color .2s;min-height:12rem}
 .csx-related_card:hover{background-color:#f3f1e8}
 .csx-related_card h3{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;letter-spacing:-.025em;margin:0}
@@ -442,18 +478,22 @@ margin: 0rem !important;
 .csx-cta p{font-size:1rem;line-height:1.6;color:#3d3d37;margin:0 0 .75rem;max-width:44rem}
 .csx-cta_btn{display:inline-flex;align-items:center;gap:.75rem;height:3.25rem;padding:0 1.5rem;border-radius:999px;background-color:#0b0b04;color:#fafafa;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
 .csx-cta_btn:hover{background-color:#242424}
-.csx-hero_grid.is-single{grid-template-columns:minmax(0,1fr)}
-.csx-hero_grid.is-single .csx-h1{max-width:60rem}
-.csx-stat:last-child:nth-child(odd){grid-column:span 2}
-.csx-sub{font-family:Saans,Arial,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.35;letter-spacing:-.01em;margin:1.75rem 0 .5rem;color:#0b0b04}
-.csx-prose > .csx-sub:first-child{margin-top:0}
-.csx-related.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media screen and (max-width:767px){.csx-related.is-2{grid-template-columns:1fr}}
-@media screen and (max-width:1199px){.csx-tl{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:2rem}.csx-tl:before{display:none}.csx-tl li{border-top:1px solid #0b0b04;padding-top:1.5rem}.csx-tl_dot{top:-.375rem}}
+@media screen and (max-width:1199px){
+.csx-tl{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:2rem}.csx-tl:before{display:none}.csx-tl li{border-top:1px solid #0b0b04;padding-top:1.5rem}.csx-tl_dot{top:-.375rem}
+.csx-chapter{grid-template-columns:3.5rem minmax(0,1fr)}
+.csx-chapter_aside{grid-column:2;max-width:46rem}
+}
 @media screen and (max-width:991px){
 .csx-hero_inner{padding:7.5rem 1.5rem 3rem}
-.csx-hero_grid{grid-template-columns:1fr;gap:2.5rem}
+.csx-hero_pic{position:static;width:100%;aspect-ratio:16/9;margin-top:2.5rem}
+.csx-hero_pic img{-webkit-mask-image:none;mask-image:none}
+.csx-hero_text{display:contents}
+.csx-hero_inner{display:flex;flex-direction:column}
+.csx-hero_pic{order:99}
 .csx-h1{font-size:2.5rem}
+.csx-stats,.csx-stats.is-3,.csx-stats.is-4{grid-template-columns:repeat(2,minmax(0,1fr));margin:0 1.5rem}
+.csx-stat{padding:1.5rem 1.5rem 1.75rem}
+.csx-stat:nth-child(2n){border-right:none;padding-right:0}.csx-stat:nth-child(2n+1){padding-left:0}
 .csx-body .container-large{padding:3rem 1.5rem 4rem}
 .csx-layout{grid-template-columns:1fr;gap:0}
 .csx-rail{display:none}
@@ -464,6 +504,7 @@ margin: 0rem !important;
 .csx-toc-mobile[open] summary:after{content:"–"}
 .csx-toc-mobile nav{display:flex;flex-direction:column;padding:0 1.25rem 1rem}
 .csx-toc-mobile nav a{margin-left:0;padding-left:0;border-left:none}
+.csx-toc-mobile nav a.is-sub{padding-left:1rem}
 .csx-facts-mobile{display:flex;margin:0 0 1rem;border-bottom:1px solid var(--border-color--border-primary)}
 .csx-sources,.csx-related{grid-template-columns:1fr 1fr}
 .csx-cta{grid-template-columns:minmax(0,1fr);gap:1.5rem;padding:2rem}
@@ -472,17 +513,20 @@ margin: 0rem !important;
 .csx-timeline[open] summary:after{content:"–"}
 }
 @media screen and (max-width:767px){
-.csx-brief,.csx-sources,.csx-related{grid-template-columns:1fr}
+.csx-brief,.csx-sources,.csx-related,.csx-related.is-2,.csx-results_grid{grid-template-columns:1fr}
+.csx-result:nth-child(2){border-top-color:var(--border-color--border-primary)}
+.csx-stats,.csx-stats.is-2,.csx-stats.is-3,.csx-stats.is-4{grid-template-columns:minmax(0,1fr)}
+.csx-stat,.csx-stat:nth-child(2n),.csx-stat:nth-child(2n+1){border-right:none;padding:1.25rem 0;border-bottom:1px solid #ffffff2e}
+.csx-stat:last-child{border-bottom:none}
+.csx-stat_num{font-size:1.875rem}
 .csx-tl{grid-template-columns:1fr;row-gap:0}
 .csx-tl li{border-top:none;border-left:1px solid #0b0b04;padding:0 0 1.5rem 1.5rem;margin-left:.375rem}
 .csx-tl_dot{left:-.375rem;top:.25rem}
 .csx-chapter{grid-template-columns:1fr;gap:.5rem}
+.csx-chapter_aside{grid-column:1;margin-top:.5rem}
 .csx-sec h2{font-size:1.875rem}
-.csx-h1{font-size:2rem}
+.csx-h1{font-size:2.125rem}
 .csx-client_logo{height:2.25rem;margin-bottom:1.5rem}
-.csx-stats{grid-template-columns:1fr 1fr}
-.csx-stat{padding:1.125rem}
-.csx-stat_num{font-size:1.75rem}
 .csx-cta{padding:1.75rem 1.5rem}
 .csx-cta h2{font-size:1.625rem}
 .csx-cta_btn{white-space:normal;height:auto;min-height:3.25rem;padding:.875rem 1.5rem;line-height:1.4;max-width:100%}
@@ -962,23 +1006,26 @@ body .v2-latest_link{color:#fafafa}
 body .v2-latest_link:hover{border-bottom-color:#fafafa}
 body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 </style></div><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav_component w-nav"><div class="padding-global"><div class="nav_container"><a href="/" class="nav_brand w-nav-brand"><img src="/images/Logo.svg" loading="lazy" alt="Logo" class="nav_logo is-desktop"/><img src="/images/Lion-Mascot-1.svg" loading="lazy" alt="" class="nav_logo is-mobile"/></a><nav role="navigation" class="nav_menu w-nav-menu"><a href="/#clients" class="nav_menu_link w-nav-link">clients</a><a href="/#system" class="nav_menu_link w-nav-link">services</a><a href="/#trust" class="nav_menu_link w-nav-link">TRUST</a><a href="/latest" class="nav_menu_link w-nav-link">latest</a></nav><div class="nav_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-border w-button">book a call</a><button type="button" class="v2-menu_btn" data-menu-toggle aria-expanded="false" aria-controls="v2-menu"><span class="v2-menu_lines"><i></i><i></i></span><span class="v2-menu_txt">Menu</span><span class="v2-menu_txt is-close">Close</span></button></div></div></div></div><div id="v2-menu" class="v2-menu" aria-hidden="true"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-menu_inner"><div class="v2-menu_col"><div class="v2-menu_group"><div class="v2-menu_label">Our Offering</div><a href="/services" class="v2-menu_link">Services</a><a href="/intelligence" class="v2-menu_link">Intelligence</a></div><div class="v2-menu_group"><div class="v2-menu_label">Read more</div><a href="/our-story" class="v2-menu_link">Our story</a><a href="/case-studies" class="v2-menu_link">Case studies</a><a href="/latest" class="v2-menu_link">Latest</a><a href="/ventures" class="v2-menu_link">Ventures</a></div></div><div class="v2-menu_touch"><h2 class="v2-menu_touch-title">Get in touch</h2><p class="v2-menu_touch-text">Have a technology challenge or a project in mind? A short call is the easiest way to start.</p><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-menu_cta">Book a call</a><div class="v2-menu_social"><a href="https://x.com/Lionscraft_io" target="_blank" aria-label="Lionscraft on X"><svg aria-hidden="true" viewBox="0 0 16 14" fill="currentColor"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" aria-label="Lionscraft on LinkedIn"><svg aria-hidden="true" viewBox="0 0 16 17" fill="currentColor"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z"></path></svg></a><a href="mailto:hello@lionscraft.io" aria-label="Email hello@lionscraft.io"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg></a><a href="https://t.me/bartulovic" target="_blank" aria-label="Message @bartulovic on Telegram"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.7 19.6c-.24 1.08-.88 1.35-1.79.84l-4.94-3.64-2.38 2.29c-.26.26-.48.48-.99.48l.35-5.02 9.14-8.26c.4-.35-.09-.55-.62-.2L6.17 13.2l-4.86-1.52c-1.06-.33-1.08-1.06.22-1.57L20.5 2.79c.88-.32 1.65.2 1.44 1.51Z"></path></svg></a></div></div></div></div></div></div><main class="main-wrapper">
-<section class="csx-hero"><div class="padding-global"><div class="container-large is-hero-border"><div class="csx-hero_inner">
+<section class="csx-hero"><div class="padding-global"><div class="container-large is-hero-border">
+<div class="csx-hero_inner">
+<div class="csx-hero_pic"><img src="/images/BG-7.avif" alt="" width="1208" height="1240" loading="eager"/></div>
+<div class="csx-hero_text">
 <nav class="csx-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/case-studies" class="cs-back">Case studies</a><span>/</span><span aria-current="page">stc Bahrain</span></nav>
-<div class="csx-hero_grid"><div class="csx-hero_text">
 <img src="/images/idhphjkeDx_logos-1-1.svg" alt="stc Bahrain logo" width="88" height="44" class="csx-client_logo"/><div class="csx-tags">Telecommunications / 2023–2025</div>
 <h1 class="csx-h1">Building a Web3 Infrastructure Business from Strategy to Operations</h1>
 <p class="csx-standfirst">Lionscraft designed and delivered stc Bahrain's Web3 Launchpad, developing its blockchain infrastructure business, securing protocol partnerships, deploying and operating multi-chain infrastructure, launching a dedicated blockchain network, and delivering applications, ecosystem programmes and training.</p>
 <div class="csx-pills"><span>Advisory</span><span>Build</span><span>Operate</span></div>
 </div>
-<div class="csx-stats" aria-label="Key numbers"><div class="csx-stat"><div class="csx-stat_num">3</div><div class="csx-stat_label">industry awards for Web3 Launchpad, 2024–2025</div></div><div class="csx-stat"><div class="csx-stat_num">64</div><div class="csx-stat_label">projects submitted to the Intersect Makeathon + Hackathon</div></div><div class="csx-stat"><div class="csx-stat_num">Aug 2024</div><div class="csx-stat_label">Intersect, an Avalanche-based network, launched</div></div><div class="csx-stat"><div class="csx-stat_num">4</div><div class="csx-stat_label">tailored Web3 workshops in November 2025</div></div></div>
-</div></div></div></div></section>
+</div>
+<div class="csx-stats is-4" aria-label="Key numbers"><div class="csx-stat"><div class="csx-stat_num">3</div><div class="csx-stat_label">industry awards for Web3 Launchpad, 2024–2025</div></div><div class="csx-stat"><div class="csx-stat_num">64</div><div class="csx-stat_label">projects submitted to the Intersect Makeathon + Hackathon</div></div><div class="csx-stat"><div class="csx-stat_num">Aug 2024</div><div class="csx-stat_label">Intersect, an Avalanche-based network, launched</div></div><div class="csx-stat"><div class="csx-stat_num">4</div><div class="csx-stat_label">tailored Web3 workshops in November 2025</div></div></div>
+</div></div></section>
 
 <section class="csx-body"><div class="padding-global"><div class="container-large"><div class="csx-layout">
 <div class="csx-main">
 
-<details class="csx-toc-mobile"><summary>On this page</summary><nav><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#timeline">Timeline</a><a href="#story">The story</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav></details>
+<details class="csx-toc-mobile"><summary>On this page</summary><nav><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#timeline">Timeline</a><a href="#story">The story</a><a href="#chapter-1" class="is-sub">01 Establishing Web3 Launchpad</a><a href="#chapter-2" class="is-sub">02 Building and operating multi-protocol infrastructure</a><a href="#chapter-3" class="is-sub">03 Launching Intersect, a dedicated blockchain network</a><a href="#chapter-4" class="is-sub">04 Delivering the Intersect Makeathon + Hackathon</a><a href="#chapter-5" class="is-sub">05 Developing Ramadan Feast, an on-chain consumer application</a><a href="#chapter-6" class="is-sub">06 Developing enterprise and community capabilities</a><a href="#chapter-7" class="is-sub">07 Managing the operating lifecycle</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav></details>
 
-<section id="brief" class="csx-sec"><h2>The story in brief</h2><div class="csx-brief"><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></div><div class="csx-label">Situation</div><p>stc Bahrain sought to expand its telecommunications infrastructure business into blockchain and Web3 services. Establishing this new business required a commercial strategy, protocol partnerships, technical infrastructure, operating capabilities and new organisational expertise.</p></div><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg></div><div class="csx-label">Role</div><p>Lionscraft led the design and delivery of stc Bahrain's Web3 Launchpad programme, working across business strategy, commercial negotiations, technical architecture, implementation, operations, ecosystem development and education.</p></div><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div class="csx-label">Work</div><p>A multi-protocol blockchain infrastructure programme; validator and node operations across several networks; Intersect, a dedicated Avalanche-based blockchain; the Intersect Makeathon + Hackathon; Ramadan Feast, an on-chain consumer application; and tailored enterprise and community training.</p></div><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div class="csx-label">Outcome</div><p>Web3 Launchpad grew into a multi-protocol infrastructure programme, with stc Bahrain reporting more than 20 nodes and related infrastructure deployments in 2025. It produced operational blockchain services, a dedicated network, applications, developer initiatives and education programmes. The Launchpad received three industry awards during 2024–2025.</p></div></div></section>
+<section id="brief" class="csx-sec"><h2>The story in brief</h2><div class="csx-brief"><div class="csx-brief_card"><div class="csx-label">01 — Situation</div><p>stc Bahrain sought to expand its telecommunications infrastructure business into blockchain and Web3 services. Establishing this new business required a commercial strategy, protocol partnerships, technical infrastructure, operating capabilities and new organisational expertise.</p></div><div class="csx-brief_card"><div class="csx-label">02 — Role</div><p>Lionscraft led the design and delivery of stc Bahrain's Web3 Launchpad programme, working across business strategy, commercial negotiations, technical architecture, implementation, operations, ecosystem development and education.</p></div><div class="csx-brief_card"><div class="csx-label">03 — Work</div><p>A multi-protocol blockchain infrastructure programme; validator and node operations across several networks; Intersect, a dedicated Avalanche-based blockchain; the Intersect Makeathon + Hackathon; Ramadan Feast, an on-chain consumer application; and tailored enterprise and community training.</p></div><div class="csx-brief_card"><div class="csx-label">04 — Outcome</div><p>Web3 Launchpad grew into a multi-protocol infrastructure programme, with stc Bahrain reporting more than 20 nodes and related infrastructure deployments in 2025. It produced operational blockchain services, a dedicated network, applications, developer initiatives and education programmes. The Launchpad received three industry awards during 2024–2025.</p></div></div></section>
 
 <dl class="csx-facts csx-facts-mobile"><div class="csx-fact"><dt>Client</dt><dd>stc Bahrain</dd></div><div class="csx-fact"><dt>Industry</dt><dd>Telecommunications</dd></div><div class="csx-fact"><dt>Period</dt><dd>2023–2025</dd></div><div class="csx-fact"><dt>Location</dt><dd>Bahrain</dd></div><div class="csx-fact"><dt>Programme</dt><dd>Web3 Launchpad</dd></div><div class="csx-fact"><dt>Services</dt><dd><a href="/services/advisory">Advisory</a> · <a href="/services/build">Build</a> · <a href="/services/operate">Operate</a></dd></div><div class="csx-fact"><dt>Expertise</dt><dd>Enterprise blockchain strategy, Protocol business development, Validator infrastructure, Digital assets, Systems integration, Web3 applications</dd></div></dl>
 
@@ -1000,7 +1047,7 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <p>Lionscraft's work covered protocol identification, business-case development, commercial proposals, partnership negotiations and the practical requirements for delivering infrastructure services.</p>
 <p>That included evaluating staking and delegation arrangements, grant and incentive structures, infrastructure expenditure, ongoing operating costs and revenue models. The team also worked through enterprise requirements involving procurement, legal approvals, wallet management, digital-asset custody, treasury processes and operating responsibilities.</p>
 <p>In early 2024, <a href="https://www.stc.com.bh/media-center/template?id=3364" target="_blank" rel="noopener">stc Bahrain publicly announced its strategic partnership with Lionscraft</a>. The agreement was celebrated through a metaverse signing ceremony, including an NFT representation of the partnership.</p>
-<p>Web3 Launchpad subsequently entered its first phase of infrastructure delivery.</p></div></div><div class="csx-chapter" id="chapter-2"><div class="csx-chapter_num">02</div><div class="csx-chapter_body"><h3>Building and operating multi-protocol infrastructure</h3><p>Lionscraft led protocol business development and coordinated the implementation of blockchain infrastructure services across multiple networks.</p>
+<p>Web3 Launchpad subsequently entered its first phase of infrastructure delivery.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">Web3 Launchpad</div><div class="csx-chapter_fact">Pearling Path</div></aside></div><div class="csx-chapter" id="chapter-2"><div class="csx-chapter_num">02</div><div class="csx-chapter_body"><h3>Building and operating multi-protocol infrastructure</h3><p>Lionscraft led protocol business development and coordinated the implementation of blockchain infrastructure services across multiple networks.</p>
 <p>The first major partnerships included <strong>Core, Aleph Zero and Avalanche</strong> in April 2024. The programme subsequently expanded into relationships and technical work involving ZetaChain, Allora, Conflux, NEAR, Nillion and other blockchain ecosystems.</p>
 <p>Each engagement required a different combination of commercial negotiation, infrastructure design, deployment, funding, operations and reporting.</p>
 <p>For <strong>Core</strong>, the team progressed from partnership arrangements into the technical requirements of a functioning mainnet validator. This included wallet and funding preparation, test transactions, infrastructure provisioning, validator registration and operational monitoring. Project records show the Core mainnet validator operating by April 2024.</p>
@@ -1009,14 +1056,14 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <p>For example, stc Bahrain's <a href="https://wholesale.stc.com.bh/web3-section/stc-bahrain-launches-node-on-nillions-petnet-driving-innovation-in-web3-privacy-technologies" target="_blank" rel="noopener">June 2025 Nillion announcement</a> documented the launch of infrastructure for PetNet, a privacy-preserving computation network.</p>
 <p>Across 2024 and 2025, Lionscraft managed the progression of protocol opportunities into a growing infrastructure programme. Internal operating records tracked production and testnet nodes, supporting services, network infrastructure, costs and operational responsibilities.</p>
 <p>By 2025, stc Bahrain's published programme materials reported <strong>more than 20 nodes</strong>, spanning different infrastructure roles and networks.</p>
-<p>Lionscraft's responsibilities included not only introducing new protocols and coordinating deployments, but also supporting the ongoing operation of the portfolio. This covered monitoring, troubleshooting, protocol upgrades, reward and cost tracking, commercial reviews and decisions about service continuation or transition.</p></div></div><div class="csx-chapter" id="chapter-3"><div class="csx-chapter_num">03</div><div class="csx-chapter_body"><h3>Launching Intersect, a dedicated blockchain network</h3><p>Web3 Launchpad expanded beyond operating infrastructure for third-party protocols with the development of <strong>Intersect</strong>, a dedicated Avalanche-based blockchain network.</p>
+<p>Lionscraft's responsibilities included not only introducing new protocols and coordinating deployments, but also supporting the ongoing operation of the portfolio. This covered monitoring, troubleshooting, protocol upgrades, reward and cost tracking, commercial reviews and decisions about service continuation or transition.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">Core, Aleph Zero and Avalanche</div><div class="csx-chapter_fact">Core</div></aside></div><div class="csx-chapter" id="chapter-3"><div class="csx-chapter_num">03</div><div class="csx-chapter_body"><h3>Launching Intersect, a dedicated blockchain network</h3><p>Web3 Launchpad expanded beyond operating infrastructure for third-party protocols with the development of <strong>Intersect</strong>, a dedicated Avalanche-based blockchain network.</p>
 <p>Lionscraft worked on the commercial concept, network architecture, partner coordination and delivery programme for Intersect, which launched publicly in August 2024.</p>
 <p>The network was developed within the Avalanche ecosystem, with AvaCloud providing managed blockchain infrastructure for its initial deployment.</p>
 <p>Intersect included its own native token, <strong>PEARL</strong>, along with network services supporting transactions, smart contracts and application development.</p>
 <p>The project required coordinating several connected elements: blockchain infrastructure, operating responsibilities, token and network requirements, developer access, ecosystem partnerships and an application roadmap.</p>
 <p>Lionscraft worked across these activities, bringing together stc Bahrain, Avalanche ecosystem partners and specialist technical providers to deliver the network and associated programmes.</p>
 <p>The network's subsequent evolution also included work toward greater operational control and changes to its infrastructure arrangements.</p>
-<p>AvaCloud published a <a href="https://www.avacloud.io/ja/case-studies/bahrain" target="_blank" rel="noopener">case study documenting Intersect</a>, including its infrastructure deployment, the involvement of Lionscraft and applications developed around the network.</p></div></div><div class="csx-chapter" id="chapter-4"><div class="csx-chapter_num">04</div><div class="csx-chapter_body"><h3>Delivering the Intersect Makeathon + Hackathon</h3><p>Following Intersect's launch, Lionscraft helped design and deliver a developer and creator programme to encourage projects on the new network.</p>
+<p>AvaCloud published a <a href="https://www.avacloud.io/ja/case-studies/bahrain" target="_blank" rel="noopener">case study documenting Intersect</a>, including its infrastructure deployment, the involvement of Lionscraft and applications developed around the network.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">Intersect</div><div class="csx-chapter_fact">PEARL</div></aside></div><div class="csx-chapter" id="chapter-4"><div class="csx-chapter_num">04</div><div class="csx-chapter_body"><h3>Delivering the Intersect Makeathon + Hackathon</h3><p>Following Intersect's launch, Lionscraft helped design and deliver a developer and creator programme to encourage projects on the new network.</p>
 <p>The <strong>Intersect Makeathon + Hackathon</strong> ran during August–September 2024, bringing together developers, designers, creators, technology partners, sponsors and judges.</p>
 <p>Rather than limiting participation to programmers, the event combined conventional hackathon tracks with a makeathon for non-coding participants.</p>
 <p>Competition areas included blockchain applications, gaming, interoperability, digital identity, media, security and product design. Lionscraft contributed to the programme structure, competition activities, sponsor and partner coordination, technical learning resources and event execution.</p>
@@ -1025,14 +1072,14 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <p>According to <a href="https://wholesale.stc.com.bh/web3-section/the-first-ever-intersect-makeathon--hackathon--powered-by-stc-bahrain" target="_blank" rel="noopener">stc Bahrain's published event report</a>, the programme recorded:</p>
 <div class="csx-table"><table><thead><tr><th>Event measure</th><th class="is-num">Reported result</th></tr></thead><tbody><tr><td>Registered participants</td><td class="is-num"><strong>114</strong></td></tr><tr><td>Submitted projects</td><td class="is-num"><strong>64</strong></td></tr><tr><td>Winning entries</td><td class="is-num"><strong>13</strong></td></tr><tr><td>Judges</td><td class="is-num"><strong>16</strong></td></tr><tr><td>Countries represented among judges</td><td class="is-num"><strong>15</strong></td></tr></tbody></table></div>
 <p>The event offered a reported prize pool exceeding US$100,000 in cash and other rewards.</p>
-<p>Through this programme, Lionscraft delivered the developer-engagement and ecosystem activities associated with Intersect's initial launch.</p></div></div><div class="csx-chapter" id="chapter-5"><div class="csx-chapter_num">05</div><div class="csx-chapter_body"><h3>Developing Ramadan Feast, an on-chain consumer application</h3><p>In early 2025, the programme introduced <strong>Ramadan Feast</strong>, a blockchain-based game developed for the Intersect network.</p>
+<p>Through this programme, Lionscraft delivered the developer-engagement and ecosystem activities associated with Intersect's initial launch.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">Intersect Makeathon + Hackathon</div><div class="csx-chapter_fact">114</div></aside></div><div class="csx-chapter" id="chapter-5"><div class="csx-chapter_num">05</div><div class="csx-chapter_body"><h3>Developing Ramadan Feast, an on-chain consumer application</h3><p>In early 2025, the programme introduced <strong>Ramadan Feast</strong>, a blockchain-based game developed for the Intersect network.</p>
 <p>The application used a food-collection concept inspired by Ramadan. Participants could collect digital ingredients, exchange items and compete through a leaderboard.</p>
 <p>Lionscraft's application delivery work covered the technical components required to support these interactions, including smart contracts, NFT metadata, wallet integration, event processing and leaderboard functionality.</p>
 <p>The implementation included Solidity-based ERC-721 contracts for digital collectibles, associated image and metadata assets, and application services connecting blockchain events with a database and user-facing leaderboard.</p>
 <p>The first round generated substantial application activity. A bounded project-data snapshot recorded approximately <strong>272,600 NFT event records</strong> associated with <strong>10,293 distinct wallet addresses</strong>. These figures describe the recorded events and addresses, rather than independently verified transactions or unique human users.</p>
 <p>The campaign also produced operational data for analysing participant behaviour, including unusually concentrated or potentially automated activity. This informed further work on gameplay, participation rules and eligibility mechanisms.</p>
 <p>Ramadan Feast provided a deployed consumer application alongside Intersect's infrastructure and developer ecosystem work.</p>
-<p>The application was also featured in <a href="https://www.avacloud.io/ja/case-studies/bahrain" target="_blank" rel="noopener">AvaCloud's published account of the stc Bahrain programme</a>.</p></div></div><div class="csx-chapter" id="chapter-6"><div class="csx-chapter_num">06</div><div class="csx-chapter_body"><h3>Developing enterprise and community capabilities</h3><p>Alongside the infrastructure and application work, Lionscraft developed training programmes to support stc Bahrain's new business and expand Web3 knowledge across different audiences.</p>
+<p>The application was also featured in <a href="https://www.avacloud.io/ja/case-studies/bahrain" target="_blank" rel="noopener">AvaCloud's published account of the stc Bahrain programme</a>.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">Ramadan Feast</div><div class="csx-chapter_fact">272,600 NFT event records</div></aside></div><div class="csx-chapter" id="chapter-6"><div class="csx-chapter_num">06</div><div class="csx-chapter_body"><h3>Developing enterprise and community capabilities</h3><p>Alongside the infrastructure and application work, Lionscraft developed training programmes to support stc Bahrain's new business and expand Web3 knowledge across different audiences.</p>
 <p>The curriculum ranged from blockchain fundamentals and commercial strategy to validator operations, custody, staking economics, compliance and digital-asset processes.</p>
 <p>In <strong>May 2024</strong>, Lionscraft delivered an executive business strategy workshop covering Web3 Launchpad's commercial model, infrastructure-service opportunities, enterprise architecture and financial considerations.</p>
 <p>Additional technical learning activities were incorporated into the Intersect developer programme.</p>
@@ -1040,33 +1087,20 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 <div class="csx-table"><table><thead><tr><th>Audience</th><th>Training focus</th></tr></thead><tbody><tr><td><strong>Bahrain Institute of Banking and Finance</strong></td><td>Blockchain fundamentals, digital assets, stablecoins and practical applications</td></tr><tr><td><strong>University of Bahrain</strong></td><td>Web3 concepts, blockchain technology and digital-asset use cases</td></tr><tr><td><strong>stc Bahrain finance, treasury and compliance teams</strong></td><td>Custody, wallet controls, staking rewards, digital-asset accounting and operational processes</td></tr><tr><td><strong>stc Bahrain internal teams</strong></td><td>Blockchain foundations, telecom-sector applications and business opportunities</td></tr></tbody></table></div>
 <p>The workshops combined technical instruction with scenarios relevant to the participants' responsibilities.</p>
 <p>For finance and treasury teams, for example, the material addressed wallet approval procedures, digital-asset movements, liquidity, staking income and related controls – all subjects directly connected to operating blockchain infrastructure within an enterprise.</p>
-<p>stc Bahrain and Lionscraft <a href="https://www.stc.com.bh/media-center/template?id=4443" target="_blank" rel="noopener">announced the completed training programme in December 2025</a>.</p></div></div><div class="csx-chapter" id="chapter-7"><div class="csx-chapter_num">07</div><div class="csx-chapter_body"><h3>Managing the operating lifecycle</h3><p>Lionscraft's engagement continued beyond initial launches into the management and evolution of the infrastructure portfolio.</p>
+<p>stc Bahrain and Lionscraft <a href="https://www.stc.com.bh/media-center/template?id=4443" target="_blank" rel="noopener">announced the completed training programme in December 2025</a>.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">May 2024</div><div class="csx-chapter_fact">November 2025</div></aside></div><div class="csx-chapter" id="chapter-7"><div class="csx-chapter_num">07</div><div class="csx-chapter_body"><h3>Managing the operating lifecycle</h3><p>Lionscraft's engagement continued beyond initial launches into the management and evolution of the infrastructure portfolio.</p>
 <p>As the programme expanded, different networks required different approaches to monitoring, upgrades, technical support, commercial review and service management.</p>
 <p>Operating decisions also had to account for changes in delegation, protocol incentives, infrastructure expenditure and network utilisation.</p>
 <p>The delivery programme included commercial renegotiations, operational reviews, service rationalisation and transition planning as individual protocol requirements and business conditions changed.</p>
 <p>This work formed part of Lionscraft's broader responsibility for implementing and operating Web3 Launchpad across its business and technical lifecycle.</p></div></div></section>
 
-<section id="what-we-did" class="csx-sec"><h2>What Lionscraft did</h2><div class="csx-prose"><p>Lionscraft delivered Web3 Launchpad as an integrated programme covering strategy, business development, technology implementation, operations, applications and organisational enablement.</p>
-<div class="csx-table"><table><thead><tr><th>Workstream</th><th>Lionscraft's delivery</th></tr></thead><tbody><tr><td><strong>Business strategy and architecture</strong></td><td>Developed the infrastructure business model, commercial approach, operating framework, service roadmap and protocol-evaluation processes.</td></tr><tr><td><strong>Protocol partnerships</strong></td><td>Sourced and engaged blockchain ecosystems, developed proposals, worked on partnership negotiations and converted selected agreements into delivery programmes.</td></tr><tr><td><strong>Technical architecture</strong></td><td>Designed and coordinated network and infrastructure architectures, technical requirements, deployment plans and integrations.</td></tr><tr><td><strong>Validator and node infrastructure</strong></td><td>Coordinated and performed implementation work involving wallets, funding, validator registration, node setup, monitoring and network-specific services.</td></tr><tr><td><strong>Operations and lifecycle management</strong></td><td>Supported monitoring, upgrades, incident response, operational reporting, commercial reviews and infrastructure transitions.</td></tr><tr><td><strong>Intersect blockchain network</strong></td><td>Developed the business and ecosystem programme, coordinated architecture and implementation, and managed delivery across technical providers.</td></tr><tr><td><strong>Developer ecosystem</strong></td><td>Designed and delivered the Intersect Makeathon + Hackathon and associated partner, participant and learning activities.</td></tr><tr><td><strong>Application development</strong></td><td>Delivered application-development work for Ramadan Feast, involving smart contracts, NFT assets, blockchain-event processing and user-facing services.</td></tr><tr><td><strong>Education and training</strong></td><td>Developed curricula and delivered executive, technical, finance-focused, academic and community programmes.</td></tr></tbody></table></div>
-<p>The engagement drew on Lionscraft's experience across enterprise technology and blockchain infrastructure, bringing commercial development, engineering coordination, operations and education into a single delivery programme.</p></div></section>
+<section id="what-we-did" class="csx-sec"><h2>What Lionscraft did</h2><div class="csx-prose csx-did_wrap"><p>Lionscraft delivered Web3 Launchpad as an integrated programme covering strategy, business development, technology implementation, operations, applications and organisational enablement.</p><div class="csx-table"><table><thead><tr><th>Workstream</th><th>Lionscraft's delivery</th></tr></thead><tbody><tr><td><strong>Business strategy and architecture</strong></td><td>Developed the infrastructure business model, commercial approach, operating framework, service roadmap and protocol-evaluation processes.</td></tr><tr><td><strong>Protocol partnerships</strong></td><td>Sourced and engaged blockchain ecosystems, developed proposals, worked on partnership negotiations and converted selected agreements into delivery programmes.</td></tr><tr><td><strong>Technical architecture</strong></td><td>Designed and coordinated network and infrastructure architectures, technical requirements, deployment plans and integrations.</td></tr><tr><td><strong>Validator and node infrastructure</strong></td><td>Coordinated and performed implementation work involving wallets, funding, validator registration, node setup, monitoring and network-specific services.</td></tr><tr><td><strong>Operations and lifecycle management</strong></td><td>Supported monitoring, upgrades, incident response, operational reporting, commercial reviews and infrastructure transitions.</td></tr><tr><td><strong>Intersect blockchain network</strong></td><td>Developed the business and ecosystem programme, coordinated architecture and implementation, and managed delivery across technical providers.</td></tr><tr><td><strong>Developer ecosystem</strong></td><td>Designed and delivered the Intersect Makeathon + Hackathon and associated partner, participant and learning activities.</td></tr><tr><td><strong>Application development</strong></td><td>Delivered application-development work for Ramadan Feast, involving smart contracts, NFT assets, blockchain-event processing and user-facing services.</td></tr><tr><td><strong>Education and training</strong></td><td>Developed curricula and delivered executive, technical, finance-focused, academic and community programmes.</td></tr></tbody></table></div><p>The engagement drew on Lionscraft's experience across enterprise technology and blockchain infrastructure, bringing commercial development, engineering coordination, operations and education into a single delivery programme.</p></div></section>
 
-<section id="results" class="csx-sec"><h2>Results and impact</h2><div class="csx-prose csx-results"><p>The stc Bahrain Web3 Launchpad engagement produced a portfolio of delivered business, technical and ecosystem initiatives between 2023 and 2025.</p>
-<h3>Infrastructure and business development</h3>
-<ul class="csx-list"><li>Web3 Launchpad business and operating model established.</li><li>Protocol partnerships developed across multiple blockchain ecosystems.</li><li>Validator and node services deployed and operated.</li><li><strong>More than 20 nodes reported by stc Bahrain in 2025</strong>, encompassing different infrastructure roles.</li><li>Technical operations, monitoring and commercial-management processes established across the programme.</li></ul>
-<h3>Network and applications</h3>
-<ul class="csx-list"><li><strong>Intersect</strong>, an Avalanche-based blockchain network, launched in August 2024.</li><li>Network infrastructure and associated services deployed with specialist technical partners.</li><li>Intersect Makeathon + Hackathon delivered, with <strong>64 project submissions</strong> reported.</li><li><strong>Ramadan Feast</strong>, a consumer blockchain application, developed and deployed on Intersect.</li><li>Application activity and user-interaction data captured to support further technical and product work.</li></ul>
-<h3>Education and organisational enablement</h3>
-<ul class="csx-list"><li>Executive Web3 strategy workshop delivered.</li><li>Developer education and learning activities incorporated into Intersect.</li><li>Four tailored Web3 workshops delivered in November 2025 for financial-services education, university, enterprise finance and internal audiences.</li></ul>
-<h3>Industry recognition</h3>
-<h4 class="csx-sub">Three industry awards for stc Bahrain's Web3 Launchpad</h4>
-<div class="csx-table"><table><thead><tr><th class="is-num">Year</th><th>Award</th></tr></thead><tbody><tr><td class="is-num"><strong>2024</strong></td><td>Middle East Technology Excellence Award – Web3 Launchpad</td></tr><tr><td class="is-num"><strong>2024</strong></td><td>Gulf Business Awards – Best Telecom Infrastructure Innovation</td></tr><tr><td class="is-num"><strong>2025</strong></td><td>Middle East Technology Excellence Awards – Blockchain, Telecommunications</td></tr></tbody></table></div>
-<p>The awards were presented to <strong>stc Bahrain</strong> for its Web3 Launchpad programme, which Lionscraft designed and helped deliver.</p>
-<p>The engagement established Lionscraft's delivery experience across the full scope of an enterprise blockchain infrastructure programme: commercial development, protocol engagement, production infrastructure, operations, a dedicated blockchain network, applications and training.</p></div></section>
+<section id="results" class="csx-sec"><h2>Results and impact</h2><div class="csx-prose csx-results"><p>The stc Bahrain Web3 Launchpad engagement produced a portfolio of delivered business, technical and ecosystem initiatives between 2023 and 2025.</p><h3>Infrastructure and business development</h3><div class="csx-results_grid"><div class="csx-result"><div class="csx-result_num">01</div><p>Web3 Launchpad business and operating model established.</p></div><div class="csx-result"><div class="csx-result_num">02</div><p>Protocol partnerships developed across multiple blockchain ecosystems.</p></div><div class="csx-result"><div class="csx-result_num">03</div><p>Validator and node services deployed and operated.</p></div><div class="csx-result"><div class="csx-result_num">04</div><p><strong>More than 20 nodes reported by stc Bahrain in 2025</strong>, encompassing different infrastructure roles.</p></div><div class="csx-result"><div class="csx-result_num">05</div><p>Technical operations, monitoring and commercial-management processes established across the programme.</p></div></div><h3>Network and applications</h3><div class="csx-results_grid"><div class="csx-result"><div class="csx-result_num">01</div><p><strong>Intersect</strong>, an Avalanche-based blockchain network, launched in August 2024.</p></div><div class="csx-result"><div class="csx-result_num">02</div><p>Network infrastructure and associated services deployed with specialist technical partners.</p></div><div class="csx-result"><div class="csx-result_num">03</div><p>Intersect Makeathon + Hackathon delivered, with <strong>64 project submissions</strong> reported.</p></div><div class="csx-result"><div class="csx-result_num">04</div><p><strong>Ramadan Feast</strong>, a consumer blockchain application, developed and deployed on Intersect.</p></div><div class="csx-result"><div class="csx-result_num">05</div><p>Application activity and user-interaction data captured to support further technical and product work.</p></div></div><h3>Education and organisational enablement</h3><div class="csx-results_grid"><div class="csx-result"><div class="csx-result_num">01</div><p>Executive Web3 strategy workshop delivered.</p></div><div class="csx-result"><div class="csx-result_num">02</div><p>Developer education and learning activities incorporated into Intersect.</p></div><div class="csx-result"><div class="csx-result_num">03</div><p>Four tailored Web3 workshops delivered in November 2025 for financial-services education, university, enterprise finance and internal audiences.</p></div></div><h3>Industry recognition</h3><h4 class="csx-sub">Three industry awards for stc Bahrain's Web3 Launchpad</h4><div class="csx-table"><table><thead><tr><th class="is-num">Year</th><th>Award</th></tr></thead><tbody><tr><td class="is-num"><strong>2024</strong></td><td>Middle East Technology Excellence Award – Web3 Launchpad</td></tr><tr><td class="is-num"><strong>2024</strong></td><td>Gulf Business Awards – Best Telecom Infrastructure Innovation</td></tr><tr><td class="is-num"><strong>2025</strong></td><td>Middle East Technology Excellence Awards – Blockchain, Telecommunications</td></tr></tbody></table></div><p>The awards were presented to <strong>stc Bahrain</strong> for its Web3 Launchpad programme, which Lionscraft designed and helped deliver.</p><p>The engagement established Lionscraft's delivery experience across the full scope of an enterprise blockchain infrastructure programme: commercial development, protocol engagement, production infrastructure, operations, a dedicated blockchain network, applications and training.</p></div></section>
 
 </div>
 <aside class="csx-rail"><div class="csx-rail_inner">
-<div class="csx-label">On this page</div><nav class="csx-toc"><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#timeline">Timeline</a><a href="#story">The story</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav>
 <div class="csx-label csx-rail_facts-label">Project facts</div><dl class="csx-facts"><div class="csx-fact"><dt>Client</dt><dd>stc Bahrain</dd></div><div class="csx-fact"><dt>Industry</dt><dd>Telecommunications</dd></div><div class="csx-fact"><dt>Period</dt><dd>2023–2025</dd></div><div class="csx-fact"><dt>Location</dt><dd>Bahrain</dd></div><div class="csx-fact"><dt>Programme</dt><dd>Web3 Launchpad</dd></div><div class="csx-fact"><dt>Services</dt><dd><a href="/services/advisory">Advisory</a> · <a href="/services/build">Build</a> · <a href="/services/operate">Operate</a></dd></div><div class="csx-fact"><dt>Expertise</dt><dd>Enterprise blockchain strategy, Protocol business development, Validator infrastructure, Digital assets, Systems integration, Web3 applications</dd></div></dl>
+<div class="csx-label csx-rail_toc-label">On this page</div><nav class="csx-toc"><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#timeline">Timeline</a><a href="#story">The story</a><a href="#chapter-1" class="is-sub">01 Establishing Web3 Launchpad</a><a href="#chapter-2" class="is-sub">02 Building and operating multi-protocol infrastructure</a><a href="#chapter-3" class="is-sub">03 Launching Intersect, a dedicated blockchain network</a><a href="#chapter-4" class="is-sub">04 Delivering the Intersect Makeathon + Hackathon</a><a href="#chapter-5" class="is-sub">05 Developing Ramadan Feast, an on-chain consumer application</a><a href="#chapter-6" class="is-sub">06 Developing enterprise and community capabilities</a><a href="#chapter-7" class="is-sub">07 Managing the operating lifecycle</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav>
 </div></aside>
 </div>
 

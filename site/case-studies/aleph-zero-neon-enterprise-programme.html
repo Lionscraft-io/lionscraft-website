@@ -355,20 +355,26 @@ margin: 0rem !important;
 /* case study article layout (csx) */
 .csx-label{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#5c5c55}
 .csx-hero{background-color:var(--dark-bg);color:#fafafa}
-.csx-hero_inner{padding:9rem 2rem 4.5rem}
+.csx-hero_inner{position:relative;overflow:hidden;padding:9rem 2rem 4.5rem}
+/* picture bleeds to the right edge of the header and fades into the dark background */
+.csx-hero_pic{position:absolute;top:0;right:0;bottom:0;width:52%;pointer-events:none}
+.csx-hero_pic img{display:block;width:100%;height:100%;object-fit:cover;object-position:60% 50%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 45%),linear-gradient(to bottom,transparent 0,#000 25%),linear-gradient(to top,transparent 0,#000 22%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 45%),linear-gradient(to bottom,transparent 0,#000 25%),linear-gradient(to top,transparent 0,#000 22%);mask-composite:intersect}
+.csx-hero_text{position:relative;z-index:1}
 .csx-crumbs{display:flex;flex-wrap:wrap;gap:.625rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:3rem}
 .csx-crumbs a{color:#a1a1a1;text-decoration:none}.csx-crumbs a:hover{color:#fafafa}.csx-crumbs [aria-current]{color:#fafafa}
-.csx-hero_grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:4rem;align-items:end}
-.csx-client_logo{display:block;height:2.75rem;width:auto;margin-bottom:2rem;filter:invert(1) brightness(1.08)}
+.csx-client_logo{display:block;height:2.75rem;width:auto;margin-bottom:1.75rem;filter:invert(1) brightness(1.08)}
 .csx-client_logo.is-white{filter:none}
-.csx-tags{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:1.5rem}
-.csx-h1{font-family:Saans SemiMono,Arial,sans-serif;font-size:3.25rem;font-weight:500;line-height:1.12;letter-spacing:-.02em;margin:0 0 1.75rem;color:#fafafa}
-.csx-standfirst{font-size:1.25rem;line-height:1.55;color:#d4d4d4;margin:0 0 2rem;max-width:44rem}
+.csx-tags{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a1;margin-bottom:1.25rem}
+.csx-h1{font-family:Saans,Arial,sans-serif;font-size:3.5rem;font-weight:500;line-height:1.06;letter-spacing:-.03em;margin:0 0 1.75rem;max-width:47.5rem;color:#fafafa}
+.csx-standfirst{font-size:1.25rem;line-height:1.5;color:#d4d4d4;margin:0 0 2rem;max-width:40rem}
 .csx-pills{display:flex;flex-wrap:wrap;gap:.5rem}
 .csx-pills span{border:1px solid #ffffff40;border-radius:999px;padding:.5rem .875rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#d4d4d4}
-.csx-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-color--border-alternate);border-left:1px solid var(--border-color--border-alternate)}
-.csx-stat{padding:1.5rem;border-right:1px solid var(--border-color--border-alternate);border-bottom:1px solid var(--border-color--border-alternate)}
-.csx-stat_num{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;letter-spacing:-.03em;line-height:1;margin-bottom:.75rem;color:#fafafa}
+/* key numbers: a strip on plain dark below the picture */
+.csx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 2rem;border-top:1px solid #ffffff2e}
+.csx-stats.is-1{grid-template-columns:minmax(0,1fr)}.csx-stats.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}.csx-stats.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.csx-stat{padding:1.75rem 1.75rem 2rem;border-right:1px solid #ffffff2e}
+.csx-stat:first-child{padding-left:0}.csx-stat:last-child{border-right:none;padding-right:0}
+.csx-stat_num{font-family:Saans,Arial,sans-serif;font-size:2.5rem;font-weight:500;letter-spacing:-.03em;line-height:1;margin-bottom:.75rem;color:#fafafa}
 .csx-stat_label{font-size:.875rem;line-height:1.45;color:#a1a1a1}
 .csx-body{background-color:#fbfaf3;color:#0b0b04}
 .csx-body .container-large{padding:5rem 2rem 6rem}
@@ -376,13 +382,14 @@ margin: 0rem !important;
 .csx-main{min-width:0}
 .csx-sec{padding:3.5rem 0;border-top:1px solid var(--border-color--border-primary)}
 .csx-main > .csx-sec:first-of-type,.csx-main > details + .csx-sec{border-top:none;padding-top:0}
-.csx-sec h2{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:0 0 2rem;color:#0b0b04}
+.csx-sec h2{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:0 0 1.75rem;color:#0b0b04}
 .csx-prose{max-width:46rem}
 .csx-prose p,.csx-chapter_body p{font-size:1.0625rem;line-height:1.7;color:#3d3d37;margin:0 0 1.125rem}
 .csx-prose h3,.csx-chapter_body h3{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.3;letter-spacing:-.015em;margin:2rem 0 1rem;color:#0b0b04}
 .csx-prose > h3:first-child,.csx-chapter_body > h3:first-child{margin-top:0}
 .csx-prose a,.csx-chapter_body a,.csx-facts a{color:#0b0b04;text-decoration:underline;text-decoration-color:#0b0b0466;text-underline-offset:.2em}
 .csx-prose a:hover,.csx-chapter_body a:hover,.csx-facts a:hover{text-decoration-color:#0b0b04}
+.csx-prose strong,.csx-chapter_body strong{font-weight:500;color:#0b0b04}
 .csx-list{margin:0 0 1.25rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:.625rem}
 .csx-list li{position:relative;padding-left:1.5rem;font-size:1.0625rem;line-height:1.6;color:#3d3d37}
 .csx-list li:before{content:"";position:absolute;left:0;top:.62em;width:.5rem;height:.5rem;border:1.5px solid #0b0b04;border-radius:50%}
@@ -392,12 +399,14 @@ margin: 0rem !important;
 .csx-table td{padding:.875rem 1rem .875rem 0;border-bottom:1px solid var(--border-color--border-primary);vertical-align:top;color:#3d3d37}
 .csx-table td strong{color:#0b0b04;font-weight:500}
 .csx-table .is-num{text-align:right;white-space:nowrap}
-.csx-brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
-.csx-brief_card{padding:1.75rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);background-color:#fbfaf3}
-.csx-brief_icon{width:2.5rem;height:2.5rem;border:1px solid var(--border-color--border-primary);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:#0b0b04}
-.csx-brief_icon svg{width:1.25rem;height:1.25rem}
-.csx-brief_card .csx-label{color:#0b0b04;margin-bottom:.625rem}
+.csx-sub{font-family:Saans,Arial,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.35;letter-spacing:-.01em;margin:1.75rem 0 .5rem;color:#0b0b04}
+.csx-prose > .csx-sub:first-child{margin-top:0}
+/* story in brief: numbered tinted panels */
+.csx-brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.csx-brief_card{padding:1.75rem;background-color:#f3f1e8}
+.csx-brief_card .csx-label{color:#0b0b04;margin-bottom:.875rem}
 .csx-brief_card p{font-size:.9688rem;line-height:1.6;color:#3d3d37;margin:0}
+.csx-brief_card strong{font-weight:500;color:#0b0b04}
 .csx-timeline summary{list-style:none;cursor:default}.csx-timeline summary::-webkit-details-marker{display:none}
 .csx-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));position:relative}
 .csx-tl:before{content:"";position:absolute;left:0;right:0;top:.375rem;height:1px;background:#0b0b04}
@@ -405,33 +414,60 @@ margin: 0rem !important;
 .csx-tl_dot{position:absolute;left:0;top:0;width:.75rem;height:.75rem;border-radius:50%;background:#0b0b04}
 .csx-tl_date{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#0b0b04;margin-bottom:.5rem}
 .csx-tl_text{font-size:.875rem;line-height:1.45;color:#5c5c55}
-.csx-chapter{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:1rem;padding:2rem 0;border-top:1px solid var(--border-color--border-primary)}
+/* story chapters: number, text and a margin note */
+.csx-chapter{display:grid;grid-template-columns:3.5rem minmax(0,1fr) 12rem;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--border-color--border-primary)}
 .csx-chapter:first-of-type{border-top:none;padding-top:0}
 .csx-chapter_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.875rem;color:#5c5c55;padding-top:.3rem}
 .csx-chapter_body{max-width:46rem}
+.csx-chapter_aside{border-top:1px solid #0b0b04;padding-top:.875rem;align-self:start}
+.csx-chapter_aside .csx-label{font-size:.6875rem;letter-spacing:.12em;margin-bottom:.5rem}
+.csx-chapter_fact{font-size:.9375rem;line-height:1.45;font-weight:500;color:#0b0b04}
+.csx-chapter_fact + .csx-chapter_fact{margin-top:.625rem;padding-top:.625rem;border-top:1px solid var(--border-color--border-primary)}
+/* what Lionscraft did: one tinted card per service */
+.csx-did_wrap{max-width:none}
+.csx-did_wrap > p,.csx-did_wrap > h3,.csx-did_wrap > .csx-list,.csx-did_wrap > .csx-sub{max-width:46rem}
+.csx-did{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin:0 0 1.25rem}
+.csx-did_card{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem;background-color:#f3f1e8;color:#0b0b04;text-decoration:none;transition:background-color .2s}
+.csx-prose a.csx-did_card{text-decoration:none}
+.csx-did_card:hover{background-color:#eceadf}
+.csx-did_card h3{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.25;letter-spacing:-.015em;margin:0;color:#0b0b04}
+.csx-did_card p{font-size:.9688rem;line-height:1.6;color:#3d3d37;margin:0}
+/* results: numbered two-column list */
+.csx-results_grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.5rem;margin:0 0 1.5rem}
+.csx-result{display:flex;gap:1rem;padding:1.25rem 0;border-top:1px solid var(--border-color--border-primary)}
+.csx-result:nth-child(-n+2){border-top-color:#0b0b04}
+.csx-result_num{font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;color:#5c5c55;flex:none;width:1.5rem;padding-top:.3rem}
+.csx-results .csx-result p{margin:0;font-size:1rem;line-height:1.6}
+.csx-results{max-width:none}.csx-results > p,.csx-results > .csx-table{max-width:46rem}
+/* rail */
 .csx-rail{position:sticky;top:6rem;align-self:start}
 .csx-rail_inner{border-left:1px solid var(--border-color--border-primary);padding-left:1.5rem}
-.csx-toc{display:flex;flex-direction:column;margin:1rem 0 2.5rem}
+.csx-rail_facts-label{margin-bottom:.5rem}
+.csx-rail_toc-label{margin-top:2.25rem;margin-bottom:.5rem}
+.csx-toc{display:flex;flex-direction:column}
 .csx-toc a,.csx-toc-mobile nav a{font-size:.9375rem;line-height:1.35;color:#5c5c55;text-decoration:none;padding:.4rem 0 .4rem .875rem;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:calc(1.5rem - 2px)}
+.csx-toc a.is-sub,.csx-toc-mobile nav a.is-sub{font-size:.875rem;padding-left:calc(2.5rem - 2px);padding-top:.3rem;padding-bottom:.3rem}
 .csx-toc a:hover{color:#0b0b04}
 .csx-toc a.is-active{color:#0b0b04;border-left-color:#0b0b04}
-.csx-rail_facts-label{margin-bottom:1rem}
 .csx-facts{margin:0;display:flex;flex-direction:column}
 .csx-fact{padding:.75rem 0;border-top:1px solid var(--border-color--border-primary)}
 .csx-fact dt{font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#5c5c55;margin-bottom:.25rem}
 .csx-fact dd{margin:0;font-size:.9375rem;line-height:1.45;color:#0b0b04}
 .csx-toc-mobile,.csx-facts-mobile{display:none}
 .csx-wide{border-top:1px solid var(--border-color--border-primary)}
-.csx-sec_head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+.csx-sec_head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:1.75rem}
 .csx-sec_head h2{margin:0}.csx-sec_head p{margin:0;color:#5c5c55;font-size:1rem;line-height:1.5;max-width:30rem}
-.csx-sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
-.csx-source{display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);color:#0b0b04;text-decoration:none;transition:background-color .2s}
-.csx-source:hover{background-color:#f3f1e8}
+/* evidence: tinted cards */
+.csx-sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.csx-source{display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;min-height:12.5rem;background-color:#f3f1e8;color:#0b0b04;text-decoration:none;transition:background-color .2s}
+.csx-source:hover{background-color:#eceadf}
 .csx-source h3{font-family:Saans,Arial,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.3;letter-spacing:-.01em;margin:0}
 .csx-source p{font-size:.9063rem;line-height:1.5;color:#5c5c55;margin:0}
 .csx-source_meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.75rem;font-family:Saans SemiMono,Arial,sans-serif;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:#5c5c55}
 .csx-source_meta svg{flex:none;color:#0b0b04}
+/* related work: bordered boxes */
 .csx-related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border-color--border-primary);border-left:1px solid var(--border-color--border-primary)}
+.csx-related.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .csx-related_card{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem;border-right:1px solid var(--border-color--border-primary);border-bottom:1px solid var(--border-color--border-primary);color:#0b0b04;text-decoration:none;transition:background-color .2s;min-height:12rem}
 .csx-related_card:hover{background-color:#f3f1e8}
 .csx-related_card h3{font-family:Saans,Arial,sans-serif;font-size:1.75rem;font-weight:500;letter-spacing:-.025em;margin:0}
@@ -442,18 +478,22 @@ margin: 0rem !important;
 .csx-cta p{font-size:1rem;line-height:1.6;color:#3d3d37;margin:0 0 .75rem;max-width:44rem}
 .csx-cta_btn{display:inline-flex;align-items:center;gap:.75rem;height:3.25rem;padding:0 1.5rem;border-radius:999px;background-color:#0b0b04;color:#fafafa;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
 .csx-cta_btn:hover{background-color:#242424}
-.csx-hero_grid.is-single{grid-template-columns:minmax(0,1fr)}
-.csx-hero_grid.is-single .csx-h1{max-width:60rem}
-.csx-stat:last-child:nth-child(odd){grid-column:span 2}
-.csx-sub{font-family:Saans,Arial,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.35;letter-spacing:-.01em;margin:1.75rem 0 .5rem;color:#0b0b04}
-.csx-prose > .csx-sub:first-child{margin-top:0}
-.csx-related.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media screen and (max-width:767px){.csx-related.is-2{grid-template-columns:1fr}}
-@media screen and (max-width:1199px){.csx-tl{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:2rem}.csx-tl:before{display:none}.csx-tl li{border-top:1px solid #0b0b04;padding-top:1.5rem}.csx-tl_dot{top:-.375rem}}
+@media screen and (max-width:1199px){
+.csx-tl{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:2rem}.csx-tl:before{display:none}.csx-tl li{border-top:1px solid #0b0b04;padding-top:1.5rem}.csx-tl_dot{top:-.375rem}
+.csx-chapter{grid-template-columns:3.5rem minmax(0,1fr)}
+.csx-chapter_aside{grid-column:2;max-width:46rem}
+}
 @media screen and (max-width:991px){
 .csx-hero_inner{padding:7.5rem 1.5rem 3rem}
-.csx-hero_grid{grid-template-columns:1fr;gap:2.5rem}
+.csx-hero_pic{position:static;width:100%;aspect-ratio:16/9;margin-top:2.5rem}
+.csx-hero_pic img{-webkit-mask-image:none;mask-image:none}
+.csx-hero_text{display:contents}
+.csx-hero_inner{display:flex;flex-direction:column}
+.csx-hero_pic{order:99}
 .csx-h1{font-size:2.5rem}
+.csx-stats,.csx-stats.is-3,.csx-stats.is-4{grid-template-columns:repeat(2,minmax(0,1fr));margin:0 1.5rem}
+.csx-stat{padding:1.5rem 1.5rem 1.75rem}
+.csx-stat:nth-child(2n){border-right:none;padding-right:0}.csx-stat:nth-child(2n+1){padding-left:0}
 .csx-body .container-large{padding:3rem 1.5rem 4rem}
 .csx-layout{grid-template-columns:1fr;gap:0}
 .csx-rail{display:none}
@@ -464,6 +504,7 @@ margin: 0rem !important;
 .csx-toc-mobile[open] summary:after{content:"–"}
 .csx-toc-mobile nav{display:flex;flex-direction:column;padding:0 1.25rem 1rem}
 .csx-toc-mobile nav a{margin-left:0;padding-left:0;border-left:none}
+.csx-toc-mobile nav a.is-sub{padding-left:1rem}
 .csx-facts-mobile{display:flex;margin:0 0 1rem;border-bottom:1px solid var(--border-color--border-primary)}
 .csx-sources,.csx-related{grid-template-columns:1fr 1fr}
 .csx-cta{grid-template-columns:minmax(0,1fr);gap:1.5rem;padding:2rem}
@@ -472,17 +513,20 @@ margin: 0rem !important;
 .csx-timeline[open] summary:after{content:"–"}
 }
 @media screen and (max-width:767px){
-.csx-brief,.csx-sources,.csx-related{grid-template-columns:1fr}
+.csx-brief,.csx-sources,.csx-related,.csx-related.is-2,.csx-results_grid{grid-template-columns:1fr}
+.csx-result:nth-child(2){border-top-color:var(--border-color--border-primary)}
+.csx-stats,.csx-stats.is-2,.csx-stats.is-3,.csx-stats.is-4{grid-template-columns:minmax(0,1fr)}
+.csx-stat,.csx-stat:nth-child(2n),.csx-stat:nth-child(2n+1){border-right:none;padding:1.25rem 0;border-bottom:1px solid #ffffff2e}
+.csx-stat:last-child{border-bottom:none}
+.csx-stat_num{font-size:1.875rem}
 .csx-tl{grid-template-columns:1fr;row-gap:0}
 .csx-tl li{border-top:none;border-left:1px solid #0b0b04;padding:0 0 1.5rem 1.5rem;margin-left:.375rem}
 .csx-tl_dot{left:-.375rem;top:.25rem}
 .csx-chapter{grid-template-columns:1fr;gap:.5rem}
+.csx-chapter_aside{grid-column:1;margin-top:.5rem}
 .csx-sec h2{font-size:1.875rem}
-.csx-h1{font-size:2rem}
+.csx-h1{font-size:2.125rem}
 .csx-client_logo{height:2.25rem;margin-bottom:1.5rem}
-.csx-stats{grid-template-columns:1fr 1fr}
-.csx-stat{padding:1.125rem}
-.csx-stat_num{font-size:1.75rem}
 .csx-cta{padding:1.75rem 1.5rem}
 .csx-cta h2{font-size:1.625rem}
 .csx-cta_btn{white-space:normal;height:auto;min-height:3.25rem;padding:.875rem 1.5rem;line-height:1.4;max-width:100%}
@@ -962,23 +1006,26 @@ body .v2-latest_link{color:#fafafa}
 body .v2-latest_link:hover{border-bottom-color:#fafafa}
 body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 </style></div><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav_component w-nav"><div class="padding-global"><div class="nav_container"><a href="/" class="nav_brand w-nav-brand"><img src="/images/Logo.svg" loading="lazy" alt="Logo" class="nav_logo is-desktop"/><img src="/images/Lion-Mascot-1.svg" loading="lazy" alt="" class="nav_logo is-mobile"/></a><nav role="navigation" class="nav_menu w-nav-menu"><a href="/#clients" class="nav_menu_link w-nav-link">clients</a><a href="/#system" class="nav_menu_link w-nav-link">services</a><a href="/#trust" class="nav_menu_link w-nav-link">TRUST</a><a href="/latest" class="nav_menu_link w-nav-link">latest</a></nav><div class="nav_btns"><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="button is-border w-button">book a call</a><button type="button" class="v2-menu_btn" data-menu-toggle aria-expanded="false" aria-controls="v2-menu"><span class="v2-menu_lines"><i></i><i></i></span><span class="v2-menu_txt">Menu</span><span class="v2-menu_txt is-close">Close</span></button></div></div></div></div><div id="v2-menu" class="v2-menu" aria-hidden="true"><div class="padding-global"><div class="container-large is-dark-border"><div class="v2-menu_inner"><div class="v2-menu_col"><div class="v2-menu_group"><div class="v2-menu_label">Our Offering</div><a href="/services" class="v2-menu_link">Services</a><a href="/intelligence" class="v2-menu_link">Intelligence</a></div><div class="v2-menu_group"><div class="v2-menu_label">Read more</div><a href="/our-story" class="v2-menu_link">Our story</a><a href="/case-studies" class="v2-menu_link">Case studies</a><a href="/latest" class="v2-menu_link">Latest</a><a href="/ventures" class="v2-menu_link">Ventures</a></div></div><div class="v2-menu_touch"><h2 class="v2-menu_touch-title">Get in touch</h2><p class="v2-menu_touch-text">Have a technology challenge or a project in mind? A short call is the easiest way to start.</p><a href="https://cal.com/team/lionscraft/meet" target="_blank" class="v2-menu_cta">Book a call</a><div class="v2-menu_social"><a href="https://x.com/Lionscraft_io" target="_blank" aria-label="Lionscraft on X"><svg aria-hidden="true" viewBox="0 0 16 14" fill="currentColor"><path d="M12.7473 0.26416H15.0951L9.96587 6.02914L16 13.874H11.2753L7.57478 9.11612L3.34052 13.874H0.991311L6.47754 7.70768L0.688965 0.26416H5.53359L8.87856 4.61302L12.7473 0.26416ZM11.9233 12.4921H13.2242L4.8267 1.57349H3.43066L11.9233 12.4921Z"></path></svg></a><a href="https://www.linkedin.com/company/lionscraft" target="_blank" aria-label="Lionscraft on LinkedIn"><svg aria-hidden="true" viewBox="0 0 16 17" fill="currentColor"><path d="M14.8156 0.0688477H1.18125C0.528125 0.0688477 0 0.584473 0 1.22197V14.9126C0 15.5501 0.528125 16.0688 1.18125 16.0688H14.8156C15.4688 16.0688 16 15.5501 16 14.9157V1.22197C16 0.584473 15.4688 0.0688477 14.8156 0.0688477ZM4.74687 13.7032H2.37188V6.06572H4.74687V13.7032ZM3.55938 5.0251C2.79688 5.0251 2.18125 4.40947 2.18125 3.6501C2.18125 2.89072 2.79688 2.2751 3.55938 2.2751C4.31875 2.2751 4.93437 2.89072 4.93437 3.6501C4.93437 4.40635 4.31875 5.0251 3.55938 5.0251ZM13.6344 13.7032H11.2625V9.99072C11.2625 9.10635 11.2469 7.96572 10.0281 7.96572C8.79375 7.96572 8.60625 8.93135 8.60625 9.92822V13.7032H6.2375V6.06572H8.5125V7.10947H8.54375C8.85938 6.50947 9.63438 5.8751 10.7875 5.8751C13.1906 5.8751 13.6344 7.45635 13.6344 9.5126V13.7032Z"></path></svg></a><a href="mailto:hello@lionscraft.io" aria-label="Email hello@lionscraft.io"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg></a><a href="https://t.me/bartulovic" target="_blank" aria-label="Message @bartulovic on Telegram"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.7 19.6c-.24 1.08-.88 1.35-1.79.84l-4.94-3.64-2.38 2.29c-.26.26-.48.48-.99.48l.35-5.02 9.14-8.26c.4-.35-.09-.55-.62-.2L6.17 13.2l-4.86-1.52c-1.06-.33-1.08-1.06.22-1.57L20.5 2.79c.88-.32 1.65.2 1.44 1.51Z"></path></svg></a></div></div></div></div></div></div><main class="main-wrapper">
-<section class="csx-hero"><div class="padding-global"><div class="container-large is-hero-border"><div class="csx-hero_inner">
+<section class="csx-hero"><div class="padding-global"><div class="container-large is-hero-border">
+<div class="csx-hero_inner">
+<div class="csx-hero_pic"><img src="/images/BG-7.avif" alt="" width="1208" height="1240" loading="eager"/></div>
+<div class="csx-hero_text">
 <nav class="csx-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/case-studies" class="cs-back">Case studies</a><span>/</span><span aria-current="page">Aleph Zero</span></nav>
-<div class="csx-hero_grid"><div class="csx-hero_text">
 <div class="csx-tags">Blockchain protocol / Enterprise growth / 2024</div>
 <h1 class="csx-h1">NEON: Designing an Enterprise Programme for Aleph Zero</h1>
 <p class="csx-standfirst">Lionscraft worked on the commercial structure and delivery preparation of Aleph Zero's NEON enterprise programme, connecting a privacy-focused blockchain protocol with institutional use cases, infrastructure participation and business partners.</p>
 <div class="csx-pills"><span>Advisory</span><span>Build</span></div>
 </div>
-<div class="csx-stats" aria-label="Key numbers"><div class="csx-stat"><div class="csx-stat_num">Sep 2024</div><div class="csx-stat_label">NEON enterprise programme publicly launched</div></div><div class="csx-stat"><div class="csx-stat_num">3</div><div class="csx-stat_label">participation streams: infrastructure, application and network</div></div></div>
-</div></div></div></div></section>
+</div>
+<div class="csx-stats is-2" aria-label="Key numbers"><div class="csx-stat"><div class="csx-stat_num">Sep 2024</div><div class="csx-stat_label">NEON enterprise programme publicly launched</div></div><div class="csx-stat"><div class="csx-stat_num">3</div><div class="csx-stat_label">participation streams: infrastructure, application and network</div></div></div>
+</div></div></section>
 
 <section class="csx-body"><div class="padding-global"><div class="container-large"><div class="csx-layout">
 <div class="csx-main">
 
-<details class="csx-toc-mobile"><summary>On this page</summary><nav><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#story">The story</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav></details>
+<details class="csx-toc-mobile"><summary>On this page</summary><nav><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#story">The story</a><a href="#chapter-1" class="is-sub">01 Turning a technical protocol pitch into participation models</a><a href="#chapter-2" class="is-sub">02 Working through real enterprise use cases</a><a href="#chapter-3" class="is-sub">03 Building the partner and launch programme</a><a href="#chapter-4" class="is-sub">04 NEON launched in September 2024</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav></details>
 
-<section id="brief" class="csx-sec"><h2>The story in brief</h2><div class="csx-brief"><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></div><div class="csx-label">Situation</div><p>Aleph Zero had a technically differentiated blockchain proposition, but enterprises needed a clearer way to evaluate it, participate and progress toward relevant applications or infrastructure projects.</p></div><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg></div><div class="csx-label">Role</div><p>Lionscraft developed and reviewed enterprise programme models, partner benefits and responsibilities, sector opportunities, commercial structures and launch materials.</p></div><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div class="csx-label">Work</div><p>Programme-design work, enterprise participation frameworks, telecom-related technical and market research, partnership proposals, outreach and launch communications material.</p></div><div class="csx-brief_card"><div class="csx-brief_icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div class="csx-label">Outcome</div><p>Aleph Zero publicly launched <strong>NEON in September 2024</strong>, naming enterprise participants including Pairpoint. The archived work documents programme development; it does not establish a verified number of active members or completed application deployments attributable to the programme.</p></div></div></section>
+<section id="brief" class="csx-sec"><h2>The story in brief</h2><div class="csx-brief"><div class="csx-brief_card"><div class="csx-label">01 — Situation</div><p>Aleph Zero had a technically differentiated blockchain proposition, but enterprises needed a clearer way to evaluate it, participate and progress toward relevant applications or infrastructure projects.</p></div><div class="csx-brief_card"><div class="csx-label">02 — Role</div><p>Lionscraft developed and reviewed enterprise programme models, partner benefits and responsibilities, sector opportunities, commercial structures and launch materials.</p></div><div class="csx-brief_card"><div class="csx-label">03 — Work</div><p>Programme-design work, enterprise participation frameworks, telecom-related technical and market research, partnership proposals, outreach and launch communications material.</p></div><div class="csx-brief_card"><div class="csx-label">04 — Outcome</div><p>Aleph Zero publicly launched <strong>NEON in September 2024</strong>, naming enterprise participants including Pairpoint. The archived work documents programme development; it does not establish a verified number of active members or completed application deployments attributable to the programme.</p></div></div></section>
 
 <dl class="csx-facts csx-facts-mobile"><div class="csx-fact"><dt>Client</dt><dd>Aleph Zero</dd></div><div class="csx-fact"><dt>Industry</dt><dd>Blockchain protocol · Enterprise growth</dd></div><div class="csx-fact"><dt>Period</dt><dd>2024</dd></div><div class="csx-fact"><dt>Programme</dt><dd>NEON enterprise engagement</dd></div><div class="csx-fact"><dt>Services</dt><dd><a href="/services/advisory">Advisory</a> · <a href="/services/build">Build</a></dd></div></dl>
 
@@ -991,27 +1038,22 @@ body .v2-latest_foot .v2-latest_link{border-bottom-color:#ffffff66}
 
 <section id="story" class="csx-sec"><h2>The story</h2><div class="csx-chapter" id="chapter-1"><div class="csx-chapter_num">01</div><div class="csx-chapter_body"><h3>Turning a technical protocol pitch into participation models</h3><p>An early programme design separated enterprise participation into <strong>Infrastructure</strong>, <strong>Application</strong> and <strong>Network</strong> streams, recognising that organisations might contribute by operating infrastructure, building products or creating ecosystem relationships.</p>
 <p>Lionscraft's working materials explored alternative structures such as <strong>Explorer, Ambassador and Builder</strong>, each representing a different level of readiness and expected contribution.</p>
-<p>The programme work considered membership benefits, workshops, account support, network participation, co-marketing, commercial commitments and grant-related opportunities. These were design alternatives and iterations, not three separate commercial programmes sold to the same market.</p></div></div><div class="csx-chapter" id="chapter-2"><div class="csx-chapter_num">02</div><div class="csx-chapter_body"><h3>Working through real enterprise use cases</h3><p>Telecommunications was one of the sectors investigated in depth.</p>
+<p>The programme work considered membership benefits, workshops, account support, network participation, co-marketing, commercial commitments and grant-related opportunities. These were design alternatives and iterations, not three separate commercial programmes sold to the same market.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">Infrastructure</div><div class="csx-chapter_fact">Application</div></aside></div><div class="csx-chapter" id="chapter-2"><div class="csx-chapter_num">02</div><div class="csx-chapter_body"><h3>Working through real enterprise use cases</h3><p>Telecommunications was one of the sectors investigated in depth.</p>
 <p>The technical and market research examined how network capabilities could support blockchain applications. A comparison of telecom APIs considered identity verification, SIM-swap detection, device location, carrier billing and ways to associate a phone number with a blockchain address.</p>
 <p>The research included major operators such as Vodafone, Deutsche Telekom, Telefónica and Orange, as well as opportunities linked to stc.</p>
 <p>This work gave the programme more specific potential conversations than a general appeal to “enterprise blockchain adoption”.</p></div></div><div class="csx-chapter" id="chapter-3"><div class="csx-chapter_num">03</div><div class="csx-chapter_body"><h3>Building the partner and launch programme</h3><p>Lionscraft's archive includes proposal decks, programme descriptions, website and newsletter material, event planning, partner outreach, focus-group concepts and execution schedules.</p>
 <p>The work considered how enterprises would be onboarded, who would support them, what activities would happen first and which benefits were deliverable at different stages.</p>
 <p>There were also specific prospective partner opportunities: Pairpoint's potential infrastructure participation, Japan-focused ecosystem and validator cooperation, and sports and entertainment concepts. The source files preserve negotiations and design material, but draft grant requests and proposed applications are not counted as signed customer contracts or deployed products.</p></div></div><div class="csx-chapter" id="chapter-4"><div class="csx-chapter_num">04</div><div class="csx-chapter_body"><h3>NEON launched in September 2024</h3><p>On <strong>10 September 2024</strong>, Aleph Zero <a href="https://alephzero.org/blog/announcing-neon-enterprise-program-pairpoint-vodafone-sumitomo" target="_blank" rel="noopener">publicly announced NEON</a>, with Pairpoint among the named enterprise relationships.</p>
-<p>The launch is a documented programme milestone following the design and preparation work. A public launch is not a reliable count of paying members, recurring working-group participation or products subsequently built by those members; those outcomes would need separate records.</p></div></div></section>
+<p>The launch is a documented programme milestone following the design and preparation work. A public launch is not a reliable count of paying members, recurring working-group participation or products subsequently built by those members; those outcomes would need separate records.</p></div><aside class="csx-chapter_aside"><div class="csx-label">Key points</div><div class="csx-chapter_fact">10 September 2024</div></aside></div></section>
 
-<section id="what-we-did" class="csx-sec"><h2>What Lionscraft did</h2><div class="csx-prose"><h4 class="csx-sub"><a href="/services/advisory">Advisory – Enterprise business development</a></h4>
-<p>Developed programme value propositions, participation models, partner benefits, commercial scenarios, industry research and enterprise opportunity analysis.</p>
-<h4 class="csx-sub"><a href="/services/build">Build – Programme delivery and technical opportunity design</a></h4>
-<p>Prepared onboarding and communications materials, sector-specific API/use-case analysis, partner-workflow proposals and execution planning.</p>
-<p>The work was on Aleph Zero's enterprise engagement programme, not on development of the underlying consensus protocol or all applications discussed in its pipeline.</p></div></section>
+<section id="what-we-did" class="csx-sec"><h2>What Lionscraft did</h2><div class="csx-prose csx-did_wrap"><div class="csx-did"><a href="/services/advisory" class="csx-did_card"><div class="csx-label">Advisory</div><h3>Enterprise business development</h3><p>Developed programme value propositions, participation models, partner benefits, commercial scenarios, industry research and enterprise opportunity analysis.</p></a><a href="/services/build" class="csx-did_card"><div class="csx-label">Build</div><h3>Programme delivery and technical opportunity design</h3><p>Prepared onboarding and communications materials, sector-specific API/use-case analysis, partner-workflow proposals and execution planning.</p></a></div><p>The work was on Aleph Zero's enterprise engagement programme, not on development of the underlying consensus protocol or all applications discussed in its pipeline.</p></div></section>
 
-<section id="results" class="csx-sec"><h2>Results and impact</h2><div class="csx-prose csx-results"><ul class="csx-list"><li>Multiple detailed NEON participation models developed and reviewed.</li><li>Enterprise programme and launch collateral, communications and planning artifacts.</li><li>Specific telecom API/use-case research and partner proposals.</li><li><strong>Public NEON launch in September 2024</strong>, with enterprise partners named by Aleph Zero.</li></ul>
-<p>The source record supports programme design and launch, without invented subscription revenue, application adoption or member-growth results.</p></div></section>
+<section id="results" class="csx-sec"><h2>Results and impact</h2><div class="csx-prose csx-results"><div class="csx-results_grid"><div class="csx-result"><div class="csx-result_num">01</div><p>Multiple detailed NEON participation models developed and reviewed.</p></div><div class="csx-result"><div class="csx-result_num">02</div><p>Enterprise programme and launch collateral, communications and planning artifacts.</p></div><div class="csx-result"><div class="csx-result_num">03</div><p>Specific telecom API/use-case research and partner proposals.</p></div><div class="csx-result"><div class="csx-result_num">04</div><p><strong>Public NEON launch in September 2024</strong>, with enterprise partners named by Aleph Zero.</p></div></div><p>The source record supports programme design and launch, without invented subscription revenue, application adoption or member-growth results.</p></div></section>
 
 </div>
 <aside class="csx-rail"><div class="csx-rail_inner">
-<div class="csx-label">On this page</div><nav class="csx-toc"><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#story">The story</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav>
 <div class="csx-label csx-rail_facts-label">Project facts</div><dl class="csx-facts"><div class="csx-fact"><dt>Client</dt><dd>Aleph Zero</dd></div><div class="csx-fact"><dt>Industry</dt><dd>Blockchain protocol · Enterprise growth</dd></div><div class="csx-fact"><dt>Period</dt><dd>2024</dd></div><div class="csx-fact"><dt>Programme</dt><dd>NEON enterprise engagement</dd></div><div class="csx-fact"><dt>Services</dt><dd><a href="/services/advisory">Advisory</a> · <a href="/services/build">Build</a></dd></div></dl>
+<div class="csx-label csx-rail_toc-label">On this page</div><nav class="csx-toc"><a href="#brief">The story in brief</a><a href="#challenge">The challenge</a><a href="#story">The story</a><a href="#chapter-1" class="is-sub">01 Turning a technical protocol pitch into participation models</a><a href="#chapter-2" class="is-sub">02 Working through real enterprise use cases</a><a href="#chapter-3" class="is-sub">03 Building the partner and launch programme</a><a href="#chapter-4" class="is-sub">04 NEON launched in September 2024</a><a href="#what-we-did">What Lionscraft did</a><a href="#results">Results and impact</a><a href="#evidence">Evidence and further reading</a><a href="#related">Related work</a></nav>
 </div></aside>
 </div>
 
