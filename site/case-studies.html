@@ -447,10 +447,12 @@ body .v2-trust_grid.cs-overview_grid .v2-trust_card:hover{background-color:#ffff
 .csx-results .csx-result p{margin:0;font-size:1rem;line-height:1.6}
 .csx-results{max-width:none}.csx-results > p,.csx-results > .csx-table{max-width:46rem}
 /* rail */
-.csx-rail{position:sticky;top:6rem;align-self:start}
+/* the facts scroll with the page; only the page list sticks */
+.csx-rail{align-self:stretch}
 .csx-rail_inner{border-left:1px solid var(--border-color--border-primary);padding-left:1.5rem}
+.csx-rail_sticky{position:sticky;top:3.75rem;padding-top:2.25rem}
 .csx-rail_facts-label{margin-bottom:.5rem}
-.csx-rail_toc-label{margin-top:2.25rem;margin-bottom:.5rem}
+.csx-rail_toc-label{margin-bottom:.5rem}
 .csx-toc{display:flex;flex-direction:column}
 .csx-toc a,.csx-toc-mobile nav a{font-size:.9375rem;line-height:1.35;color:#5c5c55;text-decoration:none;padding:.4rem 0 .4rem .875rem;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:calc(1.5rem - 2px)}
 .csx-toc a.is-sub,.csx-toc-mobile nav a.is-sub{font-size:.875rem;padding-left:calc(2.5rem - 2px);padding-top:.3rem;padding-bottom:.3rem}
