@@ -377,10 +377,10 @@ margin: 0rem !important;
 .adv-pill{display:inline-flex;align-items:center;gap:.625rem;height:2.75rem;padding:0 1.25rem;border-radius:999px;border:1px solid #0b0b04;color:#0b0b04;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color .2s,color .2s}
 .adv-pill:hover{background-color:#0b0b04;color:#fafafa}
 .adv-body{background-color:#fbfaf3;color:#0b0b04}
-.adv-body .container-large{padding:0 2rem}
-/* sections are separated by space, not lines */
-.adv-sec{padding:4.5rem 0}
-.adv-sec.is-first{padding-top:5.5rem}
+.adv-body .container-large{padding:0 2rem 6rem}
+/* one line between sections; none inside them */
+.adv-sec{padding:4.5rem 0;border-top:1px solid var(--border-color--border-primary)}
+.adv-sec.is-first{padding-top:5.5rem;border-top:none}
 .adv-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3rem;align-items:end;margin-bottom:2.5rem}
 .adv-head .adv-label{margin-bottom:1.25rem}
 .adv-head_side{display:flex;flex-direction:column;gap:1.25rem;align-items:flex-start}
@@ -396,12 +396,13 @@ margin: 0rem !important;
 .adv-work_logo{height:2.25rem;display:flex;align-items:center;font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;letter-spacing:-.02em}
 .adv-work_logo img{max-height:2rem;max-width:8rem}
 .adv-work_title{font-family:Saans,Arial,sans-serif;font-size:1.375rem;font-weight:500;line-height:1.25;letter-spacing:-.02em;margin:0;color:#0b0b04}
-.adv-group{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:3rem;padding:3rem 0;border-top:1px solid #0b0b04}
+.adv-group{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:3rem;padding:3rem 0}
+.adv-groups .adv-group:first-child{padding-top:.5rem}.adv-groups .adv-group:last-child{padding-bottom:0}
 .adv-group_intro .adv-label{margin-bottom:1rem}
 .adv-group_intro h3{font-family:Saans,Arial,sans-serif;font-size:2.25rem;font-weight:500;line-height:1.08;letter-spacing:-.03em;margin:0 0 .75rem;color:#0b0b04}
 .adv-group_intro p{margin:0;font-size:1rem;line-height:1.55;color:#5c5c55;max-width:22.5rem}
-.adv-svc{display:grid;grid-template-columns:3rem minmax(0,1.2fr) minmax(0,1fr);gap:1.5rem;padding:1.5rem 0;border-top:1px solid #cfcdc2;scroll-margin-top:6rem}
-.adv-svc:first-child{border-top:none;padding-top:0}
+.adv-svc{display:grid;grid-template-columns:3rem minmax(0,1.2fr) minmax(0,1fr);gap:1.5rem;padding:1.25rem 0;scroll-margin-top:6rem}
+.adv-svc:first-child{padding-top:0}
 .adv-svc h4{font-family:Saans,Arial,sans-serif;font-size:1.25rem;font-weight:500;line-height:1.25;letter-spacing:-.015em;margin:0 0 .5rem;color:#0b0b04}
 .adv-svc p{margin:0;font-size:.9375rem;line-height:1.55;color:#3d3d37}
 .adv-svc_out p{font-size:.9063rem}
@@ -412,7 +413,7 @@ margin: 0rem !important;
 .adv-box h3{font-family:Saans,Arial,sans-serif;font-size:1.875rem;font-weight:500;letter-spacing:-.025em;line-height:1.1;margin:0;color:#0b0b04}
 .adv-box p{margin:0;font-size:.9375rem;line-height:1.5;color:#5c5c55;max-width:22.5rem}
 .adv-box_arrow{margin-top:auto;align-self:flex-end;display:flex}
-.adv-cta{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;margin:0 0 6rem;padding:3.5rem;background-color:#eceadf}
+.adv-cta{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;padding:3.5rem;background-color:#eceadf}
 .adv-cta > div:first-child{max-width:44rem}
 .adv-cta h2{font-family:Saans,Arial,sans-serif;font-size:2.5rem;font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:1rem 0;color:#0b0b04}
 .adv-cta p{margin:0;font-size:1.0625rem;line-height:1.6;color:#3d3d37}
@@ -422,13 +423,13 @@ margin: 0rem !important;
 .adv-hero_text{order:1}
 .adv-hero_pic{position:relative;order:2;width:auto;height:16rem;margin:.5rem -1.5rem 0}
 .adv-hero_pic img{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 40%,#000 65%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 40%,#000 65%,transparent 100%)}
-.adv-body .container-large{padding:0 1.5rem}
+.adv-body .container-large{padding:0 1.5rem 4rem}
 .adv-sec{padding:4rem 0}
 .adv-h2{font-size:2.125rem}
 .adv-svc{grid-template-columns:2.5rem minmax(0,1fr);gap:.75rem 1.25rem}
 .adv-svc_out{grid-column:2}
 .adv-next{grid-template-columns:minmax(0,1fr)}
-.adv-cta{padding:2rem;margin-bottom:4rem}
+.adv-cta{padding:2rem}
 }
 @media screen and (max-width:767px){
 .adv-g4{grid-template-columns:minmax(0,1fr)}
