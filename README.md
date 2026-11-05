@@ -42,8 +42,7 @@ deploys it as a static site (Deploy → Static, public directory
 
 ## Other sites in this repo
 
-- `risk/` — copy of https://risk.lionscraft.io (home, `resources.html`, `litepaper.html`,
-  the three cat bond PDFs, images and fonts).
+- `risk/` — copy of https://risk.lionscraft.io (`index.html` with its images, fonts and script).
 - `protect/` — copy of https://protect.lionscraft.io (one self-contained `index.html`).
 
 Both were downloaded from the live sites on 2026-11-05; they are not part of the main
