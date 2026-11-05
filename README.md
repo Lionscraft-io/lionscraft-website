@@ -34,7 +34,7 @@ deploys it as a static site (Deploy → Static, public directory
 - `site/` (served with clean URLs: `/services/advisory` → `services/advisory.html`)
   - `index.html` — homepage; `our-story.html`
   - `services.html` + `services/` — Advisory, Build, Operate, Structure
-  - `intelligence.html` + `intelligence/` — Research (with articles in `intelligence/research/`), Data & Tools, Training
+  - `intelligence.html` + `intelligence/` — Research (with articles in `intelligence/research/`), Education & Training (`training.html`), Data & Analytics (`data-tools.html`)
   - `case-studies.html` + `case-studies/` — one page per case study
   - `latest.html`, `ventures.html`
   - `legal/privacy-policy.html`, `404.html`, `401.html`, `sitemap.xml`, `robots.txt`

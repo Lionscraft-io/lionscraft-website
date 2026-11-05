@@ -148,8 +148,8 @@ All internal links and asset paths are root-relative (`/services/advisory`, `/im
     /intelligence/research/slashing-risk-explained
     /intelligence/research/telco-blockchain-validators
     /intelligence/research/agentic-ai-automation-where-to-start
-  /intelligence/data-tools          Data & Tools  (was Repositories)
-  /intelligence/training            Training      (was Education)
+  /intelligence/training          Data & Tools  (was Repositories)
+  /intelligence/data-tools            Training      (was Education)
 /case-studies                       Overview
   /case-studies/lido · /case-studies/munich-re · /case-studies/vodafone · /case-studies/stc-bahrain
 /latest                             Latest: all posts (homepage "View all updates" links here)
