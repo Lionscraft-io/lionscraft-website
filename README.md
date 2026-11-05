@@ -46,8 +46,12 @@ deploys it as a static site (Deploy → Static, public directory
 - `protect/` — copy of https://protect.lionscraft.io (one self-contained `index.html`).
 
 Both were downloaded from the live sites on 2026-11-05; they are not part of the main
-site in `site/` and nothing deploys them yet. Their newsletter forms post to
-`/api/subscribe`, a server endpoint on the Replit apps that isn't in these static copies.
+site in `site/`. Their newsletter forms post to `/api/subscribe`, a server endpoint on
+the Replit apps that isn't in these static copies.
+
+Preprod shows them from `draft`, like the main site:
+- risk: https://v2202609411057512877.hotsrv.de:8443 (or `/risk`, which forwards there)
+- protect: https://v2202609411057512877.hotsrv.de:8444 (or `/protect`)
 
 ## Notes
 
