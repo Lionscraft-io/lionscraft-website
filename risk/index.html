@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lionscraft Risk — Building the rails between risk and capital</title>
+<meta name="description" content="Lionscraft builds the operating layer that takes risk all the way into executable capital.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="/risk-runtime.js"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:Saans;src:url("/saans-regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Saans;src:url("/saans-medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:'Saans SemiMono';src:url("/saans-semimono-regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:'Saans SemiMono';src:url("/saans-semimono-medium.ttf") format("truetype");font-weight:500;font-display:swap}
+html{scroll-behavior:smooth}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+[data-reveal].is-in{opacity:1;transform:none}
+[data-subscribe]{background:#171A3B!important;align-items:center}
+[data-subscribe] input{background:transparent!important;color:#FFFFFF!important;caret-color:#2AE6E6}
+[data-subscribe] input::placeholder{color:#767A96}
+[data-subscribe] input:-webkit-autofill,[data-subscribe] input:-webkit-autofill:hover,[data-subscribe] input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #171A3B inset!important;-webkit-text-fill-color:#FFFFFF!important;caret-color:#2AE6E6}
+[data-subscribe] button{background:#2AE6E6!important;color:#0B0D1F!important}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
+@keyframes stripScroll{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
+[data-strip]:hover [data-marquee]{animation-play-state:paused}
+@keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.015)}}
+@media (prefers-reduced-motion:reduce){[data-hero-img],[data-marquee]{animation:none!important}}
+body{margin:0;background:#0B0D1F;font-family:Saans,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2AE6E6;text-decoration:none}a:hover{color:#2AE6E6}
+@media (max-width:1000px){
+  [data-grid4]{grid-template-columns:1fr 1fr!important}
+  [data-grid3]{grid-template-columns:1fr!important}
+  [data-row]{grid-template-columns:1fr!important;gap:48px!important}
+  [data-flip]>[data-visual]{order:2}
+  [data-kpi2]{grid-template-columns:1fr 1fr!important}
+  [data-life]{grid-template-columns:1fr 1fr!important}
+  [data-life] [data-end]{grid-column:span 2}
+  [data-layers]{display:none!important}
+  [data-benefits]{grid-template-columns:1fr 1fr!important;gap:24px!important}
+}
+@media (max-width:1100px){
+  [data-navlinks]{gap:26px!important}
+}
+@media (max-width:900px){
+
+  [data-section]{padding:80px 24px!important;min-height:0!important}
+  [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}
+  @media (prefers-reduced-motion:no-preference){
+    [data-hero] [data-reveal]{opacity:0!important;transform:translateY(28px)!important;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)!important}
+    [data-hero] [data-reveal].is-in{opacity:1!important;transform:none!important}
+  }
+  [data-problem-fade]{display:none!important}
+  [data-hero-bg],[data-hero-img]{display:none!important}
+  [data-hero-shell]{background-image:url("/risk-hero.png");background-size:cover;background-position:72% center;background-repeat:no-repeat}
+  [data-nav]{padding:14px 20px!important}
+  [data-navlinks]{gap:14px!important;font-size:10px!important;letter-spacing:.11em!important}
+  [data-nav] img{width:110px!important}
+  [data-scroll]{display:none!important}
+  [data-hero]{padding:160px 24px 48px!important;grid-template-columns:1fr!important;gap:40px!important;min-height:0!important}
+  [data-hero] h1{font-size:36px!important}
+  [data-hero-intro]{justify-self:start!important}
+  [data-stack]{flex-direction:column!important;align-items:stretch!important}
+  [data-stack] a{text-align:center}
+  [data-grid],[data-grid4],[data-grid3]{grid-template-columns:1fr!important;gap:28px!important}
+  [data-benefits]{grid-template-columns:1fr!important}
+  [data-kpi2]{grid-template-columns:1fr!important}
+  [data-life]{grid-template-columns:1fr!important}
+  [data-visual] img{width:110%!important;max-width:none!important;margin-left:-5%!important}
+  [data-life] [data-end]{grid-column:auto;font-size:22px!important;padding:16px!important}
+  [data-section] div[style*="grid-template-columns:180px 1fr"]{grid-template-columns:1fr!important;gap:6px!important}
+  [data-site] h2{font-size:34px!important}
+  [data-h3]{font-size:22px!important}
+  [data-q]{font-size:19px!important}
+  [data-card-t]{font-size:20px!important}
+  [data-carousel]>div{flex:0 0 85%!important}
+  [data-finale]{font-size:40px!important}
+  [data-subscribe]{flex-direction:row!important;align-items:center!important;border-radius:100px!important;min-height:56px}
+  [data-subscribe] button{margin:6px!important}
+  [data-footer]{flex-wrap:wrap;gap:10px}
+}
+@media (max-width:600px){
+  [data-nav]{padding:12px 16px!important;gap:4px!important;row-gap:2px!important;flex-wrap:wrap!important}
+  [data-nav]>a:first-child{min-width:0}
+  [data-nav] img{width:94px!important}
+  [data-nav]>a:first-child span{font-size:11px!important;letter-spacing:.12em!important;padding-left:8px!important}
+  [data-menu-toggle]{display:inline-flex!important;margin-left:auto!important;font-size:9px!important;letter-spacing:.1em!important}
+  [data-navlinks]{display:flex!important;flex:0 0 100%!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:12px!important;font-size:13px!important;letter-spacing:.12em!important;line-height:1.5!important;min-width:0;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transform:translateY(-8px);pointer-events:none;transition:max-height .28s ease,opacity .2s ease,transform .28s ease,visibility 0s linear .28s}
+  [data-nav][data-menu-open="true"] [data-navlinks]{max-height:220px;opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;transition:max-height .28s ease,opacity .2s ease,transform .28s ease,visibility 0s linear 0s}
+  [data-hero-bg]{object-fit:contain!important;object-position:50% 64%!important;opacity:.2!important;filter:blur(24px)!important;transform:scale(1)!important}
+  [data-hero-img]{object-fit:contain!important;object-position:50% 64%!important;opacity:.72!important;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.2) 18%,#000 42%,#000 88%,transparent 100%)!important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.2) 18%,#000 42%,#000 88%,transparent 100%)!important}
+  [data-mobile-hero]{display:none!important}
+  [data-hero-grid]{opacity:.7}
+  [data-subscribe]{width:100%;box-sizing:border-box}
+  [data-subscribe] input{font-size:14px!important;padding:14px 14px!important}
+  [data-subscribe] button{flex:0 0 auto;white-space:nowrap;font-size:11px!important;padding:14px 16px!important}
+  [data-hero]{padding-top:150px!important}
+  [data-finale]{max-width:100%!important;white-space:normal!important;text-wrap:wrap!important;overflow-wrap:normal!important}
+}
+</style>
+</helmet>
+<div id="top" data-site="risk" style="min-height:100vh;background:#0B0D1F;color:#FFFFFF">
+   <div data-hero-shell="" style="position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column">
+    <img src="/risk-hero.png" alt="" data-hero-bg="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;filter:blur(40px);transform:scale(1.1)">
+    <img src="/risk-hero.png" alt="" data-hero-img="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 50%;opacity:.9;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.4) 12%,#000 28%,#000 65%,transparent 96%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.4) 12%,#000 28%,#000 65%,transparent 96%)">
+    <div data-hero-grid="" style="position:absolute;inset:0;background-image:linear-gradient(rgba(42,230,230,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(42,230,230,.08) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 70%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 70%);pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,31,.6) 0%,rgba(11,13,31,.4) 50%,rgba(11,13,31,.92) 100%);pointer-events:none"></div>
+    <div style="position:relative;pointer-events:none;flex:1;display:flex;flex-direction:column">
+      <div data-nav="" data-menu-open="{{ menuOpen }}" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:40px;padding:16px 24px;background:rgba(11,13,31,.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);pointer-events:auto">
+        <a href="https://lionscraft.io/" style="display:flex;align-items:center;gap:14px"><img src="/lionscraft-logo.svg" alt="Lionscraft" style="width:150px;display:block"><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;color:#2AE6E6;font-weight:500;line-height:2;border-left:1px solid rgba(255,255,255,.25);padding-left:14px">RISK</span></a>
+        <button data-menu-toggle="" type="button" sc-camel-on-click="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-label="{{ menuLabel }}" style="display:none;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.45);border-radius:100px;background:transparent;color:#FFFFFF;padding:8px 12px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.12em;font-weight:500;line-height:1;text-transform:uppercase;cursor:pointer">{{ menuLabel }}<span aria-hidden="true" style="font-size:14px;line-height:.7">☰</span></button>
+        <div data-navlinks="" style="display:flex;gap:40px;align-items:center;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;font-weight:500;line-height:2;text-transform:uppercase;pointer-events:auto">
+          <a href="https://lionscraft.io/" aria-label="Lionscraft home" sc-camel-on-click="{{ closeMenu }}" style="color:#CCCCCC;display:flex"><svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"></path><path d="M5.5 9.5V21h13V9.5"></path><path d="M9.5 21v-6h5v6"></path></svg></a><a href="https://protect.lionscraft.io/" sc-camel-on-click="{{ closeMenu }}" style="color:#CCCCCC">PROTECT</a>
+        </div>
+      </div>
+      <div data-hero="" style="position:relative;padding:200px 24px 64px;width:100%;max-width:1328px;margin:0 auto;box-sizing:border-box;flex:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:56px;align-items:end">
+        <div style="align-self:center">
+           <h1 data-reveal="" style="margin:0;font-family:'Saans SemiMono',Arial,sans-serif;font-weight:500;font-size:clamp(40px,5vw,72px);line-height:1.1;letter-spacing:-.01em;max-width:820px">Building the rails<br>between <span style="color:#2AE6E6">risk</span><br>and <span style="color:#2AE6E6">capital.</span></h1>
+           <div data-stack="" data-reveal="" style="display:flex;gap:14px;margin-top:44px;pointer-events:auto">
+            <a href="https://cal.com/team/lionscraft/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:54px;border:1px solid #FFFFFF;background:#FFFFFF;color:#0B0D1F;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;font-weight:500;line-height:1;padding:0 32px;border-radius:100px;text-transform:uppercase;text-indent:.18em">Build with us</a>
+            <a href="#insights" style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:54px;border:1px solid rgba(255,255,255,.6);color:#FFFFFF;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;font-weight:500;line-height:1;padding:0 32px;border-radius:100px;text-transform:uppercase;text-indent:.18em">Latest insights</a>
+          </div>
+           <img data-mobile-hero="" src="/risk-hero.png" alt="Lionscraft Risk infrastructure" style="display:none">
+        </div>
+        <a data-scroll="" href="#problem" aria-label="Scroll down" style="opacity:{{ scrollOpacity }};transition:opacity .4s;position:absolute;left:50%;transform:translateX(-50%);bottom:28px;display:flex;flex-direction:column;align-items:center;gap:10px;color:#CCCCCC;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;font-weight:500;pointer-events:auto"><svg width="14" height="22" sc-camel-view-box="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1v19"></path><path d="M1.5 14.5 7 20l5.5-5.5"></path></svg>SCROLL</a>
+        <div data-hero-intro="" style="max-width:440px;justify-self:end">
+          <div style="width:56px;height:56px;background:#2AE6E6;border-radius:10px;padding:10px;box-sizing:border-box"><img src="/lionscraft-icon.svg" alt="" style="width:100%;height:100%;display:block;filter:brightness(0)"></div>
+           <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;color:#FFFFFF;font-weight:500;text-transform:uppercase;margin-top:28px">Introducing <span style="color:#2AE6E6">Lionscraft Risk</span></div>
+           <p data-reveal="" style="margin:24px 0 0;font-size:17px;line-height:1.55;color:#FFFFFF">The money exists but getting risk to capital is slow, manual and expensive. There are no rails between them, just spreadsheets, PDFs and email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-strip="" style="overflow:hidden;border-top:1px solid #2E3468;border-bottom:1px solid #2E3468;font-family:'Saans SemiMono',Arial,sans-serif;font-size:12px;letter-spacing:.1em;color:#767A96">
+    <div data-marquee="" style="display:flex;width:max-content;animation:stripScroll 40s linear infinite"><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">ORIGINATE</span><span>risk · data · models</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">STRUCTURE</span><span>terms · diligence · approvals</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">COMMIT</span><span>capital · collateral · ownership</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">EXECUTE</span><span>triggers · settlement · release</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">ORIGINATE</span><span>risk · data · models</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">STRUCTURE</span><span>terms · diligence · approvals</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">COMMIT</span><span>capital · collateral · ownership</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">EXECUTE</span><span>triggers · settlement · release</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">ORIGINATE</span><span>risk · data · models</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">STRUCTURE</span><span>terms · diligence · approvals</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">COMMIT</span><span>capital · collateral · ownership</span></div><div style="flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:24px 40px;border-right:1px solid #2E3468;white-space:nowrap"><span style="color:#2AE6E6;font-weight:500">EXECUTE</span><span>triggers · settlement · release</span></div></div>
+  </div>
+
+  <div id="problem" data-section="" style="padding:160px 24px;background:linear-gradient(180deg,#0B0D1F 0%,#171A3B 100%)">
+    <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
+    <div data-row="" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div><div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;margin-bottom:16px;font-weight:500">01 / THE PROBLEM</div><h2 data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;margin:0;font-size:46px;font-weight:500;letter-spacing:-.02em;line-height:1.05">Risk transfer runs on <span style="color:#2AE6E6">fragmented</span> infrastructure.</h2><ul style="list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:14px"><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Data, terms, rights, state and evidence sit in separate systems</span></li><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Every institutional handoff means translation, duplication and reconciliation</span></li><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Commitments and collateral live in documents, not in shared state</span></li></ul><div data-reveal="" style="margin-top:32px;padding-top:24px;border-top:1px solid #2E3468;font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.3;color:#FFFFFF">The market is sophisticated. The operating layer is not.</div></div>
+      <div data-kpi2="" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div data-reveal="" style="padding:28px;border:1px solid #2E3468;min-width:0;display:flex;flex-direction:column"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">GETTING TO MARKET</div><div style="display:flex;align-items:baseline;gap:8px;margin-top:40px"><span style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1">3–6</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">MONTHS</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">To turn a risk into a live transaction.</div></div>
+      <div data-reveal="" style="padding:28px;border:1px solid #2E3468;min-width:0;display:flex;flex-direction:column"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">SETTLEMENT LAG</div><div style="display:flex;align-items:baseline;gap:8px;margin-top:40px"><span data-count="90" style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1">90</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">DAYS</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">To move reconciled funds.</div></div>
+      <div data-reveal="" style="padding:28px;border:1px solid #2E3468;min-width:0;display:flex;flex-direction:column"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">PAPERWORK OVERLOAD</div><div style="display:flex;align-items:baseline;gap:8px;margin-top:40px"><span data-count="250+" style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1">250+</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">PAGES</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">One offering circular, plus 60 additional documents, for a single deal.</div></div>
+      <div data-reveal="" style="padding:28px;border:1px solid #2E3468;min-width:0;display:flex;flex-direction:column"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">RECONCILIATION BURDEN</div><div style="display:flex;align-items:baseline;gap:8px;margin-top:40px"><span data-count="4" style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1">4</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">TEAMS</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">Checking the same spreadsheet.</div></div>
+
+    </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="what" data-section="" style="padding:160px 24px;background:#171A3B">
+    <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
+    <div data-row="" data-flip="" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div data-visual="" data-reveal="" style="min-width:0;align-self:center"><img src="/risk-capacity-clean.png" alt="The growing capacity gap: risk-transfer demand rising faster than infrastructure capacity" style="display:block;width:100%;height:auto"></div>
+      <div><div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;margin-bottom:16px;font-weight:500">02 / WHY NOW</div><h2 data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;margin:0;font-size:46px;font-weight:500;letter-spacing:-.02em;line-height:1.05">Risk is rapidly outgrowing the infrastructure built to <span style="color:#2AE6E6">carry it.</span></h2><ul style="list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:14px"><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Most risk never reaches financial form</span></li><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Record cat-bond issuance and new sponsors every year</span></li><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>AI and programmable finance can now carry the load</span></li></ul><div data-reveal="" style="margin-top:32px;padding-top:24px;border-top:1px solid #2E3468;font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.3;color:#FFFFFF">More risk. More capital. Infrastructure must scale.</div></div>
+    </div>
+    <div style="margin-top:96px"><div data-grid3="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div data-reveal="" style="display:flex;flex-direction:column;min-width:0;padding:28px;border:1px solid #2E3468"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500;text-transform:uppercase">Untapped risk</div><p style="margin:20px 0 0;font-size:15px;line-height:1.55;color:#C7CBF2"><strong style="color:#FFFFFF;font-weight:500">Most risk never reaches financial form.</strong></p><div style="margin-top:auto;padding-top:40px"><div style="display:flex;align-items:baseline;gap:8px"><span data-count="90" style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1;color:#FFFFFF">90</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">%</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">of APAC natural-catastrophe losses were uninsured in 2025. $76B losses; just over $7B insured.</div></div></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;min-width:0;padding:28px;border:1px solid #2E3468"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500;text-transform:uppercase">Market pressure</div><p style="margin:20px 0 0;font-size:15px;line-height:1.55;color:#C7CBF2"><strong style="color:#FFFFFF;font-weight:500">More activity is hitting infrastructure built for a smaller market.</strong></p><div style="margin-top:auto;padding-top:40px"><div style="display:flex;align-items:baseline;gap:8px"><span data-count="45" style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1;color:#FFFFFF">45</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">%</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">YoY growth in cat-bond issuance in 2025, hitting a record $25.6B, with 15 new first-time sponsors.</div></div></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;min-width:0;padding:28px;border:1px solid #2E3468"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:#2AE6E6;font-weight:500;text-transform:uppercase">New capability</div><p style="margin:20px 0 0;font-size:15px;line-height:1.55;color:#C7CBF2"><strong style="color:#FFFFFF;font-weight:500">AI can structure and reconcile risk information.</strong></p><div style="margin-top:auto;padding-top:40px"><div style="display:flex;align-items:baseline;gap:8px"><span data-count="140" style="font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1;color:#FFFFFF">140</span><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:#B4B9D6">%</span></div><div style="font-size:14px;line-height:1.55;color:#B4B9D6;margin-top:10px">YoY growth in tokenized U.S. Treasuries, reaching $16.2B as institutional adoption accelerates.</div></div></div>
+    </div>
+</div>
+    </div>
+  </div>
+
+  <div id="operating-layer" data-section="" style="background:#171A3B;color:#FFFFFF;padding:160px 24px">
+    <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
+    <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;margin-bottom:16px;font-weight:500">03 / THE SOLUTION</div>
+    <div style="margin-bottom:44px">
+      <h2 data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;margin:0;font-size:46px;font-weight:500;letter-spacing:-.02em;max-width:1000px">Lionscraft builds the operating layer that takes risk all the way into <span style="color:#2AE6E6">executable capital.</span></h2>
+      
+    </div>
+    <div data-solution="" style="margin-top:64px">
+      <div style="text-align:center;margin-bottom:28px"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.16em;color:#2AE6E6;font-weight:500">THE PROTECTION LIFECYCLE</div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;color:#B4B9D6;margin-top:6px;letter-spacing:.04em">made machine-readable</div></div>
+      <div data-life="" style="display:grid;grid-template-columns:.75fr repeat(4,1fr) .75fr;gap:14px;align-items:stretch">
+        <div data-end="" data-reveal="" style="background:#2AE6E6;color:#0B0D1F;display:grid;place-items:center;font-family:'Saans SemiMono',Arial,sans-serif;font-size:28px;font-weight:500;letter-spacing:-.01em;padding:22px;min-width:0">Risk</div>
+        <div data-mod="" data-reveal="" style="border:1px solid #2AE6E6;background:#171A3B;padding:22px 24px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">01</div><div><div data-card-t="" style="font-size:20px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Risk I/O</div><div style="font-size:15px;font-style:italic;color:#B4B9D6;margin-top:4px">Originate</div></div></div>
+        <div data-mod="" data-reveal="" style="border:1px solid #2AE6E6;background:#171A3B;padding:22px 24px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">02</div><div><div data-card-t="" style="font-size:20px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Transaction I/O</div><div style="font-size:15px;font-style:italic;color:#B4B9D6;margin-top:4px">Structure</div></div></div>
+        <div data-mod="" data-reveal="" style="border:1px solid #2AE6E6;background:#171A3B;padding:22px 24px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">03</div><div><div data-card-t="" style="font-size:20px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Capital binding</div><div style="font-size:15px;font-style:italic;color:#B4B9D6;margin-top:4px">Commit</div></div></div>
+        <div data-mod="" data-reveal="" style="border:1px solid #2AE6E6;background:#171A3B;padding:22px 24px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#2AE6E6;font-weight:500">04</div><div><div data-card-t="" style="font-size:20px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Capital execution</div><div style="font-size:15px;font-style:italic;color:#B4B9D6;margin-top:4px">Execute</div></div></div>
+        <div data-end="" data-reveal="" style="background:#2AE6E6;color:#0B0D1F;display:grid;place-items:center;font-family:'Saans SemiMono',Arial,sans-serif;font-size:28px;font-weight:500;letter-spacing:-.01em;padding:22px;min-width:0">Capital</div>
+      </div>
+      <div data-life="" data-layers="" style="display:grid;grid-template-columns:.75fr repeat(4,1fr) .75fr;gap:14px;margin-top:20px">
+        <div data-end=""></div>
+        <div style="grid-column:span 2"><div style="text-align:center;min-width:0"><div style="display:flex;align-items:center;gap:14px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:12px;letter-spacing:.16em;color:#2AE6E6;font-weight:500"><span style="flex:1;border-top:1px dashed #2AE6E6"></span>INFORMATION<span style="flex:1;border-top:1px dashed #2AE6E6"></span></div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;line-height:1.6;color:#B4B9D6;margin-top:10px;letter-spacing:.04em">Artificial Intelligence<br>for the information layer</div></div></div>
+        <div style="grid-column:span 2"><div style="text-align:center;min-width:0"><div style="display:flex;align-items:center;gap:14px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:12px;letter-spacing:.16em;color:#2AE6E6;font-weight:500"><span style="flex:1;border-top:1px dashed #2AE6E6"></span>CAPITAL<span style="flex:1;border-top:1px dashed #2AE6E6"></span></div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;line-height:1.6;color:#B4B9D6;margin-top:10px;letter-spacing:.04em">Programmable Finance<br>for the capital layer</div></div></div>
+        <div data-end=""></div>
+      </div>
+      <div style="margin-top:72px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;font-weight:500;margin-bottom:28px">WHAT IT CHANGES</div>
+      <div data-grid4="" data-benefits="" style="display:grid;grid-template-columns:repeat(4,1fr)">
+        <div data-col="" data-reveal="" style="position:relative;padding:28px 24px 0 0;min-width:0"><div data-line="" style="position:absolute;top:0;left:0;right:0;height:1px;background:#2E3468"></div><div data-card-t="" style="font-size:22px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Faster</div><div style="font-size:14px;line-height:1.6;color:#B4B9D6;margin-top:6px">Less rework, manual handoffs and reconciliation shorten the path from risk to settlement.</div></div>
+        <div data-col="" data-reveal="" style="position:relative;padding:28px 24px 0 0;min-width:0"><div data-line="" style="position:absolute;top:0;left:0;right:0;height:1px;background:#2E3468"></div><div data-card-t="" style="font-size:22px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Cheaper</div><div style="font-size:14px;line-height:1.6;color:#B4B9D6;margin-top:6px">Lower friction cuts the cost of bringing a risk to market.</div></div>
+        <div data-col="" data-reveal="" style="position:relative;padding:28px 24px 0 0;min-width:0"><div data-line="" style="position:absolute;top:0;left:0;right:0;height:1px;background:#2E3468"></div><div data-card-t="" style="font-size:22px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Broader &amp; more liquid</div><div style="font-size:14px;line-height:1.6;color:#B4B9D6;margin-top:6px">More risks reach the market; better access and liquidity let more capital become risk-bearing capacity.</div></div>
+        <div data-col="" data-reveal="" style="position:relative;padding:28px 24px 0 0;min-width:0"><div data-line="" style="position:absolute;top:0;left:0;right:0;height:1px;background:#2E3468"></div><div data-card-t="" style="font-size:22px;font-weight:500;letter-spacing:-.01em;color:#FFFFFF">Higher capital efficiency</div><div style="font-size:14px;line-height:1.6;color:#B4B9D6;margin-top:6px">Clearer state, faster settlement and earlier release reduce trapped and idle capital.</div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="traction" data-section="" style="padding:160px 24px;background:#EEF1FA;color:#171A3B">
+    <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
+    <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#0FA8A8;margin-bottom:16px;font-weight:500">04 / LIVE IN SRI LANKA</div>
+    <div data-grid="" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+      <div><h2 data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;margin:0;font-size:46px;font-weight:500;letter-spacing:-.02em;line-height:1.05">From real-world risk to a <span style="color:#0FA8A8">live transaction.</span></h2><p style="margin:24px 0 0;font-size:17px;line-height:1.55;color:#565B72;max-width:480px">A protection facility for critical infrastructure, built with Sri Lankan partners on the Lionscraft operating layer.</p><a href="https://protect.lionscraft.io/" data-reveal="" style="display:inline-block;margin-top:32px;background:#171A3B;color:#FFFFFF;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.1em;font-weight:500;padding:17px 32px;border-radius:100px;text-transform:uppercase">PROTECT WITH US →</a></div>
+      <div>
+        <div data-reveal="" style="display:grid;grid-template-columns:140px 1fr;gap:24px;padding:18px 0;border-top:1px solid #171A3B"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#0FA8A8;font-weight:500;padding-top:3px">FOCUS</div><div style="font-size:16px;line-height:1.55;color:#171A3B">Communications and power resilience</div></div>
+        <div data-reveal="" style="display:grid;grid-template-columns:140px 1fr;gap:24px;padding:18px 0;border-top:1px solid #171A3B"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#0FA8A8;font-weight:500;padding-top:3px">PARTNERS</div><div style="font-size:16px;line-height:1.55;color:#171A3B">Local institutions, operators and counterparties</div></div>
+        <div data-reveal="" style="display:grid;grid-template-columns:140px 1fr;gap:24px;padding:18px 0;border-top:1px solid #171A3B"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#0FA8A8;font-weight:500;padding-top:3px">STRUCTURE</div><div style="font-size:16px;line-height:1.55;color:#171A3B">Protection facility with pre-arranged capital</div></div>
+        <div data-reveal="" style="display:grid;grid-template-columns:140px 1fr;gap:24px;padding:18px 0;border-top:1px solid #171A3B"><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.14em;color:#0FA8A8;font-weight:500;padding-top:3px">COMPONENTS</div><div style="font-size:16px;line-height:1.55;color:#171A3B">Exposure · trigger conditions · transaction terms · counterparties · capital</div></div>
+        <div style="border-top:1px solid #171A3B"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="insights" data-section="" style="background:#171A3B;color:#FFFFFF;padding:160px 24px">
+    <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
+    <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;margin-bottom:16px;font-weight:500">05 / INSIGHTS</div>
+    <div data-grid="" style="display:grid;grid-template-columns:1fr auto;gap:36px;align-items:end">
+      <div>
+        <h2 data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;margin:0 0 12px;font-size:46px;font-weight:500;letter-spacing:-.02em;max-width:900px">What we are learning, building and <span style="color:#2AE6E6">sharing.</span></h2>
+        
+        <a href="https://lionscraft.io/insights" style="display:inline-block;margin-top:22px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:12px;letter-spacing:.12em;font-weight:500;color:#2AE6E6">EXPLORE ALL INSIGHTS →</a>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button type="button" aria-label="Previous insights" sc-camel-on-click="{{ prev }}" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:transparent;color:#FFFFFF;cursor:pointer;font-size:18px;display:grid;place-items:center">←</button>
+        <button type="button" aria-label="Next insights" sc-camel-on-click="{{ next }}" style="width:44px;height:44px;border-radius:50%;border:1px solid #171A3B;background:#171A3B;color:#FFFFFF;cursor:pointer;font-size:18px;display:grid;place-items:center">→</button>
+      </div>
+    </div>
+    <div data-carousel="" ref="{{ carouselRef }}" style="display:flex;gap:14px;margin-top:44px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px">
+      <div style="flex:0 0 calc((100% - 28px)/3);min-width:0;min-height:300px;background:#171A3B;border:1px solid #2E3468;padding:26px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:start"><div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:#2AE6E6;font-weight:500">RISK INFRASTRUCTURE / LATEST</div><div data-h3="" style="font-size:30px;font-weight:500;letter-spacing:-.02em;line-height:1.05;margin-top:40px">Why risk transfer needs a new operating layer.</div><p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#B4B9D6">The hidden infrastructure problem behind slow, expensive and specialist risk markets.</p></div><a href="https://lionscraft.io/insights" style="margin-top:28px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.11em;font-weight:500;color:#FFFFFF">READ MORE →</a></div>
+      <div style="flex:0 0 calc((100% - 28px)/3);min-width:0;min-height:300px;background:#171A3B;border:1px solid #2E3468;padding:26px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:start"><div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:#2AE6E6;font-weight:500">ILS / CAT BONDS</div><div data-h3="" style="font-size:30px;font-weight:500;letter-spacing:-.02em;line-height:1.05;margin-top:40px">From private ILS to capital markets.</div><p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#B4B9D6">How different forms of risk-bearing capital fit different risks, transaction sizes and objectives.</p></div><a href="https://lionscraft.io/insights" style="margin-top:28px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.11em;font-weight:500;color:#FFFFFF">READ MORE →</a></div>
+      <div style="flex:0 0 calc((100% - 28px)/3);min-width:0;min-height:300px;background:#171A3B;border:1px solid #2E3468;padding:26px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:start"><div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:#2AE6E6;font-weight:500">PROGRAMMABLE CAPITAL</div><div data-h3="" style="font-size:30px;font-weight:500;letter-spacing:-.02em;line-height:1.05;margin-top:40px">Making capital state machine-readable.</div><p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#B4B9D6">Why ownership, collateral, commitments and settlement need a shared operating state.</p></div><a href="https://lionscraft.io/insights" style="margin-top:28px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.11em;font-weight:500;color:#FFFFFF">READ MORE →</a></div>
+      <div style="flex:0 0 calc((100% - 28px)/3);min-width:0;min-height:300px;background:#171A3B;border:1px solid #2E3468;padding:26px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:start"><div><div style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:#2AE6E6;font-weight:500">AI + STRUCTURING</div><div data-h3="" style="font-size:30px;font-weight:500;letter-spacing:-.02em;line-height:1.05;margin-top:40px">Nobody should have to re-type the risk.</div><p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#B4B9D6">How interoperable risk information can reduce translation, duplication and reconciliation across institutions.</p></div><a href="https://lionscraft.io/insights" style="margin-top:28px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.11em;font-weight:500;color:#FFFFFF">READ MORE →</a></div>
+    </div>
+    </div>
+  </div>
+
+  <div id="contact" data-section="" style="background:#171A3B;border-top:1px solid #2E3468;padding:120px 24px 40px">
+    <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
+    <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#767A96;margin-bottom:28px;font-weight:500">BUILD WITH US</div>
+    <div data-finale="" data-reveal="" style="font-family:Saans,Arial,sans-serif;font-weight:500;font-size:clamp(40px,6.2vw,84px);line-height:1.05;letter-spacing:-.01em;max-width:1400px">Money must do more than pay.<br><span style="color:#2AE6E6">Money must protect.</span></div>
+    <div data-grid="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;margin-top:56px;padding-top:40px;border-top:1px solid #2E3468">
+      <div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#B4B9D6">If you carry risk, structure it, insure it or allocate capital against it, we would like to work with you. Reach to us via <a href="mailto:risk@lionscraft.io" style="color:#2AE6E6;text-decoration:underline;text-underline-offset:3px">risk@lionscraft.io</a> or book a call.</p>
+                <div data-stack="" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a href="https://cal.com/team/lionscraft/" target="_blank" rel="noopener" style="display:inline-block;background:#2AE6E6;color:#0B0D1F;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.1em;font-weight:500;padding:18px 32px;border-radius:100px;text-transform:uppercase">BUILD WITH US →</a></div>
+      </div>
+      <div>
+        <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;margin-bottom:16px;font-weight:500">STAY INFORMED</div>
+        <div style="font-size:24px;font-weight:500;letter-spacing:-.02em;line-height:1.1">Subscribe to our mailing list.</div>
+        <form data-subscribe="" sc-camel-on-submit="{{ submitSubscribe }}" style="display:flex;gap:0;max-width:480px;border:1px solid #2E3468;border-radius:100px;overflow:hidden;margin-top:24px">
+          <input name="email" type="email" required="" placeholder="Your email" style="flex:1;min-width:0;background:transparent;border:0;color:#FFFFFF;font-family:Saans,Arial,sans-serif;font-size:15px;padding:14px 16px;outline:none">
+          <button type="submit" style="background:#FFFFFF;color:#0B0D1F;border:0;cursor:pointer;font-family:'Saans SemiMono',Arial,sans-serif;font-size:12px;letter-spacing:.1em;font-weight:500;padding:14px 22px;border-radius:100px;margin:3px">SUBSCRIBE</button>
+        </form>
+        <div style="margin-top:12px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;color:{{ subscribeNoteColor }};min-height:16px">{{ subscribeNote }}</div>
+      </div>
+    </div>
+    <div data-footer="" style="display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:24px;border-top:1px solid #2E3468;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;color:#767A96"><img src="/lionscraft-logo.svg" alt="Lionscraft" style="width:120px"><span>LIONSCRAFT / RISK</span><span>© 2026 LIONSCRAFT</span></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  carouselRef = React.createRef();
+  scroll(dir) {
+    const el = this.carouselRef.current; if (!el) return;
+    const card = el.firstElementChild; if (!card) return;
+    el.scrollBy({ left: dir * (card.getBoundingClientRect().width + 14), behavior: 'smooth' });
+  }
+  state = { subscribeNote: '', scrolled: false, menuOpen: false };
+  toggleMenu = () => this.setState((s) => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => { if (this.state.menuOpen) this.setState({ menuOpen: false }); };
+  onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll, { passive: true }); this.onScroll();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target; io.unobserve(el);
+        const sibs = el.parentElement ? [...el.parentElement.children].filter(c => c.hasAttribute('data-reveal')) : [];
+        const idx = Math.max(0, sibs.indexOf(el));
+        el.style.transitionDelay = (idx * 90) + 'ms';
+        el.classList.add('is-in');
+        el.querySelectorAll('[data-count]').forEach(n => this.countUp(n, reduce));
+        if (el.hasAttribute('data-count')) this.countUp(el, reduce);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    this.io = io;
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+    document.querySelectorAll('[data-count]').forEach(el => { if (!el.closest('[data-reveal]')) io.observe(el); });
+  }
+  countUp(el, reduce) {
+    if (el.dataset.done) return; el.dataset.done = '1';
+    const raw = el.dataset.count, suffix = raw.replace(/[\d]/g, ''), target = parseInt(raw, 10);
+    if (reduce || isNaN(target)) { el.textContent = raw; return; }
+    const dur = 1400, t0 = performance.now();
+    const tick = (now) => {
+      const t = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * e) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    el.textContent = '0' + suffix; requestAnimationFrame(tick);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); if (this.io) this.io.disconnect(); }
+  submitSubscribe = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = new FormData(form).get('email');
+    this.setState({ subscribeNote: 'SENDING…' });
+    try {
+      const host = window.location.hostname;
+      const subscribeEndpoint = host === 'lionscraft.io' || host === 'www.lionscraft.io'
+        ? 'https://risk.lionscraft.io/api/subscribe'
+        : '/api/subscribe';
+      const response = await fetch(subscribeEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!response.ok) throw new Error('Subscription request failed');
+      form.reset();
+      this.setState({ subscribeNote: 'THANKS — WE WILL BE IN TOUCH.' });
+    } catch {
+      this.setState({ subscribeNote: 'WE COULD NOT SEND THAT — PLEASE TRY AGAIN.' });
+    }
+  };
+  renderVals() {
+    return { carouselRef: this.carouselRef, prev: () => this.scroll(-1), next: () => this.scroll(1), submitSubscribe: this.submitSubscribe, subscribeNote: this.state.subscribeNote, subscribeNoteColor: this.state.subscribeNote.startsWith('THANKS') || this.state.subscribeNote.startsWith('WE COULD NOT') ? '#2AE6E6' : '#767A96', scrollOpacity: this.state.scrolled ? 0 : 1, menuOpen: this.state.menuOpen, menuLabel: this.state.menuOpen ? 'CLOSE' : 'MENU', toggleMenu: this.toggleMenu, closeMenu: this.closeMenu };
+  }
+}
+</script>
+
+
+</div></x-dc></body></html>

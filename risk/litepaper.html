@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>RIZK Protocol — Programmable Capital for a Risky World</title>
+<meta name="description" content="Read the RIZK litepaper: a deep dive into programmable catastrophe bond infrastructure, tokenized risk tranches, parametric triggers, and the on-chain architecture bridging the $1.8T protection gap." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://rizk.lionscraft.io/litepaper.html" />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rizk.lionscraft.io/litepaper.html" />
+<meta property="og:title" content="RIZK Protocol — Programmable Capital for a Risky World" />
+<meta property="og:description" content="Read the RIZK litepaper: a deep dive into programmable catastrophe bond infrastructure, tokenized risk tranches, parametric triggers, and the on-chain architecture bridging the $1.8T protection gap." />
+<meta property="og:image" content="https://rizk.lionscraft.io/opengraph.jpg" />
+<meta property="og:site_name" content="RIZK by Lionscraft" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RIZK Protocol — Programmable Capital for a Risky World" />
+<meta name="twitter:description" content="Read the RIZK litepaper: a deep dive into programmable catastrophe bond infrastructure, tokenized risk tranches, parametric triggers, and the on-chain architecture bridging the $1.8T protection gap." />
+<meta name="twitter:image" content="https://rizk.lionscraft.io/opengraph.jpg" />
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rizk.lionscraft.io/#organization",
+      "name": "Lionscraft",
+      "alternateName": "RIZK",
+      "url": "https://rizk.lionscraft.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rizk.lionscraft.io/favicon.svg"
+      },
+      "sameAs": [
+        "https://x.com/Lionscraft_io",
+        "https://www.linkedin.com/company/lionscraft"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rizk@lionscraft.io",
+        "contactType": "customer support"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rizk.lionscraft.io/#website",
+      "name": "RIZK by Lionscraft",
+      "url": "https://rizk.lionscraft.io/",
+      "publisher": {
+        "@id": "https://rizk.lionscraft.io/#organization"
+      }
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://rizk.lionscraft.io/litepaper.html",
+      "url": "https://rizk.lionscraft.io/litepaper.html",
+      "headline": "RIZK Protocol — Programmable Capital for a Risky World",
+      "name": "RIZK Litepaper",
+      "description": "A deep dive into programmable catastrophe bond infrastructure, tokenized risk tranches, parametric triggers, and the on-chain architecture bridging the $1.8T protection gap.",
+      "about": [
+        { "@type": "Thing", "name": "Catastrophe Bonds" },
+        { "@type": "Thing", "name": "Tokenized Risk" },
+        { "@type": "Thing", "name": "Parametric Insurance" },
+        { "@type": "Thing", "name": "Decentralized Finance" }
+      ],
+      "author": { "@id": "https://rizk.lionscraft.io/#organization" },
+      "publisher": { "@id": "https://rizk.lionscraft.io/#organization" },
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://rizk.lionscraft.io/#website" },
+      "image": "https://rizk.lionscraft.io/opengraph.jpg",
+      "version": "0.7"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --black: #111;
+    --dark: #222;
+    --mid: #666;
+    --light: #999;
+    --rule: #ddd;
+    --faint: #f0f0f0;
+    --white: #fff;
+    --col: 680px;
+    --wide: 820px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{font-size:18px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  body{font-family:'Source Serif 4',Georgia,serif;color:var(--black);background:var(--white);line-height:1.74}
+
+  /* ═══ HERO ═══ */
+  .hero{padding:8rem 2rem 5rem;text-align:center;border-bottom:1px solid var(--black)}
+  .hero-label{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);margin-bottom:2rem}
+  .hero h1{font-size:3.6rem;font-weight:500;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.2rem}
+  .hero-sub{font-size:1.15rem;font-weight:400;font-style:italic;color:var(--mid);max-width:420px;margin:0 auto;line-height:1.5}
+  .hero-byline{font-family:"Instrument Sans",sans-serif;font-size:.72rem;font-weight:400;color:var(--light);letter-spacing:.06em;margin-top:1.5rem;text-transform:uppercase}
+
+  /* ═══ ARTICLE ═══ */
+  .a{max-width:var(--col);margin:0 auto;padding:3.5rem 2rem 6rem}
+
+  /* ═══ HEADINGS ═══ */
+  h2{font-size:1.6rem;font-weight:600;line-height:1.25;letter-spacing:-.015em;margin:4rem 0 .6rem;padding-top:3rem;position:relative;scroll-margin-top:2rem}
+  h2::before{content:'';display:block;width:40px;height:1px;background:var(--black);margin-bottom:1.5rem}
+  h2:first-of-type{margin-top:0;padding-top:0}
+  h2 .n{font-family:'Instrument Sans',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.4rem}
+  h3{font-family:'Instrument Sans',sans-serif;font-size:1rem;font-weight:600;line-height:1.35;letter-spacing:.01em;margin:2.8rem 0 .7rem;text-transform:none;color:var(--black);scroll-margin-top:2rem}
+  h3 .n{font-size:.65rem;font-weight:500;letter-spacing:.15em;color:var(--light);margin-right:.6rem;text-transform:uppercase}
+
+  /* ═══ BODY ═══ */
+  p{margin:.9rem 0;font-size:1rem;color:var(--dark)}
+  strong{font-weight:600;color:var(--black)}
+  em{font-style:italic}
+  ul{margin:.8rem 0 .8rem 1.3rem}
+  li{margin-bottom:.6rem;padding-left:.2rem;color:var(--dark)}
+
+  /* ═══ PULL QUOTE ═══ */
+  .pq{margin:3.5rem 0;padding:2.5rem 0;position:relative}
+  .pq::before,.pq::after{content:'';display:block;width:100%;height:1px;background:var(--black)}
+  .pq::before{margin-bottom:2rem}
+  .pq::after{margin-top:2rem}
+  .pq blockquote{font-family:'Source Serif 4',Georgia,serif;font-size:1.85rem;font-weight:500;font-style:italic;line-height:1.3;letter-spacing:-.015em;color:var(--black);margin:0;text-align:center;max-width:600px;margin-left:auto;margin-right:auto}
+  .pq p{font-size:1.1rem;line-height:1.7;color:var(--black);margin:0;max-width:620px;margin-left:auto;margin-right:auto}
+  .pq .at{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:500;color:var(--light);margin-top:1.2rem;text-align:center;letter-spacing:.06em;text-transform:uppercase}
+  .pq .ct{font-family:'Instrument Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--mid);margin-top:.6rem;text-align:center;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto}
+
+  /* ═══ CALLOUT ═══ */
+  .co{margin:2.5rem 0;padding:2rem 0 2rem 2rem;border-left:2px solid var(--black);position:relative}
+  .co-label{font-family:'Instrument Sans',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--black);margin-bottom:.8rem;display:block}
+  .co p{font-family:'Instrument Sans',sans-serif;font-size:.88rem;font-weight:400;line-height:1.7;color:var(--dark);margin:0}
+  .co p+p{margin-top:.6rem}
+
+  /* ═══ IMPACT LINE ═══ */
+  .il{font-size:1.15rem;font-weight:500;line-height:1.55;color:var(--black);margin:2rem 0;padding:1.2rem 0;text-align:center;font-style:italic}
+
+  /* ═══ DEF ITEMS ═══ */
+  .di{margin:1.2rem 0;padding-left:0}
+  .di .dt{font-family:'Instrument Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--black);display:block;margin-bottom:.25rem}
+  .di .dd{font-size:.95rem;color:var(--dark);line-height:1.72}
+
+  /* ═══ SECTION INTRO ═══ */
+  .si{font-size:1.05rem;font-style:italic;color:var(--mid);margin-bottom:1.5rem}
+
+  /* ═══ CITATIONS ═══ */
+  .c{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--light);vertical-align:super;line-height:0;margin-left:1px;cursor:pointer;padding:2px 2px;border-radius:2px;transition:color .15s,background .15s}
+  .c:hover{color:var(--black);background:var(--faint)}
+
+  /* ═══ POPOVER ═══ */
+  .rp{position:fixed;z-index:1000;max-width:400px;width:calc(100vw - 2rem);background:var(--white);border:1px solid var(--black);padding:1.2rem 1.4rem;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;transform:translateY(4px)}
+  .rp.v{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .rp-n{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:500;color:var(--light);margin-bottom:.3rem;display:block}
+  .rp-t{font-family:'Instrument Sans',sans-serif;font-size:.78rem;line-height:1.55;color:var(--dark)}
+  .rp-l{margin-top:.5rem;display:flex;flex-direction:column;gap:.25rem}
+  .rp-l a{font-family:'Instrument Sans',sans-serif;font-size:.7rem;color:var(--black);text-decoration:underline;text-underline-offset:2px;word-break:break-all}
+  .rp-l a:hover{color:var(--mid)}
+  .rp-x{position:absolute;top:.5rem;right:.7rem;background:none;border:none;font-size:.9rem;color:var(--light);cursor:pointer;line-height:1;padding:2px 4px}
+  .rp-x:hover{color:var(--black)}
+
+  /* ═══ CLOSING ═══ */
+  .closing{text-align:center;padding:4rem 0 3rem;margin-top:4rem;border-top:1px solid var(--black)}
+  .closing p{font-size:1.2rem;font-style:italic;line-height:1.6;max-width:500px;margin:0 auto;color:var(--black)}
+
+  /* ═══ REFS ═══ */
+  .refs{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--rule)}
+  .refs h2{font-size:1rem;margin-top:0;padding-top:0}
+  .refs h2::before{display:none}
+  .rl{list-style:none;margin:1.2rem 0 0;padding:0;columns:1}
+  .rl li{font-family:'Instrument Sans',sans-serif;font-size:.72rem;line-height:1.5;color:var(--mid);margin-bottom:.45rem;padding-left:2.2rem;text-indent:-2.2rem}
+  .rl .rn{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--light);margin-right:.25rem}
+  .rl a{color:var(--black);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px;word-break:break-all}
+  .rl a:hover{text-decoration-color:var(--black)}
+
+  /* ═══ BACK TO TOP ═══ */
+  .btt{display:block;text-align:center;margin:3rem 0 0;padding:0;cursor:pointer;text-decoration:none}
+  .btt-arrow{display:inline-block;width:28px;height:28px;border:1px solid var(--rule);border-radius:50%;line-height:26px;text-align:center;font-size:.7rem;color:var(--light);transition:color .15s,border-color .15s}
+  .btt:hover .btt-arrow{color:var(--black);border-color:var(--black)}
+  @media print{.btt{display:none}}
+
+  @media(max-width:640px){
+    html{font-size:16px}
+    .hero{padding:5rem 1.5rem 3.5rem}
+    .hero h1{font-size:2.4rem}
+    .a{padding:2.5rem 1.5rem 4rem}
+    .pq blockquote{font-size:1.5rem}
+    .co{padding-left:1.3rem}
+    .rp{max-width:calc(100vw - 1.5rem);left:.75rem!important;right:.75rem!important}
+    .toc-list{columns:1}
+  }
+  @media print{
+    body{font-size:10.5pt}
+    .hero{padding:2rem 0;border-bottom:.5pt solid #000}
+    .a{padding:1.5rem 0}
+    .pq,.co{break-inside:avoid}
+    h2,h3{break-after:avoid}
+    .c{color:#000}
+  }
+  /* ═══ TABLE OF CONTENTS ═══ */
+  .toc{max-width:var(--col);margin:0 auto;padding:3rem 2rem 2.5rem;border-bottom:1px solid var(--rule)}
+  .toc-title{font-family:'Instrument Sans',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--light);margin-bottom:1.5rem}
+  .toc-list{list-style:none;margin:0;padding:0;columns:2;column-gap:2.5rem}
+  .toc-list li{margin:0;padding:0}
+  .toc-group{break-inside:avoid;margin-bottom:.6rem}
+  .toc-list a{font-family:'Instrument Sans',sans-serif;text-decoration:none;color:var(--dark);display:block;padding:.3rem 0;transition:color .15s}
+  .toc-list a:hover{color:var(--black)}
+  .toc-s{font-size:.88rem;font-weight:600;padding-top:.3rem}
+  .toc-sub{font-size:.78rem;font-weight:400;padding-left:1.6rem;color:var(--mid)}
+  .toc-sub:hover{color:var(--black)}
+  .toc-num{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--light);margin-right:.5rem;font-weight:400}
+
+  /* ═══ FIGURES / DIAGRAMS ═══ */
+  .fig{margin:3.2rem 0 2.4rem;padding:0}
+  .fig svg{width:100%;height:auto;display:block;overflow:visible}
+  .fig-cap{font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--light);text-align:center;margin-top:1.2rem}
+  .fig-cap .fn{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--light);margin-right:.6rem;letter-spacing:.05em}
+  .fig text.t-tag{font-family:'Instrument Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;fill:#111}
+  .fig text.t-sub{font-family:'Instrument Sans',sans-serif;font-size:8px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;fill:#666}
+  .fig text.t-wh{font-family:'Instrument Sans',sans-serif;font-size:7.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;fill:#999}
+  .fig text.t-body{font-family:'Source Serif 4',Georgia,serif;font-size:10.5px;fill:#222}
+  .fig text.t-bodylg{font-family:'Source Serif 4',Georgia,serif;font-size:12px;fill:#111}
+  .fig text.t-it{font-family:'Source Serif 4',Georgia,serif;font-size:10.5px;font-style:italic;fill:#666}
+  .fig text.t-num{font-family:'JetBrains Mono',monospace;font-size:8px;fill:#999;letter-spacing:.05em}
+  .fig text.t-token{font-family:'JetBrains Mono',monospace;font-size:7.5px;fill:#999;letter-spacing:.06em}
+  @media print{.fig{break-inside:avoid}}
+
+    /* ═══ LITEPAPER NAV ═══ */
+    .lp-nav{position:sticky;top:0;z-index:200;background:var(--white);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem}
+    .lp-nav-back{font-family:"Instrument Sans",sans-serif;font-size:.78rem;font-weight:500;color:var(--dark);text-decoration:none;letter-spacing:.02em;transition:color .15s;display:inline-flex;align-items:center;gap:.4rem}
+    .lp-nav-back:hover{color:var(--black)}
+    .lp-nav-label{font-family:"JetBrains Mono",monospace;font-size:.6rem;color:var(--light);letter-spacing:.08em}
+    @media(max-width:640px){.lp-nav{padding:.65rem 1.2rem}.lp-nav-label{display:none}}
+    @media print{.lp-nav{display:none}}
+    .hero{padding-top:6rem}
+  </style>
+</head>
+<body>
+<nav class="lp-nav">
+    <a href="./" class="lp-nav-back">← RIZK</a>
+    <span class="lp-nav-label">Litepaper v0.7</span>
+  </nav>
+
+  
+
+<div class="rp" id="rp"><button class="rp-x" id="rx">&times;</button><span class="rp-n" id="rn"></span><div class="rp-t" id="rt"></div><div class="rp-l" id="rl"></div></div>
+
+<header class="hero">
+  <div class="hero-label">Litepaper</div>
+  <h1>RIZK Protocol</h1>
+  <p class="hero-sub">Programmable Capital for a Risky World</p>
+  <p class="hero-byline">Published by <strong>Lionscraft</strong> &middot; March 2026 &middot; Version 0.7</p>
+</header>
+
+<nav class="toc" id="toc">
+  <div class="toc-title">Contents</div>
+  <ul class="toc-list">
+    <li class="toc-group">
+      <a class="toc-s" href="#s1"><span class="toc-num">1</span>Introduction: A New Risk Infrastructure</a>
+      <a class="toc-sub" href="#s1-1"><span class="toc-num">1.1</span>A World That Is Getting Riskier</a>
+      <a class="toc-sub" href="#s1-2"><span class="toc-num">1.2</span>The Rise of Alternative Capital</a>
+      <a class="toc-sub" href="#s1-3"><span class="toc-num">1.3</span>The Programmable Capital Stack</a>
+      <a class="toc-sub" href="#s1-4"><span class="toc-num">1.4</span>The Convergence and the Opportunity</a>
+    </li>
+    <li class="toc-group">
+      <a class="toc-s" href="#s2"><span class="toc-num">2</span>Instruments of Risk Transfer</a>
+      <a class="toc-sub" href="#s2-1"><span class="toc-num">2.1</span>One Structure, Three Configurations</a>
+      <a class="toc-sub" href="#s2-2"><span class="toc-num">2.2</span>Trigger Design</a>
+    </li>
+    <li class="toc-group">
+      <a class="toc-s" href="#s3"><span class="toc-num">3</span>RIZK Protocol</a>
+      <a class="toc-sub" href="#s3-1"><span class="toc-num">3.1</span>A Short Primer on Vaults</a>
+      <a class="toc-sub" href="#s3-2"><span class="toc-num">3.2</span>The Two-Sided Vault</a>
+      <a class="toc-sub" href="#s3-3"><span class="toc-num">3.3</span>The Protection-Collateral Vault</a>
+      <a class="toc-sub" href="#s3-4"><span class="toc-num">3.4</span>The Premium-Yield Vault</a>
+      <a class="toc-sub" href="#s3-5"><span class="toc-num">3.5</span>Oracles and Orchestration</a>
+      <a class="toc-sub" href="#s3-6"><span class="toc-num">3.6</span>Institutional Controls</a>
+    </li>
+    <li class="toc-group">
+      <a class="toc-s" href="#s4"><span class="toc-num">4</span>Legal and Regulatory Perimeters</a>
+    </li>
+    <li class="toc-group">
+      <a class="toc-s" href="#s5"><span class="toc-num">5</span>Conclusion</a>
+    </li>
+  </ul>
+</nav>
+
+<main class="a">
+
+<h2 id="s1"><span class="n">Section One</span>Introduction: A New Risk Infrastructure</h2>
+
+<p>Three forces are converging at once. Each is significant on its own. Together, they point to a structural shift in how the world transfers risk.</p>
+<p>First, global risk is accelerating and compounding faster than the institutions built to absorb it.</p>
+<p>Second, capital markets are absorbing more of that risk through insurance-linked instruments. But these markets remain constrained by slow, fragmented infrastructure.</p>
+<p>Third, programmable capital has emerged. Blockchains, stablecoins, tokenized assets, and Decentralized Finance (DeFi) have made capital global, liquid, and composable by default.</p>
+<p>These forces are no longer independent. They point to a single conclusion. Risk transfer, the mechanism by which the world protects itself against catastrophe, is ready for new infrastructure.</p>
+
+<h3 id="s1-1"><span class="n">1.1</span>A World That Is Getting Riskier</h3>
+<p>We are living through a <em>polycrisis</em>. Geopolitical tension, climate events, cyber threats, and economic instability are not increasing in isolation. They are interacting and amplifying one another.</p>
+<p>The WEF describes a geopolitical recession deepening since 2014<span class="c" data-ref="1">[1]</span>; Eurasia Group calls 2026 "a tipping point year"<span class="c" data-ref="2">[2]</span>; and a survey of 860 risk decision-makers across 94 countries flags the same interlocking cluster—geopolitical tensions, cybercrime, instability, regulatory uncertainty, and extreme weather<span class="c" data-ref="3">[3]</span>.</p>
+<p>Natural catastrophe losses show the trend most clearly. Insured losses have grown 5–7 percent annually in real terms for three decades and have exceeded $100 billion for six consecutive years<span class="c" data-ref="4">[4]</span>. Even in 2025, when the insured share hit 49 percent—the highest in over 50 years—more than $100 billion in economic losses went uncovered<span class="c" data-ref="5">[5]</span>. Swiss Re is now modelling a $320 billion peak-loss scenario for 2026<span class="c" data-ref="4">[4]</span>.</p>
+
+<figure class="fig" aria-label="Figure 1: Insured capacity vs. economic loss — 10-yr averages and peak-peril scenario">
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">Natural catastrophe losses — 10-yr averages and peak-peril scenario</text>
+
+  <!-- Single bar scaled 0–$320B. Black fill 0–$111B (10-yr avg insured). Outlined $111B–$267B (uncovered, 10-yr avg). Dashed outline $267B–$320B (peak-peril extension). Scale: $1B = 2 units. -->
+  <rect x="40" y="74" width="222" height="40" fill="#111"/>
+  <rect x="262" y="74" width="312" height="40" fill="none" stroke="#111" stroke-width="1"/>
+  <rect x="574" y="74" width="106" height="40" fill="none" stroke="#111" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Boundary dividers between zones -->
+  <line x1="262" y1="74" x2="262" y2="114" stroke="#111" stroke-width="1"/>
+  <line x1="574" y1="74" x2="574" y2="114" stroke="#111" stroke-width="1"/>
+
+  <!-- Tick marks along bottom -->
+  <line x1="40" y1="118" x2="40" y2="124" stroke="#111" stroke-width="1"/>
+  <line x1="262" y1="118" x2="262" y2="124" stroke="#111" stroke-width="1"/>
+  <line x1="574" y1="118" x2="574" y2="124" stroke="#111" stroke-width="1"/>
+  <line x1="680" y1="118" x2="680" y2="124" stroke="#111" stroke-width="1"/>
+
+  <text x="40" y="138" class="t-num">$0</text>
+  <text x="262" y="138" text-anchor="middle" class="t-num">$111B</text>
+  <text x="574" y="138" text-anchor="middle" class="t-num">$267B</text>
+  <text x="680" y="138" text-anchor="end" class="t-num">$320B</text>
+
+  <!-- Segment labels inside bar -->
+  <text x="151" y="98" text-anchor="middle" class="t-sub" style="fill:#fff">Insured</text>
+  <text x="418" y="98" text-anchor="middle" class="t-sub">Uncovered</text>
+  <text x="627" y="98" text-anchor="middle" class="t-sub">Tail</text>
+
+  <!-- Segment descriptors below -->
+  <text x="151" y="172" text-anchor="middle" class="t-body">10-yr avg insured loss</text>
+  <text x="151" y="188" text-anchor="middle" class="t-wh">Swiss Re sigma, 2015&#8211;2024</text>
+
+  <text x="418" y="172" text-anchor="middle" class="t-body">10-yr avg uncovered loss</text>
+  <text x="418" y="188" text-anchor="middle" class="t-wh">Swiss Re sigma, 2015&#8211;2024</text>
+
+  <text x="627" y="172" text-anchor="middle" class="t-body">Peak-peril extension</text>
+  <text x="627" y="188" text-anchor="middle" class="t-wh">Swiss Re modeled scenario</text>
+
+  <line x1="40" y1="218" x2="680" y2="218" stroke="#111" stroke-width="1"/>
+  <text x="40" y="238" class="t-it">10-yr averages (2015&#8211;2024, Swiss Re sigma): $267B economic, $111B insured. Peak-peril scenario: $320B.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 1</span>Insured capacity vs. economic loss &#8212; 10-year averages and peak-peril scenario</figcaption>
+</figure>
+
+<p>Cyber incidents—now intensifying with AI—are the top global corporate risk<span class="c" data-ref="6">[6]</span>. Yet cyber insurance remains underpenetrated, comprising less than 1% of the global market<span class="c" data-ref="7">[7]</span>. Coverage is limited: 47% of large organizations have policies, compared to just 10% of SMEs<span class="c" data-ref="8">[8]</span>, leaving most exposure uninsured on corporate balance sheets<span class="c" data-ref="7,9">[7,9]</span>.</p>
+<p>Faced with rising risk, the industry is retreating, not expanding. Insurers and reinsurers are cutting cover and raising prices rather than deploying more capacity<span class="c" data-ref="10">[10]</span>.</p>
+<p>The result is a paradox: record industry capital, shrinking available coverage, rising cost to buyers. The gap isn't a capital shortage—it's a risk-transfer failure.</p>
+
+<h3 id="s1-2"><span class="n">1.2</span>The Rise of Alternative Capital</h3>
+<p>Where traditional capacity retreats, alternative capital have stepped in.</p>
+<p>Insurance-linked securities (ILS)—financial instruments that transfer risk to the capital market—have surged. For the category's flagship product, the catastrophe bond (cat bond), 2025 was a record year: $25.6 billion in new issuance, up 45% year-on-year, and the first time annual volumes ever crossed $20 billion<span class="c" data-ref="11">[11]</span>. Total alternative capital grew 18% to $136 billion, becoming the primary driver of growth in global reinsurance capital, which itself reached a record $785 billion<span class="c" data-ref="12">[12]</span>.</p>
+<p>The market is broadening on every axis.</p>
+<p>On the investor side, pension funds, sovereign wealth funds, endowments, and dedicated ILS managers now treat cat bonds as a core allocation. Returns are equity-like, volatility is bond-like, and correlation to traditional markets is near zero. UCITS cat bond funds alone added $5.3 billion in 2025 to reach $19 billion in AUM, signalling growing mainstream access and demand for the asset class<span class="c" data-ref="13">[13]</span>.</p>
+<p>On the risk sponsor side, re/insurers still dominate, but the base is expanding to include governments, sovereign risk pools, and corporates transferring risk directly to capital markets. Fifteen new sponsors entered the market in 2025—the broadest expansion of the issuer base on record<span class="c" data-ref="11">[11]</span>.</p>
+<p>On the product side, cat bonds now cover cyber (including a record $300 million Beazley deal), wildfire, terrorism, cloud outage, and mortgage default—perils well beyond their hurricane and earthquake origins.</p>
+<p>And yet, the market is still far too small for the task.</p>
+
+<p>Greg Case, CEO of Aon, one of the world's largest re/insurance brokers, has outlined the challenge in direct terms: "If we don't bring in a trillion dollars in alternative capital in the next decade, we've failed"<span class="c" data-ref="14">[14]</span>. His framing: the global insurance industry is $4 trillion; the capital pool around it is $250 trillion&#8212;more than 60 times its size. Insurance has been the primary conduit between risk and capital, but risk is outgrowing it. The constraint isn't capital&#8212;it's the channel.</p>
+
+<figure class="fig" aria-label="Figure 2: Capital, insurance pool, and alternative capital">
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">The scale mismatch</text>
+
+  <!-- Three stat cards: capital pool / insurance pool / alternative capital -->
+  <!-- Card A: Global capital pool -->
+  <line x1="40" y1="74" x2="240" y2="74" stroke="#111" stroke-width="1"/>
+  <text x="40" y="94" class="t-sub">Global capital pool</text>
+  <text x="40" y="132" class="t-num" style="font-size:28px;fill:#111">$250T</text>
+  <text x="40" y="156" class="t-body">Equities, debt, pensions,</text>
+  <text x="40" y="170" class="t-body">sovereign reserves.</text>
+  <text x="40" y="192" class="t-wh">The capital exists.</text>
+
+  <!-- Card B: Global insurance pool (existing risk-transfer market) -->
+  <line x1="260" y1="74" x2="460" y2="74" stroke="#111" stroke-width="1"/>
+  <text x="260" y="94" class="t-sub">Global insurance pool</text>
+  <text x="260" y="132" class="t-num" style="font-size:28px;fill:#111">$4T</text>
+  <text x="260" y="156" class="t-body">Annual premium. Price tag on</text>
+  <text x="260" y="170" class="t-body">hundreds of trillions in coverage.</text>
+  <text x="260" y="192" class="t-wh">A fraction of addressable risk &#8212; &#167;1.1</text>
+
+  <!-- Card C: Alternative capital -->
+  <line x1="480" y1="74" x2="680" y2="74" stroke="#111" stroke-width="1"/>
+  <text x="480" y="94" class="t-sub">Alternative capital today</text>
+  <text x="480" y="132" class="t-num" style="font-size:28px;fill:#111">$136B</text>
+  <text x="480" y="156" class="t-body">Cat bonds, collateralized</text>
+  <text x="480" y="170" class="t-body">reinsurance, sidecars. +18% YoY.</text>
+  <text x="480" y="192" class="t-wh">3.4% of the insurance pool</text>
+
+  <!-- Target progression -->
+  <line x1="40" y1="224" x2="680" y2="224" stroke="#eee" stroke-width="0.8"/>
+  <text x="40" y="244" class="t-sub">Aon target &#8212; 2035</text>
+
+  <!-- Scale bar: current $136B -> $1T target, with $4T existing-market marker -->
+  <line x1="40" y1="258" x2="680" y2="258" stroke="#111" stroke-width="1"/>
+  <rect x="40" y="256" width="22" height="4" fill="#111"/>
+  <line x1="40" y1="258" x2="202" y2="258" stroke="#111" stroke-width="1" stroke-dasharray="3 3"/>
+  <polygon points="202,255 210,258 202,261" fill="#111"/>
+
+  <!-- Tick markers -->
+  <line x1="40" y1="258" x2="40" y2="266" stroke="#111" stroke-width="1"/>
+  <line x1="210" y1="258" x2="210" y2="266" stroke="#111" stroke-width="1"/>
+  <line x1="680" y1="258" x2="680" y2="266" stroke="#111" stroke-width="1"/>
+
+  <text x="40" y="280" class="t-num">$136B today</text>
+  <text x="210" y="280" class="t-num">$1T target (7.4&#215;)</text>
+  <text x="680" y="280" text-anchor="end" class="t-num">$4T insurance pool</text>
+
+  <text x="40" y="300" class="t-it">$4T of annual premium backs hundreds of trillions in coverage; alt capital supplies $136B.</text>
+  <text x="40" y="314" class="t-it">The bottleneck is the mechanism, not the money.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 2</span>Capital, insurance pool, and alternative capital</figcaption>
+</figure>
+
+<p>Those mechanisms are still creaking. Structuring a single cat bond costs $500,000 or more and takes up to six months<span class="c" data-ref="15">[15]</span>. Minimum tickets start at $250,000. Secondary markets are opaque, over-the-counter, and manual. Capital, once committed, is effectively locked for the bond's multi-year term. These are not features of risk transfer logic. They are artifacts of the legacy infrastructure that delivers it.</p>
+
+<div class="pq">
+  <blockquote>"If we don't bring in a trillion dollars in alternative capital in the next decade, we've failed."</blockquote>
+  <div class="at">Greg Case, CEO of Aon</div>
+</div>
+
+<h3 id="s1-3"><span class="n">1.3</span>The Programmable Capital Stack</h3>
+<p>A parallel revolution in financial infrastructure has been building for over a decade, and has now reached a level of maturity that makes it directly relevant to the $4 trillion global risk pool.</p>
+
+<p>Start with money itself. For centuries, value moved through banks—slow, jurisdictionally bound, intermediated at every step. Fintech accelerated parts of the stack but left the underlying rails intact. Cryptocurrencies and blockchains introduced a different model: value moving peer-to-peer over programmable networks in real time.</p>
+<p>Stablecoins were the first blockchain application to reach scale—tokenized representations of fiat currency, now carrying a market cap of $317 billion and settling $33 trillion in transaction volume in 2025, up 72 percent year-on-year and rivalling Visa and Mastercard combined<span class="c" data-ref="16">[16]</span>. Business-to-business stablecoin payments alone grew from under $100 million per month in early 2023 to over $6 billion per month by mid-2025<span class="c" data-ref="17">[17]</span>.</p>
+<p>Regulation has converged. Japan, Singapore, the EU, Hong Kong, the UAE, and the US now have stablecoin frameworks in force, with the UK finalizing rules in 2026<span class="c" data-ref="18,19">[18,19]</span>. Different jurisdictions, converging standards, a testimony that stablecoins are being absorbed into the regulated financial system.</p>
+<p>The institutional commitment is structural. Visa's stablecoin settlement reached a $4.5 billion annualized run rate by January 2026<span class="c" data-ref="17">[17]</span>. Stripe is building Tempo, a purpose-built blockchain for payments<span class="c" data-ref="20">[20]</span>. JPMorgan—whose CEO Jamie Dimon was once among the industry's most prominent crypto skeptics—committed in its 2025 shareholder letter to rolling out its own blockchain infrastructure<span class="c" data-ref="21">[21]</span>. And the next wave is visible: AI agents transacting at machine speed need money that is programmable and always-on—making stablecoins the natural settlement layer for agentic commerce.</p>
+<p>Tokenization of real-world assets is on the same trajectory. Tokenized off-chain instruments—Treasuries, private credit, trade documentation—have grown nearly fivefold in three years to over $30 billion<span class="c" data-ref="22">[22]</span>, led by BlackRock, Goldman Sachs, Franklin Templeton, and JPMorgan<span class="c" data-ref="23">[23]</span>. Standard Chartered projects the tokenized asset market could reach $30 trillion by 2034<span class="c" data-ref="24">[24]</span>.</p>
+<p>Decentralized Finance (DeFi) is what makes these building blocks more than just digital. Open, programmable protocols on public blockchains turn capital into something composable, liquid, and interoperable by default. Capital in DeFi is not merely digital; it is <em>programmable</em>—it can be lent, staked, wrapped, and posted as collateral in a single transaction, with no intermediary approving any step. The primitives are mature, liquid, and increasingly institutional—and the same architecture is already pricing real-world events at scale, with onchain prediction markets like Polymarket processing over $21 billion in notional volume in 2025<span class="c" data-ref="25">[25]</span>.</p>
+<p>The building blocks for programmable, global, always-on financial infrastructure are no longer theoretical. They are deployed, liquid, regulated, and institutional. What is missing is their application to risk transfer.</p>
+
+<h3 id="s1-4"><span class="n">1.4</span>The Convergence and the Opportunity</h3>
+<p>Three forces have converged: risk is outpacing traditional capacity, alternative capital is surging into the gap but remains throttled by legacy infrastructure, and programmable capital has crossed the threshold from experimental to institutional.</p>
+
+<figure class="fig" aria-label="Figure 3: The convergence">
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="55" y1="40" x2="95" y2="40" stroke="#111" stroke-width="1"/>
+  <text x="55" y="58" class="t-num">01</text>
+  <text x="55" y="78" class="t-tag">Rising Risk</text>
+  <text x="55" y="104" class="t-body">A polycrisis that</text>
+  <text x="55" y="120" class="t-body">outpaces capacity.</text>
+  <text x="55" y="150" class="t-wh">$100B+ annual gap</text>
+
+  <line x1="270" y1="40" x2="310" y2="40" stroke="#111" stroke-width="1"/>
+  <text x="270" y="58" class="t-num">02</text>
+  <text x="270" y="78" class="t-tag">Alternative Capital</text>
+  <text x="270" y="104" class="t-body">Capital markets</text>
+  <text x="270" y="120" class="t-body">absorbing more risk.</text>
+  <text x="270" y="150" class="t-wh">$136B &#183; growing 18%</text>
+
+  <line x1="490" y1="40" x2="530" y2="40" stroke="#111" stroke-width="1"/>
+  <text x="490" y="58" class="t-num">03</text>
+  <text x="490" y="78" class="t-tag">Programmable Capital</text>
+  <text x="490" y="104" class="t-body">Value moving over</text>
+  <text x="490" y="120" class="t-body">programmable rails.</text>
+  <text x="490" y="150" class="t-wh">$33T settled in 2025</text>
+
+  <line x1="117" y1="178" x2="340" y2="236" stroke="#111" stroke-width="1"/>
+  <line x1="340" y1="178" x2="340" y2="236" stroke="#111" stroke-width="1"/>
+  <line x1="562" y1="178" x2="340" y2="236" stroke="#111" stroke-width="1"/>
+
+  <circle cx="340" cy="239" r="3.5" fill="#111"/>
+
+  <text x="340" y="266" text-anchor="middle" class="t-tag">A new risk-transfer infrastructure</text>
+  <line x1="260" y1="278" x2="420" y2="278" stroke="#111" stroke-width="1"/>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 3</span>The convergence</figcaption>
+</figure>
+
+<p>What's missing is infrastructure purpose-built for risk transfer—programmable, composable, and interoperable with onchain capital by default. Infrastructure that takes the proven economic logic of catastrophe bonds, collateralized reinsurance, and sidecars and expresses it in a form that is natively digital: automated in execution, transparent in state, and open to any qualified participant.</p>
+<p>RIZK is that infrastructure.</p>
+
+<a class="btt" data-to="toc"><span class="btt-arrow">&uarr;</span></a>
+
+<!-- ═══ 2 ═══ -->
+<h2 id="s2"><span class="n">Section Two</span>Instruments of Risk Transfer</h2>
+<p>Before describing what RIZK builds, it helps to understand what already exists—and to see that three different-looking instruments are actually the same structure in different configurations.</p>
+
+<h3 id="s2-1"><span class="n">2.1</span>One Structure, Three Configurations</h3>
+<p>Every ILS instrument follows the same basic logic. A party wants to transfer a defined risk. Capital is posted into a ring-fenced structure as collateral. Premium flows from the risk holder to the capital provider for the coverage term. If a defined event occurs, collateral pays the claim. If it does not, capital is returned with accumulated premium. The return to capital is uncorrelated with traditional markets because it is driven by real-world events—hurricanes, earthquakes, cyber breaches—not equity or credit cycles.</p>
+<p>What varies is the configuration.</p>
+
+<figure class="fig" aria-label="Figure 4: One structure, three configurations">
+<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="45" y1="30" x2="85" y2="30" stroke="#111" stroke-width="1"/>
+  <text x="45" y="48" class="t-num">A</text>
+  <text x="45" y="66" class="t-tag">Catastrophe Bond</text>
+
+  <line x1="255" y1="30" x2="295" y2="30" stroke="#111" stroke-width="1"/>
+  <text x="255" y="48" class="t-num">B</text>
+  <text x="255" y="66" class="t-tag">Coll. Reinsurance</text>
+
+  <line x1="465" y1="30" x2="505" y2="30" stroke="#111" stroke-width="1"/>
+  <text x="465" y="48" class="t-num">C</text>
+  <text x="465" y="66" class="t-tag">Sidecar</text>
+
+  <text x="45" y="88" class="t-sub">Risk side</text>
+  <line x1="130" y1="88" x2="620" y2="88" stroke="#eee" stroke-width="0.8"/>
+
+  <text x="130" y="102" text-anchor="middle" class="t-wh">Sponsor</text>
+  <text x="340" y="102" text-anchor="middle" class="t-wh">Cedent</text>
+  <text x="550" y="102" text-anchor="middle" class="t-wh">Re/insurer</text>
+
+  <circle cx="130" cy="115" r="7" fill="#111"/>
+  <circle cx="340" cy="115" r="7" fill="#111"/>
+  <circle cx="550" cy="115" r="7" fill="#111"/>
+
+  <line x1="130" y1="122" x2="130" y2="150" stroke="#111" stroke-width="1"/>
+  <line x1="340" y1="122" x2="340" y2="150" stroke="#111" stroke-width="1"/>
+  <line x1="550" y1="122" x2="550" y2="150" stroke="#111" stroke-width="1"/>
+
+  <rect x="90" y="150" width="80" height="42" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="130" y="176" text-anchor="middle" class="t-sub">SPV</text>
+
+  <rect x="300" y="150" width="80" height="42" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="340" y="176" text-anchor="middle" class="t-sub">SPV</text>
+
+  <rect x="510" y="150" width="80" height="42" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="550" y="176" text-anchor="middle" class="t-sub">SPV</text>
+
+  <line x1="130" y1="192" x2="130" y2="215" stroke="#111" stroke-width="1"/>
+  <line x1="340" y1="192" x2="340" y2="215" stroke="#111" stroke-width="1"/>
+  <line x1="550" y1="192" x2="550" y2="215" stroke="#111" stroke-width="1"/>
+
+  <text x="45" y="212" class="t-sub">Capital side</text>
+  <line x1="130" y1="212" x2="620" y2="212" stroke="#eee" stroke-width="0.8"/>
+
+  <circle cx="100" cy="230" r="2.5" fill="#111"/>
+  <circle cx="112" cy="230" r="2.5" fill="#111"/>
+  <circle cx="124" cy="230" r="2.5" fill="#111"/>
+  <circle cx="136" cy="230" r="2.5" fill="#111"/>
+  <circle cx="148" cy="230" r="2.5" fill="#111"/>
+  <circle cx="160" cy="230" r="2.5" fill="#111"/>
+  <circle cx="106" cy="242" r="2.5" fill="#111"/>
+  <circle cx="118" cy="242" r="2.5" fill="#111"/>
+  <circle cx="130" cy="242" r="2.5" fill="#111"/>
+  <circle cx="142" cy="242" r="2.5" fill="#111"/>
+  <circle cx="154" cy="242" r="2.5" fill="#111"/>
+  <text x="130" y="265" text-anchor="middle" class="t-wh">Many investors</text>
+
+  <circle cx="340" cy="236" r="7" fill="#111"/>
+  <text x="340" y="265" text-anchor="middle" class="t-wh">ILS fund</text>
+
+  <circle cx="520" cy="236" r="7" fill="#111"/>
+  <circle cx="540" cy="230" r="2.5" fill="#111"/>
+  <circle cx="552" cy="230" r="2.5" fill="#111"/>
+  <circle cx="564" cy="230" r="2.5" fill="#111"/>
+  <circle cx="576" cy="230" r="2.5" fill="#111"/>
+  <circle cx="546" cy="242" r="2.5" fill="#111"/>
+  <circle cx="558" cy="242" r="2.5" fill="#111"/>
+  <circle cx="570" cy="242" r="2.5" fill="#111"/>
+  <text x="550" y="265" text-anchor="middle" class="t-wh">Anchor LP + co-investors</text>
+
+  <text x="130" y="290" text-anchor="middle" class="t-body">Public issuance,</text>
+  <text x="130" y="306" text-anchor="middle" class="t-body">fractionalized widely.</text>
+
+  <text x="340" y="290" text-anchor="middle" class="t-body">Bilateral private</text>
+  <text x="340" y="306" text-anchor="middle" class="t-body">contract.</text>
+
+  <text x="550" y="290" text-anchor="middle" class="t-body">Sponsor retains</text>
+  <text x="550" y="306" text-anchor="middle" class="t-body">skin in the game.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 4</span>One structure, three configurations</figcaption>
+</figure>
+
+<p><strong>Catastrophe bonds</strong> are the public-markets form. A sponsor—typically an insurer, reinsurer, sovereign, or large corporation—issues notes through a special purpose vehicle. Investors purchase the notes, proceeds sit in a collateral trust, and the notes trade in a regulated secondary market. Cat bonds scale well because they reach many investors, but they are expensive to structure and slow to issue.</p>
+<p><strong>Collateralized reinsurance</strong> is the bilateral form. A single capital provider (usually an ILS fund) posts collateral to back a specific reinsurance contract with a cedent. There is no public offering, no notes, no rated tranches. It is faster and cheaper to execute than a cat bond and is the natural starting point for smaller deals, new risk classes, or counterparty relationships still being established.</p>
+<p><strong>Sidecars</strong> are the co-investment form. A re/insurer establishes a vehicle that lets third-party investors participate alongside it on a specific book of business, sharing proportionally in premiums and losses. The sponsor retains skin in the game; investors gain access to underwriting portfolios they could not reach alone.</p>
+<p>The mechanics are not meaningfully different across the three. The same premium-for-collateral-for-trigger structure appears in each, with the degree of standardization, the breadth of participation, and the sponsor-investor alignment varying by configuration.</p>
+
+<h3 id="s2-2"><span class="n">2.2</span>Trigger Design</h3>
+<p>The rule that determines whether a payout occurs—the <strong>trigger</strong>—is the most consequential design choice in any ILS instrument. Four types dominate: <strong>indemnity</strong> (based on the sponsor's actual incurred losses), <strong>industry loss index</strong> (based on total industry losses reported by an independent agency), <strong>modelled loss</strong> (based on a catastrophe model's estimated loss), and <strong>parametric</strong> (based on a physical measurement such as wind speed, earthquake magnitude, or vessel transit counts).</p>
+
+<figure class="fig" aria-label="Figure 5: Trigger-type trade-offs">
+<svg viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="22" x2="640" y2="22" stroke="#111" stroke-width="1"/>
+  <text x="40" y="40" class="t-tag">Trigger types</text>
+
+  <text x="175" y="80" text-anchor="middle" class="t-tag">Indemnity</text>
+  <text x="305" y="80" text-anchor="middle" class="t-tag">Industry Loss</text>
+  <text x="435" y="80" text-anchor="middle" class="t-tag">Modelled</text>
+  <text x="565" y="80" text-anchor="middle" class="t-tag">Parametric</text>
+
+  <line x1="40" y1="95" x2="640" y2="95" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ROW: Measures -->
+  <text x="40" y="122" class="t-sub">Measures</text>
+  <text x="175" y="122" text-anchor="middle" class="t-body">Actual losses</text>
+  <text x="305" y="122" text-anchor="middle" class="t-body">Industry index</text>
+  <text x="435" y="122" text-anchor="middle" class="t-body">Model output</text>
+  <text x="565" y="122" text-anchor="middle" class="t-body">Physical measure</text>
+
+  <line x1="40" y1="142" x2="640" y2="142" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ROW: Basis risk -->
+  <text x="40" y="170" class="t-sub">Basis risk</text>
+
+  <circle cx="160" cy="166" r="2.5" fill="#111"/>
+  <circle cx="170" cy="166" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="180" cy="166" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="190" cy="166" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="175" y="190" text-anchor="middle" class="t-wh">Low</text>
+  <text x="175" y="206" text-anchor="middle" class="t-body">Matches</text>
+  <text x="175" y="219" text-anchor="middle" class="t-body">actual loss</text>
+
+  <circle cx="290" cy="166" r="2.5" fill="#111"/>
+  <circle cx="300" cy="166" r="2.5" fill="#111"/>
+  <circle cx="310" cy="166" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="320" cy="166" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="305" y="190" text-anchor="middle" class="t-wh">Moderate</text>
+  <text x="305" y="206" text-anchor="middle" class="t-body">Industry index</text>
+  <text x="305" y="219" text-anchor="middle" class="t-body">as proxy</text>
+
+  <circle cx="420" cy="166" r="2.5" fill="#111"/>
+  <circle cx="430" cy="166" r="2.5" fill="#111"/>
+  <circle cx="440" cy="166" r="2.5" fill="#111"/>
+  <circle cx="450" cy="166" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="435" y="190" text-anchor="middle" class="t-wh">Mod-high</text>
+  <text x="435" y="206" text-anchor="middle" class="t-body">Model output</text>
+  <text x="435" y="219" text-anchor="middle" class="t-body">as proxy</text>
+
+  <circle cx="550" cy="166" r="2.5" fill="#111"/>
+  <circle cx="560" cy="166" r="2.5" fill="#111"/>
+  <circle cx="570" cy="166" r="2.5" fill="#111"/>
+  <circle cx="580" cy="166" r="2.5" fill="#111"/>
+  <text x="565" y="190" text-anchor="middle" class="t-wh">Higher</text>
+  <text x="565" y="206" text-anchor="middle" class="t-body">Payout tracks</text>
+  <text x="565" y="219" text-anchor="middle" class="t-body">hazard, not loss</text>
+
+  <line x1="40" y1="238" x2="640" y2="238" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ROW: Moral hazard -->
+  <text x="40" y="266" class="t-sub">Moral hazard</text>
+
+  <circle cx="160" cy="262" r="2.5" fill="#111"/>
+  <circle cx="170" cy="262" r="2.5" fill="#111"/>
+  <circle cx="180" cy="262" r="2.5" fill="#111"/>
+  <circle cx="190" cy="262" r="2.5" fill="#111"/>
+  <text x="175" y="286" text-anchor="middle" class="t-wh">High</text>
+  <text x="175" y="302" text-anchor="middle" class="t-body">Sponsor controls</text>
+  <text x="175" y="315" text-anchor="middle" class="t-body">loss reporting</text>
+
+  <circle cx="290" cy="262" r="2.5" fill="#111"/>
+  <circle cx="300" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="310" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="320" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="305" y="286" text-anchor="middle" class="t-wh">Low</text>
+  <text x="305" y="302" text-anchor="middle" class="t-body">Sponsor cannot</text>
+  <text x="305" y="315" text-anchor="middle" class="t-body">move industry data</text>
+
+  <circle cx="420" cy="262" r="2.5" fill="#111"/>
+  <circle cx="430" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="440" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="450" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="435" y="286" text-anchor="middle" class="t-wh">Low</text>
+  <text x="435" y="302" text-anchor="middle" class="t-body">Third-party model,</text>
+  <text x="435" y="315" text-anchor="middle" class="t-body">sponsor cannot alter</text>
+
+  <circle cx="550" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="560" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="570" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="580" cy="262" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="565" y="286" text-anchor="middle" class="t-wh">Negligible</text>
+  <text x="565" y="302" text-anchor="middle" class="t-body">No human judgment</text>
+  <text x="565" y="315" text-anchor="middle" class="t-body">in the payout</text>
+
+  <line x1="40" y1="334" x2="640" y2="334" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ROW: Pricing friction -->
+  <text x="40" y="362" class="t-sub">Pricing friction</text>
+
+  <circle cx="160" cy="358" r="2.5" fill="#111"/>
+  <circle cx="170" cy="358" r="2.5" fill="#111"/>
+  <circle cx="180" cy="358" r="2.5" fill="#111"/>
+  <circle cx="190" cy="358" r="2.5" fill="#111"/>
+  <text x="175" y="382" text-anchor="middle" class="t-wh">High</text>
+  <text x="175" y="398" text-anchor="middle" class="t-body">Hidden tail in</text>
+  <text x="175" y="411" text-anchor="middle" class="t-body">sponsor's book</text>
+
+  <circle cx="290" cy="358" r="2.5" fill="#111"/>
+  <circle cx="300" cy="358" r="2.5" fill="#111"/>
+  <circle cx="310" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="320" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="305" y="382" text-anchor="middle" class="t-wh">Medium</text>
+  <text x="305" y="398" text-anchor="middle" class="t-body">Standardized</text>
+  <text x="305" y="411" text-anchor="middle" class="t-body">industry data</text>
+
+  <circle cx="420" cy="358" r="2.5" fill="#111"/>
+  <circle cx="430" cy="358" r="2.5" fill="#111"/>
+  <circle cx="440" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="450" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="435" y="382" text-anchor="middle" class="t-wh">Low-medium</text>
+  <text x="435" y="398" text-anchor="middle" class="t-body">Model output is</text>
+  <text x="435" y="411" text-anchor="middle" class="t-body">the pricing input</text>
+
+  <circle cx="550" cy="358" r="2.5" fill="#111"/>
+  <circle cx="560" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="570" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="580" cy="358" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="565" y="382" text-anchor="middle" class="t-wh">Low</text>
+  <text x="565" y="398" text-anchor="middle" class="t-body">Direct hazard</text>
+  <text x="565" y="411" text-anchor="middle" class="t-body">measure</text>
+
+  <line x1="40" y1="430" x2="640" y2="430" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ROW: Disclosure burden -->
+  <text x="40" y="458" class="t-sub">Disclosure burden</text>
+
+  <circle cx="160" cy="454" r="2.5" fill="#111"/>
+  <circle cx="170" cy="454" r="2.5" fill="#111"/>
+  <circle cx="180" cy="454" r="2.5" fill="#111"/>
+  <circle cx="190" cy="454" r="2.5" fill="#111"/>
+  <text x="175" y="478" text-anchor="middle" class="t-wh">High</text>
+  <text x="175" y="494" text-anchor="middle" class="t-body">Exposes proprietary</text>
+  <text x="175" y="507" text-anchor="middle" class="t-body">loss book</text>
+
+  <circle cx="290" cy="454" r="2.5" fill="#111"/>
+  <circle cx="300" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="310" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="320" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="305" y="478" text-anchor="middle" class="t-wh">Low</text>
+  <text x="305" y="494" text-anchor="middle" class="t-body">No sponsor-specific</text>
+  <text x="305" y="507" text-anchor="middle" class="t-body">data shared</text>
+
+  <circle cx="420" cy="454" r="2.5" fill="#111"/>
+  <circle cx="430" cy="454" r="2.5" fill="#111"/>
+  <circle cx="440" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="450" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="435" y="478" text-anchor="middle" class="t-wh">Medium</text>
+  <text x="435" y="494" text-anchor="middle" class="t-body">Exposure data</text>
+  <text x="435" y="507" text-anchor="middle" class="t-body">fed into model</text>
+
+  <circle cx="550" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="560" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="570" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <circle cx="580" cy="454" r="2.5" fill="none" stroke="#ccc" stroke-width="0.8"/>
+  <text x="565" y="478" text-anchor="middle" class="t-wh">None</text>
+  <text x="565" y="494" text-anchor="middle" class="t-body">No sponsor-side</text>
+  <text x="565" y="507" text-anchor="middle" class="t-body">data required</text>
+
+  <line x1="40" y1="550" x2="640" y2="550" stroke="#111" stroke-width="1"/>
+  <text x="40" y="568" class="t-wh">Lower basis risk costs moral hazard, disclosure burden, and pricing friction.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 5</span>Trigger types &#8212; trade-offs</figcaption>
+</figure>
+
+<p>The trade-off is sharp. Indemnity triggers match the sponsor's actual loss most closely but introduce moral hazard, require disclosure of proprietary loss data, and take weeks or months to resolve. Parametric triggers are fast, transparent, and dispute-free, but may not perfectly match the sponsor's actual exposure—a gap known as <strong>basis risk</strong>. Parametric is the trigger type best suited to programmable execution: the measurement is objective, the payout is deterministic, and settlement can happen the moment the data arrives.</p>
+
+<a class="btt" data-to="toc"><span class="btt-arrow">&uarr;</span></a>
+
+<!-- ═══ 3 ═══ -->
+<h2 id="s3"><span class="n">Section Three</span>RIZK Protocol</h2>
+<p>RIZK is an onchain protocol for risk transfer. It connects risk holders—insurers, reinsurers, corporates, sovereigns—with capital providers through programmable, transparent, and automated vaults.</p>
+<p>At the core is a single shared architecture: two linked vaults that together function as an onchain special purpose vehicle. Every ILS instrument described in Section 2—catastrophe bonds, collateralized reinsurance, sidecars—is issued, held, and traded on RIZK through this architecture. The three are not separate products in RIZK. They are configurations of the same two-vault structure.</p>
+<p>A cat bond structured through RIZK uses the same economic logic as a traditional one—but on RIZK, the instrument is no longer static. Coverage, premium, and capital are all composable building blocks that can be split, combined, transferred, and used as collateral elsewhere in the system.</p>
+<p>The sections that follow describe the architecture. For readers new to DeFi, the next section introduces vaults—the foundational primitive on which RIZK is built.</p>
+
+<h3 id="s3-1"><span class="n">3.1</span>A Short Primer on Vaults</h3>
+<p>The vault is one of the foundational primitives of DeFi: a smart contract that accepts deposits, issues shares, and executes a defined strategy on behalf of depositors.</p>
+<p>Early vaults proved that capital management could be executed securely without human intermediation, but they were structurally fragmented. Every protocol built a custom interface, making broad integration difficult. This bottleneck was resolved in 2022 with the finalization of the ERC-4626 Tokenized Vault Standard<span class="c" data-ref="26">[26]</span>. By defining a universal, interoperable interface for how vaults handle deposits, withdrawals, and share accounting, ERC-4626 transformed vaults from fragmented tools into unified, institutional-grade infrastructure. Extensions built on top of ERC-4626 have since broadened its reach: ERC-7540 adds asynchronous deposit and redemption flows for assets that do not settle atomically<span class="c" data-ref="40">[40]</span>, and ERC-7575 extends the interface to support vaults that accept multiple assets against a single share token<span class="c" data-ref="41">[41]</span>.</p>
+
+<figure class="fig" aria-label="Figure 6: Anatomy of an ERC-4626 vault">
+<svg viewBox="0 0 720 434" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">Anatomy of a production vault</text>
+
+  <!-- ═══ TOP ROW: Supporting infrastructure (governance side) ═══ -->
+
+  <!-- Access Control (top-left, above Vault) -->
+  <rect x="180" y="66" width="160" height="70" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="190" y="84" class="t-sub">Access control</text>
+  <text x="190" y="103" class="t-body">Asset owners, behind</text>
+  <text x="190" y="116" class="t-body">a timelock.</text>
+  <text x="190" y="132" class="t-wh">Governance</text>
+
+  <!-- Emergency (top-right, above Strategy) -->
+  <rect x="410" y="66" width="160" height="70" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="420" y="84" class="t-sub">Emergency</text>
+  <text x="420" y="103" class="t-body">Pause deposits, halt</text>
+  <text x="420" y="116" class="t-body">operations, circuit breakers.</text>
+  <text x="420" y="132" class="t-wh">Safety</text>
+
+  <!-- ═══ MIDDLE ROW: Core runtime ═══ -->
+
+  <!-- Users dot-cluster (far left) -->
+  <text x="45" y="192" class="t-sub">Users</text>
+  <circle cx="26" cy="212" r="2.5" fill="#111"/>
+  <circle cx="38" cy="212" r="2.5" fill="#111"/>
+  <circle cx="50" cy="212" r="2.5" fill="#111"/>
+  <circle cx="62" cy="212" r="2.5" fill="#111"/>
+  <circle cx="32" cy="224" r="2.5" fill="#111"/>
+  <circle cx="44" cy="224" r="2.5" fill="#111"/>
+  <circle cx="56" cy="224" r="2.5" fill="#111"/>
+
+  <!-- User → Vault flow arrows -->
+  <line x1="84" y1="208" x2="174" y2="208" stroke="#111" stroke-width="1"/>
+  <polygon points="174,205 180,208 174,211" fill="#111"/>
+  <text x="129" y="203" text-anchor="middle" class="t-wh">Asset</text>
+
+  <line x1="174" y1="228" x2="84" y2="228" stroke="#111" stroke-width="1"/>
+  <polygon points="84,225 78,228 84,231" fill="#111"/>
+  <text x="129" y="241" text-anchor="middle" class="t-wh">Share</text>
+
+  <!-- Core box: Vault contract (center-left) -->
+  <rect x="180" y="160" width="160" height="120" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="260" y="180" text-anchor="middle" class="t-sub">Vault contract</text>
+  <text x="260" y="201" text-anchor="middle" class="t-bodylg">Treasury &amp; ledger</text>
+  <text x="260" y="218" text-anchor="middle" class="t-body">Holds assets, mints</text>
+  <text x="260" y="232" text-anchor="middle" class="t-body">shares, tracks NAV.</text>
+  <text x="260" y="253" text-anchor="middle" class="t-wh">ERC-4626 interface</text>
+  <text x="260" y="268" text-anchor="middle" class="t-num">deposit &#183; withdraw &#183; redeem</text>
+
+  <!-- Vault → Strategy flow arrows -->
+  <line x1="345" y1="208" x2="405" y2="208" stroke="#111" stroke-width="1"/>
+  <polygon points="405,205 411,208 405,211" fill="#111"/>
+  <text x="375" y="200" text-anchor="middle" class="t-wh">Capital</text>
+
+  <line x1="405" y1="228" x2="345" y2="228" stroke="#111" stroke-width="1"/>
+  <polygon points="345,225 339,228 345,231" fill="#111"/>
+  <text x="375" y="242" text-anchor="middle" class="t-wh">Yield</text>
+
+  <!-- Core box: Strategy contract (center-right) -->
+  <rect x="410" y="160" width="160" height="120" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="490" y="180" text-anchor="middle" class="t-sub">Strategy contract</text>
+  <text x="490" y="201" text-anchor="middle" class="t-bodylg">Capital engine</text>
+  <text x="490" y="218" text-anchor="middle" class="t-body">Deploys, harvests,</text>
+  <text x="490" y="232" text-anchor="middle" class="t-body">compounds.</text>
+  <text x="490" y="253" text-anchor="middle" class="t-wh">Upgradable independently</text>
+
+  <!-- Strategy → Yield source -->
+  <line x1="575" y1="220" x2="615" y2="220" stroke="#111" stroke-width="1"/>
+  <polygon points="615,217 621,220 615,223" fill="#111"/>
+
+  <!-- Yield source (far right) -->
+  <text x="680" y="192" text-anchor="middle" class="t-sub">Yield source</text>
+  <text x="680" y="215" text-anchor="middle" class="t-body">Lending platforms</text>
+  <text x="680" y="229" text-anchor="middle" class="t-body">Tokenized MM funds</text>
+  <text x="680" y="243" text-anchor="middle" class="t-body">Staking, DEX LP</text>
+
+  <!-- Access/Emergency → Vault/Strategy connectors (dashed, vertical) -->
+  <line x1="260" y1="136" x2="260" y2="160" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="490" y1="136" x2="490" y2="160" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- ═══ BOTTOM ROW: Automation infrastructure ═══ -->
+
+  <!-- Orchestration (bottom-left) -->
+  <rect x="180" y="304" width="160" height="70" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="190" y="322" class="t-sub">Orchestration</text>
+  <text x="190" y="341" class="t-body">Scheduled execution of</text>
+  <text x="190" y="354" class="t-body">harvests and rebalances.</text>
+  <text x="190" y="370" class="t-wh">Automation</text>
+
+  <!-- Orchestration → Strategy connector (dashed) -->
+  <line x1="260" y1="304" x2="260" y2="280" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- Oracles (bottom-right) -->
+  <rect x="410" y="304" width="160" height="70" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="420" y="322" class="t-sub">Oracles</text>
+  <text x="420" y="341" class="t-body">Price feeds that anchor</text>
+  <text x="420" y="354" class="t-body">valuation and trades.</text>
+  <text x="420" y="370" class="t-wh">Data</text>
+
+  <!-- Oracles → Strategy connector (dashed) -->
+  <line x1="490" y1="304" x2="490" y2="280" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- ═══ BOTTOM STRIP: Properties ═══ -->
+  <line x1="40" y1="400" x2="680" y2="400" stroke="#ddd" stroke-width="0.8"/>
+  <text x="40" y="422" class="t-it">Composable, auditable, standardized. One role, one flow &#8212; everything RIZK builds starts here.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 6</span>Anatomy of an ERC-4626 vault</figcaption>
+</figure>
+
+<p>DeFi's Total Value Locked (TVL) exceeds $100 billion across all chains<span class="c" data-ref="27">[27]</span>. While over $15 billion sits in natively ERC-4626 vaults<span class="c" data-ref="27">[27]</span>, the standard's impact is structural rather than just native. The largest legacy protocols holding the bulk of that $100 billion TVL are increasingly adding ERC-4626 wrapper layers to plug into this composable infrastructure, making the standard the de facto interface through which capital enters onchain yield.</p>
+<p>This standardization has facilitated direct institutional adoption: Kraken routes exchange deposits into onchain lending vaults<span class="c" data-ref="28">[28]</span>, Apollo Global Management commits capital to vault strategies<span class="c" data-ref="29">[29]</span>, and BlackRock's BUIDL tokenized liquidity fund operates natively within this composable ecosystem<span class="c" data-ref="30">[30]</span>.</p>
+<p>Vaults have proven they can custody capital, execute strategies, and issue transferable shares securely at scale. However, almost every vault deployed to date is designed for a single purpose: one-sided yield optimization, where capital enters, earns a return, and exits. RIZK takes this one-sided yield infrastructure and couples it with oracle-gated logic to create a two-sided risk market.</p>
+
+<h3 id="s3-2"><span class="n">3.2</span>The Two-Sided Vault</h3>
+<p>Functionally, a RIZK vault operates as the onchain equivalent of a special purpose vehicle (SPV): an isolated structure that holds capital, enforces terms, and executes payments automatically.</p>
+<p>Where a traditional yield vault acts as an investment vehicle, a RIZK vault is two-sided. It binds two counterparty roles—one providing something, one receiving something—and mediates the flow between them onchain.</p>
+
+<figure class="fig" aria-label="Figure 7: A coverage is two linked vaults">
+<svg viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">A coverage is two linked vaults</text>
+
+  <!-- ═══ TOP ROW: Governance satellites (simplified — titles only) ═══ -->
+
+  <rect x="180" y="66" width="160" height="38" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="260" y="90" text-anchor="middle" class="t-sub">Access control</text>
+
+  <rect x="410" y="66" width="160" height="38" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="490" y="90" text-anchor="middle" class="t-sub">Emergency</text>
+
+  <!-- Dashed connectors from governance down to outer container -->
+  <line x1="260" y1="104" x2="260" y2="128" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="490" y1="104" x2="490" y2="128" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- ═══ CEDENT SIDE (far left) ═══ -->
+  <text x="45" y="144" class="t-sub">Cedent</text>
+  <text x="45" y="158" class="t-wh">Risk side</text>
+
+  <!-- Cedent IN arrow (into container) -->
+  <line x1="45" y1="186" x2="174" y2="186" stroke="#111" stroke-width="1"/>
+  <polygon points="174,183 180,186 174,189" fill="#111"/>
+  <text x="109" y="178" text-anchor="middle" class="t-body">Premium</text>
+  <text x="109" y="202" text-anchor="middle" class="t-body">Risk transfer contract</text>
+
+  <!-- Cedent OUT arrow (out of container, back to cedent) -->
+  <line x1="180" y1="248" x2="51" y2="248" stroke="#111" stroke-width="1"/>
+  <polygon points="51,245 45,248 51,251" fill="#111"/>
+  <text x="109" y="240" text-anchor="middle" class="t-body">Protection</text>
+  <text x="109" y="264" text-anchor="middle" class="t-body">Premium commitment</text>
+
+  <!-- Cedent TOKENS annotation -->
+  <text x="45" y="296" class="t-token">TOKENS</text>
+  <text x="45" y="310" class="t-token">Protection token</text>
+  <text x="45" y="322" class="t-token">Debtor position</text>
+
+  <!-- ═══ INVESTOR SIDE (far right) ═══ -->
+  <text x="675" y="144" text-anchor="end" class="t-sub">Investor</text>
+  <text x="675" y="158" text-anchor="end" class="t-wh">Capital side</text>
+
+  <!-- Investor IN arrow (into container) -->
+  <line x1="675" y1="186" x2="546" y2="186" stroke="#111" stroke-width="1"/>
+  <polygon points="546,183 540,186 546,189" fill="#111"/>
+  <text x="611" y="178" text-anchor="middle" class="t-body">Collateral</text>
+
+  <!-- Investor OUT arrow (out of container, back to investor) -->
+  <line x1="540" y1="248" x2="669" y2="248" stroke="#111" stroke-width="1"/>
+  <polygon points="669,245 675,248 669,251" fill="#111"/>
+  <text x="611" y="240" text-anchor="middle" class="t-body">Yield</text>
+  <text x="611" y="264" text-anchor="middle" class="t-body">Collateral</text>
+
+  <!-- Investor TOKENS annotation -->
+  <text x="675" y="296" text-anchor="end" class="t-token">TOKENS</text>
+  <text x="675" y="310" text-anchor="end" class="t-token">Collateral position</text>
+  <text x="675" y="322" text-anchor="end" class="t-token">Claim position</text>
+
+  <!-- ═══ OUTER DOTTED CONTAINER (the coverage) ═══ -->
+  <rect x="180" y="128" width="360" height="240" fill="none" stroke="#111" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="360" y="122" text-anchor="middle" class="t-wh">Coverage</text>
+
+  <!-- ═══ PREMIUM-YIELD VAULT (top, simpler, inside container) ═══ -->
+  <rect x="198" y="140" width="324" height="95" fill="none" stroke="#111" stroke-width="1.2"/>
+  <text x="360" y="160" text-anchor="middle" class="t-sub">Premium-yield vault</text>
+  <text x="360" y="180" text-anchor="middle" class="t-bodylg">Streaming premium accounting</text>
+  <text x="360" y="196" text-anchor="middle" class="t-wh">Pass-through escrow</text>
+  <text x="360" y="220" text-anchor="middle" class="t-body">Debtor position &#183; Claim position</text>
+
+  <!-- ═══ STATE DEPENDENCY ARROW (inside container, between vaults) ═══ -->
+  <line x1="360" y1="237" x2="360" y2="258" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <polygon points="357,256 363,256 360,262" fill="#ccc"/>
+  <text x="360" y="250" text-anchor="middle" class="t-token">State</text>
+
+  <!-- ═══ PROTECTION-COLLATERAL VAULT (bottom, heavier anchor, inside container) ═══ -->
+  <rect x="198" y="265" width="324" height="95" fill="none" stroke="#111" stroke-width="1.2"/>
+  <text x="360" y="285" text-anchor="middle" class="t-sub">Protection-collateral vault</text>
+  <text x="360" y="305" text-anchor="middle" class="t-bodylg">Payout escrow &amp; yield engine</text>
+  <text x="360" y="321" text-anchor="middle" class="t-wh">Collateral earns base yield during term</text>
+  <text x="360" y="345" text-anchor="middle" class="t-body">Protection token &#183; Collateral position</text>
+
+  <!-- ═══ BOTTOM ROW: Runtime satellites (Oracle, Orchestration, Strategy) ═══ -->
+
+  <!-- Oracle (bottom-left) -->
+  <rect x="180" y="400" width="110" height="38" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="235" y="424" text-anchor="middle" class="t-sub">Oracle</text>
+  <line x1="235" y1="400" x2="235" y2="368" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- Orchestration (bottom-center) -->
+  <rect x="305" y="400" width="110" height="38" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="360" y="424" text-anchor="middle" class="t-sub">Orchestration</text>
+  <line x1="360" y1="400" x2="360" y2="368" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- Strategy (bottom-right) — primarily for Protection-Collateral, may extend to Premium-Yield -->
+  <rect x="430" y="400" width="110" height="38" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="485" y="424" text-anchor="middle" class="t-sub">Strategy</text>
+  <line x1="485" y1="400" x2="485" y2="368" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- Strategy → Yield source (solid right-facing arrow, mirrors Fig 6) -->
+  <line x1="540" y1="419" x2="615" y2="419" stroke="#111" stroke-width="1"/>
+  <polygon points="615,416 621,419 615,422" fill="#111"/>
+
+  <!-- Yield source label -->
+  <text x="680" y="406" text-anchor="middle" class="t-sub">Yield source</text>
+  <text x="680" y="425" text-anchor="middle" class="t-body">Lending platforms</text>
+  <text x="680" y="439" text-anchor="middle" class="t-body">Tokenized MM funds</text>
+  <text x="680" y="453" text-anchor="middle" class="t-body">Staking, DEX LP</text>
+
+  <!-- Strategy annotation: primarily for protection-collateral -->
+  <text x="485" y="459" text-anchor="middle" class="t-token">Primarily for protection-collateral;</text>
+  <text x="485" y="471" text-anchor="middle" class="t-token">may extend to premium-yield.</text>
+
+  <!-- ═══ BOTTOM CAPTION STRIP ═══ -->
+  <line x1="40" y1="500" x2="680" y2="500" stroke="#ddd" stroke-width="0.8"/>
+  <text x="40" y="525" class="t-it">Four positions. Two linked vaults. One coverage.</text>
+  <text x="40" y="545" class="t-wh">Same counterparty pair, same coverage term &#8212; tokens transferable independently during the term.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 7</span>A coverage is two linked vaults</figcaption>
+</figure>
+
+<p><strong>A coverage is two linked vaults.</strong> A RIZK coverage is not a single vault but two linked two-sided vaults operating in parallel:</p>
+<ul>
+  <li>The <strong>protection-collateral vault</strong> holds the payout flow. On the risk side, the cedent holds a <em>protection token</em>: the right to receive payout if the trigger fires. On the capital side, an investor holds a <em>collateral position</em>: the locked principal that backs the payout.</li>
+  <li>The <strong>premium-yield vault</strong> holds the premium flow. On the risk side, the debtor holds a <em>debtor position</em>: the obligation to pay premium. On the capital side, a claimer holds a <em>claim position</em>: the right to receive premium as it accrues.</li>
+</ul>
+<p>Four positions total—two per vault—each a first-class onchain token. Positions in the two vaults are independent: a capital provider can hold the collateral position in one vault and separately transfer the claim position in the other.</p>
+
+<p>All four positions expose four properties that are not available in traditional ILS:</p>
+<div class="di"><span class="dt">Transfer</span><span class="dd">A position moves to a new holder at any point in the coverage term. Transfer novates the position onchain: the vault enforces the same terms against the new holder, with no bilateral renegotiation or off-chain documentation.</span></div>
+<div class="di"><span class="dt">Fractionalization</span><span class="dd">A position splits into smaller tokens, each representing a proportional share of the underlying claim. Fractionalization collapses the $250,000 minimum cat bond ticket: a $10 million vault can issue $10,000 or $1,000 positions. A corporation with $50 million of earthquake protection allocates fractions across subsidiaries by exposure; two airlines at a shared hub hold fractions of a single volcanic ash protection token.</span></div>
+<div class="di"><span class="dt">Composition</span><span class="dd">Separate positions bundle into composites. A wind, flood, and earthquake token for the same region assemble into a single multi-peril position covering all three. Composite instruments are built bottom-up from modular components, not defined top-down as monolithic products.</span></div>
+<div class="di"><span class="dt">External Collateral</span><span class="dd">A position represents an economic claim and is pledgeable as collateral in external arrangements. A cargo operator pledges a parametric delay protection token to secure a trade finance facility; a capital provider pledges a claim position in a DeFi lending market.</span></div>
+<p>These four properties, operating together onchain, enable a secondary market that does not meaningfully exist for these instruments today. Traditional ILS secondary trading is thin, broker-mediated, and slow: cat bond positions change hands through off-chain negotiation and manual documentation, and collateralized reinsurance positions rarely trade at all. Onchain tokenization turns the same positions into instruments that can be transferred, sold, or used as collateral directly between holders, without intermediaries, with near-instant settlement.</p>
+
+<p>These same properties also make the vault architecture instrument-agnostic. The same two-vault structure can be configured as collateralized reinsurance, as a catastrophe bond, or as a sidecar — each of the three instruments described in Section 2 is a configuration of the same base primitive. Once a coverage is configured, distribution can still shift through the term as positions are transferred or fractionalized: a coverage issued as a bilateral deal can end up economically resembling a cat bond by maturity, even though its legal classification — set at issuance — does not change with it. The architecture is flexible to the market situation in a way that traditional ILS infrastructure is not, where each instrument is a separate product with its own placement and documentation cycle.</p>
+
+<figure class="fig" aria-label="Figure 8: Distribution shape over a coverage term">
+<svg viewBox="0 0 680 275" xmlns="http://www.w3.org/2000/svg" role="img">
+  <text x="45" y="28" class="t-num">T0</text>
+  <text x="45" y="46" class="t-tag">Bilateral</text>
+
+  <text x="275" y="28" class="t-num">T1</text>
+  <text x="275" y="46" class="t-tag">Growing</text>
+
+  <text x="505" y="28" class="t-num">T2</text>
+  <text x="505" y="46" class="t-tag">Cat-bond-like</text>
+
+  <text x="30" y="88" class="t-sub">Risk</text>
+  <circle cx="110" cy="85" r="7" fill="#111"/>
+  <circle cx="340" cy="85" r="7" fill="#111"/>
+  <circle cx="570" cy="85" r="7" fill="#111"/>
+
+  <line x1="110" y1="92" x2="110" y2="118" stroke="#111" stroke-width="1"/>
+  <line x1="340" y1="92" x2="340" y2="118" stroke="#111" stroke-width="1"/>
+  <line x1="570" y1="92" x2="570" y2="118" stroke="#111" stroke-width="1"/>
+
+  <rect x="75" y="118" width="70" height="38" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="110" y="142" text-anchor="middle" class="t-sub">Vault</text>
+  <rect x="305" y="118" width="70" height="38" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="340" y="142" text-anchor="middle" class="t-sub">Vault</text>
+  <rect x="535" y="118" width="70" height="38" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="570" y="142" text-anchor="middle" class="t-sub">Vault</text>
+
+  <line x1="110" y1="156" x2="110" y2="180" stroke="#111" stroke-width="1"/>
+  <line x1="340" y1="156" x2="340" y2="180" stroke="#111" stroke-width="1"/>
+  <line x1="570" y1="156" x2="570" y2="180" stroke="#111" stroke-width="1"/>
+
+  <text x="30" y="198" class="t-sub">Capital</text>
+  <circle cx="110" cy="195" r="7" fill="#111"/>
+
+  <circle cx="320" cy="192" r="4" fill="#111"/>
+  <circle cx="335" cy="192" r="4" fill="#111"/>
+  <circle cx="350" cy="192" r="4" fill="#111"/>
+  <circle cx="320" cy="204" r="4" fill="#111"/>
+  <circle cx="335" cy="204" r="4" fill="#111"/>
+  <circle cx="350" cy="204" r="4" fill="#111"/>
+
+  <circle cx="536" cy="188" r="2" fill="#111"/>
+  <circle cx="548" cy="188" r="2" fill="#111"/>
+  <circle cx="560" cy="188" r="2" fill="#111"/>
+  <circle cx="572" cy="188" r="2" fill="#111"/>
+  <circle cx="584" cy="188" r="2" fill="#111"/>
+  <circle cx="596" cy="188" r="2" fill="#111"/>
+  <circle cx="536" cy="198" r="2" fill="#111"/>
+  <circle cx="548" cy="198" r="2" fill="#111"/>
+  <circle cx="560" cy="198" r="2" fill="#111"/>
+  <circle cx="572" cy="198" r="2" fill="#111"/>
+  <circle cx="584" cy="198" r="2" fill="#111"/>
+  <circle cx="596" cy="198" r="2" fill="#111"/>
+  <circle cx="542" cy="208" r="2" fill="#111"/>
+  <circle cx="554" cy="208" r="2" fill="#111"/>
+  <circle cx="566" cy="208" r="2" fill="#111"/>
+  <circle cx="578" cy="208" r="2" fill="#111"/>
+  <circle cx="590" cy="208" r="2" fill="#111"/>
+
+  <g transform="translate(190, 138)">
+    <line x1="0" y1="0" x2="65" y2="0" stroke="#111" stroke-width="1"/>
+    <polygon points="65,0 59,-3 59,3" fill="#111"/>
+  </g>
+  <g transform="translate(420, 138)">
+    <line x1="0" y1="0" x2="65" y2="0" stroke="#111" stroke-width="1"/>
+    <polygon points="65,0 59,-3 59,3" fill="#111"/>
+  </g>
+
+  <text x="110" y="245" text-anchor="middle" class="t-body">One provider,</text>
+  <text x="110" y="260" text-anchor="middle" class="t-body">full ticket.</text>
+
+  <text x="340" y="245" text-anchor="middle" class="t-body">Fractions trade to</text>
+  <text x="340" y="260" text-anchor="middle" class="t-body">more investors.</text>
+
+  <text x="570" y="245" text-anchor="middle" class="t-body">Broad base,</text>
+  <text x="570" y="260" text-anchor="middle" class="t-body">small tickets.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 8</span>Distribution shape over a coverage term</figcaption>
+</figure>
+
+<h3 id="s3-3"><span class="n">3.3</span>The Protection-Collateral Vault</h3>
+<p>The protection-collateral vault holds the payout flow. The protection token on the risk side and the collateral position on the capital side are two views of the same locked capital.</p>
+<p><strong>The protection token</strong> encodes the parametric terms of the coverage—trigger condition, payout structure, coverage tenor, and coverage limit—as onchain state. Whether a payout is due is determined by the vault's trigger evaluation against data supplied by the oracle framework (Section 3.5).</p>
+<p><strong>The collateral position</strong> represents the capital side's locked principal. The underlying collateral is locked in the vault for the coverage term and cannot be withdrawn during the term; the collateral position token, however, is freely transferable on secondary markets, subject to the vault's compliance rules (Section 3.6).</p>
+
+<p>Unlike the debtor and claim tokens in the premium-yield vault (Section 3.4), which mirror each other continuously, the protection token and collateral position are asymmetric: one represents a contingent right to payout, the other a locked pool of principal. They are resolved by a single event — the trigger, evaluated against data supplied by the oracle framework (Section 3.5). If the trigger fires, collateral flows to the protection token holder and the position is extinguished; if the term ends without a trigger, the collateral returns to the capital provider.</p>
+
+<p>The vault's state also depends on premium being paid. The premium-yield vault (Section 3.4) monitors premium payment against the agreed schedule and signals the protection-collateral vault if payment is missed. In that case coverage is impaired — depending on configuration, the vault may suspend protection, release locked collateral to the capital provider, or, as an option, apply a forfeit against a deposit posted by the cedent at inception.</p>
+
+<figure class="fig" aria-label="Figure 9: Entry routes into the Protection-Collateral vault">
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">Example entry routes</text>
+
+  <!-- Column headers -->
+  <text x="95" y="78" text-anchor="middle" class="t-sub">Vault</text>
+  <text x="360" y="78" class="t-sub">Transformation</text>
+  <text x="680" y="78" text-anchor="end" class="t-sub">Source</text>
+  <line x1="40" y1="88" x2="680" y2="88" stroke="#ddd" stroke-width="0.8"/>
+
+  <!-- ═══ Unified vault box (far LEFT, spans all 5 rows) ═══ -->
+  <rect x="40" y="100" width="110" height="378" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="95" y="280" text-anchor="middle" class="t-sub">Protection-</text>
+  <text x="95" y="294" text-anchor="middle" class="t-sub">collateral</text>
+  <text x="95" y="308" text-anchor="middle" class="t-sub">vault</text>
+  <text x="95" y="332" text-anchor="middle" class="t-wh">Asset-agnostic</text>
+
+  <!-- ═══ ROUTE 1: DIRECT STABLECOIN ═══ -->
+  <text x="680" y="118" text-anchor="end" class="t-wh">1</text>
+  <text x="666" y="118" text-anchor="end" class="t-sub">Direct stablecoin</text>
+  <text x="680" y="140" text-anchor="end" class="t-body">Investor holds digital dollars and funds the vault directly.</text>
+
+  <!-- Path: "USDC / USDe" (~77px wide) → left edge at x=603; arrow starts at 593 (10px gap) -->
+  <text x="680" y="158" text-anchor="end" class="t-bodylg">USDC / USDe</text>
+  <line x1="586" y1="154" x2="156" y2="154" stroke="#111" stroke-width="1"/>
+  <polygon points="156,151 150,154 156,157" fill="#111"/>
+
+  <line x1="150" y1="175" x2="680" y2="175" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 2: CRYPTO TRANSFORMER ═══ -->
+  <text x="680" y="193" text-anchor="end" class="t-wh">2</text>
+  <text x="666" y="193" text-anchor="end" class="t-sub">Crypto transformer</text>
+  <text x="680" y="214" text-anchor="end" class="t-body">Crypto is converted to stablecoin through yield-earning protocols, stacking base yield.</text>
+
+  <!-- Chain right-to-left: ETH (right) → stETH → USDe (left) → vault
+       ETH ~21px, text left x=659, arrow start x=649
+       stETH ~35px, text right x=590, text left x=555, arrow start x=545, arrow end x=600
+       USDe ~28px, text right x=478, text left x=450, arrow start x=440, arrow end x=488
+       final vault arrow x1=440 → x2=156 -->
+  <text x="680" y="244" text-anchor="end" class="t-bodylg">ETH</text>
+  <line x1="643" y1="240" x2="600" y2="240" stroke="#111" stroke-width="1"/>
+  <polygon points="600,237 594,240 600,243" fill="#111"/>
+  <text x="622" y="234" text-anchor="middle" class="t-token">via Lido</text>
+
+  <text x="590" y="244" text-anchor="end" class="t-bodylg">stETH</text>
+  <line x1="542" y1="240" x2="488" y2="240" stroke="#111" stroke-width="1"/>
+  <polygon points="488,237 482,240 488,243" fill="#111"/>
+  <text x="515" y="234" text-anchor="middle" class="t-token">via Ethena</text>
+
+  <text x="478" y="244" text-anchor="end" class="t-bodylg">USDe</text>
+  <line x1="433" y1="240" x2="156" y2="240" stroke="#111" stroke-width="1"/>
+  <polygon points="156,237 150,240 156,243" fill="#111"/>
+
+  <line x1="150" y1="261" x2="680" y2="261" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 3: NATIVE CRYPTO MATCH ═══ -->
+  <text x="680" y="279" text-anchor="end" class="t-wh">3</text>
+  <text x="666" y="279" text-anchor="end" class="t-sub">Native crypto match</text>
+  <text x="680" y="300" text-anchor="end" class="t-body">The vault holds the same asset the coverage pays out in.</text>
+
+  <!-- "ETH / BTC" ~63px wide → text left x=617, arrow start x=607 -->
+  <text x="680" y="319" text-anchor="end" class="t-bodylg">ETH / BTC</text>
+  <line x1="605" y1="315" x2="156" y2="315" stroke="#111" stroke-width="1"/>
+  <polygon points="156,312 150,315 156,318" fill="#111"/>
+
+  <line x1="150" y1="336" x2="680" y2="336" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 4: TOKENIZED RWA (direct, no intermediate conversion) ═══ -->
+  <text x="680" y="354" text-anchor="end" class="t-wh">4</text>
+  <text x="666" y="354" text-anchor="end" class="t-sub">Tokenized RWA</text>
+  <text x="680" y="375" text-anchor="end" class="t-body">Tokenized Treasuries, money-market funds, or credit post directly as collateral.</text>
+
+  <!-- "BUIDL / BENJI" ~91px wide → text left x=589, arrow start x=579 -->
+  <text x="680" y="394" text-anchor="end" class="t-bodylg">BUIDL / BENJI</text>
+  <line x1="579" y1="390" x2="156" y2="390" stroke="#111" stroke-width="1"/>
+  <polygon points="156,387 150,390 156,393" fill="#111"/>
+
+  <line x1="150" y1="411" x2="680" y2="411" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 5: EXOTICS / LP TOKENS ═══ -->
+  <text x="680" y="429" text-anchor="end" class="t-wh">5</text>
+  <text x="666" y="429" text-anchor="end" class="t-sub">Exotics / LP tokens</text>
+  <text x="680" y="450" text-anchor="end" class="t-body">Existing yield-bearing positions serve as collateral without liquidating the underlying.</text>
+
+  <!-- "aTokens · Curve LP · Pendle PT/YT" at 10px body font, ~33 chars wide, ~180px → text left x=500, arrow start x=490 -->
+  <text x="680" y="469" text-anchor="end" class="t-body">aTokens &#183; Curve LP &#183; Pendle PT/YT</text>
+  <line x1="495" y1="466" x2="156" y2="466" stroke="#111" stroke-width="1"/>
+  <polygon points="156,463 150,466 156,469" fill="#111"/>
+
+  <!-- ═══ BOTTOM CAPTION ═══ -->
+  <line x1="40" y1="488" x2="680" y2="488" stroke="#ddd" stroke-width="0.8"/>
+  <text x="40" y="500" class="t-it">Illustrative routes. The vault is asset-agnostic; additional paths can be added without changing the protocol.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 9</span>Entry routes into the Protection-Collateral vault</figcaption>
+</figure>
+
+<p><strong>Entry routes.</strong> Capital enters the vault through one of three paths. <em>Direct deposit</em>: stablecoins or matched-denomination crypto (USDC, USDe, ETH, BTC) deposit as-is. <em>Transformer routes</em>: a base asset is converted into the required collateral denomination while generating yield along the way. <em>Yield-bearing deposits</em>: tokenized RWAs (BUIDL, BENJI) or existing DeFi positions (lending receipts, LP tokens) post as collateral without liquidation.</p>
+<p><strong>Strategies for locked collateral.</strong> In a traditional cat bond, locked collateral earns the risk-free rate by sitting in a trust invested in Treasuries or money market funds. RIZK does the equivalent onchain: each vault runs a strategy contract that deploys the locked collateral to an external yield source for the duration of the coverage term. The strategy is configured per vault at inception &#8212; common options include staking (stETH via Lido), lending (USDC in Aave), tokenized Treasuries (BUIDL), or liquidity provision (Curve LP). Strategies must preserve the vault&#8217;s ability to honor a payout at trigger: positions must be unwindable on short notice, and liquidity constraints are enforced by the strategy contract itself.</p>
+
+<h3 id="s3-4"><span class="n">3.4</span>The Premium-Yield Vault</h3>
+<p>The premium-yield vault holds the premium flow. It is a two-sided ledger initialized at inception with the full premium due for the coverage term. One side tracks outstanding debt; the other tracks the corresponding claim. The two are equal and opposite by construction.</p>
+<p><strong>The debtor position</strong> represents the obligation to pay premium. <strong>The claim position</strong> represents the right to receive premium as it accrues. The two positions are independent: a capital provider can transfer the claim position to a secondary buyer while retaining their collateral exposure, or vice versa.</p>
+
+<p>Both positions are onchain tokens, and unlike the protection token and collateral position in the protection-collateral vault (Section 3.3) — which are asymmetric and resolved by a trigger event — the debtor position and claim position are symmetric mirrors of each other at all times. The mechanics are similar in design to onchain streaming primitives like Superfluid: a single premium stream is tokenized simultaneously as an outflow on the payer's side and an inflow on the receiver's side, with the two sides staying equal and opposite in real time as payment accrues.</p>
+
+<p>The vault monitors whether premium is being paid on the agreed schedule. If premium is missed, it signals the protection-collateral vault (Section 3.3), which impairs the coverage as described in that section.</p>
+
+<p>Payment logic is programmable: the vault can encode who may pay premium (e.g., a cedent's treasury, a specific financier, a donor whitelist), how payments are sequenced against debt, and what happens if payment is missed — all enforced onchain rather than through paper contracts and manual reconciliation.</p>
+
+<p>The financing and sponsorship routes in particular enable patterns that are not easily achievable in traditional ILS.</p>
+
+<figure class="fig" aria-label="Figure 10: Entry routes into the Premium-Yield vault">
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">Example premium routes</text>
+
+  <!-- Column headers -->
+  <text x="40" y="78" class="t-sub">Payer</text>
+  <text x="360" y="78" class="t-sub">Mechanism</text>
+  <text x="625" y="78" text-anchor="middle" class="t-sub">Vault</text>
+  <line x1="40" y1="88" x2="680" y2="88" stroke="#ddd" stroke-width="0.8"/>
+
+  <!-- ═══ Unified Premium-Yield vault box (far RIGHT, spans all 5 rows) ═══ -->
+  <rect x="570" y="100" width="110" height="378" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="625" y="280" text-anchor="middle" class="t-sub">Premium-</text>
+  <text x="625" y="294" text-anchor="middle" class="t-sub">yield</text>
+  <text x="625" y="308" text-anchor="middle" class="t-sub">vault</text>
+  <text x="625" y="332" text-anchor="middle" class="t-wh">Source-agnostic</text>
+
+  <!-- ═══ ROUTE 1: DIRECT PREMIUM ═══ -->
+  <text x="40" y="118" class="t-wh">1</text>
+  <text x="54" y="118" class="t-sub">Direct premium</text>
+  <text x="40" y="140" class="t-body">Cedent pays premium from treasury each period.</text>
+
+  <text x="40" y="162" class="t-bodylg">Insurer &#183; Corporate &#183; Sovereign</text>
+  <line x1="241" y1="158" x2="564" y2="158" stroke="#111" stroke-width="1"/>
+  <polygon points="564,155 570,158 564,161" fill="#111"/>
+
+  <line x1="40" y1="179" x2="570" y2="179" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 2: STREAMING PREMIUM ═══ -->
+  <text x="40" y="197" class="t-wh">2</text>
+  <text x="54" y="197" class="t-sub">Streaming premium</text>
+  <text x="40" y="219" class="t-body">Cedent sets up an onchain stream &#8212; premium accrues continuously rather than in lump sums.</text>
+
+  <text x="40" y="241" class="t-bodylg">Sablier &#183; Superfluid</text>
+  <line x1="169" y1="237" x2="564" y2="237" stroke="#111" stroke-width="1"/>
+  <polygon points="564,234 570,237 564,240" fill="#111"/>
+
+  <line x1="40" y1="258" x2="570" y2="258" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 3: TRADITIONAL PREMIUM FINANCING ═══ -->
+  <text x="40" y="276" class="t-wh">3</text>
+  <text x="54" y="276" class="t-sub">Traditional premium financing</text>
+  <text x="40" y="298" class="t-body">Financier pays premium; repayment governed off-chain by a Premium Finance Agreement.</text>
+
+  <text x="40" y="320" class="t-bodylg">AFCO-style PFA</text>
+  <line x1="147" y1="316" x2="564" y2="316" stroke="#111" stroke-width="1"/>
+  <polygon points="564,313 570,316 564,319" fill="#111"/>
+
+  <line x1="40" y1="337" x2="570" y2="337" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 4: PROTECTION-COLLATERALIZED FINANCING ═══ -->
+  <text x="40" y="355" class="t-wh">4</text>
+  <text x="54" y="355" class="t-sub">Protection-collateralized financing</text>
+  <text x="40" y="377" class="t-body">Financier pays premium and holds the cedent's protection token as onchain collateral.</text>
+
+  <text x="40" y="399" class="t-bodylg">Onchain-native</text>
+  <line x1="142" y1="395" x2="564" y2="395" stroke="#111" stroke-width="1"/>
+  <polygon points="564,392 570,395 564,398" fill="#111"/>
+
+  <line x1="40" y1="416" x2="570" y2="416" stroke="#eee" stroke-width="0.8"/>
+
+  <!-- ═══ ROUTE 5: SPONSORED PREMIUM ═══ -->
+  <text x="40" y="434" class="t-wh">5</text>
+  <text x="54" y="434" class="t-sub">Sponsored premium</text>
+  <text x="40" y="456" class="t-body">Donors or parents fund coverage for a beneficiary, collapsing the intermediary stack.</text>
+
+  <text x="40" y="478" class="t-bodylg">USAID &#183; World Bank &#183; ARC &#183; CCRIF &#183; WFP R4</text>
+  <line x1="325" y1="474" x2="564" y2="474" stroke="#111" stroke-width="1"/>
+  <polygon points="564,471 570,474 564,477" fill="#111"/>
+
+  <!-- ═══ BOTTOM CAPTION ═══ -->
+  <line x1="40" y1="488" x2="680" y2="488" stroke="#ddd" stroke-width="0.8"/>
+  <text x="40" y="498" class="t-it">Illustrative routes. The vault is payer-agnostic; additional paths can be added without changing the protocol.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 10</span>Entry routes into the Premium-Yield vault</figcaption>
+</figure>
+
+<p>The first two routes — direct premium payment and streaming premium — map familiar mechanisms onto onchain rails. A cedent paying premium from treasury each period works the same as any commercial insurance policy. Streaming changes the timing: premium accrues continuously rather than in discrete installments, matching how the coverage itself accrues over the term.</p>
+
+<p>Beyond these default mechanisms, three further routes unlock configurations that are operationally awkward in traditional ILS.</p>
+
+<p><em>Premium financing.</em> Premium finance companies already pay premium on behalf of insureds; the simplest route onchain mirrors that arrangement — the financier pays into the vault and is repaid off-protocol under a standard Premium Finance Agreement. A more native variant takes onchain security directly: the financier holds the cedent's protection token as collateral against repayment, recoverable if the cedent defaults on the financing. Both variants operate today, but only the onchain-collateralized version removes the need for off-chain reconciliation and separate legal enforcement.</p>
+
+<p><em>Premium sponsorship.</em> Donors pay directly into beneficiary vaults. Sovereign parametric insurance in developing economies already runs on donor-subsidized premium: Jamaica's 2021 cat bond, placed through the World Bank, secured $185 million of hurricane coverage with premium paid entirely by USAID, the UK, Germany, and Canada<span class="c" data-ref="31">[31]</span>. The same pattern underpins the African Risk Capacity<span class="c" data-ref="32">[32]</span>, CCRIF SPC<span class="c" data-ref="33">[33]</span>, and WFP's R4 Rural Resilience Initiative<span class="c" data-ref="34">[34]</span>. Today this flows through a stack of intermediaries—issuer, donor facility, placement agents, legal, calculation agent—before premium reaches investors. RIZK collapses the stack: donors pay directly into the vault. The mechanism extends to corporate groups (parent into subsidiary vaults) and sovereign support for state-owned infrastructure.</p>
+
+<h3 id="s3-5"><span class="n">3.5</span>Oracles and Orchestration</h3>
+<p>A parametric trigger is only as strong as the data that drives it. RIZK defines four criteria that any data source must satisfy:</p>
+<div class="di"><span class="dt">Machine-Readable</span><span class="dd">Structured digital data that smart contracts can evaluate programmatically.</span></div>
+<div class="di"><span class="dt">Publicly Verifiable</span><span class="dd">Raw data accessible to both counterparties, and ideally any third party.</span></div>
+<div class="di"><span class="dt">Objectively Sourced</span><span class="dd">The data provider has no economic stake in the trigger outcome.</span></div>
+<div class="di"><span class="dt">Timely</span><span class="dd">Data available at the frequency the vault's evaluation requires.</span></div>
+
+<p>RIZK is oracle-agnostic by design. The path from raw data to trigger evaluation proceeds through cryptographic attestation, onchain posting, and smart-contract evaluation against the trigger condition set at vault inception.</p>
+<p><strong>Safeguards</strong> layer above the primary feed: cross-source validation, a dispute period before payout execution, human escalation to a pre-agreed arbitration panel, and a manual fallback for feed outages. The safeguards stack is proportional to vault size. The protocol is designed so that material collateral never sits on the validity of a single data point.</p>
+
+<p><strong>Graduated and tranched payouts.</strong> A parametric trigger does not have to be binary. Many coverages use attachment and exhaustion points that produce a graduated payout: no payout below an attachment threshold (e.g., sustained wind speed above 150 km/h, or fewer than 35 vessels passing through the Strait of Hormuz in a 7-day window), partial payout between attachment and exhaustion, full payout above exhaustion. Tranched structures operate similarly, with discrete payout steps at multiple thresholds. The vault&#8217;s trigger evaluation reads the raw measurement from the oracle and applies the coverage&#8217;s payout curve to compute what is owed. The oracle&#8217;s job is not to answer &#8220;did the event happen&#8221; but to supply the measurement; the vault computes the payout.</p>
+
+<p><strong>Orchestration.</strong> Beyond the oracle&#8217;s role in trigger evaluation, a RIZK vault requires ongoing execution of time-based and state-based actions throughout the coverage term. Orchestration is the layer that handles these.</p>
+
+<p><strong>Premium monitoring.</strong> The premium-yield vault tracks whether premium is being paid on the agreed schedule (Section 3.4). When payment is missed, the vault signals the protection-collateral vault to impair coverage. The monitoring mechanism can be implemented as scheduled calls to the vault&#8217;s check function &#8212; via keeper networks, automation layers, or direct vault logic. The choice of implementation is a configuration decision per vault.</p>
+
+<p><strong>Strategy harvests and rebalances.</strong> The collateral strategy contract (Section 3.3) must be periodically invoked to harvest yield, compound rewards, or rebalance between yield sources. Like premium monitoring, these are time-triggered calls rather than event-triggered ones.</p>
+
+<p><strong>Term-end settlement.</strong> At the end of the coverage term, if no trigger has fired, the vault returns collateral to the capital provider and winds down its state. If premium was streamed, the final accrual is settled.</p>
+
+<p><strong>Payout execution.</strong> When the trigger fires mid-term, orchestration moves from time-based to event-based: the oracle post triggers vault evaluation, the strategy contract unwinds its external position, and the collateral is paid out to the protection token holder.</p>
+
+<p>In the current design these tasks are separated from the vault&#8217;s core contract &#8212; the vault holds state and enforces rules, while external processes trigger the transitions. This separation keeps the core vault contract minimal and auditable, and lets implementation choices (keeper networks, automation layers, custom executors) evolve independently of the vault itself.</p>
+
+<h3 id="s3-6"><span class="n">3.6</span>Institutional Controls</h3>
+<p>Institutional participants cannot transact with pseudonymous wallets, hold positions without enforceable eligibility rules, or operate without a retrievable audit trail. Traditional ILS meets these requirements through legal agreements, broker-led KYC, and off-chain recordkeeping that fires after a transaction has been initiated. RIZK meets them at the protocol layer &#8212; rules run before a transaction executes, and compliance state is recorded alongside every transfer.</p>
+
+<p><strong>Identity and authorization.</strong> Each wallet interacting with a RIZK vault is bound to a verified legal entity through an onboarding process covering KYC, AML, sanctions screening, and &#8212; where relevant &#8212; investor accreditation. The binding is maintained in a protocol-level identity registry that links the wallet to the entity&#8217;s jurisdiction, accreditation status, and authorized representatives. Personally identifying information is held off-chain by the compliance provider; the registry holds only a hash and the enforceable attributes. When authorization changes &#8212; a signatory leaves the firm, a new representative is added, accreditation lapses &#8212; the registry is updated and the changes take effect immediately at the protocol level.</p>
+
+<p><strong>Eligibility enforcement.</strong> Every vault sets eligibility rules at inception: which jurisdictions may hold positions, what accreditation thresholds apply, which sanctions lists are checked. These rules are enforced at the protocol layer through two complementary mechanisms. For closed counterparty structures &#8212; bilateral collateralized reinsurance, private placements with known investors &#8212; a vault-level whitelist restricts interaction to a pre-approved set of addresses. For positions intended to circulate as regulated securities, the position tokens themselves are wrapped using ERC-3643<span class="c" data-ref="35">[35]</span> or an equivalent compliance-aware token standard, which embeds eligibility checks in the token and enforces them on every transfer regardless of venue<span class="c" data-ref="36">[36]</span>. In both cases, a transfer to an ineligible address reverts atomically before execution.</p>
+
+<p><strong>Transfer controls and real-time screening.</strong> Beyond static eligibility rules, ongoing obligations &#8212; sanctions screening, AML transaction monitoring &#8212; are enforced on every transfer. Protocol-level hooks can route each transfer through compliance-provider screening before the transaction completes, returning an allow/deny decision in real time. Updates to sanctions lists or watchlists propagate immediately rather than waiting for a periodic refresh. This is stronger than the TradFi equivalent, where screening typically happens at the custodian level after the trade and remediation happens through manual unwinding.</p>
+
+<figure class="fig" aria-label="Figure 11: Compliance gate">
+<svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img">
+  <line x1="40" y1="28" x2="80" y2="28" stroke="#111" stroke-width="1"/>
+  <text x="40" y="46" class="t-tag">Anatomy of a transfer</text>
+
+  <!-- ═══ TOP BAND: Rule sources above each gate ═══ -->
+  <text x="40" y="78" class="t-wh">Rule source</text>
+  <line x1="40" y1="88" x2="680" y2="88" stroke="#ddd" stroke-width="0.8"/>
+
+  <text x="238" y="106" text-anchor="middle" class="t-wh">Identity registry</text>
+  <text x="378" y="106" text-anchor="middle" class="t-wh">Vault config</text>
+  <text x="518" y="106" text-anchor="middle" class="t-wh">Compliance provider</text>
+
+  <!-- Dashed connectors from rule sources down into gates -->
+  <line x1="238" y1="112" x2="238" y2="137" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="378" y1="112" x2="378" y2="137" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="518" y1="112" x2="518" y2="137" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+  <!-- ═══ MIDDLE BAND: transfer pipeline ═══ -->
+
+  <!-- Transfer initiated (left) -->
+  <rect x="40" y="140" width="100" height="50" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="90" y="160" text-anchor="middle" class="t-bodylg">Transfer</text>
+  <text x="90" y="174" text-anchor="middle" class="t-bodylg">initiated</text>
+
+  <!-- arrow: initiated → gate 1 -->
+  <line x1="140" y1="165" x2="193" y2="165" stroke="#111" stroke-width="1"/>
+  <polygon points="193,162 199,165 193,168" fill="#111"/>
+
+  <!-- Gate 1: Identity -->
+  <rect x="200" y="140" width="76" height="50" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="238" y="170" text-anchor="middle" class="t-sub">Identity</text>
+
+  <!-- arrow: gate 1 → gate 2 -->
+  <line x1="276" y1="165" x2="333" y2="165" stroke="#111" stroke-width="1"/>
+  <polygon points="333,162 339,165 333,168" fill="#111"/>
+
+  <!-- Gate 2: Eligibility -->
+  <rect x="340" y="140" width="76" height="50" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="378" y="170" text-anchor="middle" class="t-sub">Eligibility</text>
+
+  <!-- arrow: gate 2 → gate 3 -->
+  <line x1="416" y1="165" x2="473" y2="165" stroke="#111" stroke-width="1"/>
+  <polygon points="473,162 479,165 473,168" fill="#111"/>
+
+  <!-- Gate 3: Screening -->
+  <rect x="480" y="140" width="76" height="50" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="518" y="170" text-anchor="middle" class="t-sub">Screening</text>
+
+  <!-- arrow: gate 3 → execute -->
+  <line x1="556" y1="165" x2="573" y2="165" stroke="#111" stroke-width="1"/>
+  <polygon points="573,162 579,165 573,168" fill="#111"/>
+
+  <!-- Execute + record (right) -->
+  <rect x="580" y="140" width="100" height="50" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="630" y="160" text-anchor="middle" class="t-bodylg">Execute</text>
+  <text x="630" y="174" text-anchor="middle" class="t-wh">Record written</text>
+
+  <!-- ═══ BOTTOM STRIP: failure mode ═══ -->
+  <line x1="40" y1="210" x2="680" y2="210" stroke="#ddd" stroke-width="0.8"/>
+  <text x="40" y="228" class="t-it">Any check failure reverts the transfer atomically &#8212; the attempt is preserved in the audit record.</text>
+</svg>
+<figcaption class="fig-cap"><span class="fn">Fig. 11</span>Compliance gate &#8212; anatomy of a transfer</figcaption>
+</figure>
+
+<p><strong>Audit trail and regulatory reporting.</strong> Every transaction is recorded onchain together with its compliance context: the identity hash of the participating entities, the eligibility decision, the screening result, the vault state at the time of transfer. The record is immutable and queryable. A regulator or internal auditor requesting &#8220;all transfers involving jurisdiction X within Q3&#8221; receives the answer from a single onchain query, rather than a multi-week reconciliation across custodians, brokers, and counterparties. This is a structural improvement over traditional ILS recordkeeping, not a parity claim.</p>
+
+<p><strong>Privacy with selective disclosure.</strong> Institutional counterparties require confidentiality of their positions and balances, but regulators and auditors require visibility. RIZK&#8217;s privacy strategy works along two dimensions. At the protocol level, the architecture can integrate privacy primitives emerging in onchain infrastructure &#8212; privacy-focused execution environments, zero-knowledge proof systems for balance confidentiality, and selective-disclosure mechanisms such as accreditation proofs and viewing keys that grant designated parties read access to otherwise encrypted state. At the deployment level, vaults can run on public chains where privacy primitives operate over a transparent substrate, or on permissioned chains where visibility is restricted by default. These choices involve real trade-offs: privacy-focused L2s have less mature institutional tooling than public L1s; permissioned chains sacrifice composability with public DeFi; selective-disclosure primitives depend on key-management discipline. The appropriate mix depends on the counterparties&#8217; confidentiality requirements and the applicable regulatory framework.</p>
+
+<p>Traditional compliance sits outside the transaction: KYC at onboarding, eligibility confirmed through legal agreements, post-trade reconciliation. In RIZK, compliance is embedded in the transaction itself. This is the architectural change that makes institutional participation viable &#8212; not because onchain infrastructure is more permissive, but because it is more enforceable.</p>
+
+<a class="btt" data-to="toc"><span class="btt-arrow">&uarr;</span></a>
+
+
+<!-- ═══ 4 ═══ -->
+<h2 id="s4"><span class="n">Section Four</span>Legal and Regulatory Perimeters</h2>
+<p>RIZK executes risk transfer onchain, but the instrument must still have legal standing off-chain. The vault handles collateral, trigger logic, settlement, and tokenized ownership. The legal wrapper gives the arrangement enforceability, regulatory recognition, and tax and accounting clarity. RIZK therefore operates through a dual structure: an onchain execution layer and an off-chain legal vehicle.</p>
+
+<p>A RIZK transaction exists in two forms at once. Onchain, it exists as a vault that holds collateral and executes the economic terms. Off-chain, it exists as a legal arrangement entered into by a recognized vehicle. These are two expressions of the same instrument. The legal documentation defines the rights and obligations; the smart contract executes them. Every material term &#8212; trigger conditions, payout logic, collateral requirements, eligibility rules, and tenor &#8212; must be reflected in both.</p>
+
+<p>The legal wrapper depends on the product, the jurisdiction, and the needs of the risk holder.</p>
+
+<p>In Bermuda, RIZK can use structures such as the Special Purpose Insurer (SPI) and, for parametric products, the proposed Parametric Special Purpose Insurer (PSPI). The BMA opened public consultation on the PSPI in early 2026, with a target to add it to the insurance regulations before the end of Q2 2026<span class="c" data-ref="37">[37]</span>. These vehicles are well suited to reinsurance and insurance-linked structures and align naturally with trigger-based products. Bermuda also offers Segregated Account Companies (SACs), which allow new products to launch through ring-fenced cells within an existing licensed platform rather than through a standalone vehicle from day one.</p>
+
+<p>In Singapore, RIZK can use a Special Purpose Reinsurance Vehicle (SPRV) for issuance within the MAS framework. Singapore is also relevant as an operating and client-facing base, particularly for Asia-linked risks. Its ILS Grant Scheme, extended through the end of 2028, covers up to 70% of upfront issuance costs for Asia-Pacific cat bonds, capped at SGD 1 million, and up to 50% for non-APAC cat bonds<span class="c" data-ref="38">[38]</span>. The framework is actively producing listings: a $225 million World Bank cat bond providing earthquake and cyclone cover for the Philippines was the first cat bond listed on SGX<span class="c" data-ref="39">[39]</span>.</p>
+
+<p>Other jurisdictions offer analogous cell-based structures, often called Protected Cell Companies (PCCs). The terminology varies, but the function is similar: ring-fenced legal compartments that can house individual issuances or risk pools without requiring a separate licensed entity each time.</p>
+
+<p><strong>The flexibility gap.</strong> Onchain, the vault architecture allows tokens to transfer, fractionalize, and compose without friction. Off-chain, the legal wrapper typically assumes a static structure &#8212; a named counterparty, fixed terms, enforceable between two identified parties. The asymmetry is a live design question: when a collateral position token transfers from one investor to another mid-term, the smart contract cleanly registers the new holder, but the off-chain legal instrument may still name the original. Bridging this requires structural choices &#8212; in the legal wrapper, in the documentation model, and potentially in the regulatory framework the transaction sits within.</p>
+
+<p>The answer depends on how much of the onchain flexibility needs to be mirrored off-chain, and how quickly. Cell-based legal structures treat the cell, rather than the individual holder, as the unit of legal agreement &#8212; most of the onchain flexibility then operates within the cell&#8217;s investor pool. Dynamic novation models link the legal counterparty to whoever holds the token, which requires either regulatory frameworks that recognize such structures or purpose-built clauses that courts will accept. Each structural approach has different trade-offs around enforceability, operational overhead, and regulatory maturity. Document-automation tools &#8212; including AI-assisted drafting &#8212; can reduce the paperwork cost of whichever structure is chosen, but do not resolve the underlying question of what structure is legally sound.</p>
+
+<p>This is an area of active work. The appropriate model depends on the product, the jurisdiction, the sophistication of the counterparty, and the regulatory framework available at the time of issuance. RIZK is designing its legal architecture to accommodate multiple answers rather than commit prematurely to one.</p>
+
+<p>The appropriate jurisdiction for a given RIZK transaction depends on where the risk holder is located, where the risk is written, where the sponsor or cedent wants the vehicle to sit, and which regulatory regime best fits the instrument. In practice, Bermuda is a natural domicile for reinsurance and ILS vehicles, while Singapore is a strong base for issuance, operations, and Asia-facing transactions. As the protocol expands, other jurisdictions may become relevant &#8212; particularly where they offer suitable frameworks for digital securities, stablecoin collateral, or risk-transfer vehicles. RIZK&#8217;s structure is designed to accommodate this rather than commit to a single path.</p>
+
+<a class="btt" data-to="toc"><span class="btt-arrow">&uarr;</span></a>
+
+<!-- ═══ 5 ═══ -->
+<h2 id="s5"><span class="n">Section Five</span>Conclusion</h2>
+<p>Catastrophe bonds, collateralized reinsurance, and sidecars have already established the foundations of a capital-markets approach to risk transfer. But in legacy form, those instruments remain operationally heavy, structurally fragmented, and limited in what they can become once issued.</p>
+<p>Onchain infrastructure changes that. Once represented onchain, risk-transfer positions become programmable financial objects: fractionalizable, transferable, composable, and collateralizable.</p>
+<p>RIZK is built around that transformation. It brings existing risk-transfer instruments into a programmable environment where they can do more than they could before: move more easily, reach a broader capital base, and support structures that are difficult or uneconomic to achieve on legacy rails.</p>
+<p>The opportunity is not simply to make existing markets faster. It is to expand the design space of risk transfer itself, so that more risks can be financed, more capital can participate, and protection can be structured with greater flexibility than the current market allows.</p>
+
+<a class="btt" data-to="toc"><span class="btt-arrow">&uarr;</span></a>
+
+<div class="closing">
+  <p><em>Risk</em> means danger. <strong>RIZK</strong> means sustenance, provision, blessing.<br>We are turning global danger into the world's sustenance.</p>
+</div>
+
+<div class="refs">
+<h2>References</h2>
+<ol class="rl">
+  <li id="r1"><span class="rn">[1]</span> World Economic Forum, "The Global Risks Report 2025," 20th Ed., Jan 2025. <a href="https://www.weforum.org/publications/global-risks-report-2025/">weforum.org</a></li>
+  <li id="r2"><span class="rn">[2]</span> Eurasia Group, "Top Risks 2026," Jan 2026. <a href="https://www.eurasiagroup.net/issues/top-risks-2026">eurasiagroup.net</a></li>
+  <li id="r3"><span class="rn">[3]</span> Polycrisis.org, "Global Risk Decision-Maker Survey 2025/2026," 2025.</li>
+  <li id="r4"><span class="rn">[4]</span> Swiss Re Institute, "sigma: Natural catastrophes in 2024," No. 1/2025. <a href="https://www.swissre.com/institute/research/sigma-research.html">swissre.com</a></li>
+  <li id="r5"><span class="rn">[5]</span> Swiss Re, "Global insured losses reach USD 109bn in 2025," Mar 2026. <a href="https://www.swissre.com/press-release/">swissre.com</a></li>
+  <li id="r6"><span class="rn">[6]</span> Allianz Commercial, "Allianz Risk Barometer 2025," Jan 2025. <a href="https://commercial.allianz.com/news-and-insights/reports/allianz-risk-barometer.html">allianz.com</a></li>
+  <li id="r7"><span class="rn">[7]</span> Munich Re, "Cyber insurance: Risks and Trends 2025." <a href="https://www.munichre.com/en/solutions/for-industry-clients/cyber-solutions.html">munichre.com</a></li>
+  <li id="r8"><span class="rn">[8]</span> Arctic Wolf, "The State of Cybersecurity: 2025 Trends Report," Aug 2025.</li>
+  <li id="r9"><span class="rn">[9]</span> WEF, "Global Cybersecurity Outlook 2026," Jan 2026. <a href="https://www.weforum.org/publications/global-cybersecurity-outlook-2026/">weforum.org</a></li>
+  <li id="r10"><span class="rn">[10]</span> Lee Harris, "Reinsurers extend profit boom as they cut cover," FT, Dec 2025. <a href="https://www.ft.com/content/462393bf-26e4-4969-9747-28164e94eb79">ft.com</a></li>
+  <li id="r11"><span class="rn">[11]</span> Artemis.bm, "Q4 2025 Cat Bond &amp; ILS Market Report," Jan 2026. <a href="https://www.artemis.bm/dashboard/catastrophe-bonds-ils-outstanding/">artemis.bm</a></li>
+  <li id="r12"><span class="rn">[12]</span> Aon, "Reinsurance Market Dynamics: Alternative Capital," 2026.</li>
+  <li id="r13"><span class="rn">[13]</span> Artemis.bm, "UCITS cat bond funds added $5.3bn+, reaching $19.12bn AUM," Jan 2026. <a href="https://www.artemis.bm/news/ucits-catastrophe-bond-funds-added-5-3bn-in-2025-reaching-19-12bn-aum/">artemis.bm</a></li>
+  <li id="r14"><span class="rn">[14]</span> Aon, "Insurance needs $1tn from private equity to close gaps, says Aon chief," <em>Financial Times</em>, Jun 2025. <a href="https://www.ft.com/content/119081fa-2b71-4169-b88c-43cbb2aace52">ft.com</a>; and "AI opportunities for insurance industry are real and meaningful, says Aon CEO Case," <em>Reinsurance News</em>, Jan 2025. <a href="https://www.reinsurancene.ws/ai-opportunities-for-insurance-industry-are-real-and-meaningful-says-aon-ceo-case/">reinsurancene.ws</a></li>
+  <li id="r15"><span class="rn">[15]</span> Braun &amp; Kousky, "Catastrophe Bonds: A Primer," Wharton Risk Center, Jul 2021. <a href="https://impact.wharton.upenn.edu/wp-content/uploads/2023/08/Cat-Bond-Primer-July-2021.pdf">wharton.upenn.edu</a></li>
+  <li id="r16"><span class="rn">[16]</span> Bloomberg, "Stablecoins Settle $33 Trillion in 2025," 2026.</li>
+  <li id="r17"><span class="rn">[17]</span> Visa, "Stablecoin Settlement Pilot Update," Jan 2026.</li>
+  <li id="r18"><span class="rn">[18]</span> White House, "GENIUS Act," Jul 2025. <a href="https://www.whitehouse.gov/">whitehouse.gov</a></li>
+  <li id="r19"><span class="rn">[19]</span> EY, "Global approaches to stablecoin regulation," Jul 2025. <a href="https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/industries/banking-capital-markets/documents/ey-gl-global-stablecoin-regulation-comparison-09-2025.pdf">ey.com</a></li>
+  <li id="r20"><span class="rn">[20]</span> Stripe &amp; Paradigm, "Introducing Tempo," Sep 2025. <a href="https://fortune.com/crypto/2025/09/04/stripe-paradigm-tempo-blockchain-stablecoins-matt-huang-payments/">fortune.com</a></li>
+  <li id="r21"><span class="rn">[21]</span> JPMorgan Chase, "2025 Annual Report: CEO Letter," Apr 2026. <a href="https://www.jpmorganchase.com/ir/annual-report/2025/ar-ceo-letters">jpmorganchase.com</a></li>
+  <li id="r22"><span class="rn">[22]</span> InvestAX / CoinDesk, "RWA Tokenization Crosses $30 Billion," 2025.</li>
+  <li id="r23"><span class="rn">[23]</span> Blockridge / RWA.xyz, "Institutions Leading Tokenization in 2025." <a href="https://blockridge.com/blog/top-institutions-embracing-tokenizationin-2025/">blockridge.com</a></li>
+  <li id="r24"><span class="rn">[24]</span> Standard Chartered &amp; Synpulse, "Tokenised Assets," Jun 2024.</li>
+  <li id="r25"><span class="rn">[25]</span> HTX Insights, "2025 Prediction Market Annual Report," Jan 2026.</li>
+  <li id="r26"><span class="rn">[26]</span> Santoro et al., "ERC-4626: Tokenized Vault Standard," 2022. <a href="https://eips.ethereum.org/EIPS/eip-4626">eips.ethereum.org</a></li>
+  <li id="r27"><span class="rn">[27]</span> DefiLlama, "Protocol TVL Rankings," Apr 2026. <a href="https://defillama.com/">defillama.com</a></li>
+  <li id="r28"><span class="rn">[28]</span> The Block, "Kraken launches DeFi Earn," 2025.</li>
+  <li id="r29"><span class="rn">[29]</span> Apollo / Morpho, strategic partnership, 2025.</li>
+  <li id="r30"><span class="rn">[30]</span> Uniswap Labs, "BUIDL on UniswapX," Feb 2026.</li>
+  <li id="r31"><span class="rn">[31]</span> World Bank, "Jamaica $185M Storm Protection," Jul 2021. <a href="https://www.worldbank.org/en/news/press-release/2021/07/19/world-bank-catastrophe-bond-provides-jamaica-185-million-in-storm-protection">worldbank.org</a></li>
+  <li id="r32"><span class="rn">[32]</span> African Risk Capacity, "How ARC Works," 2024. <a href="https://www.arc.int/how-arc-works">arc.int</a></li>
+  <li id="r33"><span class="rn">[33]</span> CCRIF SPC, "Regional Risk Pools," 2024. <a href="https://www.ccrif.org/">ccrif.org</a></li>
+  <li id="r34"><span class="rn">[34]</span> WFP, "R4 Rural Resilience Initiative." <a href="https://innovation.wfp.org/project/r4-rural-resilience-initiative">wfp.org</a></li>
+  <li id="r35"><span class="rn">[35]</span> Tokeny, "ERC-3643: T-REX Protocol." <a href="https://eips.ethereum.org/EIPS/eip-3643">eips.ethereum.org</a></li>
+  <li id="r36"><span class="rn">[36]</span> ERC3643.org, "ISO Standardization," 2025. <a href="https://erc3643.org/">erc3643.org</a></li>
+  <li id="r37"><span class="rn">[37]</span> BMA, "PSPI Consultation Paper," Jan 2026. <a href="https://www.bma.bm/">bma.bm</a></li>
+  <li id="r38"><span class="rn">[38]</span> MAS, "ILS Grant Scheme," extended through 2028. <a href="https://www.mas.gov.sg/schemes-and-initiatives/insurance-linked-securities-grant-scheme">mas.gov.sg</a></li>
+  <li id="r39"><span class="rn">[39]</span> World Bank, "First Cat Bond on SGX: Philippines," Nov 2019. <a href="https://www.worldbank.org/">worldbank.org</a></li>
+  <li id="r40"><span class="rn">[40]</span> Offerijns, Sinelnikova, Arun, Santoro, Ali, Martins, "ERC-7540: Asynchronous ERC-4626 Tokenized Vaults," Ethereum Improvement Proposals, Oct 2023 (finalized Jun 2024). <a href="https://eips.ethereum.org/EIPS/eip-7540">eips.ethereum.org</a></li>
+  <li id="r41"><span class="rn">[41]</span> Offerijns, Sinelnikova, Arun, Santoro, Ali, "ERC-7575: Multi-Asset ERC-4626 Vaults," Ethereum Improvement Proposals, Dec 2023. <a href="https://eips.ethereum.org/EIPS/eip-7575">eips.ethereum.org</a></li>
+</ol>
+</div>
+
+</main>
+
+<script>
+const R={1:{t:'World Economic Forum, "The Global Risks Report 2025," 20th Edition, January 2025.',u:'https://www.weforum.org/publications/global-risks-report-2025/'},2:{t:'Eurasia Group, "Top Risks 2026," January 2026.',u:'https://www.eurasiagroup.net/issues/top-risks-2026'},3:{t:'Polycrisis.org, "Global Risk Decision-Maker Survey 2025/2026," 2025.'},4:{t:'Swiss Re Institute, "sigma research: Natural catastrophes in 2024," sigma No. 1/2025, March 2025.',u:'https://www.swissre.com/institute/research/sigma-research.html'},5:{t:'Swiss Re, "Global insured losses from natural catastrophes reach USD 109 billion in 2025," March 2026.',u:'https://www.swissre.com/press-release/'},6:{t:'Allianz Commercial, "Allianz Risk Barometer 2025," January 2025.',u:'https://commercial.allianz.com/news-and-insights/reports/allianz-risk-barometer.html'},7:{t:'Munich Re, "Cyber insurance: Risks and Trends 2025," 2025.',u:'https://www.munichre.com/en/solutions/for-industry-clients/cyber-solutions.html'},8:{t:'Arctic Wolf, "The State of Cybersecurity: 2025 Trends Report," August 2025.'},9:{t:'World Economic Forum, "Global Cybersecurity Outlook 2026," January 2026.',u:'https://www.weforum.org/publications/global-cybersecurity-outlook-2026/'},10:{t:'Lee Harris, "Reinsurers extend profit boom as they cut cover to cope with disasters," Financial Times, December 2025.',u:'https://www.ft.com/content/462393bf-26e4-4969-9747-28164e94eb79'},11:{t:'Artemis.bm, "Q4 2025 Catastrophe Bond & ILS Market Report," January 2026.',u:'https://www.artemis.bm/dashboard/catastrophe-bonds-ils-outstanding/'},12:{t:'Aon, "Reinsurance Market Dynamics Report: Alternative Capital," 2026.'},13:{t:'Artemis.bm, "UCITS catastrophe bond funds added $5.3bn+ in 2025, reaching $19.12bn AUM," January 2026.',u:'https://www.artemis.bm/news/ucits-catastrophe-bond-funds-added-5-3bn-in-2025-reaching-19-12bn-aum/'},14:{t:'Aon, "Insurance needs $1tn from private equity to close gaps, says Aon chief," Financial Times, June 2025; and "AI opportunities for insurance industry are real and meaningful, says Aon CEO Case," Reinsurance News, January 2025.',u:['https://www.ft.com/content/119081fa-2b71-4169-b88c-43cbb2aace52','https://www.reinsurancene.ws/ai-opportunities-for-insurance-industry-are-real-and-meaningful-says-aon-ceo-case/']},15:{t:'Alexander Braun & Carolyn Kousky, "Catastrophe Bonds: A Primer," Wharton Risk Center, July 2021.',u:'https://impact.wharton.upenn.edu/wp-content/uploads/2023/08/Cat-Bond-Primer-July-2021.pdf'},16:{t:'Artemis Analytics / Bloomberg, "Stablecoins Settle $33 Trillion in 2025," 2026.'},17:{t:'Visa, "Stablecoin Settlement Pilot Update," January 2026; Morph/Artemis, "The State of Stablecoins 2025."'},18:{t:'White House, "President Trump Signs the GENIUS Act," July 18, 2025.',u:'https://www.whitehouse.gov/'},19:{t:'Ernst & Young, "Global approaches to stablecoin regulation," July 2025.',u:'https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/industries/banking-capital-markets/documents/ey-gl-global-stablecoin-regulation-comparison-09-2025.pdf'},20:{t:'Stripe & Paradigm, "Introducing Tempo: A Payments-First Blockchain," September 2025.',u:'https://fortune.com/crypto/2025/09/04/stripe-paradigm-tempo-blockchain-stablecoins-matt-huang-payments/'},21:{t:'JPMorgan Chase, "2025 Annual Report: Chairman and CEO Letter to Shareholders," April 2026.',u:'https://www.jpmorganchase.com/ir/annual-report/2025/ar-ceo-letters'},22:{t:'InvestAX / CoinDesk, "RWA Tokenization Crosses $30 Billion," 2025.'},23:{t:'Blockridge / RWA.xyz, "Which Institutions are Leading Tokenization in 2025?"',u:'https://blockridge.com/blog/top-institutions-embracing-tokenizationin-2025/'},24:{t:'Standard Chartered & Synpulse, "Tokenised Assets: The Emergence of a New Asset Class," June 2024.'},25:{t:'HTX Insights / PredictionIndex, "2025 Prediction Market Annual Report," January 2026.'},26:{t:'Joey Santoro et al., "ERC-4626: Tokenized Vault Standard," Ethereum Improvement Proposals, 2022.',u:'https://eips.ethereum.org/EIPS/eip-4626'},27:{t:'DefiLlama, "Protocol TVL Rankings," accessed April 2026.',u:'https://defillama.com/'},28:{t:'The Block, "Kraken launches DeFi Earn for institutional and retail deposits," 2025.'},29:{t:'Apollo Global Management / Morpho, strategic partnership announcement, 2025.'},30:{t:"Uniswap Labs, \"BUIDL now tradable via UniswapX,\" February 2026; Fortune, \"BlackRock's BUIDL fund hits decentralized exchanges.\""},31:{t:'World Bank, "Catastrophe Bond Provides Jamaica $185 Million in Storm Protection," July 19, 2021.',u:'https://www.worldbank.org/en/news/press-release/2021/07/19/world-bank-catastrophe-bond-provides-jamaica-185-million-in-storm-protection'},32:{t:'African Risk Capacity Group, "How ARC Works," 2024.',u:'https://www.arc.int/how-arc-works'},33:{t:'CCRIF SPC, "About CCRIF: Regional Risk Pools," 2024.',u:'https://www.ccrif.org/'},34:{t:'World Food Programme, "The R4 Rural Resilience Initiative."',u:'https://innovation.wfp.org/project/r4-rural-resilience-initiative'},35:{t:'Tokeny Solutions, "ERC-3643: T-REX Protocol for Regulated Token Transfers."',u:'https://eips.ethereum.org/EIPS/eip-3643'},36:{t:'ERC3643.org, "ISO Standardization: New Work Item Proposal," 2025.',u:'https://erc3643.org/'},37:{t:'Bermuda Monetary Authority, "PSPI Consultation Paper," January 2026.',u:'https://www.bma.bm/'},38:{t:'Monetary Authority of Singapore, "ILS Grant Scheme," extended through December 2028.',u:'https://www.mas.gov.sg/schemes-and-initiatives/insurance-linked-securities-grant-scheme'},39:{t:'World Bank, "First Catastrophe Bond Listing on SGX: $225M for the Philippines," November 2019.',u:'https://www.worldbank.org/'},40:{t:'Offerijns, Sinelnikova, Arun, Santoro, Ali, Martins, "ERC-7540: Asynchronous ERC-4626 Tokenized Vaults," Ethereum Improvement Proposals, October 2023 (finalized June 2024).',u:'https://eips.ethereum.org/EIPS/eip-7540'},41:{t:'Offerijns, Sinelnikova, Arun, Santoro, Ali, "ERC-7575: Multi-Asset ERC-4626 Vaults," Ethereum Improvement Proposals, December 2023.',u:'https://eips.ethereum.org/EIPS/eip-7575'}};
+const p=document.getElementById('rp'),pn=document.getElementById('rn'),pt=document.getElementById('rt'),pl=document.getElementById('rl'),px=document.getElementById('rx');let ac=null;
+function show(el){const ks=el.dataset.ref.split(',').map(s=>s.trim()),f=R[ks[0]];if(!f)return;pn.textContent=ks.map(k=>'['+k+']').join(' ');pt.textContent=ks.map(k=>(R[k]||{}).t||'').join('\n\n');pl.innerHTML='';if(f.u){const urls=Array.isArray(f.u)?f.u:[f.u];urls.forEach(u=>{const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=new URL(u).hostname.replace('www.','');pl.appendChild(a)});pl.style.display='flex'}else pl.style.display='none';const r=el.getBoundingClientRect(),pw=400;let l=r.left+r.width/2-pw/2;if(l<12)l=12;if(l+pw>innerWidth-12)l=innerWidth-pw-12;let t=r.bottom+10;if(t+200>innerHeight)t=r.top-190;p.style.left=l+'px';p.style.top=t+'px';p.classList.add('v');ac=el}
+function hide(){p.classList.remove('v');ac=null}
+document.addEventListener('click',e=>{const c=e.target.closest('.c');if(c){e.preventDefault();e.stopPropagation();if(ac===c){hide();return}show(c);return}if(e.target.closest('.rp'))return;hide()});
+px.addEventListener('click',e=>{e.stopPropagation();hide()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+window.addEventListener('scroll',()=>{if(ac)show(ac)},{passive:true});
+
+// TOC navigation (hash links don't work in sandboxed iframes)
+document.querySelectorAll('.toc a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=a.getAttribute('href').slice(1);
+    const target=document.getElementById(id);
+    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+// Back-to-top arrows
+document.querySelectorAll('.btt').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.getElementById(a.dataset.to);
+    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script></body>
+</html>

@@ -40,6 +40,16 @@ deploys it as a static site (Deploy → Static, public directory
   - `legal/privacy-policy.html`, `404.html`, `401.html`, `sitemap.xml`, `robots.txt`
   - `css/`, `js/`, `images/`, `videos/`, `fonts/` (all linked root-relative, e.g. `/images/...`)
 
+## Other sites in this repo
+
+- `risk/` — copy of https://risk.lionscraft.io (home, `resources.html`, `litepaper.html`,
+  the three cat bond PDFs, images and fonts).
+- `protect/` — copy of https://protect.lionscraft.io (one self-contained `index.html`).
+
+Both were downloaded from the live sites on 2026-11-05; they are not part of the main
+site in `site/` and nothing deploys them yet. Their newsletter forms post to
+`/api/subscribe`, a server endpoint on the Replit apps that isn't in these static copies.
+
 ## Notes
 
 - The pages still use the scripts that came with the Webflow export (`js/webflow*.js`)
