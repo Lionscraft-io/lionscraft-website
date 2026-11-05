@@ -50,8 +50,11 @@ site in `site/`. Their newsletter forms post to `/api/subscribe`, a server endpo
 the Replit apps that isn't in these static copies.
 
 Preprod shows them from `draft`, like the main site:
-- risk: https://v2202609411057512877.hotsrv.de:8443 (or `/risk`, which forwards there)
-- protect: https://v2202609411057512877.hotsrv.de:8444 (or `/protect`)
+- risk: https://v2202609411057512877.hotsrv.de/risk/
+- protect: https://v2202609411057512877.hotsrv.de/protect/
+
+Their links to their own files are relative (`risk-hero.png`, not `/risk-hero.png`),
+so they work both under these paths and on their own domain. Keep it that way.
 
 ## Notes
 
