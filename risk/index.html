@@ -4,18 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lionscraft Risk — Building the rails between risk and capital</title>
 <meta name="description" content="Lionscraft builds the operating layer that takes risk all the way into executable capital.">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<script src="/risk-runtime.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="risk-runtime.js"></script>
 
 </head>
 <body>
 <x-dc>
 <helmet>
 <style>
-@font-face{font-family:Saans;src:url("/saans-regular.ttf") format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:Saans;src:url("/saans-medium.ttf") format("truetype");font-weight:500;font-display:swap}
-@font-face{font-family:'Saans SemiMono';src:url("/saans-semimono-regular.ttf") format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:'Saans SemiMono';src:url("/saans-semimono-medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:Saans;src:url("saans-regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Saans;src:url("saans-medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:'Saans SemiMono';src:url("saans-semimono-regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:'Saans SemiMono';src:url("saans-semimono-medium.ttf") format("truetype");font-weight:500;font-display:swap}
 html{scroll-behavior:smooth}
 [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 [data-reveal].is-in{opacity:1;transform:none}
@@ -55,7 +55,7 @@ a{color:#2AE6E6;text-decoration:none}a:hover{color:#2AE6E6}
   }
   [data-problem-fade]{display:none!important}
   [data-hero-bg],[data-hero-img]{display:none!important}
-  [data-hero-shell]{background-image:url("/risk-hero.png");background-size:cover;background-position:72% center;background-repeat:no-repeat}
+  [data-hero-shell]{background-image:url("risk-hero.png");background-size:cover;background-position:72% center;background-repeat:no-repeat}
   [data-nav]{padding:14px 20px!important}
   [data-navlinks]{gap:14px!important;font-size:10px!important;letter-spacing:.11em!important}
   [data-nav] img{width:110px!important}
@@ -104,13 +104,13 @@ a{color:#2AE6E6;text-decoration:none}a:hover{color:#2AE6E6}
 </helmet>
 <div id="top" data-site="risk" style="min-height:100vh;background:#0B0D1F;color:#FFFFFF">
    <div data-hero-shell="" style="position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column">
-    <img src="/risk-hero.png" alt="" data-hero-bg="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;filter:blur(40px);transform:scale(1.1)">
-    <img src="/risk-hero.png" alt="" data-hero-img="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 50%;opacity:.9;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.4) 12%,#000 28%,#000 65%,transparent 96%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.4) 12%,#000 28%,#000 65%,transparent 96%)">
+    <img src="risk-hero.png" alt="" data-hero-bg="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;filter:blur(40px);transform:scale(1.1)">
+    <img src="risk-hero.png" alt="" data-hero-img="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:.9;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.4) 12%,#000 28%,#000 65%,transparent 96%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.4) 12%,#000 28%,#000 65%,transparent 96%)">
     <div data-hero-grid="" style="position:absolute;inset:0;background-image:linear-gradient(rgba(42,230,230,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(42,230,230,.08) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 70%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 70%);pointer-events:none"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,31,.6) 0%,rgba(11,13,31,.4) 50%,rgba(11,13,31,.92) 100%);pointer-events:none"></div>
     <div style="position:relative;pointer-events:none;flex:1;display:flex;flex-direction:column">
       <div data-nav="" data-menu-open="{{ menuOpen }}" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:40px;padding:16px 24px;background:rgba(11,13,31,.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);pointer-events:auto">
-        <a href="https://lionscraft.io/" style="display:flex;align-items:center;gap:14px"><img src="/lionscraft-logo.svg" alt="Lionscraft" style="width:150px;display:block"><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;color:#2AE6E6;font-weight:500;line-height:2;border-left:1px solid rgba(255,255,255,.25);padding-left:14px">RISK</span></a>
+        <a href="https://lionscraft.io/" style="display:flex;align-items:center;gap:14px"><img src="lionscraft-logo.svg" alt="Lionscraft" style="width:150px;display:block"><span style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;color:#2AE6E6;font-weight:500;line-height:2;border-left:1px solid rgba(255,255,255,.25);padding-left:14px">RISK</span></a>
         <button data-menu-toggle="" type="button" sc-camel-on-click="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-label="{{ menuLabel }}" style="display:none;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.45);border-radius:100px;background:transparent;color:#FFFFFF;padding:8px 12px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:10px;letter-spacing:.12em;font-weight:500;line-height:1;text-transform:uppercase;cursor:pointer">{{ menuLabel }}<span aria-hidden="true" style="font-size:14px;line-height:.7">☰</span></button>
         <div data-navlinks="" style="display:flex;gap:40px;align-items:center;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;font-weight:500;line-height:2;text-transform:uppercase;pointer-events:auto">
           <a href="https://lionscraft.io/" aria-label="Lionscraft home" sc-camel-on-click="{{ closeMenu }}" style="color:#CCCCCC;display:flex"><svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"></path><path d="M5.5 9.5V21h13V9.5"></path><path d="M9.5 21v-6h5v6"></path></svg></a><a href="https://protect.lionscraft.io/" sc-camel-on-click="{{ closeMenu }}" style="color:#CCCCCC">PROTECT</a>
@@ -123,11 +123,11 @@ a{color:#2AE6E6;text-decoration:none}a:hover{color:#2AE6E6}
             <a href="https://cal.com/team/lionscraft/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:54px;border:1px solid #FFFFFF;background:#FFFFFF;color:#0B0D1F;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;font-weight:500;line-height:1;padding:0 32px;border-radius:100px;text-transform:uppercase;text-indent:.18em">Build with us</a>
             <a href="#insights" style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:54px;border:1px solid rgba(255,255,255,.6);color:#FFFFFF;font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;font-weight:500;line-height:1;padding:0 32px;border-radius:100px;text-transform:uppercase;text-indent:.18em">Latest insights</a>
           </div>
-           <img data-mobile-hero="" src="/risk-hero.png" alt="Lionscraft Risk infrastructure" style="display:none">
+           <img data-mobile-hero="" src="risk-hero.png" alt="Lionscraft Risk infrastructure" style="display:none">
         </div>
         <a data-scroll="" href="#problem" aria-label="Scroll down" style="opacity:{{ scrollOpacity }};transition:opacity .4s;position:absolute;left:50%;transform:translateX(-50%);bottom:28px;display:flex;flex-direction:column;align-items:center;gap:10px;color:#CCCCCC;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;font-weight:500;pointer-events:auto"><svg width="14" height="22" sc-camel-view-box="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1v19"></path><path d="M1.5 14.5 7 20l5.5-5.5"></path></svg>SCROLL</a>
         <div data-hero-intro="" style="max-width:440px;justify-self:end">
-          <div style="width:56px;height:56px;background:#2AE6E6;border-radius:10px;padding:10px;box-sizing:border-box"><img src="/lionscraft-icon.svg" alt="" style="width:100%;height:100%;display:block;filter:brightness(0)"></div>
+          <div style="width:56px;height:56px;background:#2AE6E6;border-radius:10px;padding:10px;box-sizing:border-box"><img src="lionscraft-icon.svg" alt="" style="width:100%;height:100%;display:block;filter:brightness(0)"></div>
            <div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:13px;letter-spacing:.18em;color:#FFFFFF;font-weight:500;text-transform:uppercase;margin-top:28px">Introducing <span style="color:#2AE6E6">Lionscraft Risk</span></div>
            <p data-reveal="" style="margin:24px 0 0;font-size:17px;line-height:1.55;color:#FFFFFF">The money exists but getting risk to capital is slow, manual and expensive. There are no rails between them, just spreadsheets, PDFs and email.</p>
         </div>
@@ -156,7 +156,7 @@ a{color:#2AE6E6;text-decoration:none}a:hover{color:#2AE6E6}
   <div id="what" data-section="" style="padding:160px 24px;background:#171A3B">
     <div data-container="" style="max-width:1280px;margin:0 auto;width:100%">
     <div data-row="" data-flip="" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
-      <div data-visual="" data-reveal="" style="min-width:0;align-self:center"><img src="/risk-capacity-clean.png" alt="The growing capacity gap: risk-transfer demand rising faster than infrastructure capacity" style="display:block;width:100%;height:auto"></div>
+      <div data-visual="" data-reveal="" style="min-width:0;align-self:center"><img src="risk-capacity-clean.png" alt="The growing capacity gap: risk-transfer demand rising faster than infrastructure capacity" style="display:block;width:100%;height:auto"></div>
       <div><div data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;letter-spacing:.16em;color:#2AE6E6;margin-bottom:16px;font-weight:500">02 / WHY NOW</div><h2 data-reveal="" style="font-family:'Saans SemiMono',Arial,sans-serif;margin:0;font-size:46px;font-weight:500;letter-spacing:-.02em;line-height:1.05">Risk is rapidly outgrowing the infrastructure built to <span style="color:#2AE6E6">carry it.</span></h2><ul style="list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:14px"><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Most risk never reaches financial form</span></li><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>Record cat-bond issuance and new sponsors every year</span></li><li data-reveal="" style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#C7CBF2"><span style="flex:0 0 auto;width:8px;height:8px;margin-top:8px;background:#2AE6E6"></span><span>AI and programmable finance can now carry the load</span></li></ul><div data-reveal="" style="margin-top:32px;padding-top:24px;border-top:1px solid #2E3468;font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.3;color:#FFFFFF">More risk. More capital. Infrastructure must scale.</div></div>
     </div>
     <div style="margin-top:96px"><div data-grid3="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
@@ -260,7 +260,7 @@ a{color:#2AE6E6;text-decoration:none}a:hover{color:#2AE6E6}
         <div style="margin-top:12px;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;color:{{ subscribeNoteColor }};min-height:16px">{{ subscribeNote }}</div>
       </div>
     </div>
-    <div data-footer="" style="display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:24px;border-top:1px solid #2E3468;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;color:#767A96"><img src="/lionscraft-logo.svg" alt="Lionscraft" style="width:120px"><span>LIONSCRAFT / RISK</span><span>© 2026 LIONSCRAFT</span></div>
+    <div data-footer="" style="display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:24px;border-top:1px solid #2E3468;font-family:'Saans SemiMono',Arial,sans-serif;font-size:11px;color:#767A96"><img src="lionscraft-logo.svg" alt="Lionscraft" style="width:120px"><span>LIONSCRAFT / RISK</span><span>© 2026 LIONSCRAFT</span></div>
     </div>
   </div>
 </div>
