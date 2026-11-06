@@ -9,7 +9,7 @@ JS, images, videos and fonts, so it runs on any static host.
 
 - Edit the pages here, or ask Hermes (the Telegram website agent) to do it.
 - `draft` is preprod: everything is published here first, and
-  https://v2202609411057512877.hotsrv.de/ shows it within a minute.
+  https://v2202609411057512877.hotsrv.de/lionscraft/ shows it within a minute.
 - `main` is the live website: Replit deploys it. It only moves when you tell Hermes "release".
   Then in Replit: Pull, then Redeploy.
 
