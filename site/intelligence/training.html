@@ -504,7 +504,7 @@ margin: 0rem !important;
 .edu-link{display:inline-flex;align-items:center;gap:.5rem;padding-bottom:.25rem;border-bottom:1px solid #0b0b0433;font-family:Saans SemiMono,Arial,sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#0b0b04;text-decoration:none;transition:border-color .2s}
 .edu-link:hover{border-bottom-color:#0b0b04}
 @media screen and (max-width:991px){.edu-g3{grid-template-columns:minmax(0,1fr)}.edu-card,.edu-card.is-step{min-height:0}.edu-row{grid-template-columns:2.5rem minmax(0,1fr);gap:.75rem 1.25rem;align-items:start}.edu-row p{grid-column:2}.edu-ws{flex-basis:calc((100% - 1rem)/2)}.edu-panel{padding:1.75rem}.edu-cols{gap:1.75rem}}
-@media screen and (max-width:767px){.edu-set_head{flex-direction:column;align-items:flex-start;gap:1.25rem}.edu-set_head h3,.edu-panel h3{font-size:1.75rem}.edu-ws{flex-basis:85%;min-height:15rem}.edu-cols{grid-template-columns:minmax(0,1fr)}.edu-card h3{font-size:1.5rem}.edu-panel{padding:1.5rem 1.25rem}.edu-panel .adv-btn{width:100%;justify-content:center}}
+@media screen and (max-width:767px){.edu-set_head{flex-direction:column;align-items:flex-start;gap:1.25rem}.edu-set_head h3,.edu-panel h3{font-size:1.75rem}.edu-ws{flex-basis:78%;min-height:15rem}.edu-cols{grid-template-columns:minmax(0,1fr)}.edu-card h3{font-size:1.5rem}.edu-panel{padding:1.5rem 1.25rem}.edu-panel .adv-btn{width:100%;justify-content:center}}
 
 /* no native play button on background videos (hero, footer lion) when a phone blocks autoplay, e.g. iOS Low Power Mode */
 .w-background-video video{pointer-events:none}
@@ -1056,28 +1056,34 @@ var track=set.querySelector('.edu-track'),arrows=[].slice.call(set.querySelector
 copy=track.querySelector('.is-copy'),anim=0,hold=false,seen=true,t,due=performance.now()+3000+n*2000,drag=null,dragEnd=0;
 function step(){return first.getBoundingClientRect().width+16}
 function loop(){return copy?copy.offsetLeft-first.offsetLeft:0}
+/* where the row rests: whole cards in the middle and part of a card at each edge, so it's clear there are more */
+function off(){if(calm)return 0;var W=track.clientWidth,s=step(),m=Math.max(1,Math.floor((W+16)/s)-1);return (W-(m*s-16))/2}
+function settle(){var L=loop();if(L&&track.scrollLeft+off()>=L+step()-1)track.scrollLeft-=L}
+function start(){if(!calm)track.scrollLeft=loop()-off()}
 /* glide to a position, easing in and out; past the last card it carries on into the copies, then jumps back unseen */
 function moveTo(to,ms){cancelAnimationFrame(anim);var from=track.scrollLeft,t0=performance.now();
 function frame(now){var p=Math.min((now-t0)/ms,1),e=p<.5?4*p*p*p:1-Math.pow(2-2*p,3)/2;track.scrollLeft=from+(to-from)*e;
-if(p<1)anim=requestAnimationFrame(frame);else{anim=0;var L=loop();if(L&&track.scrollLeft>=L-1)track.scrollLeft-=L}}
+if(p<1)anim=requestAnimationFrame(frame);else{anim=0;settle()}}
 anim=requestAnimationFrame(frame)}
-function go(dir,ms){var s=step(),L=loop(),x=track.scrollLeft;
-if(dir>0&&x>=L-1){x-=L;track.scrollLeft=x}if(dir<0&&x<4){x+=L;track.scrollLeft=x}
-moveTo((dir>0?Math.floor(x/s+.01)+1:Math.ceil(x/s-.01)-1)*s,ms)}
+function rest(k,ms){var s=step(),L=loop(),o=off();if(k<1){track.scrollLeft+=L;k+=Math.round(L/s)}moveTo(k*s-o,ms)}
+function go(dir,ms){var s=step(),L=loop(),o=off(),u=track.scrollLeft+o;
+if(dir>0&&u>=L+s-1){u-=L;track.scrollLeft=u-o}
+rest(dir>0?Math.floor(u/s+.01)+1:Math.ceil(u/s-.01)-1,ms)}
 if(calm){var update=function(){arrows[0].disabled=track.scrollLeft<4;arrows[1].disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4};
 arrows.forEach(function(a){a.addEventListener('click',function(){track.scrollBy({left:+a.getAttribute('data-dir')*step(),behavior:'smooth'})})});
 track.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();}
-else arrows.forEach(function(a){a.addEventListener('click',function(){go(+a.getAttribute('data-dir'),700);due=performance.now()+4500})});
+else{arrows.forEach(function(a){a.addEventListener('click',function(){go(+a.getAttribute('data-dir'),700);due=performance.now()+4500})});
+start();window.addEventListener('resize',function(){cancelAnimationFrame(anim);anim=0;start()});}
 /* drag with the mouse (phones already swipe); a drag lands on the nearest card and doesn't open it */
 track.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;
-cancelAnimationFrame(anim);anim=0;drag={x:e.clientX,left:track.scrollLeft,id:e.pointerId,moved:false}});
+cancelAnimationFrame(anim);anim=0;drag={x:e.clientX,left:track.scrollLeft,id:e.pointerId,moved:false,L:loop(),s:step(),o:off()}});
 track.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x;
 if(!drag.moved){if(Math.abs(dx)<6)return;drag.moved=true;track.classList.add('is-dragging');try{track.setPointerCapture(drag.id)}catch(err){}}
-var L=loop(),x=drag.left-dx;if(L){if(x>=L){drag.left-=L;x-=L}else if(x<0){drag.left+=L;x+=L}}
+var L=drag.L,x=drag.left-dx;if(L){if(x+drag.o>=L+drag.s){drag.left-=L;x-=L}else if(x<0){drag.left+=L;x+=L}}
 track.scrollLeft=x});
-function endDrag(){if(!drag)return;var moved=drag.moved;drag=null;if(!moved)return;dragEnd=performance.now();
-var to=Math.round(track.scrollLeft/step())*step();
-if(calm){track.scrollLeft=to;track.classList.remove('is-dragging')}else{track.classList.remove('is-dragging');moveTo(to,450)}
+function endDrag(){if(!drag)return;var d=drag;drag=null;if(!d.moved)return;dragEnd=performance.now();
+var k=Math.round((track.scrollLeft+d.o)/d.s);track.classList.remove('is-dragging');
+if(calm)track.scrollLeft=k*d.s;else rest(k,450);
 due=performance.now()+4500}
 track.addEventListener('pointerup',endDrag);track.addEventListener('pointercancel',endDrag);
 track.addEventListener('click',function(e){if(performance.now()-dragEnd<400){e.stopPropagation();e.preventDefault()}},true);
